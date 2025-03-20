@@ -54,6 +54,7 @@ namespace Quanly.DAO
             return (result != null) ? Convert.ToInt32(result) : -1;
         }
 
+
     }
 }
 

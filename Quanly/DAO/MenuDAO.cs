@@ -37,7 +37,7 @@ namespace Quanly.DAO
                             JOIN BillInfo bi ON b.idBill = bi.idBill
                             JOIN _Service s ON bi.idService = s.idService
                             JOIN Material m ON bi.idMaterial = m.idMaterial
-                            WHERE b.idBill = @id";
+                            WHERE b.idBill = @id and bi.isPaid = 0";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
 

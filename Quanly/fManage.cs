@@ -33,90 +33,27 @@ namespace Quanly
         //Phân load các tapcontrol
         void loadThanhToan()
         {
-            string query = @"
-            SELECT 
-                cs.name, 
-                cs.address, 
-                cs.phoneNum, 
-                c.name AS namecar, 
-                c.numberCar, 
-                c.logo,
-                cs.idCustomer
-            FROM Customer cs 
-            INNER JOIN Car c ON cs.idCustomer = c.idCustomer
-            ";
-            dtgvCustomer.DataSource = DataProvider.Instance.ExecuteQuery(query);
-            dtgvCustomer.Columns[0].Width = 250;
-            dtgvCustomer.Columns[0].HeaderText = "Tên Khách hàng";
-            dtgvCustomer.Columns[1].Width = 300;
-            dtgvCustomer.Columns[1].HeaderText = "Địa chỉ";
-            dtgvCustomer.Columns[2].Width = 150;
-            dtgvCustomer.Columns[2].HeaderText = "Số điện thoại";
-            dtgvCustomer.Columns[3].Width = 150;
-            dtgvCustomer.Columns[3].HeaderText = "Tên xe";
-            dtgvCustomer.Columns[4].Width = 150;
-            dtgvCustomer.Columns[4].HeaderText = "Số xe";
-            dtgvCustomer.Columns[5].Width = 150;
-            dtgvCustomer.Columns[5].HeaderText = "Tên hãng";
+            DAO.ThanhToanDAO.Instance.LoadDL(dtgvCustomer);
         }
-        //LEFT JOIN Bill b ON b.idCar = c.idCar
-        //    where b.DateCheckOut IS NULL
         void loadCar()
         {
-            string query = "SELECT cs.name, c.name as namecar,c.numberCar,cs.address,cs.phoneNum, c.ImageBase64\r\nFROM Customer cs \r\nINNER JOIN Car c ON cs.idCustomer = c.idCustomer;";
-            dtgvCar.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            DAO.CarDAO.Instance.LoadDL(dtgvCar);
         }
         void LoadMaterial()
         {
-            string query = "SELECT * FROM Material";
-            dtgvMaterial.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            DAO.MaterialDAO.Instance.LoadDL(dtgvMaterial);
         }
         //
         //Phần Load Combobox
         void LoadCombobox_Service()
         {
-            string query = "SELECT idService, name FROM _Service";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
-            comboBox1.DataSource = data;
-            comboBox1.DisplayMember = "name";
-            comboBox1.ValueMember = "idService";
-            if (comboBox1.Items.Count > 0)
-            {
-                comboBox1.SelectedIndex = 0;
-                int idService = Convert.ToInt32(comboBox1.SelectedValue);
-                LoadCombobox_Material(idService);
-            }
+            int IDService = DAO.ServiceDAO.Instance.LoadDL(comboBox1);
+            LoadCombobox_Material(IDService);
         }
-
-        void LoadCombobox_Material(int idService)
+        void LoadCombobox_Material(int IDService)
         {
-            string query = @"SELECT M.idMaterial, M.name 
-                     FROM Material M 
-                     INNER JOIN Service_Material SM 
-                     ON M.idMaterial = SM.idMaterial 
-                     WHERE SM.idService = @idService";
-
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idService });
-            comboBox2.DataSource = data;
-            comboBox2.DisplayMember = "name";
-            comboBox2.ValueMember = "idMaterial";
-
-            if (comboBox2.Items.Count > 0)
-            {
-                comboBox2.SelectedIndex = 0;
-            }
+            DAO.MaterialDAO.Instance.ComboBoxLoad(comboBox2,IDService);
         }
-
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox1.SelectedValue != null)
-            {
-                int idService = Convert.ToInt32(comboBox1.SelectedValue);
-                LoadCombobox_Material(idService);
-            }
-        }
-        //
 
 
         void showBill(int idCustomer)
@@ -257,6 +194,7 @@ namespace Quanly
                 showBill(idBill);
             }
         }
+        
 
         private void Thanhtoan_Click(object sender, EventArgs e)
         {
@@ -268,58 +206,27 @@ namespace Quanly
                 MessageBox.Show("Không tìm thấy hóa đơn cho khách hàng này!");
                 return;
             }
-
-            if (status == 0) // Hóa đơn chưa thanh toán
+            if (tbTotal.Text == "0 ₫")
             {
-                DialogResult check = MessageBox.Show(
-                    "Thanh toán cho Khách hàng: " + tbCtm.Text + "\nTổng hóa đơn là: " + tbTotal.Text,
-                    "Xác nhận Thanh toán", MessageBoxButtons.YesNo);
-
-                if (check == DialogResult.Yes)
-                {
-                    string query = "USP_ThanhToan @idBill";
-                    int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { idBill });
-
-                    if (result > 0)
-                    {
-                        MessageBox.Show("Thanh Toán Hoàn Tất!");
-                        loadThanhToan();
-                        listViewPrice.Items.Clear();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Thanh toán thất bại. Vui lòng thử lại.");
-                    }
-                }
+                MessageBox.Show("Không có sản phẩm nào cần thanh toán", "thông báo", MessageBoxButtons.OK);
+                return;
             }
-            else if (status == 1) // Hóa đơn đã thanh toán một phần
-            {
-                string query = "USP_lastBill @idBill";
-                object lastTotal = DataProvider.Instance.ExecuteScalar(query, new object[] { idBill });
-                int totalLast = (lastTotal != null && lastTotal != DBNull.Value) ? Convert.ToInt32(lastTotal) : 0;
-                if (totalLast <= 0)
-                {
-                    MessageBox.Show("Không có sản phẩm mới nào cần thanh toán");
-                    return;
-                }
-                DialogResult check = MessageBox.Show("Khách hàng " + tbCtm.Text + " đã thanh toán trước đó." +
-                    "\nSố tiền còn lại phải thanh toán: " + totalLast.ToString("N0") + " VND",
-                    "Xác nhận Thanh toán", MessageBoxButtons.YesNo);
-                if (check == DialogResult.Yes)
-                {
-                    string updateQuery = "USP_UpdateBillInfo @idBill";
-                    int result = DataProvider.Instance.ExecuteNonQuery(updateQuery, new object[] { idBill });
 
-                    if (result > 0)
-                    {
-                        MessageBox.Show("Thanh Toán Hoàn Tất!");
-                        loadThanhToan();
-                        listViewPrice.Items.Clear();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Thanh toán thất bại. Vui lòng thử lại.");
-                    }
+            DialogResult check = MessageBox.Show("Thanh toán cho Khách hàng Tên: " + tbCtm.Text + "\nTổng hóa đơn phải thanh toán là: " + tbTotal.Text,"Xác nhận Thanh toán", MessageBoxButtons.YesNo);
+
+            if (check == DialogResult.Yes)
+            {
+                int result = DAO.ThanhToanDAO.Instance.ThanhToan(idBill);
+                if (result > 0)
+                {
+                    DAO.BillInfoDAO.Instance.UpdateBillInfo(1, idBill, 0);
+                    MessageBox.Show("Thanh Toán Hoàn Tất!");
+                    showBill(idCustomer);
+                    listViewPrice.Items.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Thanh toán thất bại. Vui lòng thử lại.");
                 }
             }
         }

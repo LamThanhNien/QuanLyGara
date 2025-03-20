@@ -47,5 +47,10 @@ namespace Quanly.DAO
                 MessageBox.Show("Không có sản phẩm");
             }
         }
+        public void UpdateBillInfo(int stt, int idBill, int idMaterial)
+        {
+            string updateQuery = "USP_UpdateBillInfo @stt , @idBill , @IdMaterial";
+            DataProvider.Instance.ExecuteNonQuery(updateQuery, new object[] { stt, idBill, idMaterial });
+        }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Quanly\\Quanly\\Quanly.csproj": {}
+    "D:\\Github\\QuanLyGara\\Quanly\\Quanly.csproj": {}
   },
   "projects": {
-    "D:\\Quanly\\Quanly\\Quanly.csproj": {
+    "D:\\Github\\QuanLyGara\\Quanly\\Quanly.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Quanly\\Quanly\\Quanly.csproj",
+        "projectUniqueName": "D:\\Github\\QuanLyGara\\Quanly\\Quanly.csproj",
         "projectName": "Quanly",
-        "projectPath": "D:\\Quanly\\Quanly\\Quanly.csproj",
+        "projectPath": "D:\\Github\\QuanLyGara\\Quanly\\Quanly.csproj",
         "packagesPath": "C:\\Users\\lamth\\.nuget\\packages\\",
-        "outputPath": "D:\\Quanly\\Quanly\\obj\\",
+        "outputPath": "D:\\Github\\QuanLyGara\\Quanly\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

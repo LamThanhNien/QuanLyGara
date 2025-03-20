@@ -25,17 +25,35 @@ namespace Quanly.DAO
         }
         private ServiceDAO() { }
 
-        public List<DTO.Service> LoadService()
+        //public List<DTO.Service> LoadService()
+        //{
+        //    string query = "Select _Service.name,_Service.idService  FROM _Service";
+        //    List<DTO.Service> list = new List<DTO.Service>();
+        //    DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
+        //    foreach (DataRow row in dataTable.Rows)
+        //    {
+        //        DTO.Service service = new DTO.Service(row);
+        //        list.Add(service);
+        //    }
+        //    return list;
+        //}
+        public int LoadDL(ComboBox comboBox1)
         {
-            string query = "Select _Service.name,_Service.idService  FROM _Service";
-            List<DTO.Service> list = new List<DTO.Service>();
-            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
-            foreach (DataRow row in dataTable.Rows)
+            int idService = 0;
+            string query = "SELECT idService, name FROM _Service";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            comboBox1.DataSource = data;
+            comboBox1.DisplayMember = "name";
+            comboBox1.ValueMember = "idService";
+            if (comboBox1.Items.Count > 0)
             {
-                DTO.Service service = new DTO.Service(row);
-                list.Add(service);
+                comboBox1.SelectedIndex = 0;
+                idService = Convert.ToInt32(comboBox1.SelectedValue);
+                
+                //DAO.MaterialDAO.Instance.ComboboxLoad(comboBox1,idService);
             }
-            return list;
+            return idService;
         }
+
     }
 }
