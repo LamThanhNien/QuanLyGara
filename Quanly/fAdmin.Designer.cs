@@ -819,7 +819,7 @@
             dtgvDv.Location = new Point(7, 52);
             dtgvDv.Name = "dtgvDv";
             dtgvDv.RowHeadersWidth = 62;
-            dtgvDv.Size = new Size(700, 617);
+            dtgvDv.Size = new Size(654, 617);
             dtgvDv.TabIndex = 5;
             // 
             // label9

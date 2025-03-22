@@ -115,6 +115,8 @@ namespace Quanly
             fAdd.ShowDialog();
             loadThanhToan();
             loadCar();
+            loadCustomer();
+            LoadMaterial();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -266,6 +268,10 @@ namespace Quanly
             else
             {
                 tbnameSv.Text = "";
+                tbPrice.Text = "";
+                tbQuantity.Text = "";
+                tbXuatsu.Text = "";
+                tbType.Text = "";
 
             }
         }
@@ -275,7 +281,10 @@ namespace Quanly
             {
                 DataGridViewRow row = dtgvService.Rows[e.RowIndex];
                 tbnameSv.Text = row.Cells["name"].Value?.ToString() ?? "";
-
+                tbType.Text = row.Cells["type"].Value?.ToString() ?? "";
+                tbXuatsu.Text = row.Cells["NoiSx"].Value?.ToString() ?? "";
+                tbQuantity.Text = row.Cells["quantity"].Value?.ToString() ?? "";
+                tbPrice.Text = row.Cells["price"].Value?.ToString() ?? "";
             }
         }
 
@@ -409,6 +418,17 @@ namespace Quanly
             loadCustomer();
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            string name = tbnameSv.Text;
+            string type = tbType.Text;
+            string noiSX = tbXuatsu.Text;
+            int sl = Convert.ToInt32(tbQuantity.Text);
+            decimal gia = Convert.ToDecimal(tbPrice);
+            DAO.MaterialDAO.Instance.Insert_Material(id, name, type, noiSX, sl, gia);
+            LoadMaterial();
+        }
     }
 }
 

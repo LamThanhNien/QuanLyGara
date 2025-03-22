@@ -40,18 +40,12 @@
             panel7 = new Panel();
             btnDelete = new Button();
             btnFix = new Button();
-            panel30 = new Panel();
-            tbEmail = new TextBox();
-            label20 = new Label();
             panel29 = new Panel();
             tbAdr = new TextBox();
             label19 = new Label();
             panel28 = new Panel();
             tbPhone = new TextBox();
             label18 = new Label();
-            panel21 = new Panel();
-            tba = new TextBox();
-            label12 = new Label();
             panel20 = new Panel();
             tbSex = new TextBox();
             label10 = new Label();
@@ -149,10 +143,8 @@
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvCustomer0).BeginInit();
             panel7.SuspendLayout();
-            panel30.SuspendLayout();
             panel29.SuspendLayout();
             panel28.SuspendLayout();
-            panel21.SuspendLayout();
             panel20.SuspendLayout();
             panel13.SuspendLayout();
             panel22.SuspendLayout();
@@ -271,6 +263,7 @@
             // 
             // AddCar
             // 
+            AddCar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             AddCar.BackColor = SystemColors.ActiveCaption;
             AddCar.Location = new Point(23, 708);
             AddCar.Name = "AddCar";
@@ -306,17 +299,15 @@
             // 
             // panel7
             // 
+            panel7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel7.Controls.Add(btnDelete);
             panel7.Controls.Add(btnFix);
-            panel7.Controls.Add(panel30);
             panel7.Controls.Add(panel29);
             panel7.Controls.Add(panel28);
-            panel7.Controls.Add(panel21);
             panel7.Controls.Add(panel20);
             panel7.Controls.Add(panel13);
             panel7.Controls.Add(label11);
             panel7.Controls.Add(panel22);
-            panel7.Dock = DockStyle.Right;
             panel7.Location = new Point(606, 3);
             panel7.Name = "panel7";
             panel7.Size = new Size(554, 823);
@@ -324,7 +315,8 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(420, 613);
+            btnDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnDelete.Location = new Point(403, 472);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(94, 60);
             btnDelete.TabIndex = 26;
@@ -333,7 +325,8 @@
             // 
             // btnFix
             // 
-            btnFix.Location = new Point(302, 613);
+            btnFix.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnFix.Location = new Point(276, 472);
             btnFix.Name = "btnFix";
             btnFix.Size = new Size(94, 60);
             btnFix.TabIndex = 25;
@@ -341,42 +334,12 @@
             btnFix.UseVisualStyleBackColor = true;
             btnFix.Click += btnFix_Click;
             // 
-            // panel30
-            // 
-            panel30.Anchor = AnchorStyles.None;
-            panel30.Controls.Add(tbEmail);
-            panel30.Controls.Add(label20);
-            panel30.Location = new Point(8, 508);
-            panel30.Margin = new Padding(4, 3, 4, 3);
-            panel30.Name = "panel30";
-            panel30.Size = new Size(538, 58);
-            panel30.TabIndex = 24;
-            // 
-            // tbEmail
-            // 
-            tbEmail.Location = new Point(115, 13);
-            tbEmail.Margin = new Padding(4, 3, 4, 3);
-            tbEmail.Name = "tbEmail";
-            tbEmail.Size = new Size(391, 33);
-            tbEmail.TabIndex = 1;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.ImageAlign = ContentAlignment.TopCenter;
-            label20.Location = new Point(4, 16);
-            label20.Margin = new Padding(4, 0, 4, 0);
-            label20.Name = "label20";
-            label20.Size = new Size(68, 26);
-            label20.TabIndex = 0;
-            label20.Text = "Email";
-            // 
             // panel29
             // 
             panel29.Anchor = AnchorStyles.None;
             panel29.Controls.Add(tbAdr);
             panel29.Controls.Add(label19);
-            panel29.Location = new Point(8, 444);
+            panel29.Location = new Point(8, 380);
             panel29.Margin = new Padding(4, 3, 4, 3);
             panel29.Name = "panel29";
             panel29.Size = new Size(538, 58);
@@ -406,7 +369,7 @@
             panel28.Anchor = AnchorStyles.None;
             panel28.Controls.Add(tbPhone);
             panel28.Controls.Add(label18);
-            panel28.Location = new Point(8, 380);
+            panel28.Location = new Point(8, 316);
             panel28.Margin = new Padding(4, 3, 4, 3);
             panel28.Name = "panel28";
             panel28.Size = new Size(538, 58);
@@ -430,36 +393,6 @@
             label18.Size = new Size(77, 26);
             label18.TabIndex = 0;
             label18.Text = "Số ĐT";
-            // 
-            // panel21
-            // 
-            panel21.Anchor = AnchorStyles.None;
-            panel21.Controls.Add(tba);
-            panel21.Controls.Add(label12);
-            panel21.Location = new Point(8, 316);
-            panel21.Margin = new Padding(4, 3, 4, 3);
-            panel21.Name = "panel21";
-            panel21.Size = new Size(538, 58);
-            panel21.TabIndex = 21;
-            // 
-            // tba
-            // 
-            tba.Location = new Point(115, 13);
-            tba.Margin = new Padding(4, 3, 4, 3);
-            tba.Name = "tba";
-            tba.Size = new Size(391, 33);
-            tba.TabIndex = 1;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.ImageAlign = ContentAlignment.TopCenter;
-            label12.Location = new Point(4, 16);
-            label12.Margin = new Padding(4, 0, 4, 0);
-            label12.Name = "label12";
-            label12.Size = new Size(56, 26);
-            label12.TabIndex = 0;
-            label12.Text = "Tuổi";
             // 
             // panel20
             // 
@@ -586,7 +519,7 @@
             // 
             // panel6
             // 
-            panel6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             panel6.Controls.Add(btnAddImage1);
             panel6.Controls.Add(btnDelete0);
             panel6.Controls.Add(AddCar);
@@ -1120,6 +1053,7 @@
             // 
             // btnDl
             // 
+            btnDl.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnDl.Location = new Point(1007, 770);
             btnDl.Name = "btnDl";
             btnDl.Size = new Size(112, 34);
@@ -1129,6 +1063,7 @@
             // 
             // button9
             // 
+            button9.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button9.Location = new Point(848, 770);
             button9.Name = "button9";
             button9.Size = new Size(112, 34);
@@ -1138,15 +1073,18 @@
             // 
             // btnAdd
             // 
+            btnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAdd.Location = new Point(683, 770);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(112, 34);
             btnAdd.TabIndex = 28;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // panel23
             // 
+            panel23.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel23.Controls.Add(btnAddImage);
             panel23.Controls.Add(panel33);
             panel23.Controls.Add(panel32);
@@ -1416,14 +1354,10 @@
             ((System.ComponentModel.ISupportInitialize)dtgvCustomer0).EndInit();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
-            panel30.ResumeLayout(false);
-            panel30.PerformLayout();
             panel29.ResumeLayout(false);
             panel29.PerformLayout();
             panel28.ResumeLayout(false);
             panel28.PerformLayout();
-            panel21.ResumeLayout(false);
-            panel21.PerformLayout();
             panel20.ResumeLayout(false);
             panel20.PerformLayout();
             panel13.ResumeLayout(false);
@@ -1525,9 +1459,6 @@
         private Panel panel22;
         private TextBox tbn;
         private Label label14;
-        private Panel panel21;
-        private TextBox tba;
-        private Label label12;
         private Panel panel20;
         private TextBox tbSex;
         private Label label10;
@@ -1557,9 +1488,6 @@
         private Panel panel28;
         private TextBox tbPhone;
         private Label label18;
-        private Panel panel30;
-        private TextBox tbEmail;
-        private Label label20;
         private Panel panel31;
         private TextBox tbXuatsu;
         private Label label21;

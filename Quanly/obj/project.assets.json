@@ -178,11 +178,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\Quanly.csproj",
+      "projectUniqueName": "D:\\Github\\QuanLyGara\\Quanly\\Quanly.csproj",
       "projectName": "Quanly",
-      "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\Quanly.csproj",
+      "projectPath": "D:\\Github\\QuanLyGara\\Quanly\\Quanly.csproj",
       "packagesPath": "C:\\Users\\lamth\\.nuget\\packages\\",
-      "outputPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\obj\\",
+      "outputPath": "D:\\Github\\QuanLyGara\\Quanly\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

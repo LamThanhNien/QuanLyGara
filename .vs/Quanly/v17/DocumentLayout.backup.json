@@ -1,49 +1,53 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\",
+  "WorkspaceRootPath": "D:\\Github\\QuanLyGara\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanlygara\\quanly\\fmanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanly\\fadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\fadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanly\\fmanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\fmanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|D:\\Github\\QuanLyGara\\QuanLyGara\\quanly\\fmanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\fmanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanlygara\\quanly\\dao\\customerdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\dao\\customerdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanlygara\\quanly\\faddcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\faddcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|D:\\Github\\QuanLyGara\\QuanLyGara\\quanly\\faddcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\faddcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanlygara\\quanly\\dao\\cardao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\dao\\cardao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanlygara\\quanly\\dao\\menudao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\dao\\menudao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanlygara\\quanly\\dao\\billinfodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\dao\\billinfodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanlygara\\quanly\\dao\\materialdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanly\\dao\\materialdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\dao\\materialdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanlygara\\quanly\\dao\\servicedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanly\\fmanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\fmanage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanly\\dao\\customerdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\dao\\customerdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanly\\faddcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\faddcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|D:\\Github\\QuanLyGara\\quanly\\faddcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\faddcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanly\\dao\\cardao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\dao\\cardao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanly\\dao\\menudao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\dao\\menudao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanly\\dao\\billinfodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\dao\\billinfodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanly\\dao\\servicedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\dao\\servicedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanlygara\\quanly\\dao\\thanhtoandao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|d:\\github\\quanlygara\\quanly\\dao\\thanhtoandao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC438ADE-1D33-425D-B09B-D06B56CA4FDD}|Quanly\\Quanly.csproj|solutionrelative:quanly\\dao\\thanhtoandao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -54,21 +58,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "CarDAO.cs",
-              "DocumentMoniker": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\CarDAO.cs",
+              "DocumentMoniker": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\CarDAO.cs",
               "RelativeDocumentMoniker": "Quanly\\DAO\\CarDAO.cs",
-              "ToolTip": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\CarDAO.cs",
+              "ToolTip": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\CarDAO.cs",
               "RelativeToolTip": "Quanly\\DAO\\CarDAO.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAcwEkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T08:38:10.1Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fAdmin.cs [Design]",
+              "DocumentMoniker": "D:\\Github\\QuanLyGara\\Quanly\\fAdmin.cs",
+              "RelativeDocumentMoniker": "Quanly\\fAdmin.cs",
+              "ToolTip": "D:\\Github\\QuanLyGara\\Quanly\\fAdmin.cs [Design]",
+              "RelativeToolTip": "Quanly\\fAdmin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T14:05:26.369Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Bookmark",
@@ -76,11 +91,73 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fManage.cs",
+              "DocumentMoniker": "D:\\Github\\QuanLyGara\\Quanly\\fManage.cs",
+              "RelativeDocumentMoniker": "Quanly\\fManage.cs",
+              "ToolTip": "D:\\Github\\QuanLyGara\\Quanly\\fManage.cs",
+              "RelativeToolTip": "Quanly\\fManage.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAmwHYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T07:13:51.181Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "fAddCustomer.cs",
-              "DocumentMoniker": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\fAddCustomer.cs",
+              "Title": "fManage.cs [Design]",
+              "DocumentMoniker": "D:\\Github\\QuanLyGara\\Quanly\\fManage.cs",
+              "RelativeDocumentMoniker": "Quanly\\fManage.cs",
+              "ToolTip": "D:\\Github\\QuanLyGara\\Quanly\\fManage.cs [Design]",
+              "RelativeToolTip": "Quanly\\fManage.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T12:41:58.222Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CustomerDAO.cs",
+              "DocumentMoniker": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\CustomerDAO.cs",
+              "RelativeDocumentMoniker": "Quanly\\DAO\\CustomerDAO.cs",
+              "ToolTip": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\CustomerDAO.cs",
+              "RelativeToolTip": "Quanly\\DAO\\CustomerDAO.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAiwCEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T08:12:19.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "fAddCustomer.cs [Design]",
+              "DocumentMoniker": "D:\\Github\\QuanLyGara\\Quanly\\fAddCustomer.cs",
               "RelativeDocumentMoniker": "Quanly\\fAddCustomer.cs",
-              "ToolTip": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\fAddCustomer.cs",
+              "ToolTip": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\fAddCustomer.cs [Design]",
+              "RelativeToolTip": "QuanLyGara\\Quanly\\fAddCustomer.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T09:03:56.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MaterialDAO.cs",
+              "DocumentMoniker": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\MaterialDAO.cs",
+              "RelativeDocumentMoniker": "Quanly\\DAO\\MaterialDAO.cs",
+              "ToolTip": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\MaterialDAO.cs",
+              "RelativeToolTip": "Quanly\\DAO\\MaterialDAO.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAACkAAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T01:12:55.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "fAddCustomer.cs",
+              "DocumentMoniker": "D:\\Github\\QuanLyGara\\Quanly\\fAddCustomer.cs",
+              "RelativeDocumentMoniker": "Quanly\\fAddCustomer.cs",
+              "ToolTip": "D:\\Github\\QuanLyGara\\Quanly\\fAddCustomer.cs",
               "RelativeToolTip": "Quanly\\fAddCustomer.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAmwDAAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -89,61 +166,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "fManage.cs",
-              "DocumentMoniker": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\fManage.cs",
-              "RelativeDocumentMoniker": "Quanly\\fManage.cs",
-              "ToolTip": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\fManage.cs*",
-              "RelativeToolTip": "Quanly\\fManage.cs*",
-              "ViewState": "AgIAAPkAAAAAAAAAAAArwAQBAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T07:13:51.181Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CustomerDAO.cs",
-              "DocumentMoniker": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\CustomerDAO.cs",
-              "RelativeDocumentMoniker": "Quanly\\DAO\\CustomerDAO.cs",
-              "ToolTip": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\CustomerDAO.cs",
-              "RelativeToolTip": "Quanly\\DAO\\CustomerDAO.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAAwEEAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T08:12:19.158Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "fManage.cs [Design]",
-              "DocumentMoniker": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\fManage.cs",
-              "RelativeDocumentMoniker": "Quanly\\fManage.cs",
-              "ToolTip": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\fManage.cs [Design]*",
-              "RelativeToolTip": "Quanly\\fManage.cs [Design]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T02:01:53.031Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "fAddCustomer.cs [Design]",
-              "DocumentMoniker": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\fAddCustomer.cs",
-              "RelativeDocumentMoniker": "Quanly\\fAddCustomer.cs",
-              "ToolTip": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\fAddCustomer.cs [Design]",
-              "RelativeToolTip": "Quanly\\fAddCustomer.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T09:03:56.098Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ServiceDAO.cs",
-              "DocumentMoniker": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\ServiceDAO.cs",
+              "DocumentMoniker": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\ServiceDAO.cs",
               "RelativeDocumentMoniker": "Quanly\\DAO\\ServiceDAO.cs",
-              "ToolTip": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\ServiceDAO.cs",
+              "ToolTip": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\ServiceDAO.cs",
               "RelativeToolTip": "Quanly\\DAO\\ServiceDAO.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAowCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -151,11 +178,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "BillInfoDAO.cs",
-              "DocumentMoniker": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\BillInfoDAO.cs",
+              "DocumentMoniker": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\BillInfoDAO.cs",
               "RelativeDocumentMoniker": "Quanly\\DAO\\BillInfoDAO.cs",
-              "ToolTip": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\BillInfoDAO.cs",
+              "ToolTip": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\BillInfoDAO.cs",
               "RelativeToolTip": "Quanly\\DAO\\BillInfoDAO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -164,22 +191,10 @@
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "MaterialDAO.cs",
-              "DocumentMoniker": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\MaterialDAO.cs",
-              "RelativeDocumentMoniker": "Quanly\\DAO\\MaterialDAO.cs",
-              "ToolTip": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\MaterialDAO.cs",
-              "RelativeToolTip": "Quanly\\DAO\\MaterialDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAiwB8AAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T01:12:55.461Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "MenuDAO.cs",
-              "DocumentMoniker": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\MenuDAO.cs",
+              "DocumentMoniker": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\MenuDAO.cs",
               "RelativeDocumentMoniker": "Quanly\\DAO\\MenuDAO.cs",
-              "ToolTip": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\MenuDAO.cs",
+              "ToolTip": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\MenuDAO.cs",
               "RelativeToolTip": "Quanly\\DAO\\MenuDAO.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAowDIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -187,11 +202,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "ThanhToanDAO.cs",
-              "DocumentMoniker": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\ThanhToanDAO.cs",
+              "DocumentMoniker": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\ThanhToanDAO.cs",
               "RelativeDocumentMoniker": "Quanly\\DAO\\ThanhToanDAO.cs",
-              "ToolTip": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\DAO\\ThanhToanDAO.cs",
+              "ToolTip": "D:\\Github\\QuanLyGara\\Quanly\\DAO\\ThanhToanDAO.cs",
               "RelativeToolTip": "Quanly\\DAO\\ThanhToanDAO.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

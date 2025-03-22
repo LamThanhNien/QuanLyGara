@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,6 +36,12 @@ namespace Quanly.DAO
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idService });
            return data;
+        }
+        public int Insert_Material(int idMaterial, string name, string type, string noiSX, int sl, Decimal price)
+        {
+            string query = "UPS_InsertMaterial @idMaterial , @name , @type , @noiSx , @quantity , @price ";
+            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { idMaterial, name, type, noiSX, sl, price });
+            return result;
         }
     }
 }
