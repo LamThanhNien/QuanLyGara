@@ -26,7 +26,7 @@ namespace Quanly
             InitializeComponent();
             loadThanhToan();
             loadCar();
-
+            loadCustomer();
             LoadMaterial();
             LoadCombobox_Service();
         }
@@ -40,7 +40,9 @@ namespace Quanly
             DAO.CarDAO.Instance.LoadDL(dtgvCar);
         }
         void loadCustomer()
-        { }
+        {
+            DAO.CustomerDAO.Instance.LoadDL(dtgvCustomer0);
+        }
         void LoadMaterial()
         {
             DAO.MaterialDAO.Instance.LoadDL(dtgvService);
@@ -135,6 +137,14 @@ namespace Quanly
 
             }
         }
+        private void fManage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+
+
+
         //Phần timd kiếm
         private void btntim_Click_1(object sender, EventArgs e)
         {
@@ -144,46 +154,9 @@ namespace Quanly
                 dtgvCustomer_CellClick(null, new DataGridViewCellEventArgs(0, 0));
             }
         }
-        private void button6_Click(object sender, EventArgs e)
-        {
-            DAO.Search.searchDataGridView(dtgvCar, "name", textBox5.Text);
-            if (dtgvCar.Rows.Count > 0)
-            {
-                dtgvCar_CellClick(null, new DataGridViewCellEventArgs(0, 0));
-            }
-            else
-            {
-                tbCustomer1.Text = "";
-                tbNCar1.Text = "";
-                tbNumCar1.Text = "";
-                tbAddress1.Text = "";
-                tbphone1.Text = "";
-                pictureBox1.Image = Image.FromFile("");
-            }
-        }
-        private void fManage_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
         //
         //Phần dtgv
-        int idKhach = 0;
-        private void dtgvCar_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && dtgvCar.Rows.Count > 0)
-            {
-                DataGridViewRow row = dtgvCar.Rows[e.RowIndex];
-                tbCustomer1.Text = row.Cells["name"].Value?.ToString();
-                tbNCar1.Text = row.Cells["namecar"].Value?.ToString();
-                tbNumCar1.Text = row.Cells["numberCar"].Value?.ToString();
-                tbAddress1.Text = row.Cells["address"].Value?.ToString();
-                tbphone1.Text = row.Cells["phoneNum"].Value?.ToString();
-                pictureBox1.Image = Image.FromFile(row.Cells["ImageBase64"].Value?.ToString());
-                object value = row.Cells["idCustomer"].Value;
-                idKhach = (value != null && value != DBNull.Value) ? Convert.ToInt32(value) : 0;
-            }
 
-        }
         int idCustomer;
         private void dtgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -208,6 +181,103 @@ namespace Quanly
                 }
             }
         }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DAO.Search.searchDataGridView(dtgvCar, "numberCar", textBox5.Text);
+            if (dtgvCar.Rows.Count > 0)
+            {
+                dtgvCar_CellClick(null, new DataGridViewCellEventArgs(0, 0));
+            }
+            else
+            {
+                tbCustomer1.Text = "";
+                tbNCar1.Text = "";
+                tbNumCar1.Text = "";
+                tbColor.Text = "";
+                tbphone1.Text = "";
+                pictureBoxCar.Image = Image.FromFile("");
+            }
+        }
+        int idKhach = 0;
+        int idCar = 0;
+        private void dtgvCar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dtgvCar.Rows.Count > 0)
+            {
+                DataGridViewRow row = dtgvCar.Rows[e.RowIndex];
+                tbCustomer1.Text = row.Cells["name"].Value?.ToString();
+                tbNCar1.Text = row.Cells["namecar"].Value?.ToString();
+                tbNumCar1.Text = row.Cells["numberCar"].Value?.ToString();
+                tbColor.Text = row.Cells["address"].Value?.ToString();
+                tbphone1.Text = row.Cells["phoneNum"].Value?.ToString();
+                //pictureBoxCar.Image = Image.FromFile(row.Cells["ImageBase64"].Value?.ToString());
+                string imagePath = row.Cells["ImageBase64"].Value?.ToString();
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                {
+                    pictureBoxCar.Image = Image.FromFile(imagePath);
+                }
+                else
+                {
+                    pictureBoxCar.Image = null; // Không có ảnh thì xóa ảnh cũ
+                }
+                object value = row.Cells["idCustomer"].Value;
+                idKhach = (value != null && value != DBNull.Value) ? Convert.ToInt32(value) : 0;
+                object value1 = row.Cells["idCar"].Value;
+                idCar = (value != null && value1 != DBNull.Value) ? Convert.ToInt32(value1) : 0;
+            }
+
+        }
+        private void Search_Click(object sender, EventArgs e)
+        {
+            DAO.Search.searchDataGridView(dtgvCustomer0, "phoneNum", textBox6.Text);
+            if (dtgvCustomer0.Rows.Count > 0)
+            {
+                dtgvCustomer0_CellClick(null, new DataGridViewCellEventArgs(0, 0));
+            }
+            else
+            {
+                tbn.Text = "";
+                tbAdr.Text = "";
+                tbPhone.Text = "";
+            }
+        }
+        int idCtm = 0;
+        private void dtgvCustomer0_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dtgvCustomer0.Rows.Count > 0)
+            {
+                DataGridViewRow row = dtgvCustomer0.Rows[e.RowIndex];
+
+                // Kiểm tra và gán giá trị an toàn
+                tbn.Text = row.Cells["name"].Value?.ToString() ?? "";
+                tbAdr.Text = row.Cells["address"].Value?.ToString() ?? "";
+                tbPhone.Text = row.Cells["phoneNum"].Value?.ToString() ?? "";
+                object value = row.Cells["idCustomer"].Value;
+                idCtm = (value != null && value != DBNull.Value) ? Convert.ToInt32(value) : 0;
+            }
+        }
+        private void tim_Click(object sender, EventArgs e)
+        {
+            DAO.Search.searchDataGridView(dtgvService, "name", tbSv.Text);
+            if (dtgvService.Rows.Count > 0)
+            {
+                dtgvService_CellClick(null, new DataGridViewCellEventArgs(0, 0));
+            }
+            else
+            {
+                tbnameSv.Text = "";
+
+            }
+        }
+        private void dtgvService_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dtgvService.Rows.Count > 0)
+            {
+                DataGridViewRow row = dtgvService.Rows[e.RowIndex];
+                tbnameSv.Text = row.Cells["name"].Value?.ToString() ?? "";
+
+            }
+        }
 
 
         private void ThemBill_Click(object sender, EventArgs e)
@@ -228,7 +298,8 @@ namespace Quanly
                 BillInfoDAO.Instance.InsertBillInfo(idBill, IdService, IdMaterial, count);
 
                 // Chỉ cập nhật số lượng mới thêm nếu hóa đơn đã thanh toán
-                if (status == 1) { 
+                if (status == 1)
+                {
                     DAO.BillInfoDAO.Instance.UpdateBillInfo(0, idBill, IdMaterial);
                     showBill(idCustomer);
                 }
@@ -271,13 +342,16 @@ namespace Quanly
                 }
             }
         }
-        //dtgvCar
+        //Phần Tap Car
+
+
+
         private void AddCar_Click(object sender, EventArgs e)
         {
             int Idcustomer = idKhach;
             string nameCustomer = tbCustomer1.Text;
             string phone = tbphone1.Text;
-            string address = tbAddress1.Text;
+            string address = tbColor.Text;
             fAddCustomer fAdd = new fAddCustomer(Idcustomer, nameCustomer, phone, address);
             fAdd.ShowDialog();
             loadThanhToan();
@@ -285,8 +359,56 @@ namespace Quanly
             this.Show();
 
         }
+        private void btnAddImage1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Ảnh (*.jpg;*.png;*.jpeg)|*.jpg;*.png;*.jpeg",
+                Title = "Chọn ảnh"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                pictureBoxCar.Image = Image.FromFile(filePath);
+                pictureBoxCar.Tag = filePath;
+            }
+        }
+        private void btnFix0_Click(object sender, EventArgs e)
+        {
+            int idCarr = idCar;
+            if (idCar == -1) { MessageBox.Show("Không tìm thấy xe"); return; }
+            string name = tbNCar1.Text;
+            string numcar = tbNumCar1.Text;
+            string color = tbColor.Text;
+            string image = pictureBoxCar.Tag as string ?? "";
+            DAO.CarDAO.Instance.FixCar(idCarr, name, numcar, color, image);
+            loadCar();
+        }
+
+        private void btnDelete0_Click(object sender, EventArgs e)
+        {
+            pictureBoxCar.Image = null;
+            tbCustomer1.Text = "";
+            tbphone1.Text = "";
+            tbNCar1.Text = "";
+            tbNumCar1.Text = "";
+            tbColor.Text = "";
+
+        }
+
+        //Phần tap Khách Hàng
+
+        private void btnFix_Click(object sender, EventArgs e)
+        {
+            int idCtms = idCtm;
+            string name = tbn.Text;
+            string address = tbAdr.Text;
+            string phone = tbPhone.Text;
+            DAO.CustomerDAO.Instance.FixCustomer(idCtms, name, address, phone);
+            loadCustomer();
+        }
 
     }
-    //
 }
 

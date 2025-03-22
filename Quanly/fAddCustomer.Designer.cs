@@ -369,7 +369,7 @@
             // 
             button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button3.Font = new Font("Arial", 11F, FontStyle.Bold);
-            button3.Location = new Point(325, 375);
+            button3.Location = new Point(325, 400);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new Size(146, 55);
@@ -404,7 +404,7 @@
             // 
             button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button2.Font = new Font("Arial", 11F, FontStyle.Bold);
-            button2.Location = new Point(154, 375);
+            button2.Location = new Point(155, 400);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(146, 55);

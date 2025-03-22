@@ -34,45 +34,46 @@
             button2 = new Button();
             button1 = new Button();
             pictureBoxImage = new PictureBox();
+            AddCar = new Button();
             tabPage3 = new TabPage();
             dtgvCustomer0 = new DataGridView();
             panel7 = new Panel();
             btnDelete = new Button();
             btnFix = new Button();
             panel30 = new Panel();
-            textBox11 = new TextBox();
+            tbEmail = new TextBox();
             label20 = new Label();
             panel29 = new Panel();
-            textBox10 = new TextBox();
+            tbAdr = new TextBox();
             label19 = new Label();
             panel28 = new Panel();
-            textBox9 = new TextBox();
+            tbPhone = new TextBox();
             label18 = new Label();
             panel21 = new Panel();
-            textBox14 = new TextBox();
+            tba = new TextBox();
             label12 = new Label();
             panel20 = new Panel();
-            textBox13 = new TextBox();
+            tbSex = new TextBox();
             label10 = new Label();
             panel13 = new Panel();
             Search = new Button();
             textBox6 = new TextBox();
             label11 = new Label();
             panel22 = new Panel();
-            textBox15 = new TextBox();
+            tbn = new TextBox();
             label14 = new Label();
             tabPage2 = new TabPage();
             dtgvCar = new DataGridView();
             panel6 = new Panel();
+            btnAddImage1 = new Button();
             btnDelete0 = new Button();
             btnFix0 = new Button();
-            AddCar = new Button();
             panel12 = new Panel();
             tbphone1 = new TextBox();
             label4 = new Label();
             label9 = new Label();
             panel14 = new Panel();
-            tbAddress1 = new TextBox();
+            tbColor = new TextBox();
             label5 = new Label();
             panel5 = new Panel();
             button6 = new Button();
@@ -80,7 +81,7 @@
             panel15 = new Panel();
             tbNumCar1 = new TextBox();
             label6 = new Label();
-            pictureBox1 = new PictureBox();
+            pictureBoxCar = new PictureBox();
             panel16 = new Panel();
             tbNCar1 = new TextBox();
             label7 = new Label();
@@ -121,28 +122,28 @@
             panel23 = new Panel();
             btnAddImage = new Button();
             panel33 = new Panel();
-            textBox17 = new TextBox();
+            tbQuantity = new TextBox();
             label23 = new Label();
             panel32 = new Panel();
-            textBox16 = new TextBox();
+            tbPrice = new TextBox();
             label22 = new Label();
             panel31 = new Panel();
-            textBox12 = new TextBox();
+            tbXuatsu = new TextBox();
             label21 = new Label();
             pictureBox2 = new PictureBox();
             panel27 = new Panel();
             textBox7 = new TextBox();
             label17 = new Label();
             panel26 = new Panel();
-            textBox3 = new TextBox();
+            tbType = new TextBox();
             label16 = new Label();
             label15 = new Label();
             panel25 = new Panel();
-            textBox2 = new TextBox();
+            tbnameSv = new TextBox();
             label13 = new Label();
             panel24 = new Panel();
             button7 = new Button();
-            textBox1 = new TextBox();
+            tbSv = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxImage).BeginInit();
             tabPage3.SuspendLayout();
@@ -162,7 +163,7 @@
             panel14.SuspendLayout();
             panel5.SuspendLayout();
             panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCar).BeginInit();
             panel16.SuspendLayout();
             panel17.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -268,6 +269,17 @@
             pictureBoxImage.TabIndex = 0;
             pictureBoxImage.TabStop = false;
             // 
+            // AddCar
+            // 
+            AddCar.BackColor = SystemColors.ActiveCaption;
+            AddCar.Location = new Point(23, 708);
+            AddCar.Name = "AddCar";
+            AddCar.Size = new Size(133, 59);
+            AddCar.TabIndex = 12;
+            AddCar.Text = "Thêm xe";
+            AddCar.UseVisualStyleBackColor = false;
+            AddCar.Click += AddCar_Click;
+            // 
             // tabPage3
             // 
             tabPage3.Controls.Add(dtgvCustomer0);
@@ -283,12 +295,14 @@
             // 
             // dtgvCustomer0
             // 
+            dtgvCustomer0.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dtgvCustomer0.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvCustomer0.Location = new Point(3, 3);
             dtgvCustomer0.Name = "dtgvCustomer0";
             dtgvCustomer0.RowHeadersWidth = 62;
             dtgvCustomer0.Size = new Size(597, 820);
-            dtgvCustomer0.TabIndex = 2;
+            dtgvCustomer0.TabIndex = 3;
+            dtgvCustomer0.CellClick += dtgvCustomer0_CellClick;
             // 
             // panel7
             // 
@@ -325,11 +339,12 @@
             btnFix.TabIndex = 25;
             btnFix.Text = "Sửa";
             btnFix.UseVisualStyleBackColor = true;
+            btnFix.Click += btnFix_Click;
             // 
             // panel30
             // 
             panel30.Anchor = AnchorStyles.None;
-            panel30.Controls.Add(textBox11);
+            panel30.Controls.Add(tbEmail);
             panel30.Controls.Add(label20);
             panel30.Location = new Point(8, 508);
             panel30.Margin = new Padding(4, 3, 4, 3);
@@ -337,13 +352,13 @@
             panel30.Size = new Size(538, 58);
             panel30.TabIndex = 24;
             // 
-            // textBox11
+            // tbEmail
             // 
-            textBox11.Location = new Point(115, 13);
-            textBox11.Margin = new Padding(4, 3, 4, 3);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(391, 33);
-            textBox11.TabIndex = 1;
+            tbEmail.Location = new Point(115, 13);
+            tbEmail.Margin = new Padding(4, 3, 4, 3);
+            tbEmail.Name = "tbEmail";
+            tbEmail.Size = new Size(391, 33);
+            tbEmail.TabIndex = 1;
             // 
             // label20
             // 
@@ -359,7 +374,7 @@
             // panel29
             // 
             panel29.Anchor = AnchorStyles.None;
-            panel29.Controls.Add(textBox10);
+            panel29.Controls.Add(tbAdr);
             panel29.Controls.Add(label19);
             panel29.Location = new Point(8, 444);
             panel29.Margin = new Padding(4, 3, 4, 3);
@@ -367,13 +382,13 @@
             panel29.Size = new Size(538, 58);
             panel29.TabIndex = 23;
             // 
-            // textBox10
+            // tbAdr
             // 
-            textBox10.Location = new Point(115, 13);
-            textBox10.Margin = new Padding(4, 3, 4, 3);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(391, 33);
-            textBox10.TabIndex = 1;
+            tbAdr.Location = new Point(115, 13);
+            tbAdr.Margin = new Padding(4, 3, 4, 3);
+            tbAdr.Name = "tbAdr";
+            tbAdr.Size = new Size(391, 33);
+            tbAdr.TabIndex = 1;
             // 
             // label19
             // 
@@ -389,7 +404,7 @@
             // panel28
             // 
             panel28.Anchor = AnchorStyles.None;
-            panel28.Controls.Add(textBox9);
+            panel28.Controls.Add(tbPhone);
             panel28.Controls.Add(label18);
             panel28.Location = new Point(8, 380);
             panel28.Margin = new Padding(4, 3, 4, 3);
@@ -397,13 +412,13 @@
             panel28.Size = new Size(538, 58);
             panel28.TabIndex = 22;
             // 
-            // textBox9
+            // tbPhone
             // 
-            textBox9.Location = new Point(115, 13);
-            textBox9.Margin = new Padding(4, 3, 4, 3);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(391, 33);
-            textBox9.TabIndex = 1;
+            tbPhone.Location = new Point(115, 13);
+            tbPhone.Margin = new Padding(4, 3, 4, 3);
+            tbPhone.Name = "tbPhone";
+            tbPhone.Size = new Size(391, 33);
+            tbPhone.TabIndex = 1;
             // 
             // label18
             // 
@@ -419,7 +434,7 @@
             // panel21
             // 
             panel21.Anchor = AnchorStyles.None;
-            panel21.Controls.Add(textBox14);
+            panel21.Controls.Add(tba);
             panel21.Controls.Add(label12);
             panel21.Location = new Point(8, 316);
             panel21.Margin = new Padding(4, 3, 4, 3);
@@ -427,13 +442,13 @@
             panel21.Size = new Size(538, 58);
             panel21.TabIndex = 21;
             // 
-            // textBox14
+            // tba
             // 
-            textBox14.Location = new Point(115, 13);
-            textBox14.Margin = new Padding(4, 3, 4, 3);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(391, 33);
-            textBox14.TabIndex = 1;
+            tba.Location = new Point(115, 13);
+            tba.Margin = new Padding(4, 3, 4, 3);
+            tba.Name = "tba";
+            tba.Size = new Size(391, 33);
+            tba.TabIndex = 1;
             // 
             // label12
             // 
@@ -449,7 +464,7 @@
             // panel20
             // 
             panel20.Anchor = AnchorStyles.None;
-            panel20.Controls.Add(textBox13);
+            panel20.Controls.Add(tbSex);
             panel20.Controls.Add(label10);
             panel20.Location = new Point(8, 252);
             panel20.Margin = new Padding(4, 3, 4, 3);
@@ -457,13 +472,13 @@
             panel20.Size = new Size(538, 58);
             panel20.TabIndex = 20;
             // 
-            // textBox13
+            // tbSex
             // 
-            textBox13.Location = new Point(115, 13);
-            textBox13.Margin = new Padding(4, 3, 4, 3);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(391, 33);
-            textBox13.TabIndex = 1;
+            tbSex.Location = new Point(115, 13);
+            tbSex.Margin = new Padding(4, 3, 4, 3);
+            tbSex.Name = "tbSex";
+            tbSex.Size = new Size(391, 33);
+            tbSex.TabIndex = 1;
             // 
             // label10
             // 
@@ -495,6 +510,7 @@
             Search.TabIndex = 1;
             Search.Text = "Tìm";
             Search.UseVisualStyleBackColor = true;
+            Search.Click += Search_Click;
             // 
             // textBox6
             // 
@@ -516,7 +532,7 @@
             // panel22
             // 
             panel22.Anchor = AnchorStyles.None;
-            panel22.Controls.Add(textBox15);
+            panel22.Controls.Add(tbn);
             panel22.Controls.Add(label14);
             panel22.Location = new Point(8, 188);
             panel22.Margin = new Padding(4, 3, 4, 3);
@@ -524,13 +540,13 @@
             panel22.Size = new Size(538, 58);
             panel22.TabIndex = 13;
             // 
-            // textBox15
+            // tbn
             // 
-            textBox15.Location = new Point(115, 13);
-            textBox15.Margin = new Padding(4, 3, 4, 3);
-            textBox15.Name = "textBox15";
-            textBox15.Size = new Size(391, 33);
-            textBox15.TabIndex = 1;
+            tbn.Location = new Point(115, 13);
+            tbn.Margin = new Padding(4, 3, 4, 3);
+            tbn.Name = "tbn";
+            tbn.Size = new Size(391, 33);
+            tbn.TabIndex = 1;
             // 
             // label14
             // 
@@ -561,25 +577,26 @@
             dtgvCar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dtgvCar.BackgroundColor = SystemColors.ButtonShadow;
             dtgvCar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvCar.Location = new Point(3, 3);
+            dtgvCar.Location = new Point(3, 6);
             dtgvCar.Name = "dtgvCar";
             dtgvCar.RowHeadersWidth = 62;
-            dtgvCar.Size = new Size(594, 820);
+            dtgvCar.Size = new Size(594, 817);
             dtgvCar.TabIndex = 0;
             dtgvCar.CellClick += dtgvCar_CellClick;
             // 
             // panel6
             // 
             panel6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel6.Controls.Add(btnAddImage1);
             panel6.Controls.Add(btnDelete0);
-            panel6.Controls.Add(btnFix0);
             panel6.Controls.Add(AddCar);
+            panel6.Controls.Add(btnFix0);
             panel6.Controls.Add(panel12);
             panel6.Controls.Add(label9);
             panel6.Controls.Add(panel14);
             panel6.Controls.Add(panel5);
             panel6.Controls.Add(panel15);
-            panel6.Controls.Add(pictureBox1);
+            panel6.Controls.Add(pictureBoxCar);
             panel6.Controls.Add(panel16);
             panel6.Controls.Add(panel17);
             panel6.Location = new Point(600, 3);
@@ -588,15 +605,27 @@
             panel6.Size = new Size(560, 820);
             panel6.TabIndex = 11;
             // 
+            // btnAddImage1
+            // 
+            btnAddImage1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddImage1.Location = new Point(326, 97);
+            btnAddImage1.Name = "btnAddImage1";
+            btnAddImage1.Size = new Size(133, 50);
+            btnAddImage1.TabIndex = 111117;
+            btnAddImage1.Text = "Thêm ảnh";
+            btnAddImage1.UseVisualStyleBackColor = true;
+            btnAddImage1.Click += btnAddImage1_Click;
+            // 
             // btnDelete0
             // 
             btnDelete0.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnDelete0.Location = new Point(368, 708);
             btnDelete0.Name = "btnDelete0";
             btnDelete0.Size = new Size(143, 59);
-            btnDelete0.TabIndex = 14;
+            btnDelete0.TabIndex = 19;
             btnDelete0.Text = "Hủy";
             btnDelete0.UseVisualStyleBackColor = true;
+            btnDelete0.Click += btnDelete0_Click;
             // 
             // btnFix0
             // 
@@ -604,37 +633,28 @@
             btnFix0.Location = new Point(189, 708);
             btnFix0.Name = "btnFix0";
             btnFix0.Size = new Size(143, 59);
-            btnFix0.TabIndex = 13;
+            btnFix0.TabIndex = 18;
             btnFix0.Text = "Sửa";
             btnFix0.UseVisualStyleBackColor = true;
-            // 
-            // AddCar
-            // 
-            AddCar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            AddCar.Location = new Point(344, 160);
-            AddCar.Name = "AddCar";
-            AddCar.Size = new Size(143, 59);
-            AddCar.TabIndex = 12;
-            AddCar.Text = "Thêm xe";
-            AddCar.UseVisualStyleBackColor = true;
-            AddCar.Click += AddCar_Click;
+            btnFix0.Click += btnFix0_Click;
             // 
             // panel12
             // 
             panel12.Anchor = AnchorStyles.None;
             panel12.Controls.Add(tbphone1);
             panel12.Controls.Add(label4);
-            panel12.Location = new Point(8, 618);
+            panel12.Location = new Point(8, 425);
             panel12.Margin = new Padding(4, 3, 4, 3);
             panel12.Name = "panel12";
             panel12.Size = new Size(541, 58);
-            panel12.TabIndex = 8;
+            panel12.TabIndex = 14;
             // 
             // tbphone1
             // 
             tbphone1.Location = new Point(181, 16);
             tbphone1.Margin = new Padding(4, 3, 4, 3);
             tbphone1.Name = "tbphone1";
+            tbphone1.ReadOnly = true;
             tbphone1.Size = new Size(322, 33);
             tbphone1.TabIndex = 1;
             // 
@@ -644,9 +664,9 @@
             label4.Location = new Point(4, 19);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(66, 26);
+            label4.Size = new Size(77, 26);
             label4.TabIndex = 0;
-            label4.Text = "Hãng";
+            label4.Text = "Số ĐT";
             // 
             // label9
             // 
@@ -660,21 +680,21 @@
             // panel14
             // 
             panel14.Anchor = AnchorStyles.None;
-            panel14.Controls.Add(tbAddress1);
+            panel14.Controls.Add(tbColor);
             panel14.Controls.Add(label5);
-            panel14.Location = new Point(8, 553);
+            panel14.Location = new Point(8, 617);
             panel14.Margin = new Padding(4, 3, 4, 3);
             panel14.Name = "panel14";
             panel14.Size = new Size(541, 58);
-            panel14.TabIndex = 7;
+            panel14.TabIndex = 17;
             // 
-            // tbAddress1
+            // tbColor
             // 
-            tbAddress1.Location = new Point(181, 16);
-            tbAddress1.Margin = new Padding(4, 3, 4, 3);
-            tbAddress1.Name = "tbAddress1";
-            tbAddress1.Size = new Size(322, 33);
-            tbAddress1.TabIndex = 1;
+            tbColor.Location = new Point(181, 16);
+            tbColor.Margin = new Padding(4, 3, 4, 3);
+            tbColor.Name = "tbColor";
+            tbColor.Size = new Size(322, 33);
+            tbColor.TabIndex = 1;
             // 
             // label5
             // 
@@ -720,11 +740,11 @@
             panel15.Anchor = AnchorStyles.None;
             panel15.Controls.Add(tbNumCar1);
             panel15.Controls.Add(label6);
-            panel15.Location = new Point(8, 489);
+            panel15.Location = new Point(8, 553);
             panel15.Margin = new Padding(4, 3, 4, 3);
             panel15.Name = "panel15";
             panel15.Size = new Size(541, 58);
-            panel15.TabIndex = 6;
+            panel15.TabIndex = 111116;
             // 
             // tbNumCar1
             // 
@@ -744,26 +764,26 @@
             label6.TabIndex = 0;
             label6.Text = "Số xe";
             // 
-            // pictureBox1
+            // pictureBoxCar
             // 
-            pictureBox1.Anchor = AnchorStyles.None;
-            pictureBox1.Location = new Point(12, 97);
-            pictureBox1.Margin = new Padding(4, 3, 4, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(265, 188);
-            pictureBox1.TabIndex = 8;
-            pictureBox1.TabStop = false;
+            pictureBoxCar.Anchor = AnchorStyles.None;
+            pictureBoxCar.Location = new Point(12, 97);
+            pictureBoxCar.Margin = new Padding(4, 3, 4, 3);
+            pictureBoxCar.Name = "pictureBoxCar";
+            pictureBoxCar.Size = new Size(265, 188);
+            pictureBoxCar.TabIndex = 8;
+            pictureBoxCar.TabStop = false;
             // 
             // panel16
             // 
             panel16.Anchor = AnchorStyles.None;
             panel16.Controls.Add(tbNCar1);
             panel16.Controls.Add(label7);
-            panel16.Location = new Point(8, 425);
+            panel16.Location = new Point(8, 489);
             panel16.Margin = new Padding(4, 3, 4, 3);
             panel16.Name = "panel16";
             panel16.Size = new Size(541, 58);
-            panel16.TabIndex = 5;
+            panel16.TabIndex = 15;
             // 
             // tbNCar1
             // 
@@ -793,7 +813,7 @@
             panel17.Margin = new Padding(4, 3, 4, 3);
             panel17.Name = "panel17";
             panel17.Size = new Size(541, 58);
-            panel17.TabIndex = 4;
+            panel17.TabIndex = 13;
             // 
             // tbCustomer1
             // 
@@ -1096,6 +1116,7 @@
             dtgvService.RowHeadersWidth = 62;
             dtgvService.Size = new Size(600, 817);
             dtgvService.TabIndex = 31;
+            dtgvService.CellClick += dtgvService_CellClick;
             // 
             // btnDl
             // 
@@ -1153,7 +1174,7 @@
             // panel33
             // 
             panel33.Anchor = AnchorStyles.None;
-            panel33.Controls.Add(textBox17);
+            panel33.Controls.Add(tbQuantity);
             panel33.Controls.Add(label23);
             panel33.Location = new Point(4, 657);
             panel33.Margin = new Padding(4, 3, 4, 3);
@@ -1161,13 +1182,13 @@
             panel33.Size = new Size(538, 58);
             panel33.TabIndex = 24;
             // 
-            // textBox17
+            // tbQuantity
             // 
-            textBox17.Location = new Point(224, 13);
-            textBox17.Margin = new Padding(4, 3, 4, 3);
-            textBox17.Name = "textBox17";
-            textBox17.Size = new Size(282, 33);
-            textBox17.TabIndex = 1;
+            tbQuantity.Location = new Point(224, 13);
+            tbQuantity.Margin = new Padding(4, 3, 4, 3);
+            tbQuantity.Name = "tbQuantity";
+            tbQuantity.Size = new Size(282, 33);
+            tbQuantity.TabIndex = 1;
             // 
             // label23
             // 
@@ -1183,7 +1204,7 @@
             // panel32
             // 
             panel32.Anchor = AnchorStyles.None;
-            panel32.Controls.Add(textBox16);
+            panel32.Controls.Add(tbPrice);
             panel32.Controls.Add(label22);
             panel32.Location = new Point(4, 593);
             panel32.Margin = new Padding(4, 3, 4, 3);
@@ -1191,13 +1212,13 @@
             panel32.Size = new Size(538, 58);
             panel32.TabIndex = 27;
             // 
-            // textBox16
+            // tbPrice
             // 
-            textBox16.Location = new Point(115, 13);
-            textBox16.Margin = new Padding(4, 3, 4, 3);
-            textBox16.Name = "textBox16";
-            textBox16.Size = new Size(391, 33);
-            textBox16.TabIndex = 1;
+            tbPrice.Location = new Point(115, 13);
+            tbPrice.Margin = new Padding(4, 3, 4, 3);
+            tbPrice.Name = "tbPrice";
+            tbPrice.Size = new Size(391, 33);
+            tbPrice.TabIndex = 1;
             // 
             // label22
             // 
@@ -1213,7 +1234,7 @@
             // panel31
             // 
             panel31.Anchor = AnchorStyles.None;
-            panel31.Controls.Add(textBox12);
+            panel31.Controls.Add(tbXuatsu);
             panel31.Controls.Add(label21);
             panel31.Location = new Point(4, 529);
             panel31.Margin = new Padding(4, 3, 4, 3);
@@ -1221,13 +1242,13 @@
             panel31.Size = new Size(538, 58);
             panel31.TabIndex = 26;
             // 
-            // textBox12
+            // tbXuatsu
             // 
-            textBox12.Location = new Point(115, 13);
-            textBox12.Margin = new Padding(4, 3, 4, 3);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(391, 33);
-            textBox12.TabIndex = 1;
+            tbXuatsu.Location = new Point(115, 13);
+            tbXuatsu.Margin = new Padding(4, 3, 4, 3);
+            tbXuatsu.Name = "tbXuatsu";
+            tbXuatsu.Size = new Size(391, 33);
+            tbXuatsu.TabIndex = 1;
             // 
             // label21
             // 
@@ -1281,7 +1302,7 @@
             // panel26
             // 
             panel26.Anchor = AnchorStyles.None;
-            panel26.Controls.Add(textBox3);
+            panel26.Controls.Add(tbType);
             panel26.Controls.Add(label16);
             panel26.Location = new Point(4, 401);
             panel26.Margin = new Padding(4, 3, 4, 3);
@@ -1289,13 +1310,13 @@
             panel26.Size = new Size(538, 58);
             panel26.TabIndex = 23;
             // 
-            // textBox3
+            // tbType
             // 
-            textBox3.Location = new Point(115, 13);
-            textBox3.Margin = new Padding(4, 3, 4, 3);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(391, 33);
-            textBox3.TabIndex = 1;
+            tbType.Location = new Point(115, 13);
+            tbType.Margin = new Padding(4, 3, 4, 3);
+            tbType.Name = "tbType";
+            tbType.Size = new Size(391, 33);
+            tbType.TabIndex = 1;
             // 
             // label16
             // 
@@ -1320,7 +1341,7 @@
             // panel25
             // 
             panel25.Anchor = AnchorStyles.None;
-            panel25.Controls.Add(textBox2);
+            panel25.Controls.Add(tbnameSv);
             panel25.Controls.Add(label13);
             panel25.Location = new Point(4, 337);
             panel25.Margin = new Padding(4, 3, 4, 3);
@@ -1328,13 +1349,13 @@
             panel25.Size = new Size(538, 58);
             panel25.TabIndex = 21;
             // 
-            // textBox2
+            // tbnameSv
             // 
-            textBox2.Location = new Point(115, 13);
-            textBox2.Margin = new Padding(4, 3, 4, 3);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(391, 33);
-            textBox2.TabIndex = 1;
+            tbnameSv.Location = new Point(115, 13);
+            tbnameSv.Margin = new Padding(4, 3, 4, 3);
+            tbnameSv.Name = "tbnameSv";
+            tbnameSv.Size = new Size(391, 33);
+            tbnameSv.TabIndex = 1;
             // 
             // label13
             // 
@@ -1350,7 +1371,7 @@
             // panel24
             // 
             panel24.Controls.Add(button7);
-            panel24.Controls.Add(textBox1);
+            panel24.Controls.Add(tbSv);
             panel24.Location = new Point(4, 11);
             panel24.Margin = new Padding(4, 3, 4, 3);
             panel24.Name = "panel24";
@@ -1366,14 +1387,15 @@
             button7.TabIndex = 1;
             button7.Text = "Tìm";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += tim_Click;
             // 
-            // textBox1
+            // tbSv
             // 
-            textBox1.Location = new Point(4, 16);
-            textBox1.Margin = new Padding(4, 3, 4, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(316, 33);
-            textBox1.TabIndex = 0;
+            tbSv.Location = new Point(4, 16);
+            tbSv.Margin = new Padding(4, 3, 4, 3);
+            tbSv.Name = "tbSv";
+            tbSv.Size = new Size(316, 33);
+            tbSv.TabIndex = 0;
             // 
             // fManage
             // 
@@ -1420,7 +1442,7 @@
             panel5.PerformLayout();
             panel15.ResumeLayout(false);
             panel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCar).EndInit();
             panel16.ResumeLayout(false);
             panel16.PerformLayout();
             panel17.ResumeLayout(false);
@@ -1474,7 +1496,7 @@
         private TextBox tbphone1;
         private Label label4;
         private Panel panel14;
-        private TextBox tbAddress1;
+        private TextBox tbColor;
         private Label label5;
         private Panel panel15;
         private TextBox tbNumCar1;
@@ -1493,7 +1515,7 @@
         private TextBox textBox8;
         private TabControl dtgvMaterial;
         private Panel panel18;
-        private PictureBox pictureBox1;
+        private PictureBox pictureBoxCar;
         private Panel panel8;
         private Button btnThanhToan;
         private TextBox tbTotal;
@@ -1501,19 +1523,18 @@
         private Panel panel7;
         private Label label11;
         private Panel panel22;
-        private TextBox textBox15;
+        private TextBox tbn;
         private Label label14;
         private Panel panel21;
-        private TextBox textBox14;
+        private TextBox tba;
         private Label label12;
         private Panel panel20;
-        private TextBox textBox13;
+        private TextBox tbSex;
         private Label label10;
         private Panel panel13;
         private Button Search;
         private TextBox textBox6;
         private DataGridView dtgvCustomer;
-        private DataGridView dtgvCustomer0;
         private ListView listViewPrice;
         private TabPage tabPage4;
         private Panel panel23;
@@ -1521,33 +1542,33 @@
         private TextBox textBox7;
         private Label label17;
         private Panel panel26;
-        private TextBox textBox3;
+        private TextBox tbType;
         private Label label16;
         private Label label15;
         private Panel panel25;
-        private TextBox textBox2;
+        private TextBox tbnameSv;
         private Label label13;
         private Panel panel24;
         private Button button7;
-        private TextBox textBox1;
+        private TextBox tbSv;
         private Panel panel29;
-        private TextBox textBox10;
+        private TextBox tbAdr;
         private Label label19;
         private Panel panel28;
-        private TextBox textBox9;
+        private TextBox tbPhone;
         private Label label18;
         private Panel panel30;
-        private TextBox textBox11;
+        private TextBox tbEmail;
         private Label label20;
         private Panel panel31;
-        private TextBox textBox12;
+        private TextBox tbXuatsu;
         private Label label21;
         private PictureBox pictureBox2;
         private Panel panel33;
-        private TextBox textBox17;
+        private TextBox tbQuantity;
         private Label label23;
         private Panel panel32;
-        private TextBox textBox16;
+        private TextBox tbPrice;
         private Label label22;
         private Panel panel2;
         private Button button8;
@@ -1576,5 +1597,7 @@
         private Button button9;
         private Button btnAdd;
         private DataGridView dtgvService;
+        private Button btnAddImage1;
+        private DataGridView dtgvCustomer0;
     }
 }

@@ -29,7 +29,7 @@ namespace Quanly.DAO
         private CustomerDAO() { }
         public void LoadDL(DataGridView Customer)
         {
-            string query = " ";
+            string query = "Select name, address,phoneNum,idCustomer FROM Customer";
             Customer.DataSource = DAO.DataProvider.Instance.ExecuteQuery(query);
         }
         public bool checkNumBerCar(string numberCar)
@@ -52,12 +52,18 @@ namespace Quanly.DAO
 
             return result > 0;
         }
-        public bool AddCar_Customer(int idKhach,string name, string address, string numberphone, string namecar, string numcar, string logo, string filePath)
+        public bool AddCar_Customer(int idKhach, string name, string address, string numberphone, string namecar, string numcar, string logo, string filePath)
         {
             string query = "InsertCustomer @dk , @idKhach , @Ten , @address , @Mobile , @namecar , @numcar , @logo , @filePath ";
-            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] {1, idKhach, name, address, numberphone, namecar, numcar, logo, filePath });
+            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { 1, idKhach, name, address, numberphone, namecar, numcar, logo, filePath });
 
             return result > 0;
+        }
+        public int FixCustomer(int id, string name, string address, string phone)
+        {
+            string query = "USP_UpdateCustomer @idCustomer , @name , @address , @phone ";
+            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, name, address, phone });
+            return result;
         }
     }
 }
