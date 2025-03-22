@@ -30,6 +30,11 @@
         {
             panel1 = new Panel();
             panel8 = new Panel();
+            panel6 = new Panel();
+            tbAge = new TextBox();
+            label6 = new Label();
+            comboBoxSex = new ComboBox();
+            label3 = new Label();
             panel2 = new Panel();
             textBox3 = new ComboBox();
             logo = new Label();
@@ -57,6 +62,7 @@
             button2 = new Button();
             panel1.SuspendLayout();
             panel8.SuspendLayout();
+            panel6.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
@@ -74,12 +80,13 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1054, 548);
+            panel1.Size = new Size(1054, 528);
             panel1.TabIndex = 0;
             // 
             // panel8
             // 
             panel8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panel8.Controls.Add(panel6);
             panel8.Controls.Add(panel2);
             panel8.Controls.Add(panel3);
             panel8.Controls.Add(panel4);
@@ -90,18 +97,69 @@
             panel8.Location = new Point(0, 0);
             panel8.Margin = new Padding(4, 3, 4, 3);
             panel8.Name = "panel8";
-            panel8.Size = new Size(533, 548);
+            panel8.Size = new Size(533, 528);
             panel8.TabIndex = 19;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(tbAge);
+            panel6.Controls.Add(label6);
+            panel6.Controls.Add(comboBoxSex);
+            panel6.Controls.Add(label3);
+            panel6.Location = new Point(2, 139);
+            panel6.Margin = new Padding(4, 3, 4, 3);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(529, 58);
+            panel6.TabIndex = 1;
+            // 
+            // tbAge
+            // 
+            tbAge.Location = new Point(181, 12);
+            tbAge.Margin = new Padding(4, 3, 4, 3);
+            tbAge.Name = "tbAge";
+            tbAge.Size = new Size(110, 33);
+            tbAge.TabIndex = 1;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Arial", 11F, FontStyle.Bold);
+            label6.Location = new Point(4, 14);
+            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(56, 26);
+            label6.TabIndex = 2;
+            label6.Text = "Tuổi";
+            // 
+            // comboBoxSex
+            // 
+            comboBoxSex.FormattingEnabled = true;
+            comboBoxSex.Items.AddRange(new object[] { "Nam", "Nữ", "Khác" });
+            comboBoxSex.Location = new Point(420, 11);
+            comboBoxSex.Name = "comboBoxSex";
+            comboBoxSex.Size = new Size(83, 34);
+            comboBoxSex.TabIndex = 2;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Arial", 11F, FontStyle.Bold);
+            label3.Location = new Point(313, 14);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(100, 26);
+            label3.TabIndex = 0;
+            label3.Text = "Giới tính";
             // 
             // panel2
             // 
             panel2.Controls.Add(textBox3);
             panel2.Controls.Add(logo);
-            panel2.Location = new Point(0, 395);
+            panel2.Location = new Point(2, 459);
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(529, 58);
-            panel2.TabIndex = 9;
+            panel2.TabIndex = 6;
             // 
             // textBox3
             // 
@@ -110,7 +168,7 @@
             textBox3.Location = new Point(181, 11);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(163, 34);
-            textBox3.TabIndex = 1;
+            textBox3.TabIndex = 6;
             // 
             // logo
             // 
@@ -127,11 +185,11 @@
             // 
             panel3.Controls.Add(textBox2);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(0, 331);
+            panel3.Location = new Point(2, 395);
             panel3.Margin = new Padding(4, 3, 4, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(529, 58);
-            panel3.TabIndex = 8;
+            panel3.TabIndex = 5;
             // 
             // textBox2
             // 
@@ -139,7 +197,7 @@
             textBox2.Margin = new Padding(4, 3, 4, 3);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(322, 33);
-            textBox2.TabIndex = 1;
+            textBox2.TabIndex = 5;
             // 
             // label2
             // 
@@ -156,11 +214,11 @@
             // 
             panel4.Controls.Add(textBox1);
             panel4.Controls.Add(label1);
-            panel4.Location = new Point(0, 267);
+            panel4.Location = new Point(2, 331);
             panel4.Margin = new Padding(4, 3, 4, 3);
             panel4.Name = "panel4";
             panel4.Size = new Size(529, 58);
-            panel4.TabIndex = 7;
+            panel4.TabIndex = 4;
             // 
             // textBox1
             // 
@@ -168,7 +226,7 @@
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(322, 33);
-            textBox1.TabIndex = 1;
+            textBox1.TabIndex = 4;
             // 
             // label1
             // 
@@ -185,11 +243,11 @@
             // 
             panel9.Controls.Add(tbphone);
             panel9.Controls.Add(labelNumCtm);
-            panel9.Location = new Point(0, 203);
+            panel9.Location = new Point(2, 267);
             panel9.Margin = new Padding(4, 3, 4, 3);
             panel9.Name = "panel9";
             panel9.Size = new Size(529, 58);
-            panel9.TabIndex = 6;
+            panel9.TabIndex = 3;
             // 
             // tbphone
             // 
@@ -197,7 +255,7 @@
             tbphone.Margin = new Padding(4, 3, 4, 3);
             tbphone.Name = "tbphone";
             tbphone.Size = new Size(322, 33);
-            tbphone.TabIndex = 1;
+            tbphone.TabIndex = 3;
             // 
             // labelNumCtm
             // 
@@ -225,11 +283,11 @@
             // 
             panel10.Controls.Add(tbAddress);
             panel10.Controls.Add(labelAdressCtm);
-            panel10.Location = new Point(0, 139);
+            panel10.Location = new Point(2, 203);
             panel10.Margin = new Padding(4, 3, 4, 3);
             panel10.Name = "panel10";
             panel10.Size = new Size(529, 58);
-            panel10.TabIndex = 5;
+            panel10.TabIndex = 2;
             // 
             // tbAddress
             // 
@@ -237,7 +295,7 @@
             tbAddress.Margin = new Padding(4, 3, 4, 3);
             tbAddress.Name = "tbAddress";
             tbAddress.Size = new Size(322, 33);
-            tbAddress.TabIndex = 1;
+            tbAddress.TabIndex = 2;
             // 
             // labelAdressCtm
             // 
@@ -255,11 +313,11 @@
             // 
             panel11.Controls.Add(tbCustomer);
             panel11.Controls.Add(labelNameCtm);
-            panel11.Location = new Point(0, 75);
+            panel11.Location = new Point(2, 75);
             panel11.Margin = new Padding(4, 3, 4, 3);
             panel11.Name = "panel11";
             panel11.Size = new Size(529, 58);
-            panel11.TabIndex = 4;
+            panel11.TabIndex = 0;
             // 
             // tbCustomer
             // 
@@ -267,7 +325,7 @@
             tbCustomer.Margin = new Padding(4, 3, 4, 3);
             tbCustomer.Name = "tbCustomer";
             tbCustomer.Size = new Size(322, 33);
-            tbCustomer.TabIndex = 1;
+            tbCustomer.TabIndex = 0;
             // 
             // labelNameCtm
             // 
@@ -276,9 +334,9 @@
             labelNameCtm.Location = new Point(4, 16);
             labelNameCtm.Margin = new Padding(4, 0, 4, 0);
             labelNameCtm.Name = "labelNameCtm";
-            labelNameCtm.Size = new Size(181, 26);
+            labelNameCtm.Size = new Size(124, 26);
             labelNameCtm.TabIndex = 0;
-            labelNameCtm.Text = "Tên Khách hàng";
+            labelNameCtm.Text = "Tên Khách";
             // 
             // panel5
             // 
@@ -291,7 +349,7 @@
             panel5.Controls.Add(button2);
             panel5.Location = new Point(538, 0);
             panel5.Name = "panel5";
-            panel5.Size = new Size(516, 548);
+            panel5.Size = new Size(516, 528);
             panel5.TabIndex = 26;
             // 
             // button1
@@ -302,7 +360,7 @@
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new Size(146, 52);
-            button1.TabIndex = 22;
+            button1.TabIndex = 7;
             button1.Text = "Thêm ảnh";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
@@ -311,11 +369,11 @@
             // 
             button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button3.Font = new Font("Arial", 11F, FontStyle.Bold);
-            button3.Location = new Point(325, 395);
+            button3.Location = new Point(325, 375);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new Size(146, 55);
-            button3.TabIndex = 25;
+            button3.TabIndex = 9;
             button3.Text = "Hủy";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
@@ -346,11 +404,11 @@
             // 
             button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button2.Font = new Font("Arial", 11F, FontStyle.Bold);
-            button2.Location = new Point(154, 395);
+            button2.Location = new Point(154, 375);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(146, 55);
-            button2.TabIndex = 24;
+            button2.TabIndex = 8;
             button2.Text = "Thêm";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
@@ -359,7 +417,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1054, 548);
+            ClientSize = new Size(1054, 528);
             Controls.Add(panel1);
             Font = new Font("Arial", 11F, FontStyle.Bold);
             Margin = new Padding(4, 3, 4, 3);
@@ -369,6 +427,8 @@
             panel1.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
@@ -416,5 +476,10 @@
         private PictureBox pictureBox1;
         private Panel panel5;
         private ComboBox textBox3;
+        private Panel panel6;
+        private ComboBox comboBoxSex;
+        private Label label3;
+        private TextBox tbAge;
+        private Label label6;
     }
 }

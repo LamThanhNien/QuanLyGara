@@ -201,6 +201,8 @@ INNER JOIN Car c ON cs.idCustomer = c.idCustomer;
 
 --thêm thông tin khách hàng mới
 create PROC InsertCustomer
+	@dk int,
+	@idKhach INT,
     @Ten NVARCHAR(50),
     @address NVARCHAR(50),
     @Mobile NVARCHAR(50),
@@ -216,16 +218,19 @@ BEGIN
     BEGIN
         RETURN;
     END
-
-    INSERT INTO Customer (name, address, phoneNum) 
-    VALUES (@Ten, @address, @Mobile);
-    SET @idCustomer = SCOPE_IDENTITY(); 
-    INSERT INTO Car (idCustomer, name, numberCar, logo, ImageBase64) 
-    VALUES (@idCustomer, @namecar, @numcar, @logo, @filePath);
-	--SET @idCar = SCOPE_IDENTITY();
-	--INSERT INTO Bill (idCustomer, idCar, DateCheckIn, status) 
-    --VALUES (@idCustomer, @idCar, GETDATE(), 0); -- Hóa đơn ban đầu có trạng thái chưa thanh toán (0)
-
+	IF(@dk=0)
+	BEGIN
+		INSERT INTO Customer (name, address, phoneNum) 
+		VALUES (@Ten, @address, @Mobile);
+		SET @idCustomer = SCOPE_IDENTITY(); 
+		INSERT INTO Car (idCustomer, name, numberCar, logo, ImageBase64) 
+		VALUES (@idCustomer, @namecar, @numcar, @logo, @filePath);
+	END;
+	IF(@dk=1)
+	BEGIN 
+		INSERT INTO Car (idCustomer, name, numberCar, logo, ImageBase64) 
+		VALUES (@idKhach, @namecar, @numcar, @logo, @filePath);
+	END;
 	
 END;
 
@@ -371,15 +376,26 @@ BEGIN
 END;
 
 CREATE PROC USP_UpdateBillInfo
-    @idBill INT
+	@stt int,
+    @idBill INT,
+	@IdMaterial int
 AS
 BEGIN
+	IF(@stt=1)
+	BEGIN
         UPDATE BillInfo
         SET isPaid = 1
         WHERE idBill = @idBill;
+	END;
+	IF(@stt=0)
+	BEGIN
+	    UPDATE BillInfo
+        SET isPaid = 0
+        WHERE idBill = @idBill AND idMaterial = @IdMaterial;
+	END;
 END;
 
-Alter PROC USP_lastBill
+CREATE PROC USP_lastBill
 	@idBill int
 AS
 BEGIN

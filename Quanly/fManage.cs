@@ -26,8 +26,8 @@ namespace Quanly
             InitializeComponent();
             loadThanhToan();
             loadCar();
-            LoadMaterial();
 
+            LoadMaterial();
             LoadCombobox_Service();
         }
         //Phân load các tapcontrol
@@ -39,30 +39,59 @@ namespace Quanly
         {
             DAO.CarDAO.Instance.LoadDL(dtgvCar);
         }
+        void loadCustomer()
+        { }
         void LoadMaterial()
         {
-            DAO.MaterialDAO.Instance.LoadDL(dtgvMaterial);
+            DAO.MaterialDAO.Instance.LoadDL(dtgvService);
         }
+
         //
         //Phần Load Combobox
         void LoadCombobox_Service()
         {
-            int IDService = DAO.ServiceDAO.Instance.LoadDL(comboBox1);
-            LoadCombobox_Material(IDService);
-        }
-        void LoadCombobox_Material(int IDService)
-        {
-            DAO.MaterialDAO.Instance.ComboBoxLoad(comboBox2,IDService);
+            DataTable data = DAO.ServiceDAO.Instance.LoadDL();
+            comboBox1.DataSource = data;
+            comboBox1.DisplayMember = "name";
+            comboBox1.ValueMember = "idService";
+            if (comboBox1.Items.Count > 0)
+            {
+                comboBox1.SelectedIndex = 0;
+                int idService = Convert.ToInt32(comboBox1.SelectedValue);
+                LoadCombobox_Material(idService);
+            }
         }
 
+        void LoadCombobox_Material(int idService)
+        {
+            DataTable data = DAO.MaterialDAO.Instance.ComboBoxLoad(idService);
+            comboBox2.DataSource = data;
+            comboBox2.DisplayMember = "name";
+            comboBox2.ValueMember = "idMaterial";
+
+            if (comboBox2.Items.Count > 0)
+            {
+                comboBox2.SelectedIndex = 0;
+            }
+        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedValue != null)
+            {
+                int idService = Convert.ToInt32(comboBox1.SelectedValue);
+                LoadCombobox_Material(idService);
+            }
+        }
 
         void showBill(int idCustomer)
         {
             listViewPrice.Items.Clear();
             tbTotal.Clear();
             int idBIll = DAO.BillDAO.Instance.GetIdBill(idCustomer);
+
             List<DTO.Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(idBIll);
             float totalPrice = 0;
+
             foreach (DTO.Menu item in listBillInfo)
             {
                 ListViewItem lvItem = new ListViewItem(item.Name);
@@ -72,8 +101,10 @@ namespace Quanly
                 totalPrice += item.TotalPrice;
                 listViewPrice.Items.Add(lvItem);
             }
+
             tbTotal.Text = totalPrice.ToString("c", new CultureInfo("vi-VN"));
         }
+
 
         //Phần chuyển giao diện
         private void button1_Click(object sender, EventArgs e)
@@ -136,6 +167,7 @@ namespace Quanly
         }
         //
         //Phần dtgv
+        int idKhach = 0;
         private void dtgvCar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dtgvCar.Rows.Count > 0)
@@ -147,6 +179,8 @@ namespace Quanly
                 tbAddress1.Text = row.Cells["address"].Value?.ToString();
                 tbphone1.Text = row.Cells["phoneNum"].Value?.ToString();
                 pictureBox1.Image = Image.FromFile(row.Cells["ImageBase64"].Value?.ToString());
+                object value = row.Cells["idCustomer"].Value;
+                idKhach = (value != null && value != DBNull.Value) ? Convert.ToInt32(value) : 0;
             }
 
         }
@@ -190,11 +224,18 @@ namespace Quanly
 
             if (idBill > 0)
             {
+                int status = BillDAO.Instance.GetStatus(idCustomer); // Kiểm tra trạng thái hóa đơn
                 BillInfoDAO.Instance.InsertBillInfo(idBill, IdService, IdMaterial, count);
-                showBill(idBill);
+
+                // Chỉ cập nhật số lượng mới thêm nếu hóa đơn đã thanh toán
+                if (status == 1) { 
+                    DAO.BillInfoDAO.Instance.UpdateBillInfo(0, idBill, IdMaterial);
+                    showBill(idCustomer);
+                }
             }
         }
-        
+
+
 
         private void Thanhtoan_Click(object sender, EventArgs e)
         {
@@ -212,7 +253,7 @@ namespace Quanly
                 return;
             }
 
-            DialogResult check = MessageBox.Show("Thanh toán cho Khách hàng Tên: " + tbCtm.Text + "\nTổng hóa đơn phải thanh toán là: " + tbTotal.Text,"Xác nhận Thanh toán", MessageBoxButtons.YesNo);
+            DialogResult check = MessageBox.Show("Thanh toán cho Khách hàng Tên: " + tbCtm.Text + "\nTổng hóa đơn phải thanh toán là: " + tbTotal.Text, "Xác nhận Thanh toán", MessageBoxButtons.YesNo);
 
             if (check == DialogResult.Yes)
             {
@@ -230,16 +271,21 @@ namespace Quanly
                 }
             }
         }
+        //dtgvCar
         private void AddCar_Click(object sender, EventArgs e)
         {
+            int Idcustomer = idKhach;
             string nameCustomer = tbCustomer1.Text;
             string phone = tbphone1.Text;
             string address = tbAddress1.Text;
-            fAddCustomer fAdd = new fAddCustomer(nameCustomer, phone, address);
+            fAddCustomer fAdd = new fAddCustomer(Idcustomer, nameCustomer, phone, address);
             fAdd.ShowDialog();
+            loadThanhToan();
+            loadCar();
             this.Show();
 
         }
+
     }
     //
 }

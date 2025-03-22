@@ -25,7 +25,7 @@ namespace Quanly.DAO
             string query = "SELECT * FROM Material";
             dtgvMaterial.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
-        public void ComboBoxLoad(ComboBox comboBox2, int idService)
+        public DataTable ComboBoxLoad(int idService)
         {
             string query = @"SELECT M.idMaterial, M.name 
                      FROM Material M 
@@ -34,14 +34,7 @@ namespace Quanly.DAO
                      WHERE SM.idService = @idService";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idService });
-            comboBox2.DataSource = data;
-            comboBox2.DisplayMember = "name";
-            comboBox2.ValueMember = "idMaterial";
-
-            if (comboBox2.Items.Count > 0)
-            {
-                comboBox2.SelectedIndex = 0;
-            }
+           return data;
         }
     }
 }

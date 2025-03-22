@@ -24,7 +24,7 @@ namespace Quanly.DAO
         private CarDAO() { }
         public void LoadDL(DataGridView dtgvCar)
         {
-            string query = "SELECT cs.name, c.name as namecar,c.numberCar,cs.address,cs.phoneNum, c.ImageBase64\r\nFROM Customer cs \r\nINNER JOIN Car c ON cs.idCustomer = c.idCustomer;";
+            string query = "SELECT cs.name, c.name as namecar,c.numberCar,cs.address,cs.phoneNum, c.ImageBase64,c.idCustomer\r\nFROM Customer cs \r\nINNER JOIN Car c ON cs.idCustomer = c.idCustomer;";
             dtgvCar.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
         public int GetCar(int idCustomer, string namecar, int numcar, string logo, string filePath )

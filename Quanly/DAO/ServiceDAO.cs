@@ -37,22 +37,11 @@ namespace Quanly.DAO
         //    }
         //    return list;
         //}
-        public int LoadDL(ComboBox comboBox1)
+        public DataTable LoadDL()
         {
-            int idService = 0;
             string query = "SELECT idService, name FROM _Service";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
-            comboBox1.DataSource = data;
-            comboBox1.DisplayMember = "name";
-            comboBox1.ValueMember = "idService";
-            if (comboBox1.Items.Count > 0)
-            {
-                comboBox1.SelectedIndex = 0;
-                idService = Convert.ToInt32(comboBox1.SelectedValue);
-                
-                //DAO.MaterialDAO.Instance.ComboboxLoad(comboBox1,idService);
-            }
-            return idService;
+            return data;
         }
 
     }
