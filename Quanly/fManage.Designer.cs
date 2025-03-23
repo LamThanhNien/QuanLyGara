@@ -124,7 +124,7 @@
             panel31 = new Panel();
             tbXuatsu = new TextBox();
             label21 = new Label();
-            pictureBox2 = new PictureBox();
+            pictureBoxSv = new PictureBox();
             panel27 = new Panel();
             textBox7 = new TextBox();
             label17 = new Label();
@@ -173,7 +173,7 @@
             panel33.SuspendLayout();
             panel32.SuspendLayout();
             panel31.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSv).BeginInit();
             panel27.SuspendLayout();
             panel26.SuspendLayout();
             panel25.SuspendLayout();
@@ -1089,7 +1089,7 @@
             panel23.Controls.Add(panel33);
             panel23.Controls.Add(panel32);
             panel23.Controls.Add(panel31);
-            panel23.Controls.Add(pictureBox2);
+            panel23.Controls.Add(pictureBoxSv);
             panel23.Controls.Add(panel27);
             panel23.Controls.Add(panel26);
             panel23.Controls.Add(label15);
@@ -1108,6 +1108,7 @@
             btnAddImage.TabIndex = 31;
             btnAddImage.Text = "Thêm ảnh";
             btnAddImage.UseVisualStyleBackColor = true;
+            btnAddImage.Click += btnAddImage_Click;
             // 
             // panel33
             // 
@@ -1199,13 +1200,13 @@
             label21.TabIndex = 0;
             label21.Text = "Xuất sứ";
             // 
-            // pictureBox2
+            // pictureBoxSv
             // 
-            pictureBox2.Location = new Point(7, 125);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(241, 197);
-            pictureBox2.TabIndex = 25;
-            pictureBox2.TabStop = false;
+            pictureBoxSv.Location = new Point(7, 125);
+            pictureBoxSv.Name = "pictureBoxSv";
+            pictureBoxSv.Size = new Size(241, 197);
+            pictureBoxSv.TabIndex = 25;
+            pictureBoxSv.TabStop = false;
             // 
             // panel27
             // 
@@ -1403,7 +1404,7 @@
             panel32.PerformLayout();
             panel31.ResumeLayout(false);
             panel31.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSv).EndInit();
             panel27.ResumeLayout(false);
             panel27.PerformLayout();
             panel26.ResumeLayout(false);
@@ -1491,7 +1492,7 @@
         private Panel panel31;
         private TextBox tbXuatsu;
         private Label label21;
-        private PictureBox pictureBox2;
+        private PictureBox pictureBoxSv;
         private Panel panel33;
         private TextBox tbQuantity;
         private Label label23;

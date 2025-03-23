@@ -274,25 +274,28 @@ JOIN _Service s ON bi.idService = s.idService
 JOIN Material m ON bi.idMaterial = m.idMaterial
 WHERE b.idBill = @id
 
-
-Create PROCEDURE USP_InsertBill
+create PROCEDURE USP_InsertBill
     @IdCustomer INT  
 AS
 BEGIN
     DECLARE @InsertedId INT;
     DECLARE @IdCar INT;
+
+    -- Tìm idCar của khách hàng
     SELECT TOP 1 @IdCar = idCar 
     FROM Car 
     WHERE idCustomer = @IdCustomer;
 
-    -- 🔹 Nếu tìm thấy idCar, thêm hóa đơn
+    -- Nếu tìm thấy idCar, thêm hóa đơn
     IF @IdCar IS NOT NULL
     BEGIN
         INSERT INTO Bill (idCustomer, idCar, DateCheckIn, DateCheckOut, status)
         VALUES (@IdCustomer, @IdCar, GETDATE(), NULL, 0);
 
+        -- Lấy idBill vừa được tạo
         SET @InsertedId = SCOPE_IDENTITY();  
 
+        -- Trả về idBill
         SELECT @InsertedId AS idBill;  
     END
     ELSE
@@ -301,7 +304,6 @@ BEGIN
         SELECT -1 AS idBill;
     END
 END
-
 
 select MAX(idBill) from Bill
 
@@ -342,28 +344,7 @@ END;
 
 
 
-
-
-
-SELECT top 1 idBill + 1 FROM Bill ORDER BY idBill DESC
-
-
-
-select c.name, car.name
-from Customer c
-join Car on c.idCustomer = Car.idCustomer
-
-SELECT 
-    (bi.quantity* s.price) AS totalPrice
-FROM Bill b
-JOIN BillInfo bi ON b.idBill = bi.idBill
-JOIN _Service s ON bi.idService = s.idService
-JOIN Material m ON bi.idMaterial = m.idMaterial
-where b.idBill = 4
-
-select * from BillInfo
-
-ALTER PROCEDURE USP_ThanhToan
+CREATE PROCEDURE USP_ThanhToan
     @idBill INT
 AS
 BEGIN
@@ -407,7 +388,7 @@ END;
 
 
 
-CREATE PROC USP_UpdateBillInfo
+Alter PROC USP_UpdateBillInfo
 	@stt int,
     @idBill INT,
 	@IdMaterial int
@@ -417,7 +398,7 @@ BEGIN
 	BEGIN
         UPDATE BillInfo
         SET isPaid = 1
-        WHERE idBill = @idBill;
+        WHERE idBill = @idBicll;
 	END;
 	IF(@stt=0)
 	BEGIN
@@ -475,12 +456,12 @@ SELECT * FROM Material
 select * from Bill
 select * from BillInfo
 
-ALTER PROC UPS_InsertMaterial
+CREATE PROC UPS_InsertMaterial
 	@idMaterial INT,
 	@name NVARCHAR(50),
 	@type NVARCHAR(20),
 	@noiSx NVARCHAR(50),
-	@quantity INT,
+	@quantity INT, 
 	@price DECIMAL(18,2)
 AS
 BEGIN
@@ -488,3 +469,5 @@ BEGIN
 	SET name = @name, type = @type, NoiSx = @noiSx, quantity = @quantity, price = @price
 	WHERE idMaterial = @idMaterial
 END;
+
+Select count(*) FROM Bill where idCustomer = @idCustomer and @status = 1

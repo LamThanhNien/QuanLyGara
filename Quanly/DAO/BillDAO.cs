@@ -39,13 +39,19 @@ namespace Quanly.DAO
             object result =  DataProvider.Instance.ExecuteScalar(" USP_InsertBill @idTable ", new object[] { idCustomer });
             return (result != null) ? Convert.ToInt32(result) : -1;
         }
+        //public int GetIdBill(int idCustomer)
+        //{
+        //    string query = "SELECT idBill FROM Bill WHERE idCustomer = @idCustomer";
+
+        //    object result = DataProvider.Instance.ExecuteScalar(query, new object[] { idCustomer });
+
+        //    return (result != null) ? Convert.ToInt32(result) : -1;
+        //}
         public int GetIdBill(int idCustomer)
         {
-            string query = "SELECT idBill FROM Bill WHERE idCustomer = @idCustomer";
-
-            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { idCustomer });
-
-            return (result != null) ? Convert.ToInt32(result) : -1;
+            string query = "SELECT TOP 1 idBill FROM Bill WHERE idCustomer = @idCustomer AND status = 0 ORDER BY idBill DESC";
+            object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idCustomer });
+            return (result != null) ? Convert.ToInt32(result) : 0;
         }
         public int GetStatus(int idCustomer)
         {
@@ -53,7 +59,12 @@ namespace Quanly.DAO
             object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idCustomer });
             return (result != null) ? Convert.ToInt32(result) : -1;
         }
-
+        public int slBill(int idCustomer, int status)
+        {
+            string query = "Select count(*) FROM Bill where idCustomer = @idCustomer and @status = 1";
+            object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idCustomer, status });
+            return (result != null) ? Convert.ToInt32(result) : -1;
+        }
 
     }
 }

@@ -162,6 +162,7 @@ namespace Quanly
         int idCustomer;
         private void dtgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex >= 0 && dtgvCustomer.Rows.Count > 0)
             {
                 DataGridViewRow row = dtgvCustomer.Rows[e.RowIndex];
@@ -288,14 +289,18 @@ namespace Quanly
             }
         }
 
-
         private void ThemBill_Click(object sender, EventArgs e)
         {
+            int status = BillDAO.Instance.GetStatus(idCustomer);
+
             int idBill = BillDAO.Instance.GetIdBill(idCustomer);
             int IdService = comboBox1.SelectedValue != null ? Convert.ToInt32(comboBox1.SelectedValue) : -1;
             int IdMaterial = comboBox2.SelectedValue != null ? Convert.ToInt32(comboBox2.SelectedValue) : -1;
             int count = (int)numericUpDown1.Value;
-
+            if (idBill <= 0)
+            {
+                idBill = BillDAO.Instance.InsertBill(idCustomer);
+            }
             if (idBill <= 0)
             {
                 idBill = BillDAO.Instance.InsertBill(idCustomer);
@@ -303,15 +308,8 @@ namespace Quanly
 
             if (idBill > 0)
             {
-                int status = BillDAO.Instance.GetStatus(idCustomer); // Kiểm tra trạng thái hóa đơn
                 BillInfoDAO.Instance.InsertBillInfo(idBill, IdService, IdMaterial, count);
-
-                // Chỉ cập nhật số lượng mới thêm nếu hóa đơn đã thanh toán
-                if (status == 1)
-                {
-                    DAO.BillInfoDAO.Instance.UpdateBillInfo(0, idBill, IdMaterial);
-                    showBill(idCustomer);
-                }
+                showBill(idCustomer);
             }
         }
 
@@ -333,15 +331,18 @@ namespace Quanly
                 return;
             }
 
-            DialogResult check = MessageBox.Show("Thanh toán cho Khách hàng Tên: " + tbCtm.Text + "\nTổng hóa đơn phải thanh toán là: " + tbTotal.Text, "Xác nhận Thanh toán", MessageBoxButtons.YesNo);
+            DialogResult check = MessageBox.Show(
+                "Thanh toán cho Khách hàng Tên: " + tbCtm.Text +
+                "\nTổng hóa đơn phải thanh toán là: " + tbTotal.Text,
+                "Xác nhận Thanh toán",
+                MessageBoxButtons.YesNo
+            );
 
             if (check == DialogResult.Yes)
             {
                 int result = DAO.ThanhToanDAO.Instance.ThanhToan(idBill);
                 if (result > 0)
                 {
-                    DAO.BillInfoDAO.Instance.UpdateBillInfo(1, idBill, 0);
-                    MessageBox.Show("Thanh Toán Hoàn Tất!");
                     showBill(idCustomer);
                     listViewPrice.Items.Clear();
                 }
@@ -387,6 +388,7 @@ namespace Quanly
         {
             int idCarr = idCar;
             if (idCar == -1) { MessageBox.Show("Không tìm thấy xe"); return; }
+
             string name = tbNCar1.Text;
             string numcar = tbNumCar1.Text;
             string color = tbColor.Text;
@@ -428,6 +430,22 @@ namespace Quanly
             decimal gia = Convert.ToDecimal(tbPrice);
             DAO.MaterialDAO.Instance.Insert_Material(id, name, type, noiSX, sl, gia);
             LoadMaterial();
+        }
+
+        private void btnAddImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Ảnh (*.jpg;*.png;*.jpeg)|*.jpg;*.png;*.jpeg",
+                Title = "Chọn ảnh"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                pictureBoxCar.Image = Image.FromFile(filePath);
+                pictureBoxCar.Tag = filePath;
+            }
         }
     }
 }
