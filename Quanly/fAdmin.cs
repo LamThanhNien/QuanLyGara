@@ -27,7 +27,7 @@ namespace Quanly
         void loadAccount()
         {
             string query = "SELECT * FROM Account";
-            dtgvAccount.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            dtgvService.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
         void loadDt()
         {

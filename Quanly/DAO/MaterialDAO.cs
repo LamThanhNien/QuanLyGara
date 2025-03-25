@@ -37,10 +37,18 @@ namespace Quanly.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idService });
            return data;
         }
-        public int Insert_Material(int idMaterial, string name, string type, string noiSX, int sl, Decimal price)
+        public int Insert_Material(int dk, int idService, int idMaterial, string name, string type, string Phanloai, string noiSX, int sl, float price, string image)
         {
-            string query = "UPS_InsertMaterial @idMaterial , @name , @type , @noiSx , @quantity , @price ";
-            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { idMaterial, name, type, noiSX, sl, price });
+            if (string.IsNullOrEmpty(image))
+            {
+                string queryGetImage = "SELECT images FROM Material where idMaterial  = @idMaterial";
+                object oldImage = DataProvider.Instance.ExecuteScalar(queryGetImage, new object[] { idMaterial });
+
+                image = oldImage != null ? oldImage.ToString() : null; // Giữ ảnh cũ nếu có
+            }
+            string query = "UPS_Material @dk , @idService , @idMaterial , @name , @type , @PhanLoai , @noiSx , @quantity , @price , @image ";
+            object imgValue = string.IsNullOrEmpty(image) ? (object)DBNull.Value : image;
+            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] {dk,idService,idMaterial,name, type,Phanloai, noiSX, sl, price , imgValue });
             return result;
         }
     }

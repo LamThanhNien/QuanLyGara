@@ -28,11 +28,11 @@ namespace Quanly.DAO
             List<DTO.Menu> listMenu = new List<DTO.Menu>();
 
             string query = @"SELECT 
-                                s.name, 
-                                s.price, 
+                                m.name, 
+                                m.price, 
                                 bi.quantity, 
                                 b.idBill,
-                                (bi.quantity* s.price) AS totalPrice
+                                (bi.quantity* m.price) AS totalPrice
                             FROM Bill b
                             JOIN BillInfo bi ON b.idBill = bi.idBill
                             JOIN _Service s ON bi.idService = s.idService

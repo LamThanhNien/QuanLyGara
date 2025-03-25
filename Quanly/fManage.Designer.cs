@@ -31,10 +31,39 @@
             panel1 = new Panel();
             button4 = new Button();
             button3 = new Button();
-            button2 = new Button();
+            btnAdmin = new Button();
             button1 = new Button();
             pictureBoxImage = new PictureBox();
-            AddCar = new Button();
+            tabPage4 = new TabPage();
+            dtgvService = new DataGridView();
+            btnDl = new Button();
+            button9 = new Button();
+            btnAdd = new Button();
+            panel23 = new Panel();
+            btnAddImage = new Button();
+            panel33 = new Panel();
+            tbQuantity = new TextBox();
+            label23 = new Label();
+            panel32 = new Panel();
+            tbPrice = new TextBox();
+            label22 = new Label();
+            panel31 = new Panel();
+            tbXuatsu = new TextBox();
+            label21 = new Label();
+            pictureBoxSv = new PictureBox();
+            panel27 = new Panel();
+            comboBoxLoad = new ComboBox();
+            label17 = new Label();
+            panel26 = new Panel();
+            tbType = new TextBox();
+            label16 = new Label();
+            label15 = new Label();
+            panel25 = new Panel();
+            tbnameSv = new TextBox();
+            label13 = new Label();
+            panel24 = new Panel();
+            button7 = new Button();
+            tbSv = new TextBox();
             tabPage3 = new TabPage();
             dtgvCustomer0 = new DataGridView();
             panel7 = new Panel();
@@ -61,6 +90,7 @@
             panel6 = new Panel();
             btnAddImage1 = new Button();
             btnDelete0 = new Button();
+            AddCar = new Button();
             btnFix0 = new Button();
             panel12 = new Panel();
             tbphone1 = new TextBox();
@@ -92,6 +122,8 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            label20 = new Label();
+            label12 = new Label();
             numericUpDown1 = new NumericUpDown();
             button8 = new Button();
             comboBox2 = new ComboBox();
@@ -108,38 +140,19 @@
             panel18 = new Panel();
             dtgvCustomer = new DataGridView();
             dtgvMaterial = new TabControl();
-            tabPage4 = new TabPage();
-            dtgvService = new DataGridView();
-            btnDl = new Button();
-            button9 = new Button();
-            btnAdd = new Button();
-            panel23 = new Panel();
-            btnAddImage = new Button();
-            panel33 = new Panel();
-            tbQuantity = new TextBox();
-            label23 = new Label();
-            panel32 = new Panel();
-            tbPrice = new TextBox();
-            label22 = new Label();
-            panel31 = new Panel();
-            tbXuatsu = new TextBox();
-            label21 = new Label();
-            pictureBoxSv = new PictureBox();
-            panel27 = new Panel();
-            textBox7 = new TextBox();
-            label17 = new Label();
-            panel26 = new Panel();
-            tbType = new TextBox();
-            label16 = new Label();
-            label15 = new Label();
-            panel25 = new Panel();
-            tbnameSv = new TextBox();
-            label13 = new Label();
-            panel24 = new Panel();
-            button7 = new Button();
-            tbSv = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxImage).BeginInit();
+            tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgvService).BeginInit();
+            panel23.SuspendLayout();
+            panel33.SuspendLayout();
+            panel32.SuspendLayout();
+            panel31.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSv).BeginInit();
+            panel27.SuspendLayout();
+            panel26.SuspendLayout();
+            panel25.SuspendLayout();
+            panel24.SuspendLayout();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvCustomer0).BeginInit();
             panel7.SuspendLayout();
@@ -167,17 +180,6 @@
             panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvCustomer).BeginInit();
             dtgvMaterial.SuspendLayout();
-            tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgvService).BeginInit();
-            panel23.SuspendLayout();
-            panel33.SuspendLayout();
-            panel32.SuspendLayout();
-            panel31.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxSv).BeginInit();
-            panel27.SuspendLayout();
-            panel26.SuspendLayout();
-            panel25.SuspendLayout();
-            panel24.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -185,7 +187,7 @@
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Controls.Add(button4);
             panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(btnAdmin);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(pictureBoxImage);
             panel1.Dock = DockStyle.Left;
@@ -223,19 +225,19 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
-            // button2
+            // btnAdmin
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button2.BackColor = SystemColors.ActiveCaption;
-            button2.Font = new Font("Arial", 11F, FontStyle.Bold);
-            button2.Location = new Point(4, 702);
-            button2.Margin = new Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(192, 47);
-            button2.TabIndex = 2;
-            button2.Text = "Admin";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            btnAdmin.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAdmin.BackColor = SystemColors.ActiveCaption;
+            btnAdmin.Font = new Font("Arial", 11F, FontStyle.Bold);
+            btnAdmin.Location = new Point(4, 702);
+            btnAdmin.Margin = new Padding(4, 3, 4, 3);
+            btnAdmin.Name = "btnAdmin";
+            btnAdmin.Size = new Size(192, 47);
+            btnAdmin.TabIndex = 2;
+            btnAdmin.Text = "Admin";
+            btnAdmin.UseVisualStyleBackColor = false;
+            btnAdmin.Click += button2_Click;
             // 
             // button1
             // 
@@ -261,17 +263,319 @@
             pictureBoxImage.TabIndex = 0;
             pictureBoxImage.TabStop = false;
             // 
-            // AddCar
+            // tabPage4
             // 
-            AddCar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            AddCar.BackColor = SystemColors.ActiveCaption;
-            AddCar.Location = new Point(23, 708);
-            AddCar.Name = "AddCar";
-            AddCar.Size = new Size(133, 59);
-            AddCar.TabIndex = 12;
-            AddCar.Text = "Thêm xe";
-            AddCar.UseVisualStyleBackColor = false;
-            AddCar.Click += AddCar_Click;
+            tabPage4.Controls.Add(dtgvService);
+            tabPage4.Controls.Add(btnDl);
+            tabPage4.Controls.Add(button9);
+            tabPage4.Controls.Add(btnAdd);
+            tabPage4.Controls.Add(panel23);
+            tabPage4.Location = new Point(4, 35);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(1164, 829);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Phụ Tùng";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dtgvService
+            // 
+            dtgvService.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgvService.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvService.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvService.Location = new Point(3, 6);
+            dtgvService.Name = "dtgvService";
+            dtgvService.RowHeadersWidth = 62;
+            dtgvService.Size = new Size(600, 817);
+            dtgvService.TabIndex = 31;
+            dtgvService.CellClick += dtgvService_CellClick;
+            // 
+            // btnDl
+            // 
+            btnDl.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnDl.Location = new Point(1007, 770);
+            btnDl.Name = "btnDl";
+            btnDl.Size = new Size(112, 34);
+            btnDl.TabIndex = 30;
+            btnDl.Text = "Xóa";
+            btnDl.UseVisualStyleBackColor = true;
+            btnDl.Click += btnDl_Click;
+            // 
+            // button9
+            // 
+            button9.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button9.Location = new Point(848, 770);
+            button9.Name = "button9";
+            button9.Size = new Size(112, 34);
+            button9.TabIndex = 29;
+            button9.Text = "Sửa";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += btnFixSv_Click;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAdd.Location = new Point(683, 770);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(112, 34);
+            btnAdd.TabIndex = 28;
+            btnAdd.Text = "Thêm";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // panel23
+            // 
+            panel23.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panel23.Controls.Add(btnAddImage);
+            panel23.Controls.Add(panel33);
+            panel23.Controls.Add(panel32);
+            panel23.Controls.Add(panel31);
+            panel23.Controls.Add(pictureBoxSv);
+            panel23.Controls.Add(panel27);
+            panel23.Controls.Add(panel26);
+            panel23.Controls.Add(label15);
+            panel23.Controls.Add(panel25);
+            panel23.Controls.Add(panel24);
+            panel23.Location = new Point(609, 3);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(549, 741);
+            panel23.TabIndex = 0;
+            // 
+            // btnAddImage
+            // 
+            btnAddImage.Location = new Point(284, 125);
+            btnAddImage.Name = "btnAddImage";
+            btnAddImage.Size = new Size(144, 58);
+            btnAddImage.TabIndex = 31;
+            btnAddImage.Text = "Thêm ảnh";
+            btnAddImage.UseVisualStyleBackColor = true;
+            btnAddImage.Click += btnAddImage_Click;
+            // 
+            // panel33
+            // 
+            panel33.Anchor = AnchorStyles.None;
+            panel33.Controls.Add(tbQuantity);
+            panel33.Controls.Add(label23);
+            panel33.Location = new Point(4, 657);
+            panel33.Margin = new Padding(4, 3, 4, 3);
+            panel33.Name = "panel33";
+            panel33.Size = new Size(538, 58);
+            panel33.TabIndex = 24;
+            // 
+            // tbQuantity
+            // 
+            tbQuantity.Location = new Point(224, 13);
+            tbQuantity.Margin = new Padding(4, 3, 4, 3);
+            tbQuantity.Name = "tbQuantity";
+            tbQuantity.Size = new Size(282, 33);
+            tbQuantity.TabIndex = 1;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.ImageAlign = ContentAlignment.TopCenter;
+            label23.Location = new Point(4, 16);
+            label23.Margin = new Padding(4, 0, 4, 0);
+            label23.Name = "label23";
+            label23.Size = new Size(212, 26);
+            label23.TabIndex = 0;
+            label23.Text = "Số Lượng Tồn Kho";
+            // 
+            // panel32
+            // 
+            panel32.Anchor = AnchorStyles.None;
+            panel32.Controls.Add(tbPrice);
+            panel32.Controls.Add(label22);
+            panel32.Location = new Point(4, 593);
+            panel32.Margin = new Padding(4, 3, 4, 3);
+            panel32.Name = "panel32";
+            panel32.Size = new Size(538, 58);
+            panel32.TabIndex = 27;
+            // 
+            // tbPrice
+            // 
+            tbPrice.Location = new Point(115, 13);
+            tbPrice.Margin = new Padding(4, 3, 4, 3);
+            tbPrice.Name = "tbPrice";
+            tbPrice.Size = new Size(391, 33);
+            tbPrice.TabIndex = 1;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.ImageAlign = ContentAlignment.TopCenter;
+            label22.Location = new Point(4, 16);
+            label22.Margin = new Padding(4, 0, 4, 0);
+            label22.Name = "label22";
+            label22.Size = new Size(80, 26);
+            label22.TabIndex = 0;
+            label22.Text = "Giá Cả";
+            // 
+            // panel31
+            // 
+            panel31.Anchor = AnchorStyles.None;
+            panel31.Controls.Add(tbXuatsu);
+            panel31.Controls.Add(label21);
+            panel31.Location = new Point(4, 529);
+            panel31.Margin = new Padding(4, 3, 4, 3);
+            panel31.Name = "panel31";
+            panel31.Size = new Size(538, 58);
+            panel31.TabIndex = 26;
+            // 
+            // tbXuatsu
+            // 
+            tbXuatsu.Location = new Point(115, 13);
+            tbXuatsu.Margin = new Padding(4, 3, 4, 3);
+            tbXuatsu.Name = "tbXuatsu";
+            tbXuatsu.Size = new Size(391, 33);
+            tbXuatsu.TabIndex = 1;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.ImageAlign = ContentAlignment.TopCenter;
+            label21.Location = new Point(4, 16);
+            label21.Margin = new Padding(4, 0, 4, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(93, 26);
+            label21.TabIndex = 0;
+            label21.Text = "Xuất sứ";
+            // 
+            // pictureBoxSv
+            // 
+            pictureBoxSv.Location = new Point(7, 125);
+            pictureBoxSv.Name = "pictureBoxSv";
+            pictureBoxSv.Size = new Size(241, 197);
+            pictureBoxSv.TabIndex = 25;
+            pictureBoxSv.TabStop = false;
+            // 
+            // panel27
+            // 
+            panel27.Anchor = AnchorStyles.None;
+            panel27.Controls.Add(comboBoxLoad);
+            panel27.Controls.Add(label17);
+            panel27.Location = new Point(4, 465);
+            panel27.Margin = new Padding(4, 3, 4, 3);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(538, 58);
+            panel27.TabIndex = 24;
+            // 
+            // comboBoxLoad
+            // 
+            comboBoxLoad.FormattingEnabled = true;
+            comboBoxLoad.Location = new Point(181, 13);
+            comboBoxLoad.Name = "comboBoxLoad";
+            comboBoxLoad.Size = new Size(325, 34);
+            comboBoxLoad.TabIndex = 32;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.ImageAlign = ContentAlignment.TopCenter;
+            label17.Location = new Point(4, 16);
+            label17.Margin = new Padding(4, 0, 4, 0);
+            label17.Name = "label17";
+            label17.Size = new Size(114, 26);
+            label17.TabIndex = 0;
+            label17.Text = "Phân Loại";
+            // 
+            // panel26
+            // 
+            panel26.Anchor = AnchorStyles.None;
+            panel26.Controls.Add(tbType);
+            panel26.Controls.Add(label16);
+            panel26.Location = new Point(4, 401);
+            panel26.Margin = new Padding(4, 3, 4, 3);
+            panel26.Name = "panel26";
+            panel26.Size = new Size(538, 58);
+            panel26.TabIndex = 23;
+            // 
+            // tbType
+            // 
+            tbType.Location = new Point(115, 13);
+            tbType.Margin = new Padding(4, 3, 4, 3);
+            tbType.Name = "tbType";
+            tbType.Size = new Size(391, 33);
+            tbType.TabIndex = 1;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.ImageAlign = ContentAlignment.TopCenter;
+            label16.Location = new Point(4, 16);
+            label16.Margin = new Padding(4, 0, 4, 0);
+            label16.Name = "label16";
+            label16.Size = new Size(55, 26);
+            label16.TabIndex = 0;
+            label16.Text = "Loại";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(7, 84);
+            label15.Name = "label15";
+            label15.Size = new Size(216, 26);
+            label15.TabIndex = 22;
+            label15.Text = "Thông tin sản phẩm";
+            // 
+            // panel25
+            // 
+            panel25.Anchor = AnchorStyles.None;
+            panel25.Controls.Add(tbnameSv);
+            panel25.Controls.Add(label13);
+            panel25.Location = new Point(4, 337);
+            panel25.Margin = new Padding(4, 3, 4, 3);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(538, 58);
+            panel25.TabIndex = 21;
+            // 
+            // tbnameSv
+            // 
+            tbnameSv.Location = new Point(115, 13);
+            tbnameSv.Margin = new Padding(4, 3, 4, 3);
+            tbnameSv.Name = "tbnameSv";
+            tbnameSv.Size = new Size(391, 33);
+            tbnameSv.TabIndex = 1;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.ImageAlign = ContentAlignment.TopCenter;
+            label13.Location = new Point(4, 16);
+            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(52, 26);
+            label13.TabIndex = 0;
+            label13.Text = "Tên";
+            // 
+            // panel24
+            // 
+            panel24.Controls.Add(button7);
+            panel24.Controls.Add(tbSv);
+            panel24.Location = new Point(4, 11);
+            panel24.Margin = new Padding(4, 3, 4, 3);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(539, 70);
+            panel24.TabIndex = 20;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(363, 15);
+            button7.Margin = new Padding(4, 3, 4, 3);
+            button7.Name = "button7";
+            button7.Size = new Size(143, 35);
+            button7.TabIndex = 1;
+            button7.Text = "Tìm";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += tim_Click;
+            // 
+            // tbSv
+            // 
+            tbSv.Location = new Point(4, 16);
+            tbSv.Margin = new Padding(4, 3, 4, 3);
+            tbSv.Name = "tbSv";
+            tbSv.Size = new Size(316, 33);
+            tbSv.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -289,6 +593,7 @@
             // dtgvCustomer0
             // 
             dtgvCustomer0.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgvCustomer0.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvCustomer0.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvCustomer0.Location = new Point(3, 3);
             dtgvCustomer0.Name = "dtgvCustomer0";
@@ -508,6 +813,7 @@
             // dtgvCar
             // 
             dtgvCar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgvCar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvCar.BackgroundColor = SystemColors.ButtonShadow;
             dtgvCar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvCar.Location = new Point(3, 6);
@@ -559,6 +865,18 @@
             btnDelete0.Text = "Hủy";
             btnDelete0.UseVisualStyleBackColor = true;
             btnDelete0.Click += btnDelete0_Click;
+            // 
+            // AddCar
+            // 
+            AddCar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            AddCar.BackColor = SystemColors.ActiveCaption;
+            AddCar.Location = new Point(23, 708);
+            AddCar.Name = "AddCar";
+            AddCar.Size = new Size(133, 59);
+            AddCar.TabIndex = 12;
+            AddCar.Text = "Thêm xe";
+            AddCar.UseVisualStyleBackColor = false;
+            AddCar.Click += AddCar_Click;
             // 
             // btnFix0
             // 
@@ -811,11 +1129,11 @@
             // 
             // textBox19
             // 
-            textBox19.Location = new Point(181, 16);
+            textBox19.Location = new Point(152, 16);
             textBox19.Margin = new Padding(4, 3, 4, 3);
             textBox19.Name = "textBox19";
             textBox19.ReadOnly = true;
-            textBox19.Size = new Size(320, 33);
+            textBox19.Size = new Size(349, 33);
             textBox19.TabIndex = 1;
             // 
             // label3
@@ -841,11 +1159,11 @@
             // 
             // tbCtm
             // 
-            tbCtm.Location = new Point(181, 16);
+            tbCtm.Location = new Point(154, 16);
             tbCtm.Margin = new Padding(4, 3, 4, 3);
             tbCtm.Name = "tbCtm";
             tbCtm.ReadOnly = true;
-            tbCtm.Size = new Size(322, 33);
+            tbCtm.Size = new Size(349, 33);
             tbCtm.TabIndex = 1;
             // 
             // label2
@@ -869,6 +1187,8 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(label20);
+            panel2.Controls.Add(label12);
             panel2.Controls.Add(numericUpDown1);
             panel2.Controls.Add(button8);
             panel2.Controls.Add(comboBox2);
@@ -878,9 +1198,27 @@
             panel2.Size = new Size(529, 99);
             panel2.TabIndex = 12;
             // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(6, 55);
+            label20.Name = "label20";
+            label20.Size = new Size(55, 26);
+            label20.TabIndex = 5;
+            label20.Text = "Loại";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(6, 12);
+            label12.Name = "label12";
+            label12.Size = new Size(114, 26);
+            label12.TabIndex = 4;
+            label12.Text = "Phân Loại";
+            // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(447, 31);
+            numericUpDown1.Location = new Point(461, 31);
             numericUpDown1.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
             numericUpDown1.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
             numericUpDown1.Name = "numericUpDown1";
@@ -890,7 +1228,7 @@
             // 
             // button8
             // 
-            button8.Location = new Point(313, 22);
+            button8.Location = new Point(343, 22);
             button8.Name = "button8";
             button8.Size = new Size(112, 48);
             button8.TabIndex = 2;
@@ -901,17 +1239,17 @@
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(4, 52);
+            comboBox2.Location = new Point(126, 52);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(284, 34);
+            comboBox2.Size = new Size(211, 34);
             comboBox2.TabIndex = 1;
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(3, 12);
+            comboBox1.Location = new Point(126, 12);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(285, 34);
+            comboBox1.Size = new Size(211, 34);
             comboBox1.TabIndex = 0;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -1002,6 +1340,7 @@
             // dtgvCustomer
             // 
             dtgvCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgvCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvCustomer.Location = new Point(14, 4);
             dtgvCustomer.Name = "dtgvCustomer";
@@ -1025,319 +1364,9 @@
             dtgvMaterial.Size = new Size(1172, 868);
             dtgvMaterial.TabIndex = 1;
             // 
-            // tabPage4
-            // 
-            tabPage4.Controls.Add(dtgvService);
-            tabPage4.Controls.Add(btnDl);
-            tabPage4.Controls.Add(button9);
-            tabPage4.Controls.Add(btnAdd);
-            tabPage4.Controls.Add(panel23);
-            tabPage4.Location = new Point(4, 35);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(1164, 829);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Phụ Tùng";
-            tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // dtgvService
-            // 
-            dtgvService.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dtgvService.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvService.Location = new Point(3, 6);
-            dtgvService.Name = "dtgvService";
-            dtgvService.RowHeadersWidth = 62;
-            dtgvService.Size = new Size(600, 817);
-            dtgvService.TabIndex = 31;
-            dtgvService.CellClick += dtgvService_CellClick;
-            // 
-            // btnDl
-            // 
-            btnDl.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnDl.Location = new Point(1007, 770);
-            btnDl.Name = "btnDl";
-            btnDl.Size = new Size(112, 34);
-            btnDl.TabIndex = 30;
-            btnDl.Text = "Xóa";
-            btnDl.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            button9.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button9.Location = new Point(848, 770);
-            button9.Name = "button9";
-            button9.Size = new Size(112, 34);
-            button9.TabIndex = 29;
-            button9.Text = "Sửa";
-            button9.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            btnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAdd.Location = new Point(683, 770);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(112, 34);
-            btnAdd.TabIndex = 28;
-            btnAdd.Text = "Thêm";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
-            // 
-            // panel23
-            // 
-            panel23.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            panel23.Controls.Add(btnAddImage);
-            panel23.Controls.Add(panel33);
-            panel23.Controls.Add(panel32);
-            panel23.Controls.Add(panel31);
-            panel23.Controls.Add(pictureBoxSv);
-            panel23.Controls.Add(panel27);
-            panel23.Controls.Add(panel26);
-            panel23.Controls.Add(label15);
-            panel23.Controls.Add(panel25);
-            panel23.Controls.Add(panel24);
-            panel23.Location = new Point(609, 3);
-            panel23.Name = "panel23";
-            panel23.Size = new Size(549, 741);
-            panel23.TabIndex = 0;
-            // 
-            // btnAddImage
-            // 
-            btnAddImage.Location = new Point(323, 179);
-            btnAddImage.Name = "btnAddImage";
-            btnAddImage.Size = new Size(144, 58);
-            btnAddImage.TabIndex = 31;
-            btnAddImage.Text = "Thêm ảnh";
-            btnAddImage.UseVisualStyleBackColor = true;
-            btnAddImage.Click += btnAddImage_Click;
-            // 
-            // panel33
-            // 
-            panel33.Anchor = AnchorStyles.None;
-            panel33.Controls.Add(tbQuantity);
-            panel33.Controls.Add(label23);
-            panel33.Location = new Point(4, 657);
-            panel33.Margin = new Padding(4, 3, 4, 3);
-            panel33.Name = "panel33";
-            panel33.Size = new Size(538, 58);
-            panel33.TabIndex = 24;
-            // 
-            // tbQuantity
-            // 
-            tbQuantity.Location = new Point(224, 13);
-            tbQuantity.Margin = new Padding(4, 3, 4, 3);
-            tbQuantity.Name = "tbQuantity";
-            tbQuantity.Size = new Size(282, 33);
-            tbQuantity.TabIndex = 1;
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.ImageAlign = ContentAlignment.TopCenter;
-            label23.Location = new Point(4, 16);
-            label23.Margin = new Padding(4, 0, 4, 0);
-            label23.Name = "label23";
-            label23.Size = new Size(212, 26);
-            label23.TabIndex = 0;
-            label23.Text = "Số Lượng Tồn Kho";
-            // 
-            // panel32
-            // 
-            panel32.Anchor = AnchorStyles.None;
-            panel32.Controls.Add(tbPrice);
-            panel32.Controls.Add(label22);
-            panel32.Location = new Point(4, 593);
-            panel32.Margin = new Padding(4, 3, 4, 3);
-            panel32.Name = "panel32";
-            panel32.Size = new Size(538, 58);
-            panel32.TabIndex = 27;
-            // 
-            // tbPrice
-            // 
-            tbPrice.Location = new Point(115, 13);
-            tbPrice.Margin = new Padding(4, 3, 4, 3);
-            tbPrice.Name = "tbPrice";
-            tbPrice.Size = new Size(391, 33);
-            tbPrice.TabIndex = 1;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.ImageAlign = ContentAlignment.TopCenter;
-            label22.Location = new Point(4, 16);
-            label22.Margin = new Padding(4, 0, 4, 0);
-            label22.Name = "label22";
-            label22.Size = new Size(80, 26);
-            label22.TabIndex = 0;
-            label22.Text = "Giá Cả";
-            // 
-            // panel31
-            // 
-            panel31.Anchor = AnchorStyles.None;
-            panel31.Controls.Add(tbXuatsu);
-            panel31.Controls.Add(label21);
-            panel31.Location = new Point(4, 529);
-            panel31.Margin = new Padding(4, 3, 4, 3);
-            panel31.Name = "panel31";
-            panel31.Size = new Size(538, 58);
-            panel31.TabIndex = 26;
-            // 
-            // tbXuatsu
-            // 
-            tbXuatsu.Location = new Point(115, 13);
-            tbXuatsu.Margin = new Padding(4, 3, 4, 3);
-            tbXuatsu.Name = "tbXuatsu";
-            tbXuatsu.Size = new Size(391, 33);
-            tbXuatsu.TabIndex = 1;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.ImageAlign = ContentAlignment.TopCenter;
-            label21.Location = new Point(4, 16);
-            label21.Margin = new Padding(4, 0, 4, 0);
-            label21.Name = "label21";
-            label21.Size = new Size(93, 26);
-            label21.TabIndex = 0;
-            label21.Text = "Xuất sứ";
-            // 
-            // pictureBoxSv
-            // 
-            pictureBoxSv.Location = new Point(7, 125);
-            pictureBoxSv.Name = "pictureBoxSv";
-            pictureBoxSv.Size = new Size(241, 197);
-            pictureBoxSv.TabIndex = 25;
-            pictureBoxSv.TabStop = false;
-            // 
-            // panel27
-            // 
-            panel27.Anchor = AnchorStyles.None;
-            panel27.Controls.Add(textBox7);
-            panel27.Controls.Add(label17);
-            panel27.Location = new Point(4, 465);
-            panel27.Margin = new Padding(4, 3, 4, 3);
-            panel27.Name = "panel27";
-            panel27.Size = new Size(538, 58);
-            panel27.TabIndex = 24;
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(171, 13);
-            textBox7.Margin = new Padding(4, 3, 4, 3);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(335, 33);
-            textBox7.TabIndex = 1;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.ImageAlign = ContentAlignment.TopCenter;
-            label17.Location = new Point(4, 16);
-            label17.Margin = new Padding(4, 0, 4, 0);
-            label17.Name = "label17";
-            label17.Size = new Size(159, 26);
-            label17.TabIndex = 0;
-            label17.Text = "Hãng sản xuất";
-            // 
-            // panel26
-            // 
-            panel26.Anchor = AnchorStyles.None;
-            panel26.Controls.Add(tbType);
-            panel26.Controls.Add(label16);
-            panel26.Location = new Point(4, 401);
-            panel26.Margin = new Padding(4, 3, 4, 3);
-            panel26.Name = "panel26";
-            panel26.Size = new Size(538, 58);
-            panel26.TabIndex = 23;
-            // 
-            // tbType
-            // 
-            tbType.Location = new Point(115, 13);
-            tbType.Margin = new Padding(4, 3, 4, 3);
-            tbType.Name = "tbType";
-            tbType.Size = new Size(391, 33);
-            tbType.TabIndex = 1;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.ImageAlign = ContentAlignment.TopCenter;
-            label16.Location = new Point(4, 16);
-            label16.Margin = new Padding(4, 0, 4, 0);
-            label16.Name = "label16";
-            label16.Size = new Size(55, 26);
-            label16.TabIndex = 0;
-            label16.Text = "Loại";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(7, 84);
-            label15.Name = "label15";
-            label15.Size = new Size(216, 26);
-            label15.TabIndex = 22;
-            label15.Text = "Thông tin sản phẩm";
-            // 
-            // panel25
-            // 
-            panel25.Anchor = AnchorStyles.None;
-            panel25.Controls.Add(tbnameSv);
-            panel25.Controls.Add(label13);
-            panel25.Location = new Point(4, 337);
-            panel25.Margin = new Padding(4, 3, 4, 3);
-            panel25.Name = "panel25";
-            panel25.Size = new Size(538, 58);
-            panel25.TabIndex = 21;
-            // 
-            // tbnameSv
-            // 
-            tbnameSv.Location = new Point(115, 13);
-            tbnameSv.Margin = new Padding(4, 3, 4, 3);
-            tbnameSv.Name = "tbnameSv";
-            tbnameSv.Size = new Size(391, 33);
-            tbnameSv.TabIndex = 1;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.ImageAlign = ContentAlignment.TopCenter;
-            label13.Location = new Point(4, 16);
-            label13.Margin = new Padding(4, 0, 4, 0);
-            label13.Name = "label13";
-            label13.Size = new Size(52, 26);
-            label13.TabIndex = 0;
-            label13.Text = "Tên";
-            // 
-            // panel24
-            // 
-            panel24.Controls.Add(button7);
-            panel24.Controls.Add(tbSv);
-            panel24.Location = new Point(4, 11);
-            panel24.Margin = new Padding(4, 3, 4, 3);
-            panel24.Name = "panel24";
-            panel24.Size = new Size(539, 70);
-            panel24.TabIndex = 20;
-            // 
-            // button7
-            // 
-            button7.Location = new Point(363, 15);
-            button7.Margin = new Padding(4, 3, 4, 3);
-            button7.Name = "button7";
-            button7.Size = new Size(143, 35);
-            button7.TabIndex = 1;
-            button7.Text = "Tìm";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += tim_Click;
-            // 
-            // tbSv
-            // 
-            tbSv.Location = new Point(4, 16);
-            tbSv.Margin = new Padding(4, 3, 4, 3);
-            tbSv.Name = "tbSv";
-            tbSv.Size = new Size(316, 33);
-            tbSv.TabIndex = 0;
-            // 
             // fManage
             // 
+            AcceptButton = btntim;
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1376, 874);
@@ -1351,6 +1380,25 @@
             FormClosed += fManage_FormClosed;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxImage).EndInit();
+            tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dtgvService).EndInit();
+            panel23.ResumeLayout(false);
+            panel23.PerformLayout();
+            panel33.ResumeLayout(false);
+            panel33.PerformLayout();
+            panel32.ResumeLayout(false);
+            panel32.PerformLayout();
+            panel31.ResumeLayout(false);
+            panel31.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSv).EndInit();
+            panel27.ResumeLayout(false);
+            panel27.PerformLayout();
+            panel26.ResumeLayout(false);
+            panel26.PerformLayout();
+            panel25.ResumeLayout(false);
+            panel25.PerformLayout();
+            panel24.ResumeLayout(false);
+            panel24.PerformLayout();
             tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgvCustomer0).EndInit();
             panel7.ResumeLayout(false);
@@ -1390,29 +1438,11 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             panel18.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgvCustomer).EndInit();
             dtgvMaterial.ResumeLayout(false);
-            tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dtgvService).EndInit();
-            panel23.ResumeLayout(false);
-            panel23.PerformLayout();
-            panel33.ResumeLayout(false);
-            panel33.PerformLayout();
-            panel32.ResumeLayout(false);
-            panel32.PerformLayout();
-            panel31.ResumeLayout(false);
-            panel31.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxSv).EndInit();
-            panel27.ResumeLayout(false);
-            panel27.PerformLayout();
-            panel26.ResumeLayout(false);
-            panel26.PerformLayout();
-            panel25.ResumeLayout(false);
-            panel25.PerformLayout();
-            panel24.ResumeLayout(false);
-            panel24.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1423,55 +1453,25 @@
         private PictureBox pictureBoxImage;
         private Button button4;
         private Button button3;
-        private Button button2;
-        private TabPage tabPage3;
-        private TabPage tabPage2;
-        private Panel panel6;
-        private Panel panel12;
-        private TextBox tbphone1;
-        private Label label4;
-        private Panel panel14;
-        private TextBox tbColor;
-        private Label label5;
-        private Panel panel15;
-        private TextBox tbNumCar1;
-        private Label label6;
-        private Panel panel16;
-        private TextBox tbNCar1;
-        private Label label7;
-        private Panel panel17;
-        private TextBox tbCustomer1;
-        private Label label8;
-        private Panel panel5;
-        private Button button6;
-        private TextBox textBox5;
-        private TabPage tabPage1;
-        private Button btntim;
-        private TextBox textBox8;
-        private TabControl dtgvMaterial;
-        private Panel panel18;
-        private PictureBox pictureBoxCar;
-        private Panel panel8;
-        private Button btnThanhToan;
-        private TextBox tbTotal;
-        private Label label9;
-        private Panel panel7;
-        private Label label11;
-        private Panel panel22;
-        private TextBox tbn;
-        private Label label14;
-        private Panel panel20;
-        private TextBox tbSex;
-        private Label label10;
-        private Panel panel13;
-        private Button Search;
-        private TextBox textBox6;
-        private DataGridView dtgvCustomer;
-        private ListView listViewPrice;
+        private Button btnAdmin;
         private TabPage tabPage4;
+        private DataGridView dtgvService;
+        private Button btnDl;
+        private Button button9;
+        private Button btnAdd;
         private Panel panel23;
+        private Button btnAddImage;
+        private Panel panel33;
+        private TextBox tbQuantity;
+        private Label label23;
+        private Panel panel32;
+        private TextBox tbPrice;
+        private Label label22;
+        private Panel panel31;
+        private TextBox tbXuatsu;
+        private Label label21;
+        private PictureBox pictureBoxSv;
         private Panel panel27;
-        private TextBox textBox7;
         private Label label17;
         private Panel panel26;
         private TextBox tbType;
@@ -1483,50 +1483,82 @@
         private Panel panel24;
         private Button button7;
         private TextBox tbSv;
+        private TabPage tabPage3;
+        private DataGridView dtgvCustomer0;
+        private Panel panel7;
+        private Button btnDelete;
+        private Button btnFix;
         private Panel panel29;
         private TextBox tbAdr;
         private Label label19;
         private Panel panel28;
         private TextBox tbPhone;
         private Label label18;
-        private Panel panel31;
-        private TextBox tbXuatsu;
-        private Label label21;
-        private PictureBox pictureBoxSv;
-        private Panel panel33;
-        private TextBox tbQuantity;
-        private Label label23;
-        private Panel panel32;
-        private TextBox tbPrice;
-        private Label label22;
-        private Panel panel2;
-        private Button button8;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
-        private Label label1;
-        private NumericUpDown numericUpDown1;
+        private Panel panel20;
+        private TextBox tbSex;
+        private Label label10;
+        private Panel panel13;
+        private Button Search;
+        private TextBox textBox6;
+        private Label label11;
+        private Panel panel22;
+        private TextBox tbn;
+        private Label label14;
+        private TabPage tabPage2;
+        private DataGridView dtgvCar;
+        private Panel panel6;
+        private Button btnAddImage1;
+        private Button btnDelete0;
+        private Button AddCar;
+        private Button btnFix0;
+        private Panel panel12;
+        private TextBox tbphone1;
+        private Label label4;
+        private Label label9;
+        private Panel panel14;
+        private TextBox tbColor;
+        private Label label5;
+        private Panel panel5;
+        private Button button6;
+        private TextBox textBox5;
+        private Panel panel15;
+        private TextBox tbNumCar1;
+        private Label label6;
+        private PictureBox pictureBoxCar;
+        private Panel panel16;
+        private TextBox tbNCar1;
+        private Label label7;
+        private Panel panel17;
+        private TextBox tbCustomer1;
+        private Label label8;
+        private TabPage tabPage1;
+        private Panel panel8;
         private Panel panel4;
         private TextBox textBox19;
         private Label label3;
         private Panel panel3;
         private TextBox tbCtm;
         private Label label2;
+        private Label label1;
+        private Panel panel2;
+        private NumericUpDown numericUpDown1;
+        private Button button8;
+        private ComboBox comboBox2;
+        private ComboBox comboBox1;
+        private ListView listViewPrice;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
-        private Button AddCar;
-        private DataGridView dtgvCar;
-        private Button btnDelete;
-        private Button btnFix;
-        private Button btnDelete0;
-        private Button btnFix0;
-        private Button btnAddImage;
-        private Button btnDl;
-        private Button button9;
-        private Button btnAdd;
-        private DataGridView dtgvService;
-        private Button btnAddImage1;
-        private DataGridView dtgvCustomer0;
+        private TextBox textBox8;
+        private Button btntim;
+        private Button btnThanhToan;
+        private TextBox tbTotal;
+        private Panel panel18;
+        private DataGridView dtgvCustomer;
+        private TabControl dtgvMaterial;
+        private ComboBox comboBoxLoad;
+        private Label label20;
+        private Label label12;
     }
 }

@@ -17,10 +17,12 @@ namespace Quanly
             {
                 MessageBox.Show("Vui long điền đầy đủ thông tin");
             }
+
             if (checkLogin(tbname.Text, tbpassword.Text))
             {
+                DTO.Account loginAc = DAO.AccountDAO.Instance.GetAccount(tbname.Text);
                 this.Hide();
-                fManage fManage = new fManage();
+                fManage fManage = new fManage(loginAc);
                 fManage.ShowDialog();
                 this.Show();
             }

@@ -21,6 +21,7 @@ namespace Quanly
 {
     public partial class fManage : Form
     {
+        private DTO.Account loginAc;
         public fManage()
         {
             InitializeComponent();
@@ -29,6 +30,21 @@ namespace Quanly
             loadCustomer();
             LoadMaterial();
             LoadCombobox_Service();
+        }
+        public fManage(Account loginAc)
+        {
+            InitializeComponent();
+            loadThanhToan();
+            loadCar();
+            loadCustomer();
+            LoadMaterial();
+            LoadCombobox_Service();
+            this.loginAc = loginAc;
+            checkAdmin(loginAc.CheckAdmin);
+        }
+        void checkAdmin(int type)
+        {
+            btnAdmin.Visible = type == 1; // Chỉ hiện nếu là admin
         }
         //Phân load các tapcontrol
         void loadThanhToan()
@@ -56,6 +72,10 @@ namespace Quanly
             comboBox1.DataSource = data;
             comboBox1.DisplayMember = "name";
             comboBox1.ValueMember = "idService";
+
+            comboBoxLoad.DataSource = data;
+            comboBoxLoad.DisplayMember = "name";
+            comboBoxLoad.ValueMember = "idService";
             if (comboBox1.Items.Count > 0)
             {
                 comboBox1.SelectedIndex = 0;
@@ -273,9 +293,14 @@ namespace Quanly
                 tbQuantity.Text = "";
                 tbXuatsu.Text = "";
                 tbType.Text = "";
+                pictureBoxSv.Image = Image.FromFile("");
+
 
             }
         }
+        int idMaterial = 0;
+
+
         private void dtgvService_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dtgvService.Rows.Count > 0)
@@ -286,6 +311,18 @@ namespace Quanly
                 tbXuatsu.Text = row.Cells["NoiSx"].Value?.ToString() ?? "";
                 tbQuantity.Text = row.Cells["quantity"].Value?.ToString() ?? "";
                 tbPrice.Text = row.Cells["price"].Value?.ToString() ?? "";
+                string imagePath = row.Cells["images"].Value?.ToString();
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                {
+                    pictureBoxSv.Image = Image.FromFile(imagePath);
+                }
+                else
+                {
+                    pictureBoxSv.Image = null; // Không có ảnh thì xóa ảnh cũ
+                }
+                object value = row.Cells["idMaterial"].Value;
+                idMaterial = (value != null && value != DBNull.Value) ? Convert.ToInt32(value) : 0;
+
             }
         }
 
@@ -419,19 +456,6 @@ namespace Quanly
             DAO.CustomerDAO.Instance.FixCustomer(idCtms, name, address, phone);
             loadCustomer();
         }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            int id = 0;
-            string name = tbnameSv.Text;
-            string type = tbType.Text;
-            string noiSX = tbXuatsu.Text;
-            int sl = Convert.ToInt32(tbQuantity.Text);
-            decimal gia = Convert.ToDecimal(tbPrice);
-            DAO.MaterialDAO.Instance.Insert_Material(id, name, type, noiSX, sl, gia);
-            LoadMaterial();
-        }
-
         private void btnAddImage_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -443,9 +467,80 @@ namespace Quanly
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
-                pictureBoxCar.Image = Image.FromFile(filePath);
-                pictureBoxCar.Tag = filePath;
+                pictureBoxSv.Image = Image.FromFile(filePath);
+                pictureBoxSv.Tag = filePath;
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string name = tbnameSv.Text;
+            string type = tbType.Text;
+            string Phanloai = comboBoxLoad.Text;
+            string noiSX = tbXuatsu.Text;
+            int sl = Convert.ToInt32(tbQuantity.Text);
+            string gia = tbPrice.Text;
+            float price = Convert.ToSingle(gia);
+            string image = pictureBoxSv.Tag as string ?? "";
+            try
+            {
+                DAO.MaterialDAO.Instance.Insert_Material(0, 0, 0, name, type, Phanloai, noiSX, sl, price, image);
+                MessageBox.Show("Thêm Thành Công");
+                LoadMaterial();
+                LoadCombobox_Service();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Sản phẩm đã tồn tại không thể thêm mới nữa");
+            }
+
+
+        }
+
+        private void btnFixSv_Click(object sender, EventArgs e)
+        {
+
+            int idSv = DAO.ServiceDAO.Instance.getidService(idMaterial);
+            int id = idMaterial;
+            string name = tbnameSv.Text;
+            string type = tbType.Text;
+            string Phanloai = comboBoxLoad.Text;
+            string noiSX = tbXuatsu.Text;
+            int sl = Convert.ToInt32(tbQuantity.Text);
+            string gia = tbPrice.Text;
+            float price = Convert.ToSingle(gia);
+            string image = pictureBoxSv.Tag as string ?? "";
+            DAO.MaterialDAO.Instance.Insert_Material(1, idSv, id, name, type, Phanloai, noiSX, sl, price, image);
+            LoadMaterial();
+            LoadCombobox_Service();
+        }
+
+        private void btnDl_Click(object sender, EventArgs e)
+        {
+            int idSv = DAO.ServiceDAO.Instance.getidService(idMaterial);
+            int id = idMaterial;
+            string name = tbnameSv.Text;
+            string type = tbType.Text;
+            string Phanloai = comboBoxLoad.Text;
+            string noiSX = tbXuatsu.Text;
+            int sl = Convert.ToInt32(tbQuantity.Text);
+            string gia = tbPrice.Text;
+            float price = Convert.ToSingle(gia);
+            string image = pictureBoxSv.Tag as string ?? "";
+
+            DAO.MaterialDAO.Instance.Insert_Material(2, idSv, id, name, type, Phanloai, noiSX, sl, price, image);
+            LoadMaterial();
+            LoadCombobox_Service();
+
+
+            pictureBoxSv.Image = null;
+            tbnameSv.Text = "";
+            tbType.Text = "";
+            comboBoxLoad.Text = "";
+            tbXuatsu.Text = "";
+            tbQuantity.Text = "";
+            tbPrice.Text = "";
+
         }
     }
 }

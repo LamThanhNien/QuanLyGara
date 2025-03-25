@@ -4,6 +4,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Quanly.DAO
 {
@@ -42,6 +44,12 @@ namespace Quanly.DAO
             string query = "SELECT idService, name FROM _Service";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             return data;
+        }
+        public int getidService(int idMaterial)
+        {
+            string query = "SELECT idService FROM Service_Material where idMaterial = @idMaterial";
+            object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idMaterial });
+            return (result != null) ? Convert.ToInt32(result) : -1;
         }
 
     }

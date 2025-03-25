@@ -39,14 +39,6 @@ namespace Quanly.DAO
             object result =  DataProvider.Instance.ExecuteScalar(" USP_InsertBill @idTable ", new object[] { idCustomer });
             return (result != null) ? Convert.ToInt32(result) : -1;
         }
-        //public int GetIdBill(int idCustomer)
-        //{
-        //    string query = "SELECT idBill FROM Bill WHERE idCustomer = @idCustomer";
-
-        //    object result = DataProvider.Instance.ExecuteScalar(query, new object[] { idCustomer });
-
-        //    return (result != null) ? Convert.ToInt32(result) : -1;
-        //}
         public int GetIdBill(int idCustomer)
         {
             string query = "SELECT TOP 1 idBill FROM Bill WHERE idCustomer = @idCustomer AND status = 0 ORDER BY idBill DESC";

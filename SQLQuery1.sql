@@ -43,6 +43,9 @@ CREATE TABLE _Service (
 );
 GO
 
+ALTER TABLE _Service
+ALTER COLUMN name NVARCHAR(100) NOT NULL
+
 CREATE TABLE Material (
     idMaterial INT IDENTITY PRIMARY KEY,
     name NVARCHAR(100) NOT NULL,
@@ -53,7 +56,10 @@ CREATE TABLE Material (
     idService INT, 
     FOREIGN KEY (idService) REFERENCES _Service(idService)
 );
-
+ALTER TABLE Material
+ADD images NVARCHAR(MAX);
+ALTER TABLE Material
+DROP COLUMN image;
 
 CREATE TABLE Service_Material (
     idService INT,
@@ -91,7 +97,6 @@ CREATE TABLE BillInfo (
 );
 
 
-
 CREATE TABLE Revenue (
     idRevenue INT IDENTITY PRIMARY KEY, -- Khóa chính, tự động tăng
     idBill INT NOT NULL,                -- Liên kết với bảng Bill
@@ -100,6 +105,7 @@ CREATE TABLE Revenue (
     FOREIGN KEY (idBill) REFERENCES Bill(idBill) -- Khóa ngoại đến bảng Bill
 );
 GO
+
 
 INSERT INTO Account (DisplayName, UserName, Password, checkAdmin) VALUES
 ('Admin1','a','1',1),
@@ -451,23 +457,133 @@ SELECT * FROM Account
 Select * FROM Car
 Select * FROM Customer
 Select * FROM _Service
+Select * FROM Service_Material
 Select * FROM Revenue
 SELECT * FROM Material
 select * from Bill
 select * from BillInfo
 
-CREATE PROC UPS_InsertMaterial
+SELECT images FROM Material where idMaterial  = idMaterial
+SELECT idService FROM Service_Material where idMaterial= @idMaterial
+
+
+alter PROC UPS_Material
+	@dk INT,
+	@idService int,
 	@idMaterial INT,
 	@name NVARCHAR(50),
 	@type NVARCHAR(20),
+	@PhanLoai NVARCHAR(50),
 	@noiSx NVARCHAR(50),
 	@quantity INT, 
-	@price DECIMAL(18,2)
+	@price DECIMAL(18,2),
+	@image NVARCHAR(MAX)
 AS
 BEGIN
-	UPDATE Material
-	SET name = @name, type = @type, NoiSx = @noiSx, quantity = @quantity, price = @price
-	WHERE idMaterial = @idMaterial
+	IF (@dk = 0)
+	BEGIN
+		-- Thêm mới vào _Service
+		INSERT INTO _Service (name, price) VALUES (@PhanLoai, 0)
+		-- Thêm mới vào Material
+		INSERT INTO Material (name, type, NoiSx, quantity, price, idService, images) 
+		VALUES (@name, @type, @noiSx, @quantity, @price, @idService, @image)
+		-- Thêm vào bảng liên kết
+		INSERT INTO Service_Material (idService, idMaterial) 
+		VALUES (@idService, @idMaterial)
+	END;
+
+	IF(@dk = 1)
+	BEGIN
+		UPDATE _Service
+		SET name = @PhanLoai 
+		WHERE idService = @idService
+
+		UPDATE Material
+		SET name = @name, type = @type, NoiSx = @noiSx, quantity = @quantity, price = @price , images = @image 
+		WHERE idMaterial = @idMaterial
+	END;
+	IF(@dk = 2)
+	BEGIN
+		DELETE Service_Material WHERE idMaterial = @idMaterial AND idService = @idService
+		DELETE _Service WHERE idService =@idService
+		DELETE Material WHERE idMaterial = @idMaterial
+	END;
 END;
 
-Select count(*) FROM Bill where idCustomer = @idCustomer and @status = 1
+
+
+ALTER PROC UPS_Material
+	@dk INT,  
+	@idService INT = NULL,  
+	@idMaterial INT = NULL,  
+	@name NVARCHAR(50),  
+	@type NVARCHAR(20),  
+	@PhanLoai NVARCHAR(50),  
+	@noiSx NVARCHAR(50),  
+	@quantity INT,  
+	@price DECIMAL(18,2),  
+	@image NVARCHAR(MAX)  
+AS  
+BEGIN  
+	SET NOCOUNT ON;
+
+	-- Thêm mới dữ liệu
+	IF (@dk = 0)  
+	BEGIN  
+		DECLARE @newServiceID INT, @newMaterialID INT;
+
+		-- Thêm vào bảng _Service nếu chưa tồn tại
+		IF NOT EXISTS (SELECT 1 FROM _Service WHERE name = @PhanLoai)
+		BEGIN
+			INSERT INTO _Service (name, price) VALUES (@PhanLoai, 0);
+			SET @newServiceID = SCOPE_IDENTITY();  
+		END  
+		ELSE  
+		BEGIN  
+			SELECT @newServiceID = idService FROM _Service WHERE name = @PhanLoai;  
+		END  
+
+		-- Thêm vào bảng Material  
+		INSERT INTO Material (name, type, NoiSx, quantity, price, idService, images)  
+		VALUES (@name, @type, @noiSx, @quantity, @price, @newServiceID, @image);
+		SET @newMaterialID = SCOPE_IDENTITY();
+
+		-- Thêm vào bảng liên kết Service_Material
+		IF NOT EXISTS (SELECT 1 FROM Service_Material WHERE idService = @newServiceID AND idMaterial = @newMaterialID)
+		BEGIN
+			INSERT INTO Service_Material (idService, idMaterial)  
+			VALUES (@newServiceID, @newMaterialID);
+		END  
+	END;  
+
+	-- Cập nhật dữ liệu
+	IF (@dk = 1)  
+	BEGIN  
+		IF EXISTS (SELECT 1 FROM _Service WHERE idService = @idService)  
+		BEGIN  
+			UPDATE _Service SET name = @PhanLoai WHERE idService = @idService;  
+		END  
+
+		IF EXISTS (SELECT 1 FROM Material WHERE idMaterial = @idMaterial)  
+		BEGIN  
+			UPDATE Material  
+			SET name = @name, type = @type, NoiSx = @noiSx, quantity = @quantity, price = @price, images = @image  
+			WHERE idMaterial = @idMaterial;  
+		END  
+	END;  
+
+	-- Xóa dữ liệu
+	IF (@dk = 2)  
+	BEGIN  
+		IF EXISTS (SELECT 1 FROM Material WHERE idMaterial = @idMaterial)  
+		BEGIN  
+			DELETE FROM Service_Material WHERE idMaterial = @idMaterial AND idService = @idService;  
+			DELETE FROM Material WHERE idMaterial = @idMaterial;
+		END  
+
+		IF EXISTS (SELECT 1 FROM _Service WHERE idService = @idService)  
+		BEGIN  
+			DELETE FROM _Service WHERE idService = @idService;  
+		END  
+	END;  
+END;

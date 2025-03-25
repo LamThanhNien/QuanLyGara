@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,16 @@ namespace Quanly.DAO
             object result = DataProvider.Instance.ExecuteScalar(query, new object[] { username, password });
 
             return result != null && Convert.ToInt32(result) > 0;
+        }
+        public DTO.Account GetAccount(string userName)
+        {
+            string query = "SELECT * FROM Account WHERE UserName = @userName";
+            DataTable data = DAO.DataProvider.Instance.ExecuteQuery(query, new object[] { userName });
+            foreach(DataRow item in data.Rows)
+            {
+                return new DTO.Account(item);
+            }
+            return null;
         }
     }
 }

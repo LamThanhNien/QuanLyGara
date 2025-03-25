@@ -101,23 +101,46 @@
             dtgvDv = new DataGridView();
             label9 = new Label();
             tpAccount = new TabPage();
-            panel25 = new Panel();
-            btnSeeAc = new Button();
-            btnDeleteAc = new Button();
-            btnFixAc = new Button();
-            btnAddAc = new Button();
             panel21 = new Panel();
-            btnUpdatePassword = new Button();
             panel22 = new Panel();
-            textBox6 = new TextBox();
-            labelTypeAc = new Label();
+            button7 = new Button();
+            button8 = new Button();
+            button9 = new Button();
+            button10 = new Button();
             panel23 = new Panel();
-            textBox9 = new TextBox();
-            labelDisplayAc = new Label();
+            textBox6 = new TextBox();
+            label5 = new Label();
             panel24 = new Panel();
+            comboBox2 = new ComboBox();
+            label6 = new Label();
+            panel25 = new Panel();
+            textBox9 = new TextBox();
+            label7 = new Label();
+            panel31 = new Panel();
             textBox10 = new TextBox();
-            labelNameAc = new Label();
+            label10 = new Label();
+            panel32 = new Panel();
+            numericUpDown2 = new NumericUpDown();
+            label11 = new Label();
+            dtgvService = new DataGridView();
+            tabPage1 = new TabPage();
+            panel30 = new Panel();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
             dtgvAccount = new DataGridView();
+            panel6 = new Panel();
+            button2 = new Button();
+            panel27 = new Panel();
+            textBox1 = new TextBox();
+            label2 = new Label();
+            panel28 = new Panel();
+            textBox12 = new TextBox();
+            label3 = new Label();
+            panel29 = new Panel();
+            textBox13 = new TextBox();
+            label4 = new Label();
             tcAdmin.SuspendLayout();
             tabPageDT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvDt).BeginInit();
@@ -149,12 +172,22 @@
             panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvDv).BeginInit();
             tpAccount.SuspendLayout();
-            panel25.SuspendLayout();
             panel21.SuspendLayout();
             panel22.SuspendLayout();
             panel23.SuspendLayout();
             panel24.SuspendLayout();
+            panel25.SuspendLayout();
+            panel31.SuspendLayout();
+            panel32.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgvService).BeginInit();
+            tabPage1.SuspendLayout();
+            panel30.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvAccount).BeginInit();
+            panel6.SuspendLayout();
+            panel27.SuspendLayout();
+            panel28.SuspendLayout();
+            panel29.SuspendLayout();
             SuspendLayout();
             // 
             // tcAdmin
@@ -165,6 +198,7 @@
             tcAdmin.Controls.Add(tpcustomer);
             tcAdmin.Controls.Add(tpService);
             tcAdmin.Controls.Add(tpAccount);
+            tcAdmin.Controls.Add(tabPage1);
             tcAdmin.Font = new Font("Arial", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tcAdmin.Location = new Point(3, 0);
             tcAdmin.Name = "tcAdmin";
@@ -216,7 +250,7 @@
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(435, 14);
+            dateTimePicker2.Location = new Point(473, 14);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(395, 33);
             dateTimePicker2.TabIndex = 1;
@@ -260,9 +294,9 @@
             panel7.Anchor = AnchorStyles.None;
             panel7.Controls.Add(textBox4);
             panel7.Controls.Add(labelLogocar);
-            panel7.Location = new Point(31, 239);
+            panel7.Location = new Point(31, 464);
             panel7.Name = "panel7";
-            panel7.Size = new Size(395, 56);
+            panel7.Size = new Size(394, 56);
             panel7.TabIndex = 6;
             // 
             // textBox4
@@ -343,9 +377,9 @@
             panel4.Anchor = AnchorStyles.None;
             panel4.Controls.Add(textBox3);
             panel4.Controls.Add(labelNumcar);
-            panel4.Location = new Point(31, 177);
+            panel4.Location = new Point(31, 402);
             panel4.Name = "panel4";
-            panel4.Size = new Size(397, 56);
+            panel4.Size = new Size(394, 56);
             panel4.TabIndex = 5;
             // 
             // textBox3
@@ -380,7 +414,7 @@
             panel5.Anchor = AnchorStyles.None;
             panel5.Controls.Add(textBox2);
             panel5.Controls.Add(labelNamecar);
-            panel5.Location = new Point(31, 115);
+            panel5.Location = new Point(31, 340);
             panel5.Name = "panel5";
             panel5.Size = new Size(394, 56);
             panel5.TabIndex = 4;
@@ -833,163 +867,275 @@
             // 
             // tpAccount
             // 
-            tpAccount.Controls.Add(panel25);
             tpAccount.Controls.Add(panel21);
-            tpAccount.Controls.Add(dtgvAccount);
+            tpAccount.Controls.Add(dtgvService);
             tpAccount.Location = new Point(4, 35);
             tpAccount.Name = "tpAccount";
             tpAccount.Padding = new Padding(3);
             tpAccount.Size = new Size(1097, 684);
             tpAccount.TabIndex = 4;
-            tpAccount.Text = "Account";
+            tpAccount.Text = "Phụ tùng";
             tpAccount.UseVisualStyleBackColor = true;
-            // 
-            // panel25
-            // 
-            panel25.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            panel25.Controls.Add(btnSeeAc);
-            panel25.Controls.Add(btnDeleteAc);
-            panel25.Controls.Add(btnFixAc);
-            panel25.Controls.Add(btnAddAc);
-            panel25.Location = new Point(6, 587);
-            panel25.Name = "panel25";
-            panel25.Size = new Size(552, 89);
-            panel25.TabIndex = 12;
-            // 
-            // btnSeeAc
-            // 
-            btnSeeAc.Location = new Point(414, 29);
-            btnSeeAc.Name = "btnSeeAc";
-            btnSeeAc.Size = new Size(135, 34);
-            btnSeeAc.TabIndex = 3;
-            btnSeeAc.Text = "Xem";
-            btnSeeAc.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteAc
-            // 
-            btnDeleteAc.Location = new Point(279, 29);
-            btnDeleteAc.Name = "btnDeleteAc";
-            btnDeleteAc.Size = new Size(135, 34);
-            btnDeleteAc.TabIndex = 2;
-            btnDeleteAc.Text = "Xóa";
-            btnDeleteAc.UseVisualStyleBackColor = true;
-            // 
-            // btnFixAc
-            // 
-            btnFixAc.Location = new Point(144, 29);
-            btnFixAc.Name = "btnFixAc";
-            btnFixAc.Size = new Size(135, 34);
-            btnFixAc.TabIndex = 1;
-            btnFixAc.Text = "Sửa";
-            btnFixAc.UseVisualStyleBackColor = true;
-            // 
-            // btnAddAc
-            // 
-            btnAddAc.Location = new Point(3, 29);
-            btnAddAc.Name = "btnAddAc";
-            btnAddAc.Size = new Size(135, 34);
-            btnAddAc.TabIndex = 0;
-            btnAddAc.Text = "Thêm";
-            btnAddAc.UseVisualStyleBackColor = true;
             // 
             // panel21
             // 
             panel21.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            panel21.Controls.Add(btnUpdatePassword);
             panel21.Controls.Add(panel22);
             panel21.Controls.Add(panel23);
             panel21.Controls.Add(panel24);
-            panel21.Location = new Point(586, 6);
+            panel21.Controls.Add(panel25);
+            panel21.Controls.Add(panel31);
+            panel21.Controls.Add(panel32);
+            panel21.Location = new Point(673, 6);
             panel21.Name = "panel21";
-            panel21.Size = new Size(505, 269);
-            panel21.TabIndex = 11;
-            // 
-            // btnUpdatePassword
-            // 
-            btnUpdatePassword.Font = new Font("Arial", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUpdatePassword.Location = new Point(261, 203);
-            btnUpdatePassword.Name = "btnUpdatePassword";
-            btnUpdatePassword.Size = new Size(230, 34);
-            btnUpdatePassword.TabIndex = 13;
-            btnUpdatePassword.Text = "Đặt Lại Mật Khẩu";
-            btnUpdatePassword.UseVisualStyleBackColor = true;
-            btnUpdatePassword.Click += btnUpdatePassword_Click;
+            panel21.Size = new Size(418, 670);
+            panel21.TabIndex = 12;
             // 
             // panel22
             // 
-            panel22.Controls.Add(textBox6);
-            panel22.Controls.Add(labelTypeAc);
-            panel22.Location = new Point(3, 127);
+            panel22.Controls.Add(button7);
+            panel22.Controls.Add(button8);
+            panel22.Controls.Add(button9);
+            panel22.Controls.Add(button10);
+            panel22.Location = new Point(6, 567);
             panel22.Name = "panel22";
-            panel22.Size = new Size(499, 56);
-            panel22.TabIndex = 6;
+            panel22.Size = new Size(406, 89);
+            panel22.TabIndex = 12;
             // 
-            // textBox6
+            // button7
             // 
-            textBox6.Location = new Point(171, 11);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(230, 33);
-            textBox6.TabIndex = 1;
+            button7.Location = new Point(301, 29);
+            button7.Name = "button7";
+            button7.Size = new Size(78, 34);
+            button7.TabIndex = 3;
+            button7.Text = "Xem";
+            button7.UseVisualStyleBackColor = true;
             // 
-            // labelTypeAc
+            // button8
             // 
-            labelTypeAc.AutoSize = true;
-            labelTypeAc.Location = new Point(3, 18);
-            labelTypeAc.Name = "labelTypeAc";
-            labelTypeAc.Size = new Size(145, 26);
-            labelTypeAc.TabIndex = 0;
-            labelTypeAc.Text = "Loại Account";
+            button8.Location = new Point(203, 29);
+            button8.Name = "button8";
+            button8.Size = new Size(78, 34);
+            button8.TabIndex = 2;
+            button8.Text = "Xóa";
+            button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            button9.Location = new Point(100, 29);
+            button9.Name = "button9";
+            button9.Size = new Size(78, 34);
+            button9.TabIndex = 1;
+            button9.Text = "Sửa";
+            button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(3, 29);
+            button10.Name = "button10";
+            button10.Size = new Size(78, 34);
+            button10.TabIndex = 0;
+            button10.Text = "Thêm";
+            button10.UseVisualStyleBackColor = true;
             // 
             // panel23
             // 
-            panel23.Controls.Add(textBox9);
-            panel23.Controls.Add(labelDisplayAc);
-            panel23.Location = new Point(3, 65);
+            panel23.Controls.Add(textBox6);
+            panel23.Controls.Add(label5);
+            panel23.Location = new Point(9, 338);
             panel23.Name = "panel23";
-            panel23.Size = new Size(499, 56);
-            panel23.TabIndex = 5;
+            panel23.Size = new Size(406, 56);
+            panel23.TabIndex = 6;
             // 
-            // textBox9
+            // textBox6
             // 
-            textBox9.Location = new Point(170, 15);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(230, 33);
-            textBox9.TabIndex = 1;
+            textBox6.Location = new Point(139, 15);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(264, 33);
+            textBox6.TabIndex = 1;
             // 
-            // labelDisplayAc
+            // label5
             // 
-            labelDisplayAc.AutoSize = true;
-            labelDisplayAc.ImageAlign = ContentAlignment.TopCenter;
-            labelDisplayAc.Location = new Point(3, 15);
-            labelDisplayAc.Name = "labelDisplayAc";
-            labelDisplayAc.Size = new Size(135, 26);
-            labelDisplayAc.TabIndex = 0;
-            labelDisplayAc.Text = "Tên Hiển thị";
+            label5.AutoSize = true;
+            label5.Location = new Point(3, 18);
+            label5.Name = "label5";
+            label5.Size = new Size(46, 26);
+            label5.TabIndex = 0;
+            label5.Text = "Giá";
             // 
             // panel24
             // 
-            panel24.Controls.Add(textBox10);
-            panel24.Controls.Add(labelNameAc);
-            panel24.Location = new Point(3, 3);
+            panel24.Controls.Add(comboBox2);
+            panel24.Controls.Add(label6);
+            panel24.Location = new Point(9, 12);
             panel24.Name = "panel24";
-            panel24.Size = new Size(499, 56);
-            panel24.TabIndex = 4;
+            panel24.Size = new Size(409, 108);
+            panel24.TabIndex = 3;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(5, 53);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(398, 34);
+            comboBox2.TabIndex = 1;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(14, 12);
+            label6.Name = "label6";
+            label6.Size = new Size(204, 26);
+            label6.TabIndex = 2;
+            label6.Text = "Chọn tên Phụ tùng";
+            // 
+            // panel25
+            // 
+            panel25.Controls.Add(textBox9);
+            panel25.Controls.Add(label7);
+            panel25.Location = new Point(9, 211);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(406, 56);
+            panel25.TabIndex = 4;
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new Point(139, 15);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(264, 33);
+            textBox9.TabIndex = 1;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(3, 15);
+            label7.Name = "label7";
+            label7.Size = new Size(159, 26);
+            label7.TabIndex = 0;
+            label7.Text = "Tên Phụ Tùng";
+            // 
+            // panel31
+            // 
+            panel31.Controls.Add(textBox10);
+            panel31.Controls.Add(label10);
+            panel31.Location = new Point(9, 149);
+            panel31.Name = "panel31";
+            panel31.Size = new Size(406, 56);
+            panel31.TabIndex = 6;
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(171, 12);
+            textBox10.Location = new Point(139, 15);
             textBox10.Name = "textBox10";
-            textBox10.Size = new Size(230, 33);
+            textBox10.Size = new Size(264, 33);
             textBox10.TabIndex = 1;
             // 
-            // labelNameAc
+            // label10
             // 
-            labelNameAc.AutoSize = true;
-            labelNameAc.Location = new Point(3, 15);
-            labelNameAc.Name = "labelNameAc";
-            labelNameAc.Size = new Size(166, 26);
-            labelNameAc.TabIndex = 0;
-            labelNameAc.Text = "Tên đăng nhập";
+            label10.AutoSize = true;
+            label10.Location = new Point(3, 15);
+            label10.Name = "label10";
+            label10.Size = new Size(133, 26);
+            label10.TabIndex = 0;
+            label10.Text = "Tên dịch vụ";
+            // 
+            // panel32
+            // 
+            panel32.Controls.Add(numericUpDown2);
+            panel32.Controls.Add(label11);
+            panel32.Location = new Point(9, 273);
+            panel32.Name = "panel32";
+            panel32.Size = new Size(406, 56);
+            panel32.TabIndex = 5;
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(139, 13);
+            numericUpDown2.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(91, 33);
+            numericUpDown2.TabIndex = 1;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.ImageAlign = ContentAlignment.TopCenter;
+            label11.Location = new Point(3, 15);
+            label11.Name = "label11";
+            label11.Size = new Size(109, 26);
+            label11.TabIndex = 0;
+            label11.Text = "Số lượng";
+            // 
+            // dtgvService
+            // 
+            dtgvService.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgvService.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvService.Location = new Point(6, 6);
+            dtgvService.Name = "dtgvService";
+            dtgvService.RowHeadersWidth = 62;
+            dtgvService.Size = new Size(661, 670);
+            dtgvService.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(panel30);
+            tabPage1.Controls.Add(dtgvAccount);
+            tabPage1.Controls.Add(panel6);
+            tabPage1.Location = new Point(4, 35);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1097, 684);
+            tabPage1.TabIndex = 5;
+            tabPage1.Text = "Tài Khoản";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel30
+            // 
+            panel30.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            panel30.Controls.Add(button3);
+            panel30.Controls.Add(button4);
+            panel30.Controls.Add(button5);
+            panel30.Controls.Add(button6);
+            panel30.Location = new Point(6, 587);
+            panel30.Name = "panel30";
+            panel30.Size = new Size(552, 89);
+            panel30.TabIndex = 14;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(414, 29);
+            button3.Name = "button3";
+            button3.Size = new Size(135, 34);
+            button3.TabIndex = 3;
+            button3.Text = "Xem";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(279, 29);
+            button4.Name = "button4";
+            button4.Size = new Size(135, 34);
+            button4.TabIndex = 2;
+            button4.Text = "Xóa";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(144, 29);
+            button5.Name = "button5";
+            button5.Size = new Size(135, 34);
+            button5.TabIndex = 1;
+            button5.Text = "Sửa";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(3, 29);
+            button6.Name = "button6";
+            button6.Size = new Size(135, 34);
+            button6.TabIndex = 0;
+            button6.Text = "Thêm";
+            button6.UseVisualStyleBackColor = true;
             // 
             // dtgvAccount
             // 
@@ -999,7 +1145,105 @@
             dtgvAccount.Name = "dtgvAccount";
             dtgvAccount.RowHeadersWidth = 62;
             dtgvAccount.Size = new Size(574, 575);
-            dtgvAccount.TabIndex = 0;
+            dtgvAccount.TabIndex = 13;
+            // 
+            // panel6
+            // 
+            panel6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panel6.Controls.Add(button2);
+            panel6.Controls.Add(panel27);
+            panel6.Controls.Add(panel28);
+            panel6.Controls.Add(panel29);
+            panel6.Location = new Point(586, 6);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(505, 269);
+            panel6.TabIndex = 12;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Arial", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(261, 203);
+            button2.Name = "button2";
+            button2.Size = new Size(230, 34);
+            button2.TabIndex = 13;
+            button2.Text = "Đặt Lại Mật Khẩu";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // panel27
+            // 
+            panel27.Controls.Add(textBox1);
+            panel27.Controls.Add(label2);
+            panel27.Location = new Point(3, 127);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(499, 56);
+            panel27.TabIndex = 6;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(171, 11);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(230, 33);
+            textBox1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(3, 18);
+            label2.Name = "label2";
+            label2.Size = new Size(145, 26);
+            label2.TabIndex = 0;
+            label2.Text = "Loại Account";
+            // 
+            // panel28
+            // 
+            panel28.Controls.Add(textBox12);
+            panel28.Controls.Add(label3);
+            panel28.Location = new Point(3, 65);
+            panel28.Name = "panel28";
+            panel28.Size = new Size(499, 56);
+            panel28.TabIndex = 5;
+            // 
+            // textBox12
+            // 
+            textBox12.Location = new Point(170, 15);
+            textBox12.Name = "textBox12";
+            textBox12.Size = new Size(230, 33);
+            textBox12.TabIndex = 1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ImageAlign = ContentAlignment.TopCenter;
+            label3.Location = new Point(3, 15);
+            label3.Name = "label3";
+            label3.Size = new Size(135, 26);
+            label3.TabIndex = 0;
+            label3.Text = "Tên Hiển thị";
+            // 
+            // panel29
+            // 
+            panel29.Controls.Add(textBox13);
+            panel29.Controls.Add(label4);
+            panel29.Location = new Point(3, 3);
+            panel29.Name = "panel29";
+            panel29.Size = new Size(499, 56);
+            panel29.TabIndex = 4;
+            // 
+            // textBox13
+            // 
+            textBox13.Location = new Point(171, 12);
+            textBox13.Name = "textBox13";
+            textBox13.Size = new Size(230, 33);
+            textBox13.TabIndex = 1;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(3, 15);
+            label4.Name = "label4";
+            label4.Size = new Size(166, 26);
+            label4.TabIndex = 0;
+            label4.Text = "Tên đăng nhập";
             // 
             // fAdmin
             // 
@@ -1056,15 +1300,30 @@
             panel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvDv).EndInit();
             tpAccount.ResumeLayout(false);
-            panel25.ResumeLayout(false);
             panel21.ResumeLayout(false);
             panel22.ResumeLayout(false);
-            panel22.PerformLayout();
             panel23.ResumeLayout(false);
             panel23.PerformLayout();
             panel24.ResumeLayout(false);
             panel24.PerformLayout();
+            panel25.ResumeLayout(false);
+            panel25.PerformLayout();
+            panel31.ResumeLayout(false);
+            panel31.PerformLayout();
+            panel32.ResumeLayout(false);
+            panel32.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgvService).EndInit();
+            tabPage1.ResumeLayout(false);
+            panel30.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgvAccount).EndInit();
+            panel6.ResumeLayout(false);
+            panel27.ResumeLayout(false);
+            panel27.PerformLayout();
+            panel28.ResumeLayout(false);
+            panel28.PerformLayout();
+            panel29.ResumeLayout(false);
+            panel29.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1139,26 +1398,49 @@
         private TextBox textBox7;
         private Label labelNamePt;
         private Panel panel15;
-        private Panel panel21;
-        private Panel panel22;
-        private TextBox textBox6;
-        private Label labelTypeAc;
-        private Panel panel23;
-        private TextBox textBox9;
-        private Label labelDisplayAc;
-        private Panel panel24;
-        private TextBox textBox10;
-        private Label labelNameAc;
-        private DataGridView dtgvAccount;
-        private Button btnUpdatePassword;
-        private Panel panel25;
-        private Button btnSeeAc;
-        private Button btnDeleteAc;
-        private Button btnFixAc;
-        private Button btnAddAc;
+        private DataGridView dtgvService;
         private Panel panel26;
         private TextBox textBox11;
         private Label labelNameSv;
         private DataGridView dtgvDv;
+        private TabPage tabPage1;
+        private Panel panel30;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
+        private DataGridView dtgvAccount;
+        private Panel panel6;
+        private Button button2;
+        private Panel panel27;
+        private TextBox textBox1;
+        private Label label2;
+        private Panel panel28;
+        private TextBox textBox12;
+        private Label label3;
+        private Panel panel29;
+        private TextBox textBox13;
+        private Label label4;
+        private Panel panel21;
+        private Panel panel22;
+        private Button button7;
+        private Button button8;
+        private Button button9;
+        private Button button10;
+        private Panel panel23;
+        private TextBox textBox6;
+        private Label label5;
+        private Panel panel24;
+        private ComboBox comboBox2;
+        private Label label6;
+        private Panel panel25;
+        private TextBox textBox9;
+        private Label label7;
+        private Panel panel31;
+        private TextBox textBox10;
+        private Label label10;
+        private Panel panel32;
+        private NumericUpDown numericUpDown2;
+        private Label label11;
     }
 }
