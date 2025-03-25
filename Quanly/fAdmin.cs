@@ -73,7 +73,7 @@ namespace Quanly
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            Search.searchDataGridView(dtgvCar, "numberCar", textBoxTim.Text);
+            //Search.searchDataGridView(dtgvCar, "numberCar", textBoxTim.Text);
         }
     }
 }

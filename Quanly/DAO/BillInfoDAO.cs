@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Windows.Forms;
 
 namespace Quanly.DAO
 {
@@ -38,6 +40,18 @@ namespace Quanly.DAO
         }
         public void InsertBillInfo(int IdBill, int IdService, int IdMaterial, int Quantity)
         {
+            
+            string get1 = "SELECT quantity FROM BillInfo WHERE idMaterial = @idMaterial";
+            object getValua1 = DAO.DataProvider.Instance.ExecuteScalar(get1, new object[] { IdBill });
+
+            string get2 = "SELECT quantity FROM Material WHERE idMaterial = @idMaterial";
+            object getValua2 = DAO.DataProvider.Instance.ExecuteScalar(get2, new object[] { IdMaterial });
+            if(Convert.ToInt32(getValua2) < Convert.ToInt32(getValua1))
+            {
+                MessageBox.Show("Số Lượng sản phẩm bạn thêm là " + Quantity + " vược quá số lượng tần kho là" + Convert.ToInt32(getValua2), "thông báo", MessageBoxButtons.OK);
+                return;
+                
+            }    
             try
             {
                 DataProvider.Instance.ExecuteQuery("USP_InsertBillInfo @IdBill , @IdService ,  @IdMaterial , @count ", new object[] { IdBill, IdService, IdMaterial, Quantity });

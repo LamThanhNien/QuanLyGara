@@ -23,8 +23,15 @@ namespace Quanly.DAO
         private MaterialDAO() { }
         public void LoadDL(DataGridView dtgvMaterial)
         {
+            List<DTO.Material> listM = new List<DTO.Material>();
             string query = "SELECT * FROM Material";
-            dtgvMaterial.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach(DataRow row in data.Rows)
+            {
+                DTO.Material item = new DTO.Material(row);
+                listM.Add(item);
+            }    
+            dtgvMaterial.DataSource = listM;
         }
         public DataTable ComboBoxLoad(int idService)
         {

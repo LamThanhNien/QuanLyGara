@@ -17,6 +17,7 @@ GO
 CREATE TABLE Customer (
     idCustomer INT IDENTITY PRIMARY KEY,
     name NVARCHAR(100) NOT NULL,
+	sex int,
     address NVARCHAR(255) NOT NULL,
     phoneNum VARCHAR(15) NOT NULL
 );
@@ -29,7 +30,7 @@ CREATE TABLE Car (
     name NVARCHAR(100) NOT NULL,
     numberCar NVARCHAR(50) NOT NULL UNIQUE,
     logo NVARCHAR(100) NOT NULL,
-	ImageBase64 NVARCHAR(MAX) NOT NULL, -- Lưu ảnh dưới dạng chuỗi Base64
+	ImageBase64 NVARCHAR(MAX) NULL, -- Lưu ảnh dưới dạng chuỗi Base64
     FOREIGN KEY (idCustomer) REFERENCES Customer(idCustomer)
 );
 ALTER TABLE Car 
@@ -38,13 +39,10 @@ ALTER COLUMN ImageBase64 NVARCHAR(MAX) NULL;
 -- Tạo bảng _Service
 CREATE TABLE _Service (
     idService INT IDENTITY PRIMARY KEY,
-    name NVARCHAR(100) NOT NULL UNIQUE,
+    name NVARCHAR(100) NOT NULL,
     price DECIMAL(18,2) NOT NULL CHECK (price >= 0)
 );
 GO
-
-ALTER TABLE _Service
-ALTER COLUMN name NVARCHAR(100) NOT NULL
 
 CREATE TABLE Material (
     idMaterial INT IDENTITY PRIMARY KEY,
@@ -54,12 +52,9 @@ CREATE TABLE Material (
     quantity INT NOT NULL CHECK (quantity >= 0),
     price DECIMAL(18,2) NOT NULL CHECK (price >= 0),
     idService INT, 
+	images NVARCHAR(MAX),
     FOREIGN KEY (idService) REFERENCES _Service(idService)
 );
-ALTER TABLE Material
-ADD images NVARCHAR(MAX);
-ALTER TABLE Material
-DROP COLUMN image;
 
 CREATE TABLE Service_Material (
     idService INT,
@@ -101,10 +96,13 @@ CREATE TABLE Revenue (
     idRevenue INT IDENTITY PRIMARY KEY, -- Khóa chính, tự động tăng
     idBill INT NOT NULL,                -- Liên kết với bảng Bill
     totalRevenue DECIMAL(18,2) NOT NULL CHECK (totalRevenue >= 0), -- Tổng doanh thu (không âm)
+	datein DATE NOT NULL,
     dateRevenue DATE NOT NULL,          -- Ngày ghi nhận doanh thu
     FOREIGN KEY (idBill) REFERENCES Bill(idBill) -- Khóa ngoại đến bảng Bill
 );
 GO
+
+
 
 
 INSERT INTO Account (DisplayName, UserName, Password, checkAdmin) VALUES
@@ -200,17 +198,6 @@ Begin
       AND Password COLLATE SQL_Latin1_General_CP1_CS_AS = @Password ;
 End
 go
-
---phần hiển thị cho khách hàng
-SELECT cs.name,cs.address,cs.phoneNum, c.name as namecar,c.numberCar,c.logo
-FROM Customer cs 
-INNER JOIN Car c ON cs.idCustomer = c.idCustomer;
-
---phần hiển thị cho car
-SELECT cs.name, c.name as namecar,c.numberCar,cs.address,cs.phoneNum, c.ImageBase64
-FROM Customer cs 
-INNER JOIN Car c ON cs.idCustomer = c.idCustomer;
-
 --thêm thông tin khách hàng mới
 create PROC InsertCustomer
 	@dk int,
@@ -269,17 +256,6 @@ begin
     delete Customer where idCustomer = @idCustomer
 end
 
-
-
-
--- tính thành tiền
-SELECT s.name, s.price, bi.quantity, b.idBill, (bi.quantity* s.price) AS TotalAmount
-FROM Bill b
-JOIN BillInfo bi ON b.idBill = bi.idBill
-JOIN _Service s ON bi.idService = s.idService
-JOIN Material m ON bi.idMaterial = m.idMaterial
-WHERE b.idBill = @id
-
 create PROCEDURE USP_InsertBill
     @IdCustomer INT  
 AS
@@ -310,9 +286,6 @@ BEGIN
         SELECT -1 AS idBill;
     END
 END
-
-select MAX(idBill) from Bill
-
 
 CREATE PROCEDURE USP_InsertBillInfo
     @IdBill INT, 
@@ -348,31 +321,19 @@ BEGIN
     END
 END;
 
-
-
-CREATE PROCEDURE USP_ThanhToan
+go
+Alter PROCEDURE USP_ThanhToan
     @idBill INT
 AS
 BEGIN
     DECLARE @TOTAL DECIMAL(18,2);
+	DECLARE @DateCheckIn Date;
     DECLARE @DateCheckOut DATE = GETDATE();
 
     -- Cập nhật ngày checkout và trạng thái hóa đơn
     UPDATE Bill
     SET DateCheckOut = @DateCheckOut, status = 1
     WHERE idBill = @idBill;
-
-    -- Kiểm tra vật liệu trong kho
-    IF EXISTS (
-        SELECT 1
-        FROM BillInfo bi
-        JOIN Material m ON bi.idMaterial = m.idMaterial
-        WHERE bi.idBill = @idBill AND m.quantity < bi.quantity
-    )
-    BEGIN
-        PRINT 'Không đủ số lượng vật liệu trong kho!';
-        RETURN;
-    END;
 
     -- Cập nhật số lượng vật liệu trong kho
     UPDATE Material
@@ -387,11 +348,11 @@ BEGIN
     JOIN _Service s ON bi.idService = s.idService
     WHERE bi.idBill = @idBill;
 
+	select @DateCheckIn =DateCheckIn from bill where idBill = @idBill
     -- Thêm doanh thu vào bảng Revenue
-    INSERT INTO Revenue (idBill, totalRevenue, dateRevenue)
-    VALUES (@idBill, @TOTAL, @DateCheckOut);
+    INSERT INTO Revenue (idBill, totalRevenue,datein, dateRevenue)
+    VALUES (@idBill, @TOTAL, @DateCheckIn, @DateCheckOut);
 END;
-
 
 
 Alter PROC USP_UpdateBillInfo
@@ -425,8 +386,6 @@ BEGIN
 	WHERE BI.isPaid = 0 and B.idBill  = @idBill;
 END;
 
-select * from car
-
 CREATE PROC USP_UpdateCar
 	@idCar INT,
 	@name Nvarchar(50),
@@ -452,64 +411,6 @@ BEGIN
 	SET name = @name , address = @address , phoneNum= @phone
 	WHERE idCustomer = @idCustomer
 END;
-
-SELECT * FROM Account
-Select * FROM Car
-Select * FROM Customer
-Select * FROM _Service
-Select * FROM Service_Material
-Select * FROM Revenue
-SELECT * FROM Material
-select * from Bill
-select * from BillInfo
-
-SELECT images FROM Material where idMaterial  = idMaterial
-SELECT idService FROM Service_Material where idMaterial= @idMaterial
-
-
-alter PROC UPS_Material
-	@dk INT,
-	@idService int,
-	@idMaterial INT,
-	@name NVARCHAR(50),
-	@type NVARCHAR(20),
-	@PhanLoai NVARCHAR(50),
-	@noiSx NVARCHAR(50),
-	@quantity INT, 
-	@price DECIMAL(18,2),
-	@image NVARCHAR(MAX)
-AS
-BEGIN
-	IF (@dk = 0)
-	BEGIN
-		-- Thêm mới vào _Service
-		INSERT INTO _Service (name, price) VALUES (@PhanLoai, 0)
-		-- Thêm mới vào Material
-		INSERT INTO Material (name, type, NoiSx, quantity, price, idService, images) 
-		VALUES (@name, @type, @noiSx, @quantity, @price, @idService, @image)
-		-- Thêm vào bảng liên kết
-		INSERT INTO Service_Material (idService, idMaterial) 
-		VALUES (@idService, @idMaterial)
-	END;
-
-	IF(@dk = 1)
-	BEGIN
-		UPDATE _Service
-		SET name = @PhanLoai 
-		WHERE idService = @idService
-
-		UPDATE Material
-		SET name = @name, type = @type, NoiSx = @noiSx, quantity = @quantity, price = @price , images = @image 
-		WHERE idMaterial = @idMaterial
-	END;
-	IF(@dk = 2)
-	BEGIN
-		DELETE Service_Material WHERE idMaterial = @idMaterial AND idService = @idService
-		DELETE _Service WHERE idService =@idService
-		DELETE Material WHERE idMaterial = @idMaterial
-	END;
-END;
-
 
 
 ALTER PROC UPS_Material
@@ -575,15 +476,53 @@ BEGIN
 	-- Xóa dữ liệu
 	IF (@dk = 2)  
 	BEGIN  
-		IF EXISTS (SELECT 1 FROM Material WHERE idMaterial = @idMaterial)  
-		BEGIN  
+			DELETE FROM BillInfo WHERE idMaterial = @idMaterial; 
 			DELETE FROM Service_Material WHERE idMaterial = @idMaterial AND idService = @idService;  
+			--DELETE FROM _Service WHERE idMaterial = @idMaterial;
 			DELETE FROM Material WHERE idMaterial = @idMaterial;
-		END  
-
-		IF EXISTS (SELECT 1 FROM _Service WHERE idService = @idService)  
-		BEGIN  
-			DELETE FROM _Service WHERE idService = @idService;  
-		END  
 	END;  
 END;
+
+
+SELECT * FROM Account
+Select * FROM Car
+Select * FROM Customer
+
+Select * FROM Service_Material
+Select * FROM Revenue
+Select * FROM _Service
+SELECT * FROM Material
+select * from Bill
+select * from BillInfo
+
+delete BillInfo
+delete _Service
+
+SELECT quantity FROM BillInfo WHERE idMaterial = @idMaterial
+
+
+CREATE FUNCTION dbo.RemoveDiacritics (@input NVARCHAR(255))
+RETURNS NVARCHAR(255)
+AS
+BEGIN
+    DECLARE @output NVARCHAR(255) = @input;
+
+    -- Thay thế các ký tự có dấu thành không dấu
+    SET @output = REPLACE(@output, N'ÁÀÃẢẠĂẮẰẴẲẶÂẤẦẪẨẬ', 'A');
+    SET @output = REPLACE(@output, N'áàãảạăắằẵẳặâấầẫẩậ', 'a');
+    SET @output = REPLACE(@output, N'ÉÈẼẺẸÊẾỀỄỂỆ', 'E');
+    SET @output = REPLACE(@output, N'éèẽẻẹêếềễểệ', 'e');
+    SET @output = REPLACE(@output, N'ÍÌĨỈỊ', 'I');
+    SET @output = REPLACE(@output, N'íìĩỉị', 'i');
+    SET @output = REPLACE(@output, N'ÓÒÕỎỌÔỐỒỖỔỘƠỚỜỠỞỢ', 'O');
+    SET @output = REPLACE(@output, N'óòõỏọôốồỗổộơớờỡởợ', 'o');
+    SET @output = REPLACE(@output, N'ÚÙŨỦỤƯỨỪỮỬỰ', 'U');
+    SET @output = REPLACE(@output, N'úùũủụưứừữửự', 'u');
+    SET @output = REPLACE(@output, N'ÝỲỸỶỴ', 'Y');
+    SET @output = REPLACE(@output, N'ýỳỹỷỵ', 'y');
+    SET @output = REPLACE(@output, N'Đ', 'D');
+    SET @output = REPLACE(@output, N'đ', 'd');
+
+    RETURN @output;
+END;
+

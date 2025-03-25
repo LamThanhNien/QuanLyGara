@@ -27,11 +27,19 @@ namespace Quanly.DAO
         public void LoadDL(DataGridView dtgvCar)
         {
             string query = @"
-                SELECT cs.name, c.name AS namecar, c.numberCar, 
-                       cs.address, cs.phoneNum, c.ImageBase64, c.idCustomer ,c.idCar
+                SELECT cs.name as NameCustomer, c.name AS Namecar, c.NumberCar,c.logo as Logo ,
+                       cs.address, cs.phoneNum as Phonenum, c.ImageBase64 as Image, c.idCustomer as idCtm ,c.idCar as IdCar
                 FROM Customer cs
                 INNER JOIN Car c ON cs.idCustomer = c.idCustomer;";
-            dtgvCar.DataSource = DataProvider.Instance.ExecuteQuery(query);
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            List<DTO.Car> listCar = new List<DTO.Car>();
+            foreach(DataRow row in data.Rows)
+            {
+                DTO.Car Caritem = new DTO.Car(row);
+                listCar.Add(Caritem);
+            }
+            dtgvCar.DataSource = listCar;
         }
 
         // Thêm xe mới

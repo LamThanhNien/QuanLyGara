@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Xml.Linq;
+using System.Data;
 
 namespace Quanly.DAO
 {
@@ -29,8 +30,16 @@ namespace Quanly.DAO
         private CustomerDAO() { }
         public void LoadDL(DataGridView Customer)
         {
-            string query = "Select name, address,phoneNum,idCustomer FROM Customer";
-            Customer.DataSource = DAO.DataProvider.Instance.ExecuteQuery(query);
+            List<DTO.Customer> listCtm = new List<DTO.Customer>();
+            string query = "Select name,phoneNum,address,idCustomer FROM Customer";
+            DataTable data = DAO.DataProvider.Instance.ExecuteQuery(query);
+            foreach(DataRow row in data.Rows)
+            {
+                DTO.Customer item = new DTO.Customer(row);
+                listCtm.Add(item);
+            }
+
+            Customer.DataSource = listCtm;
         }
         public bool checkNumBerCar(string numberCar)
         {

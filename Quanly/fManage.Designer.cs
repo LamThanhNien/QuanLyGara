@@ -80,7 +80,7 @@
             label10 = new Label();
             panel13 = new Panel();
             Search = new Button();
-            textBox6 = new TextBox();
+            tbTimCustomer = new TextBox();
             label11 = new Label();
             panel22 = new Panel();
             tbn = new TextBox();
@@ -101,7 +101,7 @@
             label5 = new Label();
             panel5 = new Panel();
             button6 = new Button();
-            textBox5 = new TextBox();
+            tbTimCar = new TextBox();
             panel15 = new Panel();
             tbNumCar1 = new TextBox();
             label6 = new Label();
@@ -567,7 +567,7 @@
             button7.TabIndex = 1;
             button7.Text = "Tìm";
             button7.UseVisualStyleBackColor = true;
-            button7.Click += tim_Click;
+            button7.Click += btntimService_Click;
             // 
             // tbSv
             // 
@@ -732,7 +732,7 @@
             // panel13
             // 
             panel13.Controls.Add(Search);
-            panel13.Controls.Add(textBox6);
+            panel13.Controls.Add(tbTimCustomer);
             panel13.Location = new Point(8, 21);
             panel13.Margin = new Padding(4, 3, 4, 3);
             panel13.Name = "panel13";
@@ -748,15 +748,15 @@
             Search.TabIndex = 1;
             Search.Text = "Tìm";
             Search.UseVisualStyleBackColor = true;
-            Search.Click += Search_Click;
+            Search.Click += btnTimCustomer_Click;
             // 
-            // textBox6
+            // tbTimCustomer
             // 
-            textBox6.Location = new Point(4, 16);
-            textBox6.Margin = new Padding(4, 3, 4, 3);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(316, 33);
-            textBox6.TabIndex = 0;
+            tbTimCustomer.Location = new Point(4, 16);
+            tbTimCustomer.Margin = new Padding(4, 3, 4, 3);
+            tbTimCustomer.Name = "tbTimCustomer";
+            tbTimCustomer.Size = new Size(316, 33);
+            tbTimCustomer.TabIndex = 0;
             // 
             // label11
             // 
@@ -960,7 +960,7 @@
             // panel5
             // 
             panel5.Controls.Add(button6);
-            panel5.Controls.Add(textBox5);
+            panel5.Controls.Add(tbTimCar);
             panel5.Location = new Point(4, 11);
             panel5.Margin = new Padding(4, 3, 4, 3);
             panel5.Name = "panel5";
@@ -976,15 +976,15 @@
             button6.TabIndex = 1;
             button6.Text = "Tìm";
             button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            button6.Click += btntimCar_Click;
             // 
-            // textBox5
+            // tbTimCar
             // 
-            textBox5.Location = new Point(4, 16);
-            textBox5.Margin = new Padding(4, 3, 4, 3);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(316, 33);
-            textBox5.TabIndex = 0;
+            tbTimCar.Location = new Point(4, 16);
+            tbTimCar.Margin = new Padding(4, 3, 4, 3);
+            tbTimCar.Name = "tbTimCar";
+            tbTimCar.Size = new Size(316, 33);
+            tbTimCar.TabIndex = 0;
             // 
             // panel15
             // 
@@ -1301,7 +1301,7 @@
             btntim.TabIndex = 1;
             btntim.Text = "Tìm";
             btntim.UseVisualStyleBackColor = true;
-            btntim.Click += btntim_Click_1;
+            btntim.Click += btntimHoadon_Click_1;
             // 
             // btnThanhToan
             // 
@@ -1499,7 +1499,7 @@
         private Label label10;
         private Panel panel13;
         private Button Search;
-        private TextBox textBox6;
+        private TextBox tbTimCustomer;
         private Label label11;
         private Panel panel22;
         private TextBox tbn;
@@ -1520,7 +1520,7 @@
         private Label label5;
         private Panel panel5;
         private Button button6;
-        private TextBox textBox5;
+        private TextBox tbTimCar;
         private Panel panel15;
         private TextBox tbNumCar1;
         private Label label6;

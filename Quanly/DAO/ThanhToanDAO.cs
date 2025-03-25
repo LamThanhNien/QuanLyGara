@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Quanly.DTO;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +40,14 @@ namespace Quanly.DAO
             FROM Customer cs 
             INNER JOIN Car c ON cs.idCustomer = c.idCustomer
             ";
-            dtgvCustomer.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            List<ThanhToan> listTT = new List<ThanhToan>();
+            foreach (DataRow row in data.Rows)
+            {
+                DTO.ThanhToan Item = new DTO.ThanhToan(row);
+                listTT.Add(Item);
+            }
+            dtgvCustomer.DataSource = listTT;
             dtgvCustomer.Columns[0].HeaderText = "Tên Khách hàng";
             //dtgvCustomer.Columns[1].Width = 300;
             dtgvCustomer.Columns[1].HeaderText = "Địa chỉ";
@@ -51,6 +61,7 @@ namespace Quanly.DAO
             dtgvCustomer.Columns[5].HeaderText = "Tên hãng";
             //dtgvCustomer.Columns[0].Width = 250;
         }
+
         public int ThanhToan(int idBill)
         {
             string query = "USP_ThanhToan @idBill";
