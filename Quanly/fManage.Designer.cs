@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             button4 = new Button();
             button3 = new Button();
@@ -140,6 +141,7 @@
             panel18 = new Panel();
             dtgvCustomer = new DataGridView();
             dtgvMaterial = new TabControl();
+            contextMenuStrip1 = new ContextMenuStrip(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxImage).BeginInit();
             tabPage4.SuspendLayout();
@@ -825,7 +827,6 @@
             // 
             // panel6
             // 
-            panel6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             panel6.Controls.Add(btnAddImage1);
             panel6.Controls.Add(btnDelete0);
             panel6.Controls.Add(AddCar);
@@ -1364,6 +1365,12 @@
             dtgvMaterial.Size = new Size(1172, 868);
             dtgvMaterial.TabIndex = 1;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(24, 24);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
             // fManage
             // 
             AcceptButton = btntim;
@@ -1560,5 +1567,6 @@
         private ComboBox comboBoxLoad;
         private Label label20;
         private Label label12;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }

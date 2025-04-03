@@ -27,6 +27,33 @@ namespace Quanly.DAO
             }
         }
         private Search() { }
+        public List<DTO.Customer_Car> searchCustomer(string name)
+        {
+            string query = string.Format("SELECT cs.name, cs.sex,cs.address,cs.phoneNum,\r\n\t\tC.name As nameCar, C.numberCar, C.Hang, C.logo AS color, C.ImageBase64, cs.idCustomer\r\nFROM Customer cs INNER JOIN Car c ON cs.idCustomer = c.idCustomer \r\nWHERE dbo.RemoveDiacritics(cs.name) like N'%'+dbo.RemoveDiacritics(N'{0}')+'%'", name);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            List<DTO.Customer_Car> listTT = new List<DTO.Customer_Car>();
+            foreach (DataRow row in data.Rows)
+            {
+                DTO.Customer_Car Item = new DTO.Customer_Car(row);
+                listTT.Add(Item);
+            }
+            return listTT;
+        }
+        public List<Car> searchCarbyname(string name)
+        {
+            string query = string.Format("SELECT cs.name as NameCustomer, c.name AS Namecar, c.NumberCar,c.logo as Logo ,c.Hang ,cs.address, cs.phoneNum as Phonenum, c.ImageBase64 as Image, c.idCustomer as idCtm, c.idCar as IdCar FROM Customer cs INNER JOIN Car c ON cs.idCustomer = c.idCustomer where dbo.RemoveDiacritics(c.numberCar) like N'%'+dbo.RemoveDiacritics(N'{0}')+'%'", name);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            List<Car> list = new List<Car>();
+            foreach (DataRow row in data.Rows)
+            {
+                DTO.Car Item = new DTO.Car(row);
+                list.Add(Item);
+            }
+            return list;
+        }
+
+
+        //fix sau
         public List<ThanhToan> searchCustomerbyname(string name)
         {
             string query = string.Format("SELECT cs.name, cs.address, cs.phoneNum, c.name AS namecar,c.numberCar,c.logo, cs.idCustomer \r\nFROM Customer cs INNER JOIN Car c ON cs.idCustomer = c.idCustomer WHERE dbo.RemoveDiacritics(cs.name) like N'%'+dbo.RemoveDiacritics(N'{0}')+'%'", name);
@@ -38,18 +65,6 @@ namespace Quanly.DAO
                 listTT.Add(Item);
             }
             return listTT;
-        }
-        public List<Car> searchCarbyname(string name)
-        {
-            string query = string.Format("SELECT cs.name as NameCustomer, c.name AS Namecar, c.NumberCar,c.logo as Logo ,cs.address, cs.phoneNum as Phonenum, c.ImageBase64 as Image, c.idCustomer as idCtm, c.idCar as IdCar FROM Customer cs INNER JOIN Car c ON cs.idCustomer = c.idCustomer where dbo.RemoveDiacritics(c.numberCar) like N'%'+dbo.RemoveDiacritics(N'{0}')+'%'", name);
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
-            List<Car> list = new List<Car>();
-            foreach (DataRow row in data.Rows)
-            {
-                DTO.Car Item = new DTO.Car(row);
-                list.Add(Item);
-            }
-            return list;
         }
         public List<Customer> searchCtmbyname(string name)
         {

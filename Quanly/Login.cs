@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 using System.Security.Policy;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -11,6 +12,26 @@ namespace Quanly
         {
             InitializeComponent();
         }
+
+        #region Control
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+        private void pnlTitleBar_MouseDown_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0); // Di chuyển form
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized; // Thu nhỏ Form
+        }
+        #endregion
         private void button1_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tbname.Text) || string.IsNullOrEmpty(tbpassword.Text))
@@ -22,9 +43,9 @@ namespace Quanly
             {
                 DTO.Account loginAc = DAO.AccountDAO.Instance.GetAccount(tbname.Text);
                 this.Hide();
-                fManage fManage = new fManage(loginAc);
-                fManage.ShowDialog();
-                this.Show();
+                //fManage fManage = new fManage(loginAc);
+                //fManage.ShowDialog();
+                //this.Show();
             }
             else
             {
@@ -55,6 +76,5 @@ namespace Quanly
             tbpassword.UseSystemPasswordChar = CheckBoxShow.Checked ? false : true;
 
         }
-
     }
 }

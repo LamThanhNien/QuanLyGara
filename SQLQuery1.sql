@@ -5,11 +5,24 @@ GO
 
 -- Tạo bảng Account
 CREATE TABLE Account (
-    id INT IDENTITY PRIMARY KEY, 
+    idAccount INT IDENTITY PRIMARY KEY, 
     DisplayName NVARCHAR(100) NOT NULL, 
-    UserName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS UNIQUE NOT NULL, -- Phân biệt chữ hoa và thường
-    Password NVARCHAR(1000) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,       -- Phân biệt chữ hoa và thường
+    UserName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS UNIQUE NOT NULL,
+    Password NVARCHAR(1000) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,
     checkAdmin INT NOT NULL CHECK (checkAdmin IN (1, 2)) -- 1: Admin, 2: Staff
+);
+GO
+
+CREATE TABLE Employee (
+    idEmployee INT IDENTITY PRIMARY KEY,
+    idAccount INT,
+    FullName NVARCHAR(100) NOT NULL,
+    Phone VARCHAR(15) NOT NULL,
+    Position NVARCHAR(50) NOT NULL,
+    Salary DECIMAL(18,2),
+    HireDate DATE DEFAULT GETDATE(),
+    Status INT DEFAULT 1, -- 1: Đang làm, 0: Nghỉ
+    FOREIGN KEY (idAccount) REFERENCES Account(idAccount)
 );
 GO
 
@@ -17,7 +30,7 @@ GO
 CREATE TABLE Customer (
     idCustomer INT IDENTITY PRIMARY KEY,
     name NVARCHAR(100) NOT NULL,
-	sex int,
+    sex INT,
     address NVARCHAR(255) NOT NULL,
     phoneNum VARCHAR(15) NOT NULL
 );
@@ -28,34 +41,48 @@ CREATE TABLE Car (
     idCar INT IDENTITY PRIMARY KEY,
     idCustomer INT,
     name NVARCHAR(100) NOT NULL,
+    Hang NVARCHAR(50),
     numberCar NVARCHAR(50) NOT NULL UNIQUE,
-    logo NVARCHAR(100) NOT NULL,
-	ImageBase64 NVARCHAR(MAX) NULL, -- Lưu ảnh dưới dạng chuỗi Base64
+    Color NVARCHAR(100) NOT NULL,
+    Image NVARCHAR(MAX) NULL,
     FOREIGN KEY (idCustomer) REFERENCES Customer(idCustomer)
-);
-ALTER TABLE Car 
-ALTER COLUMN ImageBase64 NVARCHAR(MAX) NULL;
-
--- Tạo bảng _Service
-CREATE TABLE _Service (
-    idService INT IDENTITY PRIMARY KEY,
-    name NVARCHAR(100) NOT NULL,
-    price DECIMAL(18,2) NOT NULL CHECK (price >= 0)
 );
 GO
 
+-- Bảng Danh mục (Bảo dưỡng, Sửa chữa)
+CREATE TABLE Category (
+    idCategory INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL CHECK (Name IN (N'Bảo dưỡng', N'Sửa chữa')),
+    Description NVARCHAR(300),
+    Type INT NOT NULL DEFAULT 1 CHECK (Type IN (1, 2)) -- 1: Bảo dưỡng, 2: Sửa chữa
+);
+GO
+
+-- Tạo bảng _Service (chỉ dùng cho Bảo dưỡng)
+CREATE TABLE _Service (
+    idService INT IDENTITY PRIMARY KEY,
+    idCategory INT NOT NULL,
+    name NVARCHAR(100) NOT NULL,
+    price DECIMAL(18,2) NOT NULL CHECK (price >= 0),
+    FOREIGN KEY (idCategory) REFERENCES Category(idCategory),
+);
+GO
+
+-- Tạo bảng Material (chỉ dùng cho Sửa chữa)
 CREATE TABLE Material (
     idMaterial INT IDENTITY PRIMARY KEY,
+    idCategory INT NOT NULL,
     name NVARCHAR(100) NOT NULL,
-	type NVARCHAR(50) NULL,
-	NoiSx NVARCHAR(50) NULL,
+    type NVARCHAR(50) NULL,
+    NoiSx NVARCHAR(50) NULL,
     quantity INT NOT NULL CHECK (quantity >= 0),
     price DECIMAL(18,2) NOT NULL CHECK (price >= 0),
-    idService INT, 
-	images NVARCHAR(MAX),
-    FOREIGN KEY (idService) REFERENCES _Service(idService)
+    images NVARCHAR(MAX),
+    FOREIGN KEY (idCategory) REFERENCES Category(idCategory),
 );
+GO
 
+-- Bảng liên kết Service và Material (nếu cần)
 CREATE TABLE Service_Material (
     idService INT,
     idMaterial INT,
@@ -63,18 +90,18 @@ CREATE TABLE Service_Material (
     FOREIGN KEY (idService) REFERENCES _Service(idService),
     FOREIGN KEY (idMaterial) REFERENCES Material(idMaterial)
 );
-
+GO
 
 -- Tạo bảng Bill
 CREATE TABLE Bill (
     idBill INT IDENTITY PRIMARY KEY,
     idCustomer INT,
     idCar INT,
-    DateCheckIn DATE,
+    DateCheckIn DATE DEFAULT GETDATE(),
     DateCheckOut DATE,
     status INT NOT NULL DEFAULT 0 CHECK (status IN (0,1)),
     FOREIGN KEY (idCustomer) REFERENCES Customer(idCustomer),
-    FOREIGN KEY (idCar) REFERENCES Car(idCar)
+    FOREIGN KEY (idCar) REFERENCES Car(idCar),
 );
 GO
 
@@ -82,109 +109,100 @@ GO
 CREATE TABLE BillInfo (
     idBillInfo INT IDENTITY PRIMARY KEY,
     idBill INT,
-    idService INT,
-    idMaterial INT,
+    idService INT NULL, -- Có thể NULL nếu chỉ dùng Material
+    idMaterial INT NULL, -- Có thể NULL nếu chỉ dùng Service
     quantity INT NOT NULL CHECK (quantity > 0),
     isPaid INT DEFAULT 0,
     FOREIGN KEY (idBill) REFERENCES Bill(idBill),
     FOREIGN KEY (idService) REFERENCES _Service(idService),
-    FOREIGN KEY (idMaterial) REFERENCES Material(idMaterial)
+    FOREIGN KEY (idMaterial) REFERENCES Material(idMaterial),
+    CONSTRAINT CHK_BillInfo_ServiceOrMaterial CHECK (
+        (idService IS NOT NULL AND idMaterial IS NULL) OR
+        (idService IS NULL AND idMaterial IS NOT NULL)
+    )
 );
-
+GO
+--Bảng Lịch sử bảo dưỡng
+CREATE TABLE MaintenanceHistory (
+    idHistory INT IDENTITY(1,1) PRIMARY KEY,
+    idCar INT FOREIGN KEY REFERENCES Car(idCar),
+    MaintenanceDate DATE NOT NULL DEFAULT GETDATE(),
+    NextMaintenanceDate DATE,
+    CurrentKM INT NOT NULL,
+    NextMaintenanceKM INT,
+    TotalCost DECIMAL(18,2),
+    Note NVARCHAR(1000)
+);
+GO
 
 CREATE TABLE Revenue (
-    idRevenue INT IDENTITY PRIMARY KEY, -- Khóa chính, tự động tăng
-    idBill INT NOT NULL,                -- Liên kết với bảng Bill
-    totalRevenue DECIMAL(18,2) NOT NULL CHECK (totalRevenue >= 0), -- Tổng doanh thu (không âm)
-	datein DATE NOT NULL,
-    dateRevenue DATE NOT NULL,          -- Ngày ghi nhận doanh thu
-    FOREIGN KEY (idBill) REFERENCES Bill(idBill) -- Khóa ngoại đến bảng Bill
+    idRevenue INT IDENTITY PRIMARY KEY,
+    idBill INT NOT NULL,
+    totalRevenue DECIMAL(18,2) NOT NULL CHECK (totalRevenue >= 0),
+    datein DATE NOT NULL DEFAULT GETDATE(),
+    dateRevenue DATE NULL DEFAULT GETDATE(),
+    FOREIGN KEY (idBill) REFERENCES Bill(idBill)
 );
 GO
 
 
-
-
-INSERT INTO Account (DisplayName, UserName, Password, checkAdmin) VALUES
-('Admin1','a','1',1),
-(N'Quản trị viên phụ', N'adminphu', N'MậtKhẩu@456', 1),
-(N'Nguyễn Văn Ánh', N'nvanh', N'BảoMật@789', 2),
-(N'Trần Thị Bích', N'ttbich', N'AnToàn@321', 2);
-
-INSERT INTO Customer (name, address, phoneNum) VALUES
-(N'Nguyễn Văn Ánh', N'123 Lê Lợi, TP.HCM', '0909123456'),
-(N'Trần Thị Bích', N'456 Trần Hưng Đạo, Hà Nội', '0988765432'),
-(N'Phạm Văn Cường', N'789 Nguyễn Trãi, TP.HCM', '0912345678');
-
-
-INSERT INTO Car (idCustomer, name, numberCar, logo, ImageBase64) VALUES
-(1, N'Toyota Camry', N'51F-12345', N'Toyota', ''),
-(1, N'Honda Civic', N'30G-67890', N'Honda', ''),
-(2, N'Ford Ranger', N'29A-54321', N'Ford', ''),
-(3, N'BMW Series 3', N'45B-11223', N'BMW', '');
-
-
-INSERT INTO _Service (name, price) VALUES
-(N'Thay dầu', 200000),      -- 200.000 VND
-(N'Xoay bánh', 150000),      -- 150.000 VND
-(N'Kiểm tra phanh', 250000), -- 250.000 VND
-(N'Kiểm tra ắc quy', 120000);  -- 120.000 VND
-
-
-INSERT INTO Material (name, type, NoiSx, quantity, price, idService) VALUES
-(N'Lọc dầu', N'Phụ tùng', N'Nhật Bản', 50, 50000, 1),      
-(N'Lọc gió', N'Phụ tùng', N'Nhật Bản', 30, 70000, 1),       
-(N'Bánh xe', N'Linh kiện', N'Mỹ', 20, 800000, 2),           
-(N'Bộ má phanh', N'Linh kiện', N'Đức', 40, 300000, 3),      
-(N'Ắc quy', N'Linh kiện', N'Hàn Quốc', 25, 600000, 4); 
-
-
-INSERT INTO Service_Material (idService, idMaterial) VALUES
-(1, 1),  -- Thay dầu sử dụng Lọc dầu
-(1, 2),  -- Thay dầu sử dụng Lọc gió
-(2, 3),  -- Xoay bánh sử dụng Bánh xe
-(3, 4),  -- Kiểm tra phanh sử dụng Bộ má phanh
-(4, 5);  -- Kiểm tra ắc quy sử dụng Ắc quy
-
-
-INSERT INTO Bill (idCustomer, idCar, DateCheckIn, DateCheckOut, status) VALUES
-(1, 2, '2025-03-05', '2025-03-06', 1),
-(2, 3, '2025-03-07', NULL, 0), -- Xe chưa sửa xong
-(3, 4, '2025-03-08', '2025-03-09', 1);
-
-
-INSERT INTO BillInfo (idBill, idService, idMaterial, quantity, isPaid) VALUES
-(1, 1, 1, 1, 0),
-(1, 1, 2, 1, 0),
-(1, 2, 3, 4, 0),
-(2, 3, 4, 2, 0),
-(3, 4, 5, 1, 0);
-
-
-
-INSERT INTO Revenue (idBill, totalRevenue, dateRevenue) VALUES
-(1, 200000 + 200000 + 150000 + (800000 * 4), '2025-03-01'),
-(2, 250000 + (300000 * 2), '2025-03-03'),
-(3, 120000 + 600000, '2025-03-04');
-
-
--- Chèn dữ liệu vào bảng Revenue từ các hóa đơn đã thanh toán
-INSERT INTO Revenue (idBill, totalRevenue, dateRevenue)
-SELECT 
-    B.idBill, 
-    SUM(BI.quantity * S.price) AS totalRevenue, 
-    B.DateCheckOut AS dateRevenue
-FROM 
-    Bill B
-JOIN 
-    BillInfo BI ON B.idBill = BI.idBill
-JOIN 
-    _Service S ON BI.idService = S.idService
-WHERE 
-    B.status = 1 -- Chỉ tính các hóa đơn đã thanh toán
-GROUP BY 
-    B.idBill, B.DateCheckOut;
-
+INSERT INTO Account (DisplayName, UserName, Password, checkAdmin)
+VALUES 
+(N'Admin1','a','1',1),
+(N'Nguyễn Văn A', 'nva', 'password123', 2),
+(N'Trần Thị B', 'ttb', 'password456', 2);
+GO
+INSERT INTO Employee (idAccount, FullName, Phone, Position, Salary, HireDate, Status)
+VALUES 
+(2, N'Nguyễn Văn A', '0905123456', N'Nhân viên kỹ thuật', 10000000, '2023-01-15', 1),
+(3, N'Trần Thị B', '0916789123', N'Nhân viên tiếp nhận', 9000000, '2023-03-20', 1);
+GO
+INSERT INTO Customer (name, sex, address, phoneNum)
+VALUES 
+(N'Phạm Văn C', 1, N'123 Lê Lợi, Hà Nội', '0987654321'),
+(N'Hoàng Thị D', 0, N'456 Nguyễn Trãi, TP.HCM', '0976543210');
+GO
+INSERT INTO Car (idCustomer, name, Hang, numberCar, Color, Image)
+VALUES 
+(1, N'Toyota Camry', N'Toyota', '30A-12345', N'Đen', NULL),
+(2, N'Honda Civic', N'Honda', '29B-67890', N'Trắng', NULL);
+GO
+INSERT INTO Category (Name, Description, Type)
+VALUES 
+(N'Bảo dưỡng', N'Dịch vụ bảo dưỡng định kỳ', 1),
+(N'Sửa chữa', N'Dịch vụ sửa chữa hỏng hóc', 2);
+GO
+INSERT INTO _Service (idCategory, name, price)
+VALUES 
+(1, N'Thay dầu động cơ', 300000),
+(1, N'Kiểm tra phanh', 150000),
+(1, N'Bảo dưỡng điều hòa', 500000);
+GO
+INSERT INTO Material (idCategory, name, type, NoiSx, quantity, price, images)
+VALUES 
+(2, N'Lốp xe Michelin', N'Lốp', N'Pháp', 10, 2000000, NULL),
+(2, N'Đèn pha LED', N'Đèn', N'Nhật Bản', 5, 1500000, NULL);
+GO
+INSERT INTO Bill (idCustomer, idCar, DateCheckIn, DateCheckOut, status)
+VALUES 
+(1, 1,'2024-03-20', '2024-03-21', 1),
+(2, 2,'2024-03-22', NULL, 0);
+GO
+INSERT INTO BillInfo (idBill, idService, idMaterial, quantity, isPaid)
+VALUES 
+(1, 1, NULL, 1, 1),
+(1, NULL, 1, 2, 1),
+(2, 2, NULL, 1, 0);
+GO
+INSERT INTO MaintenanceHistory (idCar, MaintenanceDate, NextMaintenanceDate, CurrentKM, NextMaintenanceKM, TotalCost, Note)
+VALUES 
+(1, '2024-03-21', '2024-09-21', 50000, 60000, 300000, N'Thay dầu và kiểm tra hệ thống phanh'),
+(2, '2024-03-22', '2024-09-22', 40000, 50000, 500000, N'Bảo dưỡng điều hòa và thay lọc gió');
+GO
+INSERT INTO Revenue (idBill, totalRevenue, datein, dateRevenue)
+VALUES 
+(1, 2600000, '2024-03-20', '2024-03-21'),
+(2, 500000, '2024-03-22', NULL);
 
 
 --phần đăng nhập
@@ -207,7 +225,8 @@ create PROC InsertCustomer
     @Mobile NVARCHAR(50),
     @namecar NVARCHAR(50),
     @numcar NVARCHAR(50),
-    @logo NVARCHAR(50),
+	@Hang NVARCHAR(50),
+    @Color NVARCHAR(50),
     @filePath NVARCHAR(MAX)
 AS
 BEGIN
@@ -222,40 +241,75 @@ BEGIN
 		INSERT INTO Customer (name, address, phoneNum) 
 		VALUES (@Ten, @address, @Mobile);
 		SET @idCustomer = SCOPE_IDENTITY(); 
-		INSERT INTO Car (idCustomer, name, numberCar, logo, ImageBase64) 
-		VALUES (@idCustomer, @namecar, @numcar, @logo, @filePath);
+		INSERT INTO Car (idCustomer, name, Hang, numberCar, Color, Image) 
+		VALUES (@idCustomer, @namecar,@Hang, @numcar, @Color, @filePath);
 	END;
 	IF(@dk=1)
 	BEGIN 
-		INSERT INTO Car (idCustomer, name, numberCar, logo, ImageBase64) 
-		VALUES (@idKhach, @namecar, @numcar, @logo, @filePath);
+		INSERT INTO Car (idCustomer, name,Hang, numberCar, Color, Image) 
+		VALUES (@idKhach, @namecar, @Hang, @numcar, @Color, @filePath);
 	END;
 	
 END;
 
---drop proc InsertCustomer
 go
-create proc EditCustomer
+Alter proc EditCustomer_Car
 	@idCustomer int,
 	@Ten nvarchar(50),
+	@sex nvarchar(20),
 	@address nvarchar(50),
-	@Mobile nvarchar(50)
+	@Mobile nvarchar(50),
+	@nameCar NVARCHAR(100),
+	@numCar NVARCHAR(50),
+	@hang NVARCHAR(50),
+	@color NVARCHAR(20),
+	@Image NVARCHAR(MAX)
 as
 begin
     update Customer set
     Name = @Ten,
+	sex = @sex,
     address = @address,
     phoneNum = @Mobile
     where idCustomer = @idCustomer
+
+	update Car set
+    name = @nameCar,numberCar = @numCar, logo = @color, ImageBase64 = @Image, Hang =@hang
+    where idCustomer = @idCustomer
 end
 go
+
 create proc DeleteCustomer
 @idCustomer int
 as
 begin
+	delete Car where idCustomer = @idCustomer
     delete Customer where idCustomer = @idCustomer
 end
 
+CREATE PROC USP_UpdateCar
+	@idCar INT,
+	@name Nvarchar(50),
+	@numCar Nvarchar(50),
+	@mau Nvarchar(50),
+	@Image NVARCHAR(MAX) = null
+AS
+BEGIN
+	UPDATE Car
+	SET name = @name , numberCar = @numCar , logo = @mau ,ImageBase64 = @Image
+	WHERE idCar = @idCar
+END;
+
+
+CREATE PROC DeleteCar
+	@idCar INT 
+AS
+BEGIN
+	delete Car where idCar = @idCar
+END;
+
+
+--CODE FIX
 create PROCEDURE USP_InsertBill
     @IdCustomer INT  
 AS
@@ -322,38 +376,76 @@ BEGIN
 END;
 
 go
-Alter PROCEDURE USP_ThanhToan
+ALTER PROCEDURE USP_ThanhToan
     @idBill INT
 AS
 BEGIN
-    DECLARE @TOTAL DECIMAL(18,2);
-	DECLARE @DateCheckIn Date;
-    DECLARE @DateCheckOut DATE = GETDATE();
+    BEGIN TRANSACTION;
+    BEGIN TRY
+        DECLARE @TOTAL DECIMAL(18,2) = 0;
+        DECLARE @DateCheckIn Date;
+        DECLARE @DateCheckOut DATE = GETDATE();
 
-    -- Cập nhật ngày checkout và trạng thái hóa đơn
-    UPDATE Bill
-    SET DateCheckOut = @DateCheckOut, status = 1
-    WHERE idBill = @idBill;
+        -- 1. Cập nhật ngày checkout và trạng thái hóa đơn
+        UPDATE Bill
+        SET DateCheckOut = @DateCheckOut, status = 1
+        WHERE idBill = @idBill;
 
-    -- Cập nhật số lượng vật liệu trong kho
-    UPDATE Material
-    SET quantity = (m.quantity - bi.quantity)
-    FROM Material m
-    INNER JOIN BillInfo bi ON m.idMaterial = bi.idMaterial
-    WHERE bi.idBill = @idBill;
+        -- 2. Trừ số lượng vật liệu trong kho (chỉ cho các vật liệu trong hóa đơn)
+        UPDATE m
+        SET m.quantity = m.quantity - bi.quantity
+        FROM Material m
+        INNER JOIN BillInfo bi ON m.idMaterial = bi.idMaterial
+        WHERE bi.idBill = @idBill 
+          AND bi.idMaterial IS NOT NULL
+          AND m.quantity >= bi.quantity; -- Đảm bảo không âm
 
-    -- Tính tổng tiền hóa đơn
-    SELECT @TOTAL = SUM(bi.quantity * s.price)
-    FROM BillInfo bi
-    JOIN _Service s ON bi.idService = s.idService
-    WHERE bi.idBill = @idBill;
+        -- Kiểm tra nếu có vật liệu không đủ số lượng
+        IF EXISTS (
+            SELECT 1 
+            FROM BillInfo bi
+            JOIN Material m ON bi.idMaterial = m.idMaterial
+            WHERE bi.idBill = @idBill 
+              AND bi.idMaterial IS NOT NULL
+              AND m.quantity < bi.quantity
+        )
+        BEGIN
+            ROLLBACK TRANSACTION;
+            RAISERROR('Một số vật liệu không đủ số lượng trong kho', 16, 1);
+            RETURN;
+        END
 
-	select @DateCheckIn =DateCheckIn from bill where idBill = @idBill
-    -- Thêm doanh thu vào bảng Revenue
-    INSERT INTO Revenue (idBill, totalRevenue,datein, dateRevenue)
-    VALUES (@idBill, @TOTAL, @DateCheckIn, @DateCheckOut);
+        -- 3. Tính tổng tiền hóa đơn (cả Service và Material)
+        SELECT @TOTAL = ISNULL(SUM(
+            CASE 
+                WHEN bi.idService IS NOT NULL THEN bi.quantity * s.price
+                WHEN bi.idMaterial IS NOT NULL THEN bi.quantity * m.price
+                ELSE 0
+            END), 0)
+        FROM BillInfo bi
+        LEFT JOIN _Service s ON bi.idService = s.idService
+        LEFT JOIN Material m ON bi.idMaterial = m.idMaterial
+        WHERE bi.idBill = @idBill;
+
+        -- 4. Lấy ngày checkin
+        SELECT @DateCheckIn = DateCheckIn FROM Bill WHERE idBill = @idBill;
+        
+        -- 5. Thêm doanh thu vào bảng Revenue
+        INSERT INTO Revenue (idBill, totalRevenue, datein, dateRevenue)
+        VALUES (@idBill, @TOTAL, @DateCheckIn, @DateCheckOut);
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        -- Trả về thông báo lỗi chi tiết
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
+        DECLARE @ErrorState INT = ERROR_STATE();
+        
+        RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH
 END;
-
 
 Alter PROC USP_UpdateBillInfo
 	@stt int,
@@ -386,18 +478,7 @@ BEGIN
 	WHERE BI.isPaid = 0 and B.idBill  = @idBill;
 END;
 
-CREATE PROC USP_UpdateCar
-	@idCar INT,
-	@name Nvarchar(50),
-	@numCar Nvarchar(50),
-	@mau Nvarchar(50),
-	@Image NVARCHAR(MAX) = null
-AS
-BEGIN
-	UPDATE Car
-	SET name = @name , numberCar = @numCar , logo = @mau ,ImageBase64 = @Image
-	WHERE idCar = @idCar
-END;
+
 
 
 Create PROC USP_UpdateCustomer
@@ -525,4 +606,21 @@ BEGIN
 
     RETURN @output;
 END;
+
+
+
+
+
+
+select * from Account
+select * from Employee
+select * from Customer
+select * from Car
+select * from Category
+select * from Material
+select * from _Service
+select * from Bill
+select * from BillInfo
+select * from MaintenanceHistory
+select * from Revenue
 

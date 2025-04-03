@@ -118,10 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="images2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="images2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="download (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (3).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="岩浆Y壁纸" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -130,7 +133,37 @@
   <data name="images1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="download (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (4).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vo-lang-dinh-kim-cuong-gia-2-1699434500319350442308-1699493126299-16994931264015605531822" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vo-lang-dinh-kim-cuong-gia-2-1699434500319350442308-1699493126299-1699493126401560553182.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="khongxacdinh_213x379" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\khongxacdinh_213x379.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vo-lang-dinh-kim-cuong-gia-2-1699434500319350442308-1699493126299-16994931264015605531821" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vo-lang-dinh-kim-cuong-gia-2-1699434500319350442308-1699493126299-1699493126401560553182.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download (3)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (3).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download (4)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (4).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vo-lang-dinh-kim-cuong-gia-2-1699434500319350442308-1699493126299-1699493126401560553182" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vo-lang-dinh-kim-cuong-gia-2-1699434500319350442308-1699493126299-1699493126401560553182.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

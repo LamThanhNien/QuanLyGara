@@ -27,18 +27,18 @@ namespace Quanly.DAO
         }
         private ServiceDAO() { }
 
-        //public List<DTO.Service> LoadService()
-        //{
-        //    string query = "Select _Service.name,_Service.idService  FROM _Service";
-        //    List<DTO.Service> list = new List<DTO.Service>();
-        //    DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
-        //    foreach (DataRow row in dataTable.Rows)
-        //    {
-        //        DTO.Service service = new DTO.Service(row);
-        //        list.Add(service);
-        //    }
-        //    return list;
-        //}
+        public void LoadService(DataGridView dtgvDichvu)
+        {
+            string query = "Select _Service.name,_Service.idService  FROM _Service";
+            List<DTO.Service> list = new List<DTO.Service>();
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow row in dataTable.Rows)
+            {
+                DTO.Service service = new DTO.Service(row);
+                list.Add(service);
+            }
+            dtgvDichvu.DataSource =  list;
+        }
         public DataTable LoadDL()
         {
             string query = "SELECT idService, name FROM _Service";

@@ -76,7 +76,6 @@ namespace Quanly
             comboBox1.DataSource = data;
             comboBox1.DisplayMember = "name";
             comboBox1.ValueMember = "idService";
-
             comboBoxLoad.DataSource = data;
             comboBoxLoad.DisplayMember = "name";
             comboBoxLoad.ValueMember = "idService";
@@ -135,7 +134,7 @@ namespace Quanly
         //Phần chuyển giao diện
         private void button1_Click(object sender, EventArgs e)
         {
-            fAddCustomer fAdd = new fAddCustomer();
+            fCustomer fAdd = new fCustomer();
             fAdd.ShowDialog();
             loadThanhToan();
             loadCar();
@@ -420,7 +419,7 @@ namespace Quanly
             string nameCustomer = tbCustomer1.Text;
             string phone = tbphone1.Text;
             string address = tbColor.Text;
-            fAddCustomer fAdd = new fAddCustomer(Idcustomer, nameCustomer, phone, address);
+            fCustomer fAdd = new fCustomer(Idcustomer, nameCustomer, phone, address);
             fAdd.ShowDialog();
             loadThanhToan();
             loadCar();
@@ -444,15 +443,15 @@ namespace Quanly
         }
         private void btnFix0_Click(object sender, EventArgs e)
         {
-            int idCarr = idCar;
-            if (idCar == -1) { MessageBox.Show("Không tìm thấy xe"); return; }
+            //int idCarr = idCar;
+            //if (idCar == -1) { MessageBox.Show("Không tìm thấy xe"); return; }
 
-            string name = tbNCar1.Text;
-            string numcar = tbNumCar1.Text;
-            string color = tbColor.Text;
-            string image = pictureBoxCar.Tag as string ?? "";
-            DAO.CarDAO.Instance.FixCar(idCarr, name, numcar, color, image);
-            loadCar();
+            //string name = tbNCar1.Text;
+            //string numcar = tbNumCar1.Text;
+            //string color = tbColor.Text;
+            //string image = pictureBoxCar.Tag as string ?? "";
+            //DAO.CarDAO.Instance.FixCar(idCarr, name, numcar, color, image);
+            //loadCar();
         }
 
         private void btnDelete0_Click(object sender, EventArgs e)

@@ -27,10 +27,10 @@ namespace Quanly.DAO
         public void LoadDL(DataGridView dtgvCar)
         {
             string query = @"
-                SELECT cs.name as NameCustomer, c.name AS Namecar, c.NumberCar,c.logo as Logo ,
+                SELECT cs.name as NameCustomer, c.name AS Namecar, c.NumberCar,c.logo as Logo , c.Hang,
                        cs.address, cs.phoneNum as Phonenum, c.ImageBase64 as Image, c.idCustomer as idCtm ,c.idCar as IdCar
                 FROM Customer cs
-                INNER JOIN Car c ON cs.idCustomer = c.idCustomer;";
+                INNER JOIN Car c ON cs.idCustomer = c.idCustomer";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             List<DTO.Car> listCar = new List<DTO.Car>();
@@ -41,8 +41,6 @@ namespace Quanly.DAO
             }
             dtgvCar.DataSource = listCar;
         }
-
-        // Thêm xe mới
         public int GetCar(int idCustomer, string namecar, int numcar, string logo, string filePath)
         {
             string query = "USP_insertCar @idCustomer, @namecar , @numcar , @logo , @filePath";
@@ -50,18 +48,14 @@ namespace Quanly.DAO
 
             return (result != null) ? Convert.ToInt32(result) : -1;
         }
+        public int AddCar(int idCustomer, string namecar, string numcar, string color, string filePath, string hang)
+        {
+            string query = "USP_InsertCar @idCustomer , @nameCar , @numCar , @Color , @image , @Hang ";
+            object result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { idCustomer, namecar, numcar, color, filePath , hang});
 
-        // Lấy ID của xe theo ID khách hàng
-        //public int getidCar(int idCustomer)
-        //{
-        //    string query = "SELECT idCar FROM Car WHERE idCustomer = @idCustomer ";
-        //    object result = DataProvider.Instance.ExecuteScalar(query, new object[] {idCustomer });
-
-        //    return (result != null) ? Convert.ToInt32(result) : -1;
-        //}
-
-        // Cập nhật thông tin xe
-        public int FixCar(int idCar, string name, string numcar, string color, string image)
+            return (result != null) ? Convert.ToInt32(result) : -1;
+        }
+        public int FixCar(int idCar, string name, string numcar, string color, string hang, string image)
         {
             // Nếu không có ảnh mới, lấy ảnh cũ từ CSDL
             if (string.IsNullOrEmpty(image))
@@ -71,14 +65,18 @@ namespace Quanly.DAO
 
                 image = oldImage != null ? oldImage.ToString() : null; // Giữ ảnh cũ nếu có
             }
-
-            string query = "USP_UpdateCar @idCar , @name , @numCar , @mau , @Image ";
+            string query = "USP_UpdateCar @idCar , @name , @numCar , @mau , @Hang , @Image ";
             object imgValue = string.IsNullOrEmpty(image) ? (object)DBNull.Value : image;
 
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { idCar, name, numcar, color, imgValue });
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { idCar, name, numcar, color,hang, imgValue });
 
             return result;
         }
-
+        public int DeleteCar(int Car)
+        {
+            string query = "DeleteCar @idCar ";
+            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { Car });
+            return result > 0 ? 1 : 0;
+        }
     }
 }

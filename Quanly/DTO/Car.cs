@@ -9,13 +9,14 @@ namespace Quanly.DTO
 {
     public class Car
     {
-        public Car(string nameCtm, string phonenum, string namCar, string numbercar, string clolor, string image, int idCtm, int idCar)
+        public Car(string nameCtm, string phonenum, string namCar, string numbercar, string clolor,string hang, string image, int idCtm, int idCar)
         {
             this.NameCustomer = nameCtm;
             this.Phonenum = phonenum;
             this.NameCar = nameCar;
             this.NumberCar = numbercar;
             this.Color = color;
+            this.Hang = hang;
             this.Image = image;
             this.IdCtm = idCtm;
             this.IdCar = idCar;
@@ -28,6 +29,7 @@ namespace Quanly.DTO
             this.NameCar = row["Namecar"].ToString();
             this.NumberCar = row["NumberCar"].ToString();
             this.Color = row["Logo"].ToString();
+            this.Hang = row["Hang"].ToString();
             this.Image = row["Image"].ToString();
             this.IdCtm = (int)row["IdCtm"];
             this.IdCar = (int)row["IdCar"];
@@ -36,6 +38,7 @@ namespace Quanly.DTO
         private string phonenum;
         private string nameCar;
         private string numberCar;
+        private string hang;
         private string color;
         private string image;
         private int idCtm;
@@ -45,10 +48,11 @@ namespace Quanly.DTO
         public string NameCar { get => nameCar; set => nameCar = value; }
         public string NumberCar { get => numberCar; set => numberCar = value; }
         public string Color { get => color; set => color = value; }
+        public string Hang { get => hang; set => hang = value; }
+
         public string Phonenum { get => phonenum; set => phonenum = value; }
         public string Image { get => image; set => image = value; }
         public int IdCtm { get => idCtm; set => idCtm = value; }
         public int IdCar { get => idCar; set => idCar = value; }
-
     }
 }
