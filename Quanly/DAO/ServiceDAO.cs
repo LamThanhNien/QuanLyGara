@@ -48,10 +48,33 @@ namespace Quanly.DAO
             return dataTable;
 
         }
-        public DataTable LoadDL()
+        public List<DTO.Service> LoadDLByThanhToan()
         {
-            string query = "SELECT idService, name FROM _Service";
+            List<DTO.Service> list = new List<DTO.Service>();
+            string query = "SELECT * FROM _Service";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach(DataRow row in data.Rows)
+            {
+                DTO.Service  item= new DTO.Service(row);
+                list.Add(item);
+            }    
+            return list;
+        }
+        public DataTable LoadDlByDichvu()
+        {
+            string query = "SELECT * FROM _Service";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            return data;
+        }
+        public DataTable getIdServicebyfDichVu(int idMaterial)
+        {
+            string query = @"SELECT s.idService,s.name 
+            FROM _Service s
+            INNER JOIN Service_Material SM 
+            ON s.idService = SM.idService
+            WHERE SM.idMaterial = @idMaterial ";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idMaterial });
             return data;
         }
         public int getidService(int idMaterial)

@@ -13,11 +13,11 @@ namespace Quanly
             ApplicationConfiguration.Initialize();
             //Application.Run(new fManage());
             //Application.Run(new fCar());
-            Application.Run(new fDichVu());
+            //Application.Run(new fDichVu());
             //Application.Run(new fCustomer());
             //Application.Run(new fThanhToan());
 
-            //Application.Run(new fMain());
+            Application.Run(new fMain());
         }
     }
 }

@@ -22,9 +22,6 @@
     <Compile Update="fMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="fManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="fCar.cs">
       <SubType>Form</SubType>
     </Compile>

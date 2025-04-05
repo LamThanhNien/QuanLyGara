@@ -16,15 +16,15 @@ namespace Quanly
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void load()
         {
-
+            string query = "select * from Revenue";
+            DataTable tb = DAO.DataProvider.Instance.ExecuteQuery(query);
+            dtgvRevenue.DataSource = tb;
         }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        private void QLThongKe_Load(object sender, EventArgs e)
         {
-
+            load();
         }
     }
 }

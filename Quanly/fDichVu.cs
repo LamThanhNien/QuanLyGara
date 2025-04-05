@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -40,17 +41,28 @@ namespace Quanly
         public void loadDL()
         {
             DAO.MaterialDAO.Instance.LoadMaterial(dtgvMaterial);
-        }
-        public void loadCombobox(int idService)
-        {
-            int idMeterrial = DAO.MaterialDAO.Instance.getidMeterrial(idService);
-            DataTable data = DAO.MaterialDAO.Instance.ComboBoxMaterial();
-            comboBoxLoadMaterial.DataSource = data;
+
+            DataTable allMaterials = DAO.ServiceDAO.Instance.LoadDlByDichvu();
+            comboBoxLoadMaterial.DataSource = allMaterials;
             comboBoxLoadMaterial.DisplayMember = "name";
             comboBoxLoadMaterial.ValueMember = "idService";
-            DataTable dt = DAO.MaterialDAO.Instance.ComboBoxLoad(idMeterrial);
-            int index = comboBoxLoadMaterial.Items.IndexOf(dt);
-            comboBoxLoadMaterial.SelectedItem = index;
+        }
+        public void loadCombobox(int idMaterial)
+        {
+
+
+            DataTable dt = DAO.ServiceDAO.Instance.getIdServicebyfDichVu(idMaterial);
+            if (dt == null) { return; }
+            int materialId = Convert.ToInt32(dt.Rows[0]["idService"]);
+
+            foreach (DataRowView row in comboBoxLoadMaterial.Items)
+            {
+                if (Convert.ToInt32(row["idService"]) == materialId)
+                {
+                    comboBoxLoadMaterial.SelectedItem = row;
+                    break;
+                }
+            }
         }
         private void fDichVu_Load(object sender, EventArgs e)
         {
@@ -63,9 +75,9 @@ namespace Quanly
             {
                 DataGridViewRow row = dtgvMaterial.Rows[e.RowIndex];
                 tbnameMaterial.Text = row.Cells["Name"].Value?.ToString();
-                tbLoad.Text = row.Cells["Type"].Value?.ToString();
+                tbType.Text = row.Cells["Type"].Value?.ToString();
                 idMaterial = Convert.ToInt32(row.Cells["idMaterial"].Value?.ToString());
-                int idService = DAO.MaterialDAO.Instance.getidMeterrial(idMaterial);
+
                 tbPrice.Text = row.Cells["Price"].Value?.ToString();
                 tbNoisx.Text = row.Cells["NoiSx"].Value?.ToString();
                 tbQuantity.Text = row.Cells["Sl"].Value?.ToString();
@@ -78,7 +90,7 @@ namespace Quanly
                 {
                     pictureBoxM.Image = null;
                 }
-                loadCombobox(idService);
+                loadCombobox(idMaterial);
             }
         }
         private void btnDichVu_Click(object sender, EventArgs e)
@@ -99,7 +111,7 @@ namespace Quanly
                 return;
             }
             string nameMaterial = tbnameMaterial.Text;
-            string type = comboBoxLoadMaterial.Text;
+            string type = tbType.Text;
             string NoiSx = tbNoisx.Text;
             string quantity = tbQuantity.Text;
             string price = tbPrice.Text;
@@ -113,21 +125,65 @@ namespace Quanly
             MessageBox.Show("Cập nhật thành công");
             loadDL();
         }
-
-        private void AddCar_Click(object sender, EventArgs e)
+        int IdSv = 0;
+        private void comboBoxLoadMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (comboBoxLoadMaterial.SelectedValue != null &&
+                int.TryParse(comboBoxLoadMaterial.SelectedValue.ToString(), out int selectedId))
+            {
+                IdSv = selectedId;
+            }
+        }
+        private void AddDichvu_Click(object sender, EventArgs e)
+        {
+            int idSv = IdSv;
+            string nameMaterial = tbnameMaterial.Text;
+            string type = tbType.Text;
+            string NoiSx = tbNoisx.Text;
+            int quantity = Convert.ToInt32(tbQuantity.Text);
+            float price = float.Parse(tbPrice.Text);
+            string image = pictureBoxM.Tag as string ?? "";
+            if (DAO.MaterialDAO.Instance.Insert_Material(idSv, nameMaterial, type, NoiSx, quantity, price, image) == 0)
+            {
+                MessageBox.Show("Thêm Thất bại");
+                return;
+            }
+            MessageBox.Show("Thêm Thành công");
+            loadDL();
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            int idSv = DAO.MaterialDAO.Instance.getidMeterrial(idMaterial);
+            int idMt = idMaterial;
+            if (idSv == -1 || idMt == 0)
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ muốn xóa");
+                return;
+            }
+            if (MessageBox.Show("Bạn có chác muốn xóa chứ", "thông báo", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                return;
+            }
+            if (DAO.MaterialDAO.Instance.DeleteMaterial(idMt, idSv) == -1)
+            {
+                MessageBox.Show("xóa thất bại"); return;
+            }
+            MessageBox.Show("xóa thành công");
         }
-        private void comboBoxLoadMaterial_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnAddImage_Click(object sender, EventArgs e)
         {
-            //DataTable data = DAO.MaterialDAO.Instance.ComboBoxMaterial();
-            //comboBoxLoadMaterial.DataSource = data;
-            //comboBoxLoadMaterial.DisplayMember = "name";
-            //comboBoxLoadMaterial.ValueMember = "idService";
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Ảnh (*.jpg;*.png;*.jpeg)|*.jpg;*.png;*.jpeg",
+                Title = "Chọn ảnh"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                pictureBoxM.Image = Image.FromFile(filePath);
+                pictureBoxM.Tag = filePath;
+            }
         }
     }
 }

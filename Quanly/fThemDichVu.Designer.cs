@@ -30,8 +30,8 @@
         {
             label1 = new Label();
             panel1 = new Panel();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            tbPrice = new TextBox();
+            tbname = new TextBox();
             button2 = new Button();
             button1 = new Button();
             label3 = new Label();
@@ -51,8 +51,8 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(tbPrice);
+            panel1.Controls.Add(tbname);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(label3);
@@ -62,21 +62,21 @@
             panel1.Size = new Size(688, 247);
             panel1.TabIndex = 1;
             // 
-            // textBox2
+            // tbPrice
             // 
-            textBox2.Location = new Point(390, 98);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(226, 37);
-            textBox2.TabIndex = 12;
+            tbPrice.Location = new Point(390, 98);
+            tbPrice.Multiline = true;
+            tbPrice.Name = "tbPrice";
+            tbPrice.Size = new Size(226, 37);
+            tbPrice.TabIndex = 12;
             // 
-            // textBox1
+            // tbname
             // 
-            textBox1.Location = new Point(72, 98);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(226, 37);
-            textBox1.TabIndex = 11;
+            tbname.Location = new Point(72, 98);
+            tbname.Multiline = true;
+            tbname.Name = "tbname";
+            tbname.Size = new Size(226, 37);
+            tbname.TabIndex = 11;
             // 
             // button2
             // 
@@ -144,8 +144,8 @@
         private Label label3;
         private Label label2;
         private Button button1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox tbPrice;
+        private TextBox tbname;
         private Button button2;
     }
 }

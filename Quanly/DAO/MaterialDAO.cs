@@ -1,5 +1,6 @@
 ﻿using Quanly.DTO;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -28,15 +29,16 @@ namespace Quanly.DAO
             List<DTO.Material> listM = new List<DTO.Material>();
             string query = "SELECT * FROM Material";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
-            foreach(DataRow row in data.Rows)
+            foreach (DataRow row in data.Rows)
             {
                 DTO.Material item = new DTO.Material(row);
                 listM.Add(item);
-            }    
+            }
             dtgvMaterial.DataSource = listM;
         }
-        public DataTable ComboBoxLoad(int idService)
+        public List<DTO.Material> ComboBoxLoadbyThanhToan(int idService)
         {
+            List<DTO.Material> list = new List<Material>();
             string query = @"SELECT * --M.idMaterial, M.name 
                      FROM Material M 
                      INNER JOIN Service_Material SM 
@@ -44,30 +46,35 @@ namespace Quanly.DAO
                      WHERE SM.idService = @idService ";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idService });
-            return data;
-        }
-        public DataTable ComboBoxMaterial()
-        {
-            string query = @"SELECT * 
-                     FROM Material M 
-                     INNER JOIN Service_Material SM 
-                     ON M.idMaterial = SM.idMaterial";
-
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
-            return data;
-        }
-        public int Insert_Material(int dk, int idService, int idMaterial, string name, string type, string Phanloai, string noiSX, int sl, float price, string image)
-        {
-            if (string.IsNullOrEmpty(image))
+            foreach (DataRow row in data.Rows)
             {
-                string queryGetImage = "SELECT images FROM Material where idMaterial  = @idMaterial";
-                object oldImage = DataProvider.Instance.ExecuteScalar(queryGetImage, new object[] { idMaterial });
-
-                image = oldImage != null ? oldImage.ToString() : null; // Giữ ảnh cũ nếu có
+                DTO.Material item = new DTO.Material(row);
+                list.Add(item);
             }
-            string query = "UPS_Material @dk , @idService , @idMaterial , @name , @type , @PhanLoai , @noiSx , @quantity , @price , @image ";
+            return list;
+        }
+        //public DataTable ComboBoxMaterial()
+        //{
+        //    string query = @"SELECT * 
+        //             FROM Material M 
+        //             INNER JOIN Service_Material SM 
+        //             ON M.idMaterial = SM.idMaterial";
+
+        //    DataTable data = DataProvider.Instance.ExecuteQuery(query);
+        //    return data;
+        //}
+        public int Insert_Material(int idService, string name, string type, string noiSX, int sl, float price, string image)
+        {
+            //if (string.IsNullOrEmpty(image))
+            //{
+            //    string queryGetImage = "SELECT images FROM Material where idMaterial  = @idMaterial";
+            //    object oldImage = DataProvider.Instance.ExecuteScalar(queryGetImage, new object[] { idMaterial });
+
+            //    image = oldImage != null ? oldImage.ToString() : null; // Giữ ảnh cũ nếu có
+            //}
+            string query = "USP_AddMaterial @idService , @name , @type , @noiSx , @quantity , @price , @image ";
             object imgValue = string.IsNullOrEmpty(image) ? (object)DBNull.Value : image;
-            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] {dk,idService,idMaterial,name, type,Phanloai, noiSX, sl, price , imgValue });
+            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] {idService,name, type,noiSX, sl, price , imgValue });
             return result;
         }
 
@@ -81,6 +88,12 @@ namespace Quanly.DAO
         {
             string query = "select s.idService\r\nfrom _Service s,Material m, Service_Material ms \r\nwhere s.idService = ms.idService and ms.idMaterial = m.idMaterial  and m.idMaterial = @idMaterial ";
             object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idMaterial });
+            return result != null ? Convert.ToInt32(result) : -1;
+        }
+        public int DeleteMaterial(int idSv, int idMt)
+        {
+            string query = "USP_DeleteMaterial @idMaterial , @idService ";
+            object result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { idMt, idSv });
             return result != null ? Convert.ToInt32(result) : -1;
         }
         

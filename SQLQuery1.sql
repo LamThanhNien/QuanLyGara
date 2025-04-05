@@ -337,8 +337,65 @@ AS
 BEGIN
 	delete Car where idCar = @idCar
 END;
+--thêm sửa xóa Dịch vụ
+
+CREATE PROC USP_AddService
+	@name NVARCHAR(100),
+	@price DECIMAL(18,2)
+AS
+BEGIN
+	INSERT INTO _Service (name, price)
+	VALUES
+	(@name, @price);
+END;
 
 --Thêm, Sửa, Xóa Sản phẩm
+Alter PROC USP_AddMaterial
+	@idService INT,  
+	@name NVARCHAR(50),  
+	@type NVARCHAR(20),  
+	@noiSx NVARCHAR(50),  
+	@quantity INT,  
+	@price DECIMAL(18,2),  
+	@image NVARCHAR(MAX)  
+AS
+BEGIN
+		DECLARE  @newMaterialId int
+		-- Thêm vào bảng Material  
+		INSERT INTO Material (name, type, NoiSx, quantity, price, images)  
+		VALUES (@name, @type, @noiSx, @quantity, @price, @image);
+		-- Thêm vào bảng liên kết Service_Material
+		SET @newMaterialId = SCOPE_IDENTITY();
+		INSERT INTO Service_Material (idService, idMaterial)  
+		VALUES (@idService, @newMaterialId);
+END;
+
+CREATE PROC USP_FixMaterial
+	@idMaterial INT,
+	@name NVARCHAR(100),
+	@type NVARCHAR(50),
+	@NoiSx NVARCHAR(50),
+	@quantity INT,
+	@price DECIMAL(18,2),
+	@image NVARCHAR(MAX)
+AS
+BEGIN
+	UPDATE Material  
+	SET name = @name, type = @type, NoiSx = @noiSx, quantity = @quantity, price = @price, images = @image  
+	WHERE idMaterial = @idMaterial;  
+END;
+
+CREATE PROC USP_DeleteMaterial
+	@idMaterial int,
+	@idService int
+AS
+BEGIN
+	DELETE FROM BillInfo WHERE idMaterial = @idMaterial; 
+	DELETE FROM Service_Material WHERE idMaterial = @idMaterial AND idService = @idService;  
+	--DELETE FROM _Service WHERE idMaterial = @idMaterial;
+	DELETE FROM Material WHERE idMaterial = @idMaterial;
+END;
+
 
 --Phần thanh toán
 create PROCEDURE USP_InsertBill
@@ -407,7 +464,7 @@ BEGIN
 END;
 
 go
-CREATE PROCEDURE USP_ThanhToan
+ALTER PROCEDURE USP_ThanhToan
     @idBill INT
 AS
 BEGIN
@@ -447,16 +504,9 @@ BEGIN
         END
 
         -- 3. Tính tổng tiền hóa đơn (cả Service và Material)
-        SELECT @TOTAL = ISNULL(SUM(
-            CASE 
-                WHEN bi.idService IS NOT NULL THEN bi.quantity * s.price
-                WHEN bi.idMaterial IS NOT NULL THEN bi.quantity * m.price
-                ELSE 0
-            END), 0)
-        FROM BillInfo bi
-        LEFT JOIN _Service s ON bi.idService = s.idService
-        LEFT JOIN Material m ON bi.idMaterial = m.idMaterial
-        WHERE bi.idBill = @idBill;
+		SELECT @TOTAL = (bi.quantity* m.price)
+		FROM Bill b, BillInfo bi, Material m, Service_Material sm
+		WHERE bi.idBill = b.idBill and m.idMaterial = sm.idMaterial and  bi.idBill =@idBill;
 
         -- 4. Lấy ngày checkin
         SELECT @DateCheckIn = DateCheckIn FROM Bill WHERE idBill = @idBill;
@@ -477,6 +527,17 @@ BEGIN
         RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState);
     END CATCH
 END;
+
+SELECT bi.quantity* m.price
+FROM Bill b, BillInfo bi, Material m, Service_Material sm
+WHERE m.idMaterial = sm.idMaterial and  bi.idBill = b.idBill  and  bi.idBillInfo=11;
+
+select * from Bill
+select * from BillInfo
+select * from _Service
+select * from Material
+select * from Service_Material
+select * from Revenue
 
 CREATE PROC USP_UpdateBillInfo
 	@stt int,
@@ -584,96 +645,7 @@ select * from Bill
 select * from BillInfo
 select * from Revenue
 
-ALTER PROC UPS_Material
-	@dk INT,  
-	@idService INT = NULL,  
-	@idMaterial INT = NULL,  
-	@name NVARCHAR(50),  
-	@type NVARCHAR(20),  
-	@PhanLoai NVARCHAR(50),  
-	@noiSx NVARCHAR(50),  
-	@quantity INT,  
-	@price DECIMAL(18,2),  
-	@image NVARCHAR(MAX)  
-AS  
-BEGIN  
-	SET NOCOUNT ON;
 
-	-- Thêm mới dữ liệu
-	IF (@dk = 0)  
-	BEGIN  
-		DECLARE @newServiceID INT, @newMaterialID INT;
-
-		-- Thêm vào bảng _Service nếu chưa tồn tại
-		IF NOT EXISTS (SELECT 1 FROM _Service WHERE name = @PhanLoai)
-		BEGIN
-			INSERT INTO _Service (name, price) VALUES (@PhanLoai, 0);
-			SET @newServiceID = SCOPE_IDENTITY();  
-		END  
-		ELSE  
-		BEGIN  
-			SELECT @newServiceID = idService FROM _Service WHERE name = @PhanLoai;  
-		END  
-
-		-- Thêm vào bảng Material  
-		INSERT INTO Material (name, type, NoiSx, quantity, price, images)  
-		VALUES (@name, @type, @noiSx, @quantity, @price, @image);
-		SET @newMaterialID = SCOPE_IDENTITY();
-
-		-- Thêm vào bảng liên kết Service_Material
-		IF NOT EXISTS (SELECT 1 FROM Service_Material WHERE idService = @newServiceID AND idMaterial = @newMaterialID)
-		BEGIN
-			INSERT INTO Service_Material (idService, idMaterial)  
-			VALUES (@newServiceID, @newMaterialID);
-		END  
-	END;  
-
-	-- Cập nhật dữ liệu
-	IF (@dk = 1)  
-	BEGIN  
-		IF EXISTS (SELECT 1 FROM _Service WHERE idService = @idService)  
-		BEGIN  
-			UPDATE _Service SET name = @PhanLoai WHERE idService = @idService;  
-		END  
-
-		IF EXISTS (SELECT 1 FROM Material WHERE idMaterial = @idMaterial)  
-		BEGIN  
-			UPDATE Material  
-			SET name = @name, type = @type, NoiSx = @noiSx, quantity = @quantity, price = @price, images = @image  
-			WHERE idMaterial = @idMaterial;  
-		END  
-	END;  
-
-	-- Xóa dữ liệu
-	IF (@dk = 2)  
-	BEGIN  
-			DELETE FROM BillInfo WHERE idMaterial = @idMaterial; 
-			DELETE FROM Service_Material WHERE idMaterial = @idMaterial AND idService = @idService;  
-			--DELETE FROM _Service WHERE idMaterial = @idMaterial;
-			DELETE FROM Material WHERE idMaterial = @idMaterial;
-	END;  
-END;
-
-
-CREATE PROC USP_FixMaterial
-	@idMaterial INT,
-	@name NVARCHAR(100),
-	@type NVARCHAR(50),
-	@NoiSx NVARCHAR(50),
-	@quantity INT,
-	@price DECIMAL(18,2),
-	@image NVARCHAR(MAX)
-AS
-BEGIN
-	UPDATE Material  
-	SET name = @name, type = @type, NoiSx = @noiSx, quantity = @quantity, price = @price, images = @image  
-	WHERE idMaterial = @idMaterial;  
-END;
-
+select * from _Service
 select * from Material
 select * from Service_Material
-
-select s.idService
-from _Service s,Material m, Service_Material ms 
-where s.idService = ms.idService and ms.idMaterial = m.idMaterial  and m.idMaterial = @idMaterial
-

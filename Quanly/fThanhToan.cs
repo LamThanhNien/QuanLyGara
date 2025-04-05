@@ -2,16 +2,8 @@
 using Quanly.DTO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Quanly
 {
@@ -21,48 +13,43 @@ namespace Quanly
         {
             InitializeComponent();
         }
+
         void loadThanhToan()
         {
             DAO.ThanhToanDAO.Instance.LoadDL(dtgvCustomer);
         }
+
         private void fThanhToan_Load(object sender, EventArgs e)
         {
             loadThanhToan();
             dtgvCustomer_CellClick(null, new DataGridViewCellEventArgs(0, 0));
             LoadCombobox_Service();
         }
+
         void LoadCombobox_Service()
         {
-            DataTable data = DAO.ServiceDAO.Instance.LoadDL();
+            List<DTO.Service> data = DAO.ServiceDAO.Instance.LoadDLByThanhToan();
             comboBoxLoad.DataSource = data;
             comboBoxLoad.DisplayMember = "name";
-            comboBoxLoad.ValueMember = "idService";
-            if (comboBoxLoad.Items.Count > 0)
-            {
-                comboBoxLoad.SelectedIndex = 0;
-                int idService = Convert.ToInt32(comboBoxLoad.SelectedValue);
-                LoadCombobox_Material(idService);
-            }
+            comboBoxLoad.ValueMember = "Id";
         }
+
         void LoadCombobox_Material(int idService)
         {
-            DataTable data = DAO.MaterialDAO.Instance.ComboBoxLoad(idService);
+            List<DTO.Material> data = DAO.MaterialDAO.Instance.ComboBoxLoadbyThanhToan(idService);
             cbbSp.DataSource = data;
             cbbSp.DisplayMember = "name";
-            cbbSp.ValueMember = "idMaterial";
-
-            if (cbbSp.Items.Count > 0)
-            {
-                cbbSp.SelectedIndex = 0;
-            }
+            //cbbSp.ValueMember = "idMaterial";
         }
+
         private void comboBoxLoad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxLoad.SelectedValue != null)
-            {
-                int idService = Convert.ToInt32(cbbSp.SelectedValue);
-                LoadCombobox_Material(idService);
-            }
+            int id = 0;
+            ComboBox comboBox = sender as ComboBox;
+            if (comboBox.SelectedItem == null) return;
+            //DTO.Service selected = comboBox.SelectedItem as DTO.Service;
+            id = (comboBox.SelectedItem as DTO.Service).Id;
+            LoadCombobox_Material(id);
         }
 
         void showBill(int idCustomer)
@@ -98,7 +85,6 @@ namespace Quanly
             List<ThanhToan> listCustomer = DAO.Search.Instance.searchCustomerbyname(textBox8.Text);
             dtgvCustomer.DataSource = listCustomer;
             textBox8.Text = "";
-
         }
 
         int idCustomer = 0;
@@ -126,15 +112,11 @@ namespace Quanly
         private void btnAddBill_Click(object sender, EventArgs e)
         {
             int status = BillDAO.Instance.GetStatus(idCustomer);
-
             int idBill = BillDAO.Instance.GetIdBill(idCustomer);
             int IdService = comboBoxLoad.SelectedValue != null ? Convert.ToInt32(comboBoxLoad.SelectedValue) : -1;
-            int IdMaterial = cbbSp.SelectedValue != null ? Convert.ToInt32(cbbSp.SelectedValue) : -1;
+            //int IdMaterial = Convert.ToInt32(cbbSp.SelectedValue);
+            int IdMaterial = (cbbSp.SelectedItem as DTO.Material)?.IdMaterial ?? 0;
             int count = (int)numericUpDown.Value;
-            if (idBill <= 0)
-            {
-                idBill = BillDAO.Instance.InsertBill(idCustomer);
-            }
             if (idBill <= 0)
             {
                 idBill = BillDAO.Instance.InsertBill(idCustomer);
@@ -146,6 +128,7 @@ namespace Quanly
                 showBill(idCustomer);
             }
         }
+
         private void listViewPrice_MouseClick(object sender, MouseEventArgs e)
         {
             ListViewHitTestInfo hit = listViewPrice.HitTest(e.Location);
@@ -153,23 +136,6 @@ namespace Quanly
             if (hit.Item != null && hit.SubItem != null)
             {
                 int columnIndex = hit.Item.SubItems.IndexOf(hit.SubItem);
-                //if(columnIndex == 0)
-                //{
-                //    string itemName = hit.Item.SubItems[0].Text;
-                //    DataTable data = DAO.ServiceDAO.Instance.LoadLoad(itemName);
-                //    comboBoxLoad.DataSource = data;
-                //    comboBoxLoad.DisplayMember = "name";
-                //    comboBoxLoad.ValueMember = "idService";
-                //    comboBoxLoad.DataSource = data;
-                //    comboBoxLoad.DisplayMember = "name";
-                //    comboBoxLoad.ValueMember = "idService";
-                //    if (comboBoxLoad.Items.Count > 0)
-                //    {
-                //        comboBoxLoad.SelectedIndex = 0;
-                //        int idService = Convert.ToInt32(comboBoxLoad.SelectedValue);
-                //        LoadCombobox_Material(idService);
-                //    }
-                //}    
                 if (columnIndex == 4)
                 {
                     string itemName = hit.Item.SubItems[0].Text;
@@ -178,7 +144,6 @@ namespace Quanly
                     if (result == DialogResult.Yes)
                     {
                         DAO.BillInfoDAO.Instance.DeleteBillInfo(itemName);
-
                         listViewPrice.Items.Remove(hit.Item);
                     }
                 }
@@ -210,7 +175,6 @@ namespace Quanly
                 if (result > 0)
                 {
                     showBill(idCustomer);
-                    //LoadMaterial();
                     listViewPrice.Items.Clear();
                 }
                 else
@@ -219,7 +183,5 @@ namespace Quanly
                 }
             }
         }
-
-
     }
 }

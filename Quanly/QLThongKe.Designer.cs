@@ -31,7 +31,7 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             panel2 = new Panel();
-            dataGridView1 = new DataGridView();
+            dtgvRevenue = new DataGridView();
             panel1 = new Panel();
             button2 = new Button();
             button1 = new Button();
@@ -47,7 +47,7 @@
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgvRevenue).BeginInit();
             panel1.SuspendLayout();
             tabPage2.SuspendLayout();
             panel4.SuspendLayout();
@@ -81,21 +81,22 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.Controls.Add(dataGridView1);
+            panel2.Controls.Add(dtgvRevenue);
             panel2.Location = new Point(3, 116);
             panel2.Name = "panel2";
             panel2.Size = new Size(1252, 502);
             panel2.TabIndex = 7;
             // 
-            // dataGridView1
+            // dtgvRevenue
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(0, 6);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1252, 495);
-            dataGridView1.TabIndex = 7;
+            dtgvRevenue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgvRevenue.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvRevenue.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvRevenue.Location = new Point(0, 6);
+            dtgvRevenue.Name = "dtgvRevenue";
+            dtgvRevenue.RowHeadersWidth = 51;
+            dtgvRevenue.Size = new Size(1252, 495);
+            dtgvRevenue.TabIndex = 7;
             // 
             // panel1
             // 
@@ -134,7 +135,6 @@
             button1.TabIndex = 12;
             button1.Text = "Xem";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // dateTimePicker2
             // 
@@ -144,7 +144,6 @@
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(240, 35);
             dateTimePicker2.TabIndex = 11;
-            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
             // 
             // label1
             // 
@@ -179,10 +178,10 @@
             // 
             tabPage2.Controls.Add(panel4);
             tabPage2.Controls.Add(panel3);
-            tabPage2.Location = new Point(4, 38);
+            tabPage2.Location = new Point(4, 34);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1258, 621);
+            tabPage2.Size = new Size(1258, 625);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Thống kê sản phẩm";
             tabPage2.UseVisualStyleBackColor = true;
@@ -238,10 +237,11 @@
             Name = "QLThongKe";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "QLThongKe";
+            Load += QLThongKe_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgvRevenue).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tabPage2.ResumeLayout(false);
@@ -267,7 +267,7 @@
         private Panel panel4;
         private Panel panel3;
         private Button button3;
-        private DataGridView dataGridView1;
+        private DataGridView dtgvRevenue;
         private DataGridView dataGridView2;
     }
 }

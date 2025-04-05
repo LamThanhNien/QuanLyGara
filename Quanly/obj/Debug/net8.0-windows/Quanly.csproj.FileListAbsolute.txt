@@ -71,7 +71,6 @@ D:\Github\QuanLyGara\Quanly\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\Sys
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.csproj.AssemblyReference.cache
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fAccountProfile.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fAdmin.resources
-D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fManage.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.Login.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.Properties.Resources.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.csproj.GenerateResource.cache

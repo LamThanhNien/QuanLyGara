@@ -52,10 +52,10 @@
             button1 = new Button();
             btnDelete = new Button();
             btnFix = new Button();
-            AddCar = new Button();
+            AddDichvu = new Button();
             groupBox1 = new GroupBox();
             panel1 = new Panel();
-            tbLoad = new TextBox();
+            tbType = new TextBox();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgvMaterial).BeginInit();
             panel24.SuspendLayout();
@@ -118,6 +118,7 @@
             pictureBoxM.Location = new Point(6, 29);
             pictureBoxM.Name = "pictureBoxM";
             pictureBoxM.Size = new Size(273, 188);
+            pictureBoxM.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxM.TabIndex = 26;
             pictureBoxM.TabStop = false;
             // 
@@ -130,6 +131,7 @@
             btnAddImage.TabIndex = 32;
             btnAddImage.Text = "Thêm ảnh";
             btnAddImage.UseVisualStyleBackColor = true;
+            btnAddImage.Click += btnAddImage_Click;
             // 
             // panel25
             // 
@@ -200,9 +202,9 @@
             label17.Location = new Point(4, 16);
             label17.Margin = new Padding(4, 0, 4, 0);
             label17.Name = "label17";
-            label17.Size = new Size(104, 24);
+            label17.Size = new Size(81, 24);
             label17.TabIndex = 0;
-            label17.Text = "Phân Loại";
+            label17.Text = "Dịch vụ";
             // 
             // panel32
             // 
@@ -324,19 +326,19 @@
             btnFix.UseVisualStyleBackColor = true;
             btnFix.Click += btnFix_Click;
             // 
-            // AddCar
+            // AddDichvu
             // 
-            AddCar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            AddCar.BackColor = SystemColors.ActiveCaption;
-            AddCar.Font = new Font("Arial", 10F, FontStyle.Bold);
-            AddCar.Location = new Point(997, 625);
-            AddCar.Margin = new Padding(4, 3, 4, 3);
-            AddCar.Name = "AddCar";
-            AddCar.Size = new Size(104, 57);
-            AddCar.TabIndex = 111130;
-            AddCar.Text = "Thêm";
-            AddCar.UseVisualStyleBackColor = false;
-            AddCar.Click += AddCar_Click;
+            AddDichvu.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            AddDichvu.BackColor = SystemColors.ActiveCaption;
+            AddDichvu.Font = new Font("Arial", 10F, FontStyle.Bold);
+            AddDichvu.Location = new Point(997, 625);
+            AddDichvu.Margin = new Padding(4, 3, 4, 3);
+            AddDichvu.Name = "AddDichvu";
+            AddDichvu.Size = new Size(104, 57);
+            AddDichvu.TabIndex = 111130;
+            AddDichvu.Text = "Thêm";
+            AddDichvu.UseVisualStyleBackColor = false;
+            AddDichvu.Click += AddDichvu_Click;
             // 
             // groupBox1
             // 
@@ -358,7 +360,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel1.Controls.Add(tbLoad);
+            panel1.Controls.Add(tbType);
             panel1.Controls.Add(label2);
             panel1.Location = new Point(6, 289);
             panel1.Margin = new Padding(4, 3, 4, 3);
@@ -366,12 +368,12 @@
             panel1.Size = new Size(513, 58);
             panel1.TabIndex = 35;
             // 
-            // tbLoad
+            // tbType
             // 
-            tbLoad.Location = new Point(58, 13);
-            tbLoad.Name = "tbLoad";
-            tbLoad.Size = new Size(196, 30);
-            tbLoad.TabIndex = 111132;
+            tbType.Location = new Point(58, 13);
+            tbType.Name = "tbType";
+            tbType.Size = new Size(196, 30);
+            tbType.TabIndex = 111132;
             // 
             // label2
             // 
@@ -390,7 +392,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1141, 694);
             Controls.Add(groupBox1);
-            Controls.Add(AddCar);
+            Controls.Add(AddDichvu);
             Controls.Add(btnFix);
             Controls.Add(btnDelete);
             Controls.Add(button1);
@@ -440,7 +442,7 @@
         private Button button1;
         private Button btnDelete;
         private Button btnFix;
-        private Button AddCar;
+        private Button AddDichvu;
         private Button btnDichVu;
         private GroupBox groupBox1;
         private Label label22;
@@ -448,6 +450,6 @@
         private Label label1;
         private Panel panel1;
         private Label label2;
-        private TextBox tbLoad;
+        private TextBox tbType;
     }
 }
