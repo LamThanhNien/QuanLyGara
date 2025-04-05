@@ -210,7 +210,7 @@
             // đăngNhậpToolStripMenuItem
             // 
             đăngNhậpToolStripMenuItem.Name = "đăngNhậpToolStripMenuItem";
-            đăngNhậpToolStripMenuItem.Size = new Size(270, 34);
+            đăngNhậpToolStripMenuItem.Size = new Size(214, 34);
             đăngNhậpToolStripMenuItem.Text = "Đăng Nhập";
             đăngNhậpToolStripMenuItem.Click += đăngNhậpToolStripMenuItem_Click;
             // 
@@ -218,7 +218,7 @@
             // 
             thôngTinToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cậpNhậtThôngTinToolStripMenuItem, phânQuyềnToolStripMenuItem });
             thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            thôngTinToolStripMenuItem.Size = new Size(270, 34);
+            thôngTinToolStripMenuItem.Size = new Size(214, 34);
             thôngTinToolStripMenuItem.Text = "Thông tin";
             // 
             // cậpNhậtThôngTinToolStripMenuItem
@@ -241,7 +241,7 @@
             đăngXuấtToolStripMenuItem.Image = Properties.Resources.download__2_;
             đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
             đăngXuấtToolStripMenuItem.RightToLeft = RightToLeft.Yes;
-            đăngXuấtToolStripMenuItem.Size = new Size(270, 34);
+            đăngXuấtToolStripMenuItem.Size = new Size(214, 34);
             đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             đăngXuấtToolStripMenuItem.TextImageRelation = TextImageRelation.TextBeforeImage;
             // 
@@ -289,7 +289,7 @@
             // 
             panelbody.Location = new Point(179, 96);
             panelbody.Name = "panelbody";
-            panelbody.Size = new Size(1175, 758);
+            panelbody.Size = new Size(1175, 783);
             panelbody.TabIndex = 2;
             // 
             // pnlTitleBar_MouseDown

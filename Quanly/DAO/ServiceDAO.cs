@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Quanly.DAO
 {
@@ -38,6 +39,14 @@ namespace Quanly.DAO
                 list.Add(service);
             }
             dtgvDichvu.DataSource =  list;
+        }
+        public DataTable LoadLoad(string name)
+        {
+            string query = "SELECT s.name, s.idService\r\nFROM _Service s\r\nWHERE s.name = N' @name '";
+            List<DTO.Service> list = new List<DTO.Service>();
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] {name});
+            return dataTable;
+
         }
         public DataTable LoadDL()
         {

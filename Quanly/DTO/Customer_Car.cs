@@ -27,8 +27,8 @@ namespace Quanly.DTO
             this.NameCar = row["nameCar"].ToString();
             this.NumCar = row["numberCar"].ToString();
             this.Hang = row["Hang"].ToString();
-            this.Color = row["color"].ToString();
-            this.Image = row["ImageBase64"].ToString();
+            this.Color = row["Color"].ToString();
+            this.Image = row["Image"].ToString();
             this.IdCustomer = row["idCustomer"] != DBNull.Value ? Convert.ToInt32(row["idCustomer"]) : 0;
         }
 

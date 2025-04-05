@@ -35,7 +35,7 @@ namespace Quanly.DAO
                 cs.phoneNum, 
                 c.name AS namecar, 
                 c.numberCar, 
-                c.logo,
+                c.Color,
                 cs.idCustomer
             FROM Customer cs 
             INNER JOIN Car c ON cs.idCustomer = c.idCustomer

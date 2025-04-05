@@ -34,6 +34,7 @@
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
             columnHeader4 = new ColumnHeader();
+            columnHeader5 = new ColumnHeader();
             tbTotal = new TextBox();
             btnThanhToan = new Button();
             panel2 = new Panel();
@@ -74,7 +75,8 @@
             // listViewPrice
             // 
             listViewPrice.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            listViewPrice.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            listViewPrice.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
+            listViewPrice.FullRowSelect = true;
             listViewPrice.GridLines = true;
             listViewPrice.Location = new Point(701, 282);
             listViewPrice.Margin = new Padding(4, 3, 4, 3);
@@ -83,6 +85,7 @@
             listViewPrice.TabIndex = 12;
             listViewPrice.UseCompatibleStateImageBehavior = false;
             listViewPrice.View = View.Details;
+            listViewPrice.MouseClick += listViewPrice_MouseClick;
             // 
             // columnHeader1
             // 
@@ -102,6 +105,10 @@
             // 
             columnHeader4.Text = "Tiền";
             columnHeader4.Width = 180;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Xóa";
             // 
             // tbTotal
             // 
@@ -195,20 +202,20 @@
             // 
             cbbSp.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             cbbSp.FormattingEnabled = true;
-            cbbSp.Location = new Point(151, 50);
+            cbbSp.Location = new Point(127, 50);
             cbbSp.Margin = new Padding(4, 3, 4, 3);
             cbbSp.Name = "cbbSp";
-            cbbSp.Size = new Size(252, 32);
+            cbbSp.Size = new Size(276, 32);
             cbbSp.TabIndex = 1;
             // 
             // comboBoxLoad
             // 
             comboBoxLoad.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             comboBoxLoad.FormattingEnabled = true;
-            comboBoxLoad.Location = new Point(151, 11);
+            comboBoxLoad.Location = new Point(127, 11);
             comboBoxLoad.Margin = new Padding(4, 3, 4, 3);
             comboBoxLoad.Name = "comboBoxLoad";
-            comboBoxLoad.Size = new Size(252, 32);
+            comboBoxLoad.Size = new Size(276, 32);
             comboBoxLoad.TabIndex = 0;
             comboBoxLoad.SelectedIndexChanged += comboBoxLoad_SelectedIndexChanged;
             // 
@@ -225,7 +232,8 @@
             // 
             // tbCtm
             // 
-            tbCtm.Location = new Point(185, 15);
+            tbCtm.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            tbCtm.Location = new Point(127, 12);
             tbCtm.Margin = new Padding(5, 3, 5, 3);
             tbCtm.Name = "tbCtm";
             tbCtm.ReadOnly = true;
@@ -256,7 +264,8 @@
             // 
             // tbnumCar
             // 
-            tbnumCar.Location = new Point(182, 15);
+            tbnumCar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            tbnumCar.Location = new Point(127, 12);
             tbnumCar.Margin = new Padding(5, 3, 5, 3);
             tbnumCar.Name = "tbnumCar";
             tbnumCar.ReadOnly = true;
@@ -316,6 +325,7 @@
             MinimizeBox = false;
             Name = "fThanhToan";
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Load += fThanhToan_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvCustomer).EndInit();
             panel2.ResumeLayout(false);
@@ -354,5 +364,6 @@
         private Label label3;
         private TextBox textBox8;
         private Button btntim;
+        private ColumnHeader columnHeader5;
     }
 }

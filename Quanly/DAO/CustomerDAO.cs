@@ -41,8 +41,8 @@ namespace Quanly.DAO
                                 C.name As nameCar, 
                                 C.numberCar, 
                                 C.Hang,
-                                C.logo As color, 
-                                C.ImageBase64, 
+                                C.Color As color, 
+                                C.Image, 
                                 CT.idCustomer 
                             FROM Customer CT 
                             INNER JOIN Car C ON CT.idCustomer = C.idCustomer";

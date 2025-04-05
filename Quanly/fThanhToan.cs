@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Quanly
@@ -30,13 +31,9 @@ namespace Quanly
             dtgvCustomer_CellClick(null, new DataGridViewCellEventArgs(0, 0));
             LoadCombobox_Service();
         }
-
         void LoadCombobox_Service()
         {
             DataTable data = DAO.ServiceDAO.Instance.LoadDL();
-            comboBoxLoad.DataSource = data;
-            comboBoxLoad.DisplayMember = "name";
-            comboBoxLoad.ValueMember = "idService";
             comboBoxLoad.DataSource = data;
             comboBoxLoad.DisplayMember = "name";
             comboBoxLoad.ValueMember = "idService";
@@ -83,6 +80,7 @@ namespace Quanly
                 lvItem.SubItems.Add(item.Count.ToString());
                 lvItem.SubItems.Add(item.Price.ToString("N0"));
                 lvItem.SubItems.Add(item.TotalPrice.ToString("N0"));
+                lvItem.SubItems.Add("Xóa");
                 totalPrice += item.TotalPrice;
                 listViewPrice.Items.Add(lvItem);
             }
@@ -106,7 +104,7 @@ namespace Quanly
         int idCustomer = 0;
         private void dtgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0 && dtgvCustomer.Rows.Count > 0)
+            if (e.RowIndex >= 0 && dtgvCustomer.Rows.Count > 0)
             {
                 DataGridViewRow row = dtgvCustomer.Rows[e.RowIndex];
                 tbCtm.Text = row.Cells["name"].Value?.ToString();
@@ -116,7 +114,7 @@ namespace Quanly
 
                 if (idCustomer > 0)
                 {
-                    showBill(idCustomer); 
+                    showBill(idCustomer);
                 }
                 else
                 {
@@ -146,6 +144,44 @@ namespace Quanly
             {
                 BillInfoDAO.Instance.InsertBillInfo(idBill, IdService, IdMaterial, count);
                 showBill(idCustomer);
+            }
+        }
+        private void listViewPrice_MouseClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo hit = listViewPrice.HitTest(e.Location);
+
+            if (hit.Item != null && hit.SubItem != null)
+            {
+                int columnIndex = hit.Item.SubItems.IndexOf(hit.SubItem);
+                //if(columnIndex == 0)
+                //{
+                //    string itemName = hit.Item.SubItems[0].Text;
+                //    DataTable data = DAO.ServiceDAO.Instance.LoadLoad(itemName);
+                //    comboBoxLoad.DataSource = data;
+                //    comboBoxLoad.DisplayMember = "name";
+                //    comboBoxLoad.ValueMember = "idService";
+                //    comboBoxLoad.DataSource = data;
+                //    comboBoxLoad.DisplayMember = "name";
+                //    comboBoxLoad.ValueMember = "idService";
+                //    if (comboBoxLoad.Items.Count > 0)
+                //    {
+                //        comboBoxLoad.SelectedIndex = 0;
+                //        int idService = Convert.ToInt32(comboBoxLoad.SelectedValue);
+                //        LoadCombobox_Material(idService);
+                //    }
+                //}    
+                if (columnIndex == 4)
+                {
+                    string itemName = hit.Item.SubItems[0].Text;
+                    DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa: {itemName}?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        DAO.BillInfoDAO.Instance.DeleteBillInfo(itemName);
+
+                        listViewPrice.Items.Remove(hit.Item);
+                    }
+                }
             }
         }
 
@@ -183,5 +219,7 @@ namespace Quanly
                 }
             }
         }
+
+
     }
 }

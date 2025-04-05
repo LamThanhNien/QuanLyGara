@@ -66,5 +66,12 @@ namespace Quanly.DAO
             string updateQuery = "USP_UpdateBillInfo @stt , @idBill , @IdMaterial";
             DataProvider.Instance.ExecuteNonQuery(updateQuery, new object[] { stt, idBill, idMaterial });
         }
+        //test
+        public bool DeleteBillInfo(string name)
+        {
+            string query = "DELETE FROM BillInfo WHERE idMaterial = (SELECT idMaterial FROM Material WHERE name = @name )";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { name});
+            return result > 0;
+        }
     }
 }

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Quanly.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Quanly.DAO
 {
@@ -21,7 +23,7 @@ namespace Quanly.DAO
             set { instance = value; }
         }
         private MaterialDAO() { }
-        public void LoadDL(DataGridView dtgvMaterial)
+        public void LoadMaterial(DataGridView dtgvMaterial)
         {
             List<DTO.Material> listM = new List<DTO.Material>();
             string query = "SELECT * FROM Material";
@@ -35,14 +37,24 @@ namespace Quanly.DAO
         }
         public DataTable ComboBoxLoad(int idService)
         {
-            string query = @"SELECT M.idMaterial, M.name 
+            string query = @"SELECT * --M.idMaterial, M.name 
                      FROM Material M 
                      INNER JOIN Service_Material SM 
                      ON M.idMaterial = SM.idMaterial 
-                     WHERE SM.idService = @idService";
+                     WHERE SM.idService = @idService ";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idService });
-           return data;
+            return data;
+        }
+        public DataTable ComboBoxMaterial()
+        {
+            string query = @"SELECT * 
+                     FROM Material M 
+                     INNER JOIN Service_Material SM 
+                     ON M.idMaterial = SM.idMaterial";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            return data;
         }
         public int Insert_Material(int dk, int idService, int idMaterial, string name, string type, string Phanloai, string noiSX, int sl, float price, string image)
         {
@@ -58,5 +70,19 @@ namespace Quanly.DAO
             int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] {dk,idService,idMaterial,name, type,Phanloai, noiSX, sl, price , imgValue });
             return result;
         }
+
+        public int fixMaterial(int idMaterial, string nameMaterial, string type, string NoiSx, string quantity, string price, string image)
+        {
+            string query = "USP_FixMaterial @idMaterial , @name , @type , @NoiSx , @quantity , @price , @image ";
+            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { idMaterial, nameMaterial, type, NoiSx, quantity, price, image });
+            return result > 0 ? 1 : 0;
+        }
+        public int getidMeterrial(int idMaterial)
+        {
+            string query = "select s.idService\r\nfrom _Service s,Material m, Service_Material ms \r\nwhere s.idService = ms.idService and ms.idMaterial = m.idMaterial  and m.idMaterial = @idMaterial ";
+            object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idMaterial });
+            return result != null ? Convert.ToInt32(result) : -1;
+        }
+        
     }
 }

@@ -63,7 +63,7 @@ namespace Quanly
         }
         void LoadMaterial()
         {
-            DAO.MaterialDAO.Instance.LoadDL(dtgvService);
+            //DAO.MaterialDAO.Instance.LoadDL(dtgvService);
         }
 
         #endregion

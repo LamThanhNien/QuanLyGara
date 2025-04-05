@@ -28,7 +28,7 @@ namespace Quanly.DTO
             this.Phonenum = row["PhoneNum"].ToString();
             this.NameCar = row["Namecar"].ToString();
             this.NumberCar = row["NumberCar"].ToString();
-            this.Color = row["Logo"].ToString();
+            this.Color = row["Color"].ToString();
             this.Hang = row["Hang"].ToString();
             this.Image = row["Image"].ToString();
             this.IdCtm = (int)row["IdCtm"];

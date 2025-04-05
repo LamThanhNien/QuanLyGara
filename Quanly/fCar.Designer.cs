@@ -75,7 +75,7 @@
             dtgvCar.Margin = new Padding(4, 3, 4, 3);
             dtgvCar.Name = "dtgvCar";
             dtgvCar.RowHeadersWidth = 62;
-            dtgvCar.Size = new Size(755, 724);
+            dtgvCar.Size = new Size(755, 695);
             dtgvCar.TabIndex = 0;
             dtgvCar.CellClick += dtgvCar_CellClick;
             // 
@@ -138,7 +138,7 @@
             // 
             // label9
             // 
-            label9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label9.AutoSize = true;
             label9.Font = new Font("Arial", 10F, FontStyle.Bold);
             label9.Location = new Point(766, 295);
@@ -150,7 +150,7 @@
             // 
             // panel17
             // 
-            panel17.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panel17.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel17.Controls.Add(tbCustomer);
             panel17.Controls.Add(label8);
             panel17.Location = new Point(766, 336);
@@ -181,7 +181,7 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel1.Controls.Add(tbPhone);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(766, 397);
@@ -192,7 +192,7 @@
             // 
             // tbPhone
             // 
-            tbPhone.Location = new Point(141, 12);
+            tbPhone.Location = new Point(141, 9);
             tbPhone.Margin = new Padding(5, 3, 5, 3);
             tbPhone.Name = "tbPhone";
             tbPhone.ReadOnly = true;
@@ -212,7 +212,7 @@
             // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel2.Controls.Add(tbHang);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(tbNameCar);
@@ -263,7 +263,7 @@
             // 
             // panel3
             // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel3.Controls.Add(tbNumCar);
             panel3.Controls.Add(label3);
             panel3.Location = new Point(766, 523);
@@ -293,7 +293,7 @@
             // 
             // panel4
             // 
-            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel4.Controls.Add(tbColor);
             panel4.Controls.Add(label4);
             panel4.Location = new Point(766, 585);
@@ -379,7 +379,6 @@
             AutoScaleDimensions = new SizeF(12F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1394, 738);
-            ControlBox = false;
             Controls.Add(btnDelete);
             Controls.Add(btnShow);
             Controls.Add(btnFix);
@@ -395,10 +394,11 @@
             Controls.Add(dtgvCar);
             Controls.Add(panel5);
             Font = new Font("Arial", 10F, FontStyle.Bold);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            ImeMode = ImeMode.Off;
             Margin = new Padding(4, 3, 4, 3);
             Name = "fCar";
-            Text = "KhachHang";
+            Text = "Xe";
             Load += fCar_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvCar).EndInit();
             panel5.ResumeLayout(false);

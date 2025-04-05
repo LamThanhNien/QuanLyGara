@@ -27,8 +27,8 @@ namespace Quanly.DAO
         public void LoadDL(DataGridView dtgvCar)
         {
             string query = @"
-                SELECT cs.name as NameCustomer, c.name AS Namecar, c.NumberCar,c.logo as Logo , c.Hang,
-                       cs.address, cs.phoneNum as Phonenum, c.ImageBase64 as Image, c.idCustomer as idCtm ,c.idCar as IdCar
+                SELECT cs.name as NameCustomer, c.name AS Namecar, c.NumberCar,c.Color as Color , c.Hang,
+                       cs.address, cs.phoneNum as Phonenum, c.Image as Image, c.idCustomer as idCtm ,c.idCar as IdCar
                 FROM Customer cs
                 INNER JOIN Car c ON cs.idCustomer = c.idCustomer";
 
@@ -60,7 +60,7 @@ namespace Quanly.DAO
             // Nếu không có ảnh mới, lấy ảnh cũ từ CSDL
             if (string.IsNullOrEmpty(image))
             {
-                string queryGetImage = "SELECT ImageBase64 FROM Car WHERE idCar = @idCar";
+                string queryGetImage = "SELECT Image FROM Car WHERE idCar = @idCar";
                 object oldImage = DataProvider.Instance.ExecuteScalar(queryGetImage, new object[] { idCar });
 
                 image = oldImage != null ? oldImage.ToString() : null; // Giữ ảnh cũ nếu có

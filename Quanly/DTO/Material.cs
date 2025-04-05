@@ -10,7 +10,7 @@ namespace Quanly.DTO
 {
     public class Material
     {
-        public Material(string name, string type, string noiSx, int sl, float price, int idM, int idS, string image)
+        public Material(string name, string type, string noiSx, int sl, float price, int idM, string image)
         {
             this.Name = name;
             this.Type = type;
@@ -18,7 +18,7 @@ namespace Quanly.DTO
             this.Sl = sl;
             this.Price = price;
             this.IdMaterial = idM;
-            this.IdService = idS;
+            //this.IdService = idS;
             this.Image = image;
         }
         public Material(DataRow row)
@@ -29,7 +29,7 @@ namespace Quanly.DTO
             this.Sl = Convert.ToInt32(row["quantity"]);
             this.Price = Convert.ToSingle(row["price"]);
             this.IdMaterial = Convert.ToInt32(row["idMaterial"]);
-            this.IdService = Convert.ToInt32(row["idService"]);
+            //this.IdService = Convert.ToInt32(row["idService"]);
             this.Image = row["images"].ToString();
         }
 
@@ -39,7 +39,7 @@ namespace Quanly.DTO
         private int sl;
         private float price;
         private int idMaterial;
-        private int idService;
+        //private int idService;
         private string image;
 
         public string Name { get => name; set => name = value; }
@@ -49,6 +49,6 @@ namespace Quanly.DTO
         public int Sl { get => sl; set => sl = value; }
         public string Image { get => image; set => image = value; }
         public int IdMaterial { get => idMaterial; set => idMaterial = value; }
-        public int IdService { get => idService; set => idService = value; }
+        //public int IdService { get => idService; set => idService = value; }
     }
 }
