@@ -16,7 +16,7 @@ namespace Quanly
             //Application.Run(new fDichVu());
             //Application.Run(new fCustomer());
             //Application.Run(new fThanhToan());
-
+            //Application.Run(new fEmployee());
             Application.Run(new fMain());
         }
     }

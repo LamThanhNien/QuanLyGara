@@ -67,6 +67,7 @@ namespace Quanly
         private void fDichVu_Load(object sender, EventArgs e)
         {
             loadDL();
+            dtgvDichvu_CellClick(null, new DataGridViewCellEventArgs(0, 0));
         }
         int idMaterial = 0;
         private void dtgvDichvu_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -184,6 +185,13 @@ namespace Quanly
                 pictureBoxM.Image = Image.FromFile(filePath);
                 pictureBoxM.Tag = filePath;
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            List<DTO.Material> materials = DAO.Search.Instance.searchMaterialbyname(tbMaterial.Text);
+            dtgvMaterial.DataSource = materials;
+            dtgvDichvu_CellClick(null, new DataGridViewCellEventArgs(0, 0));
         }
     }
 }

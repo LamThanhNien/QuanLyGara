@@ -31,7 +31,7 @@
             dtgvMaterial = new DataGridView();
             panel24 = new Panel();
             button7 = new Button();
-            tbSv = new TextBox();
+            tbMaterial = new TextBox();
             pictureBoxM = new PictureBox();
             btnAddImage = new Button();
             panel25 = new Panel();
@@ -84,7 +84,7 @@
             // 
             panel24.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel24.Controls.Add(button7);
-            panel24.Controls.Add(tbSv);
+            panel24.Controls.Add(tbMaterial);
             panel24.Location = new Point(572, -1);
             panel24.Margin = new Padding(5, 3, 5, 3);
             panel24.Name = "panel24";
@@ -101,15 +101,16 @@
             button7.TabIndex = 1;
             button7.Text = "Tìm";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += btnSearch_Click;
             // 
-            // tbSv
+            // tbMaterial
             // 
-            tbSv.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbSv.Location = new Point(25, 15);
-            tbSv.Margin = new Padding(5, 3, 5, 3);
-            tbSv.Name = "tbSv";
-            tbSv.Size = new Size(378, 30);
-            tbSv.TabIndex = 0;
+            tbMaterial.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            tbMaterial.Location = new Point(25, 15);
+            tbMaterial.Margin = new Padding(5, 3, 5, 3);
+            tbMaterial.Name = "tbMaterial";
+            tbMaterial.Size = new Size(378, 30);
+            tbMaterial.TabIndex = 0;
             // 
             // pictureBoxM
             // 
@@ -425,7 +426,7 @@
         private DataGridView dtgvMaterial;
         private Panel panel24;
         private Button button7;
-        private TextBox tbSv;
+        private TextBox tbMaterial;
         private PictureBox pictureBoxM;
         private Button btnAddImage;
         private Panel panel25;

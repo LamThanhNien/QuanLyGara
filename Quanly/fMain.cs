@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quanly.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+
+
 
 namespace Quanly
 {
@@ -31,8 +35,25 @@ namespace Quanly
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if(MessageBox.Show("Bạn muốn đóng ứng dụng không","Thông báo",MessageBoxButtons.YesNo)==DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
+        private void btnMaxsize_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                btnMax_Normal.Text = "❐";
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else if (this.WindowState == FormWindowState.Maximized)
+            {
+                btnMax_Normal.Text = "⬜";
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized; // Thu nhỏ Form
@@ -55,6 +76,9 @@ namespace Quanly
             childForm.BringToFront();
             childForm.Show();
         }
+
+
+
         private void btnCustomer_Click(object sender, EventArgs e)
         {
             OpenChillldForm(new fCustomer());
@@ -85,6 +109,11 @@ namespace Quanly
             }
             label1.Text = "Thanh Toán Hóa Đơn";
         }
+        private void btnEmployee_Click(object sender, EventArgs e)
+        {
+            OpenChillldForm(new fEmployee());
+            label1.Text = "Quản Lý Nhân Viên";
+        }
         private void btnThanhtoan_Click(object sender, EventArgs e)
         {
             OpenChillldForm(new fThanhToan());
@@ -92,10 +121,38 @@ namespace Quanly
         }
         private void đăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Login login = new Login();
             login.ShowDialog();
             this.Show();
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có đăng xuất chứ", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                btnEmployee.Visible = false;
+                btnThongke.Visible = false;
+                tbUsername.Text = "Xin chào";
+                btnLogout.Visible = false;
+                Exit.Enabled = false;
+            }
+        }
+        private void cậpNhậtThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fAccountProfile fAccount = new fAccountProfile();
+            fAccount.ShowDialog();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Bạn có đăng xuất chứ","Thông báo",MessageBoxButtons.YesNo)==DialogResult.Yes)
+            {
+                btnEmployee.Visible = false;
+                btnThongke.Visible = false;
+                tbUsername.Text = "Xin chào";
+                btnLogout.Visible = false;
+                Exit.Enabled = false;
+            }    
         }
     }
 }

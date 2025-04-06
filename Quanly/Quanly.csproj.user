@@ -16,6 +16,9 @@
     <Compile Update="fDichVu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="fEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="fFixAccountProfile.cs">
       <SubType>Form</SubType>
     </Compile>

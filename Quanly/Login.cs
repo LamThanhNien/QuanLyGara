@@ -32,20 +32,29 @@ namespace Quanly
             this.WindowState = FormWindowState.Minimized; // Thu nhỏ Form
         }
         #endregion
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tbname.Text) || string.IsNullOrEmpty(tbpassword.Text))
             {
                 MessageBox.Show("Vui long điền đầy đủ thông tin");
             }
-
+            DTO.Account loginAc = DAO.AccountDAO.Instance.GetAccount(tbname.Text);
+            int check = loginAc.CheckAdmin;
             if (checkLogin(tbname.Text, tbpassword.Text))
             {
-                DTO.Account loginAc = DAO.AccountDAO.Instance.GetAccount(tbname.Text);
-                this.Hide();
-                //fManage fManage = new fManage(loginAc);
-                //fManage.ShowDialog();
-                //this.Show();
+                //MessageBox.Show(check+"");
+                fMain mainForm = Application.OpenForms["fMain"] as fMain;
+                if (mainForm != null)
+                {
+                    mainForm.btnEmployee.Visible = (check == 1);
+                    mainForm.btnThongke.Visible = (check == 1);
+                    mainForm.tbUsername.Text = "Xin Chào "+ tbname.Text;
+                    mainForm.btnLogout.Visible = true;
+
+                    mainForm.phânQuyềnToolStripMenuItem.Visible = (check == 1);
+                    mainForm.Exit.Enabled = true;
+                }
+                this.Close();
             }
             else
             {

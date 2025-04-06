@@ -55,7 +55,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.None;
-            panel1.BackColor = SystemColors.ButtonHighlight;
+            panel1.BackColor = SystemColors.ControlLight;
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label3);
@@ -95,6 +95,7 @@
             // button2
             // 
             button2.Anchor = AnchorStyles.None;
+            button2.BackColor = Color.FromArgb(192, 255, 255);
             button2.Font = new Font("Arial", 12F, FontStyle.Bold);
             button2.Location = new Point(318, 205);
             button2.Margin = new Padding(2);
@@ -102,12 +103,13 @@
             button2.Size = new Size(151, 42);
             button2.TabIndex = 3;
             button2.Text = "Thoát";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_1;
             // 
             // button1
             // 
             button1.Anchor = AnchorStyles.None;
+            button1.BackColor = Color.FromArgb(192, 255, 255);
             button1.Font = new Font("Arial", 12F, FontStyle.Bold);
             button1.Location = new Point(124, 205);
             button1.Margin = new Padding(2);
@@ -115,8 +117,8 @@
             button1.Size = new Size(151, 42);
             button1.TabIndex = 2;
             button1.Text = "Đăng nhập";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // panel3
             // 

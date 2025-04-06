@@ -504,9 +504,13 @@ BEGIN
         END
 
         -- 3. Tính tổng tiền hóa đơn (cả Service và Material)
-		SELECT @TOTAL = (bi.quantity* m.price)
-		FROM Bill b, BillInfo bi, Material m, Service_Material sm
-		WHERE bi.idBill = b.idBill and m.idMaterial = sm.idMaterial and  bi.idBill =@idBill;
+		SELECT 
+			@TOTAL = Sum(bi.quantity* m.price)
+		FROM Bill b
+		JOIN BillInfo bi ON b.idBill = bi.idBill
+		JOIN _Service s ON bi.idService = s.idService
+		JOIN Material m ON bi.idMaterial = m.idMaterial
+		WHERE b.idBill = @idBill
 
         -- 4. Lấy ngày checkin
         SELECT @DateCheckIn = DateCheckIn FROM Bill WHERE idBill = @idBill;
@@ -528,9 +532,13 @@ BEGIN
     END CATCH
 END;
 
-SELECT bi.quantity* m.price
-FROM Bill b, BillInfo bi, Material m, Service_Material sm
-WHERE m.idMaterial = sm.idMaterial and  bi.idBill = b.idBill  and  bi.idBillInfo=11;
+SELECT 
+    Sum(bi.quantity* m.price) AS totalPrice
+FROM Bill b
+JOIN BillInfo bi ON b.idBill = bi.idBill
+JOIN _Service s ON bi.idService = s.idService
+JOIN Material m ON bi.idMaterial = m.idMaterial
+WHERE b.idBill = 16
 
 select * from Bill
 select * from BillInfo
@@ -633,7 +641,7 @@ END;
 
 
 select * from Account
-select * from Employee
+select e.FullName,e.Phone,e.Position,e.Salary,e.HireDate,e.Status,a.checkAdmin from Employee e,Account a where e.idAccount = a.idAccount
 select * from Customer
 select * from Car
 --select * from Category
@@ -649,3 +657,7 @@ select * from Revenue
 select * from _Service
 select * from Material
 select * from Service_Material
+
+
+
+SELECT * FROM Account WHERE UserName = 'a'

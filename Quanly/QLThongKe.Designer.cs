@@ -33,15 +33,15 @@
             panel2 = new Panel();
             dtgvRevenue = new DataGridView();
             panel1 = new Panel();
+            dateTimePicker1 = new DateTimePicker();
             button2 = new Button();
             button1 = new Button();
             dateTimePicker2 = new DateTimePicker();
             label1 = new Label();
-            dateTimePicker1 = new DateTimePicker();
             label3 = new Label();
             tabPage2 = new TabPage();
             panel4 = new Panel();
-            dataGridView2 = new DataGridView();
+            dataGridViewProduct = new DataGridView();
             panel3 = new Panel();
             button3 = new Button();
             tabControl1.SuspendLayout();
@@ -51,7 +51,7 @@
             panel1.SuspendLayout();
             tabPage2.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProduct).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -100,17 +100,30 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(dateTimePicker1);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(dateTimePicker2);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(dateTimePicker1);
             panel1.Controls.Add(label3);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(1252, 113);
             panel1.TabIndex = 6;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dateTimePicker1.CustomFormat = "MM/dd/yyyy";
+            dateTimePicker1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.Location = new Point(31, 61);
+            dateTimePicker1.MinDate = new DateTime(2025, 4, 6, 0, 0, 0, 0);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(240, 35);
+            dateTimePicker1.TabIndex = 14;
+            dateTimePicker1.Value = new DateTime(2025, 4, 6, 0, 0, 0, 0);
             // 
             // button2
             // 
@@ -135,15 +148,19 @@
             button1.TabIndex = 12;
             button1.Text = "Xem";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += btnShow_Click;
             // 
             // dateTimePicker2
             // 
             dateTimePicker2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dateTimePicker2.CustomFormat = "MM/dd/yyyy";
             dateTimePicker2.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.Location = new Point(277, 61);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(240, 35);
             dateTimePicker2.TabIndex = 11;
+            dateTimePicker2.Value = new DateTime(2025, 4, 6, 0, 0, 0, 0);
             // 
             // label1
             // 
@@ -155,14 +172,6 @@
             label1.Size = new Size(116, 27);
             label1.TabIndex = 10;
             label1.Text = "Đến ngày";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePicker1.Location = new Point(19, 60);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(219, 35);
-            dateTimePicker1.TabIndex = 9;
             // 
             // label3
             // 
@@ -178,10 +187,10 @@
             // 
             tabPage2.Controls.Add(panel4);
             tabPage2.Controls.Add(panel3);
-            tabPage2.Location = new Point(4, 34);
+            tabPage2.Location = new Point(4, 38);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1258, 625);
+            tabPage2.Size = new Size(1258, 621);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Thống kê sản phẩm";
             tabPage2.UseVisualStyleBackColor = true;
@@ -189,21 +198,22 @@
             // panel4
             // 
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel4.Controls.Add(dataGridView2);
+            panel4.Controls.Add(dataGridViewProduct);
             panel4.Location = new Point(3, 74);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1252, 544);
+            panel4.Size = new Size(1252, 496);
             panel4.TabIndex = 8;
             // 
-            // dataGridView2
+            // dataGridViewProduct
             // 
-            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(0, 6);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(1252, 536);
-            dataGridView2.TabIndex = 7;
+            dataGridViewProduct.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewProduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewProduct.Location = new Point(0, 6);
+            dataGridViewProduct.Name = "dataGridViewProduct";
+            dataGridViewProduct.RowHeadersWidth = 51;
+            dataGridViewProduct.Size = new Size(1252, 488);
+            dataGridViewProduct.TabIndex = 7;
             // 
             // panel3
             // 
@@ -246,7 +256,7 @@
             panel1.PerformLayout();
             tabPage2.ResumeLayout(false);
             panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProduct).EndInit();
             panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -262,12 +272,12 @@
         private Button button1;
         private DateTimePicker dateTimePicker2;
         private Label label1;
-        private DateTimePicker dateTimePicker1;
         private Label label3;
         private Panel panel4;
         private Panel panel3;
         private Button button3;
         private DataGridView dtgvRevenue;
-        private DataGridView dataGridView2;
+        private DataGridView dataGridViewProduct;
+        private DateTimePicker dateTimePicker1;
     }
 }

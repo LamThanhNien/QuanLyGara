@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            btnLogout = new Button();
+            btnEmployee = new Button();
             button2 = new Button();
             pictureBox1 = new PictureBox();
-            button5 = new Button();
             btnThongke = new Button();
             btnDichvu = new Button();
             btnCar = new Button();
@@ -44,18 +46,20 @@
             thôngTinToolStripMenuItem = new ToolStripMenuItem();
             cậpNhậtThôngTinToolStripMenuItem = new ToolStripMenuItem();
             phânQuyềnToolStripMenuItem = new ToolStripMenuItem();
-            đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
+            Exit = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
             toolStripMenuItem4 = new ToolStripMenuItem();
             toolStripMenuItem5 = new ToolStripMenuItem();
             toolStripMenuItem6 = new ToolStripMenuItem();
-            textBox1 = new TextBox();
+            tbUsername = new TextBox();
             panelbody = new Panel();
             pnlTitleBar_MouseDown = new Panel();
             btnMinimize = new Button();
             btnExit = new Button();
+            btnMax_Normal = new Button();
+            contextMenuStrip1 = new ContextMenuStrip(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -65,17 +69,49 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.Gainsboro;
+            panel1.Controls.Add(btnLogout);
+            panel1.Controls.Add(btnEmployee);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(button5);
             panel1.Controls.Add(btnThongke);
             panel1.Controls.Add(btnDichvu);
             panel1.Controls.Add(btnCar);
             panel1.Controls.Add(button1);
+            panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(177, 879);
             panel1.TabIndex = 0;
+            // 
+            // btnLogout
+            // 
+            btnLogout.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnLogout.BackColor = Color.FromArgb(224, 224, 224);
+            btnLogout.Font = new Font("Arial", 11F, FontStyle.Bold);
+            btnLogout.Location = new Point(5, 809);
+            btnLogout.Margin = new Padding(4, 3, 4, 3);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(169, 47);
+            btnLogout.TabIndex = 7;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Visible = false;
+            btnLogout.Click += btnLogout_Click;
+            // 
+            // btnEmployee
+            // 
+            btnEmployee.BackColor = Color.FromArgb(224, 224, 224);
+            btnEmployee.Font = new Font("Arial", 11F, FontStyle.Bold);
+            btnEmployee.Location = new Point(5, 359);
+            btnEmployee.Margin = new Padding(4, 3, 4, 3);
+            btnEmployee.Name = "btnEmployee";
+            btnEmployee.Size = new Size(169, 47);
+            btnEmployee.TabIndex = 6;
+            btnEmployee.Text = "QL Nhân Viên";
+            btnEmployee.UseVisualStyleBackColor = false;
+            btnEmployee.Visible = false;
+            btnEmployee.Click += btnEmployee_Click;
             // 
             // button2
             // 
@@ -93,38 +129,26 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.images3;
-            pictureBox1.Location = new Point(3, 33);
+            pictureBox1.Location = new Point(0, 33);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(171, 108);
+            pictureBox1.Size = new Size(177, 108);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // button5
-            // 
-            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button5.BackColor = SystemColors.ActiveCaption;
-            button5.Font = new Font("Arial", 11F, FontStyle.Bold);
-            button5.Location = new Point(3, 820);
-            button5.Margin = new Padding(4, 3, 4, 3);
-            button5.Name = "button5";
-            button5.Size = new Size(169, 47);
-            button5.TabIndex = 6;
-            button5.Text = "ADMIN";
-            button5.UseVisualStyleBackColor = false;
-            // 
             // btnThongke
             // 
             btnThongke.BackColor = Color.FromArgb(224, 224, 224);
             btnThongke.Font = new Font("Arial", 11F, FontStyle.Bold);
-            btnThongke.Location = new Point(5, 359);
+            btnThongke.Location = new Point(5, 412);
             btnThongke.Margin = new Padding(4, 3, 4, 3);
             btnThongke.Name = "btnThongke";
             btnThongke.Size = new Size(169, 47);
             btnThongke.TabIndex = 5;
             btnThongke.Text = "Thống Kê";
             btnThongke.UseVisualStyleBackColor = false;
+            btnThongke.Visible = false;
             btnThongke.Click += btnThongke_Click;
             // 
             // btnDichvu
@@ -168,10 +192,11 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel2.Controls.Add(label1);
             panel2.Controls.Add(menuStrip1);
-            panel2.Controls.Add(textBox1);
-            panel2.Location = new Point(179, 40);
+            panel2.Controls.Add(tbUsername);
+            panel2.Location = new Point(179, 33);
             panel2.Name = "panel2";
             panel2.Size = new Size(1166, 50);
             panel2.TabIndex = 1;
@@ -179,14 +204,16 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(14, 11);
             label1.Name = "label1";
-            label1.Size = new Size(59, 25);
+            label1.Size = new Size(81, 29);
             label1.TabIndex = 2;
             label1.Text = "label1";
             // 
             // menuStrip1
             // 
+            menuStrip1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             menuStrip1.AutoSize = false;
             menuStrip1.Dock = DockStyle.None;
             menuStrip1.ImageScalingSize = new Size(24, 24);
@@ -200,7 +227,7 @@
             // 
             // tÀIKHOẢNToolStripMenuItem
             // 
-            tÀIKHOẢNToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { đăngNhậpToolStripMenuItem, thôngTinToolStripMenuItem, đăngXuấtToolStripMenuItem });
+            tÀIKHOẢNToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { đăngNhậpToolStripMenuItem, thôngTinToolStripMenuItem, Exit });
             tÀIKHOẢNToolStripMenuItem.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tÀIKHOẢNToolStripMenuItem.Image = Properties.Resources.download__4_1;
             tÀIKHOẢNToolStripMenuItem.Name = "tÀIKHOẢNToolStripMenuItem";
@@ -226,24 +253,25 @@
             cậpNhậtThôngTinToolStripMenuItem.Name = "cậpNhậtThôngTinToolStripMenuItem";
             cậpNhậtThôngTinToolStripMenuItem.Size = new Size(286, 34);
             cậpNhậtThôngTinToolStripMenuItem.Text = "Cập nhật thông tin";
+            cậpNhậtThôngTinToolStripMenuItem.Click += cậpNhậtThôngTinToolStripMenuItem_Click;
             // 
             // phânQuyềnToolStripMenuItem
             // 
             phânQuyềnToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            phânQuyềnToolStripMenuItem.Enabled = false;
             phânQuyềnToolStripMenuItem.Name = "phânQuyềnToolStripMenuItem";
             phânQuyềnToolStripMenuItem.Size = new Size(286, 34);
             phânQuyềnToolStripMenuItem.Text = "Phân quyền";
             // 
-            // đăngXuấtToolStripMenuItem
+            // Exit
             // 
-            đăngXuấtToolStripMenuItem.Enabled = false;
-            đăngXuấtToolStripMenuItem.Image = Properties.Resources.download__2_;
-            đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            đăngXuấtToolStripMenuItem.RightToLeft = RightToLeft.Yes;
-            đăngXuấtToolStripMenuItem.Size = new Size(214, 34);
-            đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
-            đăngXuấtToolStripMenuItem.TextImageRelation = TextImageRelation.TextBeforeImage;
+            Exit.Enabled = false;
+            Exit.Image = Properties.Resources.download__2_;
+            Exit.Name = "Exit";
+            Exit.RightToLeft = RightToLeft.Yes;
+            Exit.Size = new Size(214, 34);
+            Exit.Text = "Đăng xuất";
+            Exit.TextImageRelation = TextImageRelation.TextBeforeImage;
+            Exit.Click += đăngXuấtToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
@@ -275,55 +303,79 @@
             toolStripMenuItem6.Name = "toolStripMenuItem6";
             toolStripMenuItem6.Size = new Size(16, 40);
             // 
-            // textBox1
+            // tbUsername
             // 
-            textBox1.Location = new Point(863, 8);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(150, 39);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "Xin chào LTN";
+            tbUsername.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            tbUsername.Location = new Point(856, 8);
+            tbUsername.Multiline = true;
+            tbUsername.Name = "tbUsername";
+            tbUsername.ReadOnly = true;
+            tbUsername.Size = new Size(157, 39);
+            tbUsername.TabIndex = 1;
+            tbUsername.Text = "Xin chào";
             // 
             // panelbody
             // 
-            panelbody.Location = new Point(179, 96);
+            panelbody.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelbody.Location = new Point(179, 89);
             panelbody.Name = "panelbody";
-            panelbody.Size = new Size(1175, 783);
+            panelbody.Size = new Size(1175, 790);
             panelbody.TabIndex = 2;
             // 
             // pnlTitleBar_MouseDown
             // 
-            pnlTitleBar_MouseDown.BackColor = Color.FromArgb(45, 47, 51);
+            pnlTitleBar_MouseDown.BackColor = Color.Gainsboro;
             pnlTitleBar_MouseDown.Controls.Add(btnMinimize);
             pnlTitleBar_MouseDown.Controls.Add(btnExit);
+            pnlTitleBar_MouseDown.Controls.Add(btnMax_Normal);
             pnlTitleBar_MouseDown.Dock = DockStyle.Top;
-            pnlTitleBar_MouseDown.Location = new Point(0, 0);
+            pnlTitleBar_MouseDown.Location = new Point(177, 0);
             pnlTitleBar_MouseDown.Name = "pnlTitleBar_MouseDown";
-            pnlTitleBar_MouseDown.Size = new Size(1357, 34);
+            pnlTitleBar_MouseDown.Size = new Size(1180, 34);
             pnlTitleBar_MouseDown.TabIndex = 2;
             pnlTitleBar_MouseDown.MouseDown += pnlTitleBar_MouseDown_MouseDown;
             // 
             // btnMinimize
             // 
-            btnMinimize.Location = new Point(1269, 1);
+            btnMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMinimize.Location = new Point(1065, 0);
             btnMinimize.Name = "btnMinimize";
-            btnMinimize.Size = new Size(41, 34);
+            btnMinimize.Size = new Size(41, 36);
             btnMinimize.TabIndex = 1;
-            btnMinimize.Text = "−";
+            btnMinimize.Text = "─";
             btnMinimize.TextAlign = ContentAlignment.TopCenter;
             btnMinimize.UseVisualStyleBackColor = true;
             btnMinimize.Click += btnMinimize_Click;
             // 
             // btnExit
             // 
-            btnExit.Location = new Point(1316, 0);
+            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExit.ForeColor = Color.Red;
+            btnExit.Location = new Point(1139, 0);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(41, 34);
+            btnExit.Size = new Size(41, 36);
             btnExit.TabIndex = 0;
-            btnExit.Text = "X";
+            btnExit.Text = "✕";
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
+            // 
+            // btnMax_Normal
+            // 
+            btnMax_Normal.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMax_Normal.Location = new Point(1102, 0);
+            btnMax_Normal.Name = "btnMax_Normal";
+            btnMax_Normal.Size = new Size(41, 36);
+            btnMax_Normal.TabIndex = 2;
+            btnMax_Normal.Text = "⬜";
+            btnMax_Normal.TextAlign = ContentAlignment.TopCenter;
+            btnMax_Normal.UseVisualStyleBackColor = true;
+            btnMax_Normal.Click += btnMaxsize_Click;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(24, 24);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // fMain
             // 
@@ -354,30 +406,34 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private Panel panel2;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem tÀIKHOẢNToolStripMenuItem;
         private Panel panelbody;
-        private Button button5;
-        private Button btnThongke;
-        private Button btnDichvu;
         private Button btnCar;
         private Button button1;
-        private ToolStripMenuItem đăngNhậpToolStripMenuItem;
-        private ToolStripMenuItem thôngTinToolStripMenuItem;
-        private ToolStripMenuItem cậpNhậtThôngTinToolStripMenuItem;
-        private ToolStripMenuItem phânQuyềnToolStripMenuItem;
-        private ToolStripMenuItem đăngXuấtToolStripMenuItem;
-        private ToolStripMenuItem toolStripMenuItem1;
-        private ToolStripMenuItem toolStripMenuItem2;
         private TextBox textBox1;
         private Panel pnlTitleBar_MouseDown;
-        private ToolStripMenuItem toolStripMenuItem3;
-        private ToolStripMenuItem toolStripMenuItem4;
-        private ToolStripMenuItem toolStripMenuItem5;
-        private ToolStripMenuItem toolStripMenuItem6;
         private Button btnMinimize;
         private Button btnExit;
         private Label label1;
         private Button button2;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem tÀIKHOẢNToolStripMenuItem;
+        private ToolStripMenuItem đăngNhậpToolStripMenuItem;
+        private ToolStripMenuItem thôngTinToolStripMenuItem;
+        private ToolStripMenuItem cậpNhậtThôngTinToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem toolStripMenuItem3;
+        private ToolStripMenuItem toolStripMenuItem4;
+        private ToolStripMenuItem toolStripMenuItem5;
+        private ToolStripMenuItem toolStripMenuItem6;
+        private ContextMenuStrip contextMenuStrip1;
+        public Button btnEmployee;
+        public Button btnThongke;
+        private Button btnDichvu;
+        public ToolStripMenuItem Exit;
+        public TextBox tbUsername;
+        public Button btnLogout;
+        private Button btnMax_Normal;
+        public ToolStripMenuItem phânQuyềnToolStripMenuItem;
     }
 }
