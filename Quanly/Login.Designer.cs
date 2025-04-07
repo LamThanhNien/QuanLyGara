@@ -54,14 +54,13 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.None;
-            panel1.BackColor = SystemColors.ControlLight;
+            panel1.BackColor = Color.OldLace;
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label3);
-            panel1.Location = new Point(0, 33);
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1095, 608);
+            panel1.Size = new Size(1095, 590);
             panel1.TabIndex = 0;
             // 
             // panel2
@@ -73,7 +72,7 @@
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(panel4);
             panel2.Font = new Font("Arial", 12F, FontStyle.Bold);
-            panel2.Location = new Point(572, 129);
+            panel2.Location = new Point(572, 120);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(514, 266);
@@ -192,12 +191,12 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Anchor = AnchorStyles.None;
-            pictureBox1.Image = Properties.Resources.vo_lang_dinh_kim_cuong_gia_2_1699434500319350442308_1699493126299_16994931264015605531821;
-            pictureBox1.Location = new Point(0, 4);
+            pictureBox1.Dock = DockStyle.Left;
+            pictureBox1.Image = Properties.Resources.Logo2;
+            pictureBox1.Location = new Point(0, 0);
             pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(540, 600);
+            pictureBox1.Size = new Size(571, 590);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -207,7 +206,7 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Arial", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(663, 44);
+            label3.Location = new Point(679, 61);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(293, 33);
@@ -216,13 +215,13 @@
             // 
             // pnlTitleBar_MouseDown
             // 
-            pnlTitleBar_MouseDown.BackColor = Color.FromArgb(45, 47, 51);
+            pnlTitleBar_MouseDown.BackColor = Color.Black;
             pnlTitleBar_MouseDown.Controls.Add(btnMinimize);
             pnlTitleBar_MouseDown.Controls.Add(btnExit);
             pnlTitleBar_MouseDown.Dock = DockStyle.Top;
             pnlTitleBar_MouseDown.Location = new Point(0, 0);
             pnlTitleBar_MouseDown.Name = "pnlTitleBar_MouseDown";
-            pnlTitleBar_MouseDown.Size = new Size(1095, 35);
+            pnlTitleBar_MouseDown.Size = new Size(1106, 38);
             pnlTitleBar_MouseDown.TabIndex = 2;
             pnlTitleBar_MouseDown.MouseDown += pnlTitleBar_MouseDown_MouseDown_1;
             // 
@@ -254,10 +253,11 @@
             AcceptButton = button1;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1095, 641);
-            ControlBox = false;
+            BackColor = SystemColors.ActiveCaptionText;
+            ClientSize = new Size(1106, 601);
             Controls.Add(pnlTitleBar_MouseDown);
             Controls.Add(panel1);
+            ForeColor = SystemColors.ActiveCaptionText;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "Login";

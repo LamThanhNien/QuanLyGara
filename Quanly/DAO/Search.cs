@@ -90,5 +90,17 @@ namespace Quanly.DAO
             }
             return list;
         }
+        public List<DTO.Employee> searchEmployeebyname(string name)
+        {
+            string query = string.Format("SELECT * FROM Employee e\r\njoin Account a on e.idAccount = a.idAccount where dbo.RemoveDiacritics(FullName) like N'%'+ dbo.RemoveDiacritics(N'{0}')+'%'", name);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            List<DTO.Employee> list = new List<DTO.Employee>();
+            foreach (DataRow row in data.Rows)
+            {
+                DTO.Employee Item = new DTO.Employee(row);
+                list.Add(Item);
+            }
+            return list;
+        }
     }
 }

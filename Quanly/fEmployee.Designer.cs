@@ -31,7 +31,7 @@
             dtgvEmployee = new DataGridView();
             panel1 = new Panel();
             button1 = new Button();
-            textBox1 = new TextBox();
+            tbSearch = new TextBox();
             panel29 = new Panel();
             tbName = new TextBox();
             label4 = new Label();
@@ -85,7 +85,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(tbSearch);
             panel1.Location = new Point(812, 2);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
@@ -103,15 +103,16 @@
             button1.TabIndex = 1;
             button1.Text = "Tìm";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += btnSearch_Click;
             // 
-            // textBox1
+            // tbSearch
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBox1.Location = new Point(6, 19);
-            textBox1.Margin = new Padding(4, 3, 4, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(323, 33);
-            textBox1.TabIndex = 0;
+            tbSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            tbSearch.Location = new Point(6, 19);
+            tbSearch.Margin = new Padding(4, 3, 4, 3);
+            tbSearch.Name = "tbSearch";
+            tbSearch.Size = new Size(323, 33);
+            tbSearch.TabIndex = 0;
             // 
             // panel29
             // 
@@ -188,6 +189,7 @@
             // cbbType
             // 
             cbbType.FormattingEnabled = true;
+            cbbType.Items.AddRange(new object[] { "Admin", "Nhân viên" });
             cbbType.Location = new Point(159, 8);
             cbbType.Margin = new Padding(4, 3, 4, 3);
             cbbType.Name = "cbbType";
@@ -228,6 +230,7 @@
             button3.TabIndex = 3;
             button3.Text = "Xem";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += btnShow_Click;
             // 
             // button6
             // 
@@ -239,6 +242,7 @@
             button6.TabIndex = 0;
             button6.Text = "Thêm";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += btnAdd_Click;
             // 
             // button5
             // 
@@ -250,6 +254,7 @@
             button5.TabIndex = 1;
             button5.Text = "Sửa";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += btnFix_Click;
             // 
             // button4
             // 
@@ -261,6 +266,7 @@
             button4.TabIndex = 2;
             button4.Text = "Xóa";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += btnDelete_Click;
             // 
             // panel2
             // 
@@ -420,7 +426,7 @@
 
         private DataGridView dtgvEmployee;
         private Panel panel1;
-        private TextBox textBox1;
+        private TextBox tbSearch;
         private Button button1;
         private Panel panel29;
         private TextBox tbName;

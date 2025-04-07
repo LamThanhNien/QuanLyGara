@@ -25,7 +25,6 @@ CREATE TABLE Employee (
     FOREIGN KEY (idAccount) REFERENCES Account(idAccount)
 );
 GO
-
 -- Tạo bảng Customer
 CREATE TABLE Customer (
     idCustomer INT IDENTITY PRIMARY KEY,
@@ -35,7 +34,6 @@ CREATE TABLE Customer (
     phoneNum VARCHAR(15) NOT NULL
 );
 GO
-
 -- Tạo bảng Car
 CREATE TABLE Car (
     idCar INT IDENTITY PRIMARY KEY,
@@ -48,17 +46,6 @@ CREATE TABLE Car (
     FOREIGN KEY (idCustomer) REFERENCES Customer(idCustomer)
 );
 GO
-
--- Bảng Danh mục (Bảo dưỡng, Sửa chữa)
---CREATE TABLE Category (
-   -- idCategory INT IDENTITY(1,1) PRIMARY KEY,
-   -- Name NVARCHAR(100) NOT NULL CHECK (Name IN (N'Bảo dưỡng', N'Sửa chữa')),
-   -- Description NVARCHAR(300),
-   -- Type INT NOT NULL DEFAULT 1 CHECK (Type IN (1, 2)) -- 1: Bảo dưỡng, 2: Sửa chữa
---);
---GO
-
--- Tạo bảng _Service (chỉ dùng cho Bảo dưỡng)
 CREATE TABLE _Service (
     idService INT IDENTITY PRIMARY KEY,
    -- idCategory INT NOT NULL,
@@ -80,7 +67,6 @@ CREATE TABLE Material (
    -- FOREIGN KEY (idCategory) REFERENCES Category(idCategory),
 );
 GO
-
 -- Bảng liên kết Service và Material (nếu cần)
 CREATE TABLE Service_Material (
     idService INT,
@@ -90,7 +76,6 @@ CREATE TABLE Service_Material (
     FOREIGN KEY (idMaterial) REFERENCES Material(idMaterial)
 );
 GO
-
 -- Tạo bảng Bill
 CREATE TABLE Bill (
     idBill INT IDENTITY PRIMARY KEY,
@@ -103,7 +88,6 @@ CREATE TABLE Bill (
     FOREIGN KEY (idCar) REFERENCES Car(idCar),
 );
 GO
-
 -- Tạo bảng BillInfo
 CREATE TABLE BillInfo (
     idBillInfo INT IDENTITY PRIMARY KEY,
@@ -116,33 +100,29 @@ CREATE TABLE BillInfo (
     FOREIGN KEY (idService) REFERENCES _Service(idService),
     FOREIGN KEY (idMaterial) REFERENCES Material(idMaterial),
     CONSTRAINT CHK_BillInfo_ServiceOrMaterial CHECK (
-        (idService IS NOT NULL AND idMaterial IS NULL) OR
-        (idService IS NULL AND idMaterial IS NOT NULL)
+        (idService IS NOT NULL OR idMaterial IS NOT NULL) -- Ít nhất một trong hai phải có giá trị
     )
 );
-go
-ALTER TABLE BillInfo DROP CONSTRAINT CHK_BillInfo_ServiceOrMaterial;
-ALTER TABLE BillInfo
-ADD CONSTRAINT CHK_BillInfo_ServiceOrMaterial
-CHECK (
-    (idService IS NOT NULL OR idMaterial IS NOT NULL) -- Ít nhất một trong hai phải có giá trị
-);
-
+--ALTER TABLE BillInfo DROP CONSTRAINT CHK_BillInfo_ServiceOrMaterial;
+--ALTER TABLE BillInfo
+--ADD CONSTRAINT CHK_BillInfo_ServiceOrMaterial
+--CHECK (
+    --(idService IS NOT NULL OR idMaterial IS NOT NULL) -- Ít nhất một trong hai phải có giá trị
+--);
 
 GO
 --Bảng Lịch sử bảo dưỡng
-CREATE TABLE MaintenanceHistory (
-    idHistory INT IDENTITY(1,1) PRIMARY KEY,
-    idCar INT FOREIGN KEY REFERENCES Car(idCar),
-    MaintenanceDate DATE NOT NULL DEFAULT GETDATE(),
-    NextMaintenanceDate DATE,
-    CurrentKM INT NOT NULL,
-    NextMaintenanceKM INT,
-    TotalCost DECIMAL(18,2),
-    Note NVARCHAR(1000)
-);
+--CREATE TABLE MaintenanceHistory (
+   -- idHistory INT IDENTITY(1,1) PRIMARY KEY,
+    --idCar INT FOREIGN KEY REFERENCES Car(idCar),
+    --MaintenanceDate DATE NOT NULL DEFAULT GETDATE(),
+    --NextMaintenanceDate DATE,
+    --CurrentKM INT NOT NULL,
+    --NextMaintenanceKM INT,
+    --TotalCost DECIMAL(18,2),
+    --Note NVARCHAR(1000)
+--);
 GO
-
 CREATE TABLE Revenue (
     idRevenue INT IDENTITY PRIMARY KEY,
     idBill INT NOT NULL,
@@ -152,45 +132,48 @@ CREATE TABLE Revenue (
     FOREIGN KEY (idBill) REFERENCES Bill(idBill)
 );
 GO
-
-
 INSERT INTO Account (DisplayName, UserName, Password, checkAdmin)
 VALUES 
 (N'Admin1','a','1',1),
 (N'Nguyễn Văn A', 'nva', 'password123', 2),
 (N'Trần Thị B', 'ttb', 'password456', 2);
 GO
+
 INSERT INTO Employee (idAccount, FullName, Phone, Position, Salary, HireDate, Status)
 VALUES 
 (2, N'Nguyễn Văn A', '0905123456', N'Nhân viên kỹ thuật', 10000000, '2023-01-15', 1),
 (3, N'Trần Thị B', '0916789123', N'Nhân viên tiếp nhận', 9000000, '2023-03-20', 1);
 GO
+
 INSERT INTO Customer (name, sex, address, phoneNum)
 VALUES
 (N'Lê Văn Cường', 1, N'123 Đường Lê Lợi, Q1, TP.HCM', '0909123456'),
 (N'Phạm Thị Dung', 0, N'456 Đường Nguyễn Huệ, Q1, TP.HCM', '0988123456'),
 (N'Hoàng Minh Đức', 1, N'789 Đường CMT8, Q3, TP.HCM', '0917123456');
+GO
+
 INSERT INTO Car (idCustomer, name, Hang, numberCar, Color, Image)
 VALUES
 (1, N'Toyota Camry', 'Toyota', '51A-12345', N'Đen', NULL),
 (2, N'Honda CR-V', 'Honda', '51B-67890', N'Trắng', NULL),
 (3, N'Ford Ranger', 'Ford', '51C-54321', N'Xám', NULL);
---INSERT INTO Category (Name, Description, Type)
---VALUES
---(N'Bảo dưỡng', N'Các dịch vụ bảo dưỡng định kỳ', 1),
---(N'Sửa chữa', N'Các dịch vụ sửa chữa, thay thế phụ tùng', 2);
+GO
+
 INSERT INTO _Service (name, price)
 VALUES
 (N'Thay nhớt động cơ', 500000),
 (N'Thay lọc gió', 300000),
 (N'Kiểm tra hệ thống phanh', 400000),
 (N'Vệ sinh điều hòa', 350000);
+GO
+
 INSERT INTO Material (name, type, NoiSx, quantity, price, images)
 VALUES
 (N'Lốp xe Michelin', N'Lốp', N'Thái Lan', 20, 2500000, NULL),
 (N'Má phanh trước', N'Phanh', N'Việt Nam', 15, 450000, NULL),
 (N'Bugi NGK', N'Động cơ', N'Nhật Bản', 50, 150000, NULL),
 (N'Bình ắc quy', N'Điện', N'Hàn Quốc', 10, 1800000, NULL);
+GO
 
 INSERT INTO Service_Material (idService, idMaterial)
 VALUES
@@ -199,27 +182,7 @@ VALUES
 (4, 4),
 (1, 4),
 (3, 1);
-INSERT INTO Bill (idCustomer, idCar, DateCheckIn, DateCheckOut, status)
-VALUES
-(1, 1, '2023-05-10', '2023-05-10', 1),
-(2, 2, '2023-05-12', '2023-05-13', 1),
-(3, 3, '2023-05-15', NULL, 0);
-INSERT INTO BillInfo (idBill, idService, idMaterial, quantity, isPaid)
-VALUES
-(1, 1, NULL, 1, 1),
-(1, 2, NULL, 1, 1),
-(2, NULL, 1, 2, 1),
-(3, 3, NULL, 1, 0),
-(3, NULL, 3, 4, 0);
-INSERT INTO MaintenanceHistory (idCar, MaintenanceDate, NextMaintenanceDate, CurrentKM, NextMaintenanceKM, TotalCost, Note)
-VALUES
-(1, '2023-05-10', '2023-08-10', 15000, 20000, 800000, N'Bảo dưỡng định kỳ lần 3'),
-(2, '2023-05-12', '2023-08-12', 25000, 30000, 5000000, N'Thay lốp và bảo dưỡng');
-INSERT INTO Revenue (idBill, totalRevenue, datein, dateRevenue)
-VALUES
-(1, 800000, '2023-05-10', '2023-05-10'),
-(2, 5000000, '2023-05-13', '2023-05-13');
-
+GO
 --phần đăng nhập
 Create Proc USP_login
 @UserName nvarchar(100),@Password nvarchar(100)
@@ -266,8 +229,8 @@ BEGIN
 	END;
 	
 END;
-
 go
+
 CREATE proc EditCustomer_Car
 	@idCustomer int,
 	@Ten nvarchar(50),
@@ -302,6 +265,7 @@ begin
     delete Customer where idCustomer = @idCustomer
 end
 
+GO
 --Thêm, Sửa, Xóa Xe
 CREATE PROC USP_InsertCar
 	@idCustomer int,
@@ -316,6 +280,7 @@ BEGIN
 	VALUES 
 	(@idCustomer, @nameCar, @Hang, @nameCar, @Color, @idCustomer)
 END;
+GO
 
 CREATE PROC USP_UpdateCar
 	@idCar INT,
@@ -330,6 +295,7 @@ BEGIN
 	SET name = @name , numberCar = @numCar , Color = @mau ,Hang = @Hang,Image = @Image
 	WHERE idCar = @idCar
 END;
+GO
 
 CREATE PROC DeleteCar
 	@idCar INT 
@@ -338,6 +304,7 @@ BEGIN
 	delete Car where idCar = @idCar
 END;
 --thêm sửa xóa Dịch vụ
+GO
 
 CREATE PROC USP_AddService
 	@name NVARCHAR(100),
@@ -349,8 +316,9 @@ BEGIN
 	(@name, @price);
 END;
 
+GO
 --Thêm, Sửa, Xóa Sản phẩm
-Alter PROC USP_AddMaterial
+CREATE PROC USP_AddMaterial
 	@idService INT,  
 	@name NVARCHAR(50),  
 	@type NVARCHAR(20),  
@@ -369,6 +337,7 @@ BEGIN
 		INSERT INTO Service_Material (idService, idMaterial)  
 		VALUES (@idService, @newMaterialId);
 END;
+GO
 
 CREATE PROC USP_FixMaterial
 	@idMaterial INT,
@@ -385,6 +354,7 @@ BEGIN
 	WHERE idMaterial = @idMaterial;  
 END;
 
+GO
 CREATE PROC USP_DeleteMaterial
 	@idMaterial int,
 	@idService int
@@ -395,8 +365,69 @@ BEGIN
 	--DELETE FROM _Service WHERE idMaterial = @idMaterial;
 	DELETE FROM Material WHERE idMaterial = @idMaterial;
 END;
+GO
 
+--Phần thêm sửa xóa nhân viên
+CREATE PROC USP_InsertEmployee
+    @name NVARCHAR(100),
+    @phone NVARCHAR(10),
+    @chucvu NVARCHAR(100),
+    @luong DECIMAL(18,2),
+    @day DATE,
+    @Checkout int
+AS
+BEGIN
+        DECLARE @idAccount INT;
+        DECLARE @UserName NVARCHAR(100);
+        DECLARE @Password NVARCHAR(100);
+        -- Tạo username và password duy nhất
+        SET @UserName = CONCAT('user_', LEFT(NEWID(), 4));
+        SET @Password = CONCAT('PW_', LEFT(NEWID(), 4));
 
+        INSERT INTO Account (DisplayName, UserName, Password, checkAdmin)
+        VALUES (@name, @UserName, @Password, 2);
+                
+        SET @idAccount = SCOPE_IDENTITY();
+        
+        INSERT INTO Employee (idAccount, FullName, Phone, Position, Salary, HireDate, Status)
+        VALUES (@idAccount, @name, @phone, @chucvu, @luong, @day, @Checkout);
+END;
+GO
+
+CREATE PROC USP_FixEmployee
+	@idEmployee int,
+	@TypeAccount int,
+	@name NVARCHAR(100),
+	@phone NVARCHAR(10),
+	@chucvu NVARCHAR(100),
+	@luong DECIMAL(18,2),
+	@day DATE,
+	@Checkout int
+AS
+BEGIN
+	DECLARE @idAccount int
+	SELECT @idAccount = idAccount FROM Employee WHERE idEmployee =@idEmployee
+	UPDATE Account
+	SET checkAdmin = @TypeAccount
+	WHERE idAccount =@idAccount
+	UPDATE Employee 
+	SET FullName = @name, Phone = @phone, Position = @chucvu, Salary = @luong, HireDate = @day, Status = @Checkout 
+	WHERE idEmployee = @idEmployee; 
+END
+GO
+
+CREATE PROC USP_DeleteEmployee
+	@idEmployee INT 
+AS
+BEGIN
+	DECLARE @idAccount int
+	SELECT @idAccount = idAccount FROM Employee WHERE idEmployee =@idEmployee
+
+	DELETE FROM Employee WHERE idEmployee = @idEmployee; 
+	DELETE FROM Account WHERE idAccount = @idAccount; 
+END;
+
+GO
 --Phần thanh toán
 create PROCEDURE USP_InsertBill
     @IdCustomer INT  
@@ -429,6 +460,7 @@ BEGIN
     END
 END
 
+GO
 CREATE PROCEDURE USP_InsertBillInfo
     @IdBill INT, 
     @IdService INT, 
@@ -462,9 +494,9 @@ BEGIN
         VALUES (@IdBill, @IdService, @IdMaterial, @count);
     END
 END;
+GO
 
-go
-ALTER PROCEDURE USP_ThanhToan
+CREATE PROCEDURE USP_ThanhToan
     @idBill INT
 AS
 BEGIN
@@ -531,21 +563,7 @@ BEGIN
         RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState);
     END CATCH
 END;
-
-SELECT 
-    Sum(bi.quantity* m.price) AS totalPrice
-FROM Bill b
-JOIN BillInfo bi ON b.idBill = bi.idBill
-JOIN _Service s ON bi.idService = s.idService
-JOIN Material m ON bi.idMaterial = m.idMaterial
-WHERE b.idBill = 16
-
-select * from Bill
-select * from BillInfo
-select * from _Service
-select * from Material
-select * from Service_Material
-select * from Revenue
+GO
 
 CREATE PROC USP_UpdateBillInfo
 	@stt int,
@@ -566,20 +584,7 @@ BEGIN
         WHERE idBill = @idBill AND idMaterial = @IdMaterial;
 	END;
 END;
-
-CREATE PROC USP_lastBill
-	@idBill int
-AS
-BEGIN
-	
-	SELECT sum(bi.quantity* s.price) AS Total from Bill B 
-	JOIN BillInfo BI ON B.idBill = BI.idBill
-	JOIN _Service S ON BI.idService = S.idService
-	WHERE BI.isPaid = 0 and B.idBill  = @idBill;
-END;
-
-
-
+GO
 
 Create PROC USP_UpdateCustomer
 	@idCustomer INT,
@@ -592,23 +597,7 @@ BEGIN
 	SET name = @name , address = @address , phoneNum= @phone
 	WHERE idCustomer = @idCustomer
 END;
-
-SELECT * FROM Account
-Select * FROM Car
-Select * FROM Customer
-Select * FROM Revenue
-Select * FROM _Service
-SELECT * FROM Material
-Select * FROM Service_Material
-
-select * from Bill
-select * from BillInfo
-
-delete BillInfo
-delete _Service
-
-SELECT quantity FROM BillInfo WHERE idMaterial = @idMaterial
-
+GO
 
 CREATE FUNCTION dbo.RemoveDiacritics (@input NVARCHAR(255))
 RETURNS NVARCHAR(255)
@@ -631,33 +620,8 @@ BEGIN
     SET @output = REPLACE(@output, N'ýỳỹỷỵ', 'y');
     SET @output = REPLACE(@output, N'Đ', 'D');
     SET @output = REPLACE(@output, N'đ', 'd');
-
     RETURN @output;
 END;
+GO
 
 
-
-
-
-
-select * from Account
-select e.FullName,e.Phone,e.Position,e.Salary,e.HireDate,e.Status,a.checkAdmin from Employee e,Account a where e.idAccount = a.idAccount
-select * from Customer
-select * from Car
---select * from Category
-select * from Material
-select * from _Service
-select * from Service_Material
-select * from Customer
-select * from Bill
-select * from BillInfo
-select * from Revenue
-
-
-select * from _Service
-select * from Material
-select * from Service_Material
-
-
-
-SELECT * FROM Account WHERE UserName = 'a'

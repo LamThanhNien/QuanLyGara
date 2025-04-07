@@ -21,6 +21,7 @@ namespace Quanly
         {
             InitializeComponent();
             OpenChillldForm(new fThanhToan());
+            label1.Text = "Thanh Toán Hóa Đơn";
         }
 
         #region Control
@@ -35,7 +36,7 @@ namespace Quanly
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Bạn muốn đóng ứng dụng không","Thông báo",MessageBoxButtons.YesNo)==DialogResult.Yes)
+            if (MessageBox.Show("Bạn muốn đóng ứng dụng không", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 this.Close();
             }
@@ -45,12 +46,14 @@ namespace Quanly
             if (this.WindowState == FormWindowState.Normal)
             {
                 btnMax_Normal.Text = "❐";
+                this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
                 this.WindowState = FormWindowState.Maximized;
             }
             else if (this.WindowState == FormWindowState.Maximized)
             {
                 btnMax_Normal.Text = "⬜";
                 this.WindowState = FormWindowState.Normal;
+                this.MaximumSize = new Size(0, 0);
             }
         }
 
@@ -98,6 +101,7 @@ namespace Quanly
         private void btnThongke_Click(object sender, EventArgs e)
         {
             OpenChillldForm(new QLThongKe());
+            label1.Text = "";
 
         }
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -145,14 +149,15 @@ namespace Quanly
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Bạn có đăng xuất chứ","Thông báo",MessageBoxButtons.YesNo)==DialogResult.Yes)
+            if (MessageBox.Show("Bạn có đăng xuất chứ", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 btnEmployee.Visible = false;
                 btnThongke.Visible = false;
                 tbUsername.Text = "Xin chào";
                 btnLogout.Visible = false;
                 Exit.Enabled = false;
-            }    
+            }
         }
+
     }
 }

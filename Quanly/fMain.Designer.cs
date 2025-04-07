@@ -31,13 +31,13 @@
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
             btnLogout = new Button();
-            btnEmployee = new Button();
-            button2 = new Button();
-            pictureBox1 = new PictureBox();
             btnThongke = new Button();
+            btnEmployee = new Button();
             btnDichvu = new Button();
             btnCar = new Button();
             button1 = new Button();
+            button2 = new Button();
+            pictureBox1 = new PictureBox();
             panel2 = new Panel();
             label1 = new Label();
             menuStrip1 = new MenuStrip();
@@ -55,11 +55,11 @@
             toolStripMenuItem6 = new ToolStripMenuItem();
             tbUsername = new TextBox();
             panelbody = new Panel();
-            pnlTitleBar_MouseDown = new Panel();
-            btnMinimize = new Button();
-            btnExit = new Button();
-            btnMax_Normal = new Button();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            btnMax_Normal = new Button();
+            btnExit = new Button();
+            btnMinimize = new Button();
+            pnlTitleBar_MouseDown = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -69,19 +69,19 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Gainsboro;
-            panel1.Controls.Add(btnLogout);
-            panel1.Controls.Add(btnEmployee);
-            panel1.Controls.Add(button2);
+            panel1.BackColor = Color.SteelBlue;
             panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(btnThongke);
+            panel1.Controls.Add(btnEmployee);
             panel1.Controls.Add(btnDichvu);
             panel1.Controls.Add(btnCar);
             panel1.Controls.Add(button1);
+            panel1.Controls.Add(button2);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(177, 879);
+            panel1.Size = new Size(196, 879);
             panel1.TabIndex = 0;
             // 
             // btnLogout
@@ -89,76 +89,59 @@
             btnLogout.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnLogout.BackColor = Color.FromArgb(224, 224, 224);
             btnLogout.Font = new Font("Arial", 11F, FontStyle.Bold);
-            btnLogout.Location = new Point(5, 809);
+            btnLogout.ForeColor = SystemColors.ButtonHighlight;
+            btnLogout.Location = new Point(0, 832);
             btnLogout.Margin = new Padding(4, 3, 4, 3);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(169, 47);
+            btnLogout.Size = new Size(196, 47);
             btnLogout.TabIndex = 7;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Visible = false;
             btnLogout.Click += btnLogout_Click;
             // 
-            // btnEmployee
-            // 
-            btnEmployee.BackColor = Color.FromArgb(224, 224, 224);
-            btnEmployee.Font = new Font("Arial", 11F, FontStyle.Bold);
-            btnEmployee.Location = new Point(5, 359);
-            btnEmployee.Margin = new Padding(4, 3, 4, 3);
-            btnEmployee.Name = "btnEmployee";
-            btnEmployee.Size = new Size(169, 47);
-            btnEmployee.TabIndex = 6;
-            btnEmployee.Text = "QL Nhân Viên";
-            btnEmployee.UseVisualStyleBackColor = false;
-            btnEmployee.Visible = false;
-            btnEmployee.Click += btnEmployee_Click;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(224, 224, 224);
-            button2.Font = new Font("Arial", 11F, FontStyle.Bold);
-            button2.Location = new Point(5, 147);
-            button2.Margin = new Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(169, 47);
-            button2.TabIndex = 1;
-            button2.Text = "Thanh Toán";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += btnThanhtoan_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.images3;
-            pictureBox1.Location = new Point(0, 33);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(177, 108);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
             // btnThongke
             // 
-            btnThongke.BackColor = Color.FromArgb(224, 224, 224);
+            btnThongke.BackColor = Color.SteelBlue;
+            btnThongke.FlatStyle = FlatStyle.Flat;
             btnThongke.Font = new Font("Arial", 11F, FontStyle.Bold);
-            btnThongke.Location = new Point(5, 412);
+            btnThongke.ForeColor = SystemColors.ButtonHighlight;
+            btnThongke.Location = new Point(0, 513);
             btnThongke.Margin = new Padding(4, 3, 4, 3);
             btnThongke.Name = "btnThongke";
-            btnThongke.Size = new Size(169, 47);
+            btnThongke.Size = new Size(196, 64);
             btnThongke.TabIndex = 5;
             btnThongke.Text = "Thống Kê";
             btnThongke.UseVisualStyleBackColor = false;
             btnThongke.Visible = false;
             btnThongke.Click += btnThongke_Click;
             // 
+            // btnEmployee
+            // 
+            btnEmployee.BackColor = Color.SteelBlue;
+            btnEmployee.FlatStyle = FlatStyle.Flat;
+            btnEmployee.Font = new Font("Arial", 11F, FontStyle.Bold);
+            btnEmployee.ForeColor = SystemColors.ButtonHighlight;
+            btnEmployee.Location = new Point(0, 443);
+            btnEmployee.Margin = new Padding(4, 3, 4, 3);
+            btnEmployee.Name = "btnEmployee";
+            btnEmployee.Size = new Size(196, 64);
+            btnEmployee.TabIndex = 6;
+            btnEmployee.Text = "QL Nhân Viên";
+            btnEmployee.UseVisualStyleBackColor = false;
+            btnEmployee.Visible = false;
+            btnEmployee.Click += btnEmployee_Click;
+            // 
             // btnDichvu
             // 
-            btnDichvu.BackColor = Color.FromArgb(224, 224, 224);
+            btnDichvu.BackColor = Color.SteelBlue;
+            btnDichvu.FlatStyle = FlatStyle.Flat;
             btnDichvu.Font = new Font("Arial", 11F, FontStyle.Bold);
-            btnDichvu.Location = new Point(5, 306);
+            btnDichvu.ForeColor = SystemColors.ButtonHighlight;
+            btnDichvu.Location = new Point(0, 373);
             btnDichvu.Margin = new Padding(4, 3, 4, 3);
             btnDichvu.Name = "btnDichvu";
-            btnDichvu.Size = new Size(169, 47);
+            btnDichvu.Size = new Size(196, 64);
             btnDichvu.TabIndex = 4;
             btnDichvu.Text = "QL Dịch Vụ";
             btnDichvu.UseVisualStyleBackColor = false;
@@ -166,12 +149,14 @@
             // 
             // btnCar
             // 
-            btnCar.BackColor = Color.FromArgb(224, 224, 224);
+            btnCar.BackColor = Color.SteelBlue;
+            btnCar.FlatStyle = FlatStyle.Flat;
             btnCar.Font = new Font("Arial", 11F, FontStyle.Bold);
-            btnCar.Location = new Point(5, 253);
+            btnCar.ForeColor = SystemColors.ButtonHighlight;
+            btnCar.Location = new Point(0, 303);
             btnCar.Margin = new Padding(4, 3, 4, 3);
             btnCar.Name = "btnCar";
-            btnCar.Size = new Size(169, 47);
+            btnCar.Size = new Size(196, 64);
             btnCar.TabIndex = 3;
             btnCar.Text = "Xe";
             btnCar.UseVisualStyleBackColor = false;
@@ -179,26 +164,55 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(224, 224, 224);
+            button1.BackColor = Color.SteelBlue;
+            button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Arial", 11F, FontStyle.Bold);
-            button1.Location = new Point(5, 200);
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(0, 233);
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
-            button1.Size = new Size(169, 47);
+            button1.Size = new Size(196, 64);
             button1.TabIndex = 2;
             button1.Text = "Khách Hàng";
             button1.UseVisualStyleBackColor = false;
             button1.Click += btnCustomer_Click;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.SteelBlue;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Arial", 11F, FontStyle.Bold);
+            button2.ForeColor = SystemColors.ButtonHighlight;
+            button2.Location = new Point(0, 163);
+            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(196, 64);
+            button2.TabIndex = 1;
+            button2.Text = "Thanh Toán";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += btnThanhtoan_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Logo_removebg_preview;
+            pictureBox1.Location = new Point(12, 24);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(170, 120);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.BackColor = SystemColors.ButtonFace;
             panel2.Controls.Add(label1);
             panel2.Controls.Add(menuStrip1);
             panel2.Controls.Add(tbUsername);
-            panel2.Location = new Point(179, 33);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(196, 38);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1166, 50);
+            panel2.Size = new Size(1161, 50);
             panel2.TabIndex = 1;
             // 
             // label1
@@ -213,12 +227,11 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             menuStrip1.AutoSize = false;
             menuStrip1.Dock = DockStyle.None;
             menuStrip1.ImageScalingSize = new Size(24, 24);
             menuStrip1.Items.AddRange(new ToolStripItem[] { tÀIKHOẢNToolStripMenuItem, toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4, toolStripMenuItem5, toolStripMenuItem6 });
-            menuStrip1.Location = new Point(990, 3);
+            menuStrip1.Location = new Point(976, 3);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.RightToLeft = RightToLeft.Yes;
             menuStrip1.Size = new Size(176, 44);
@@ -251,7 +264,7 @@
             // cậpNhậtThôngTinToolStripMenuItem
             // 
             cậpNhậtThôngTinToolStripMenuItem.Name = "cậpNhậtThôngTinToolStripMenuItem";
-            cậpNhậtThôngTinToolStripMenuItem.Size = new Size(286, 34);
+            cậpNhậtThôngTinToolStripMenuItem.Size = new Size(305, 34);
             cậpNhậtThôngTinToolStripMenuItem.Text = "Cập nhật thông tin";
             cậpNhậtThôngTinToolStripMenuItem.Click += cậpNhậtThôngTinToolStripMenuItem_Click;
             // 
@@ -259,8 +272,8 @@
             // 
             phânQuyềnToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
             phânQuyềnToolStripMenuItem.Name = "phânQuyềnToolStripMenuItem";
-            phânQuyềnToolStripMenuItem.Size = new Size(286, 34);
-            phânQuyềnToolStripMenuItem.Text = "Phân quyền";
+            phânQuyềnToolStripMenuItem.Size = new Size(305, 34);
+            phânQuyềnToolStripMenuItem.Text = "Thêm Nhân viên mới";
             // 
             // Exit
             // 
@@ -305,8 +318,7 @@
             // 
             // tbUsername
             // 
-            tbUsername.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbUsername.Location = new Point(856, 8);
+            tbUsername.Location = new Point(816, 3);
             tbUsername.Multiline = true;
             tbUsername.Name = "tbUsername";
             tbUsername.ReadOnly = true;
@@ -316,53 +328,22 @@
             // 
             // panelbody
             // 
-            panelbody.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelbody.Location = new Point(179, 89);
+            panelbody.Dock = DockStyle.Fill;
+            panelbody.Location = new Point(196, 88);
             panelbody.Name = "panelbody";
-            panelbody.Size = new Size(1175, 790);
+            panelbody.Size = new Size(1161, 791);
             panelbody.TabIndex = 2;
             // 
-            // pnlTitleBar_MouseDown
+            // contextMenuStrip1
             // 
-            pnlTitleBar_MouseDown.BackColor = Color.Gainsboro;
-            pnlTitleBar_MouseDown.Controls.Add(btnMinimize);
-            pnlTitleBar_MouseDown.Controls.Add(btnExit);
-            pnlTitleBar_MouseDown.Controls.Add(btnMax_Normal);
-            pnlTitleBar_MouseDown.Dock = DockStyle.Top;
-            pnlTitleBar_MouseDown.Location = new Point(177, 0);
-            pnlTitleBar_MouseDown.Name = "pnlTitleBar_MouseDown";
-            pnlTitleBar_MouseDown.Size = new Size(1180, 34);
-            pnlTitleBar_MouseDown.TabIndex = 2;
-            pnlTitleBar_MouseDown.MouseDown += pnlTitleBar_MouseDown_MouseDown;
-            // 
-            // btnMinimize
-            // 
-            btnMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMinimize.Location = new Point(1065, 0);
-            btnMinimize.Name = "btnMinimize";
-            btnMinimize.Size = new Size(41, 36);
-            btnMinimize.TabIndex = 1;
-            btnMinimize.Text = "─";
-            btnMinimize.TextAlign = ContentAlignment.TopCenter;
-            btnMinimize.UseVisualStyleBackColor = true;
-            btnMinimize.Click += btnMinimize_Click;
-            // 
-            // btnExit
-            // 
-            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExit.ForeColor = Color.Red;
-            btnExit.Location = new Point(1139, 0);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(41, 36);
-            btnExit.TabIndex = 0;
-            btnExit.Text = "✕";
-            btnExit.UseVisualStyleBackColor = true;
-            btnExit.Click += btnExit_Click;
+            contextMenuStrip1.ImageScalingSize = new Size(24, 24);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // btnMax_Normal
             // 
             btnMax_Normal.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMax_Normal.Location = new Point(1102, 0);
+            btnMax_Normal.Location = new Point(1083, 0);
             btnMax_Normal.Name = "btnMax_Normal";
             btnMax_Normal.Size = new Size(41, 36);
             btnMax_Normal.TabIndex = 2;
@@ -371,11 +352,42 @@
             btnMax_Normal.UseVisualStyleBackColor = true;
             btnMax_Normal.Click += btnMaxsize_Click;
             // 
-            // contextMenuStrip1
+            // btnExit
             // 
-            contextMenuStrip1.ImageScalingSize = new Size(24, 24);
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
+            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExit.ForeColor = Color.Red;
+            btnExit.Location = new Point(1120, 0);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(41, 36);
+            btnExit.TabIndex = 0;
+            btnExit.Text = "✕";
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
+            // 
+            // btnMinimize
+            // 
+            btnMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMinimize.Location = new Point(1046, 0);
+            btnMinimize.Name = "btnMinimize";
+            btnMinimize.Size = new Size(41, 36);
+            btnMinimize.TabIndex = 1;
+            btnMinimize.Text = "─";
+            btnMinimize.TextAlign = ContentAlignment.TopCenter;
+            btnMinimize.UseVisualStyleBackColor = true;
+            btnMinimize.Click += btnMinimize_Click;
+            // 
+            // pnlTitleBar_MouseDown
+            // 
+            pnlTitleBar_MouseDown.BackColor = Color.CornflowerBlue;
+            pnlTitleBar_MouseDown.Controls.Add(btnMinimize);
+            pnlTitleBar_MouseDown.Controls.Add(btnExit);
+            pnlTitleBar_MouseDown.Controls.Add(btnMax_Normal);
+            pnlTitleBar_MouseDown.Dock = DockStyle.Top;
+            pnlTitleBar_MouseDown.Location = new Point(196, 0);
+            pnlTitleBar_MouseDown.Name = "pnlTitleBar_MouseDown";
+            pnlTitleBar_MouseDown.Size = new Size(1161, 38);
+            pnlTitleBar_MouseDown.TabIndex = 2;
+            pnlTitleBar_MouseDown.MouseDown += pnlTitleBar_MouseDown_MouseDown;
             // 
             // fMain
             // 
@@ -410,9 +422,6 @@
         private Button btnCar;
         private Button button1;
         private TextBox textBox1;
-        private Panel pnlTitleBar_MouseDown;
-        private Button btnMinimize;
-        private Button btnExit;
         private Label label1;
         private Button button2;
         private MenuStrip menuStrip1;
@@ -433,7 +442,10 @@
         public ToolStripMenuItem Exit;
         public TextBox tbUsername;
         public Button btnLogout;
-        private Button btnMax_Normal;
         public ToolStripMenuItem phânQuyềnToolStripMenuItem;
+        private Button btnMax_Normal;
+        private Button btnExit;
+        private Button btnMinimize;
+        private Panel pnlTitleBar_MouseDown;
     }
 }
