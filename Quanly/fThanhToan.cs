@@ -25,7 +25,6 @@ namespace Quanly
             dtgvCustomer_CellClick(null, new DataGridViewCellEventArgs(0, 0));
             LoadCombobox_Service();
         }
-
         void LoadCombobox_Service()
         {
             List<DTO.Service> data = DAO.ServiceDAO.Instance.LoadDLByThanhToan();
@@ -128,7 +127,6 @@ namespace Quanly
                 showBill(idCustomer);
             }
         }
-
         private void listViewPrice_MouseClick(object sender, MouseEventArgs e)
         {
             ListViewHitTestInfo hit = listViewPrice.HitTest(e.Location);
@@ -149,7 +147,6 @@ namespace Quanly
                 }
             }
         }
-
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             int status = BillDAO.Instance.GetStatus(idCustomer);
