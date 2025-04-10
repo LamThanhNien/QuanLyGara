@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
+            btnSave = new Button();
+            btnThoat = new Button();
             pnlTitleBar_MouseDown = new Panel();
             btnMinimize = new Button();
             btnExit = new Button();
             panel1 = new Panel();
             panel5 = new Panel();
-            textBox5 = new TextBox();
+            tbPasswordre = new TextBox();
             label5 = new Label();
             panel4 = new Panel();
-            textBox4 = new TextBox();
+            tbPasswordNew = new TextBox();
             label4 = new Label();
             panel3 = new Panel();
-            textBox3 = new TextBox();
+            tbPasswordOld = new TextBox();
             label3 = new Label();
             panel2 = new Panel();
-            textBox2 = new TextBox();
+            tbUser = new TextBox();
             label2 = new Label();
             panel6 = new Panel();
-            textBox1 = new TextBox();
+            tbDispayname = new TextBox();
             label1 = new Label();
             pnlTitleBar_MouseDown.SuspendLayout();
             panel1.SuspendLayout();
@@ -58,28 +58,29 @@
             panel6.SuspendLayout();
             SuspendLayout();
             // 
-            // button1
+            // btnSave
             // 
-            button1.Font = new Font("Arial", 11F, FontStyle.Bold);
-            button1.Location = new Point(249, 410);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(124, 38);
-            button1.TabIndex = 5;
-            button1.Text = "Cập nhật";
-            button1.UseVisualStyleBackColor = true;
+            btnSave.Font = new Font("Arial", 11F, FontStyle.Bold);
+            btnSave.Location = new Point(249, 410);
+            btnSave.Margin = new Padding(2);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(124, 38);
+            btnSave.TabIndex = 5;
+            btnSave.Text = "Cập nhật";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
-            // button2
+            // btnThoat
             // 
-            button2.Font = new Font("Arial", 11F, FontStyle.Bold);
-            button2.Location = new Point(419, 410);
-            button2.Margin = new Padding(2);
-            button2.Name = "button2";
-            button2.Size = new Size(124, 38);
-            button2.TabIndex = 6;
-            button2.Text = "Thoát";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnThoat.Font = new Font("Arial", 11F, FontStyle.Bold);
+            btnThoat.Location = new Point(419, 410);
+            btnThoat.Margin = new Padding(2);
+            btnThoat.Name = "btnThoat";
+            btnThoat.Size = new Size(124, 38);
+            btnThoat.TabIndex = 6;
+            btnThoat.Text = "Thoát";
+            btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // pnlTitleBar_MouseDown
             // 
@@ -130,7 +131,7 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(textBox5);
+            panel5.Controls.Add(tbPasswordre);
             panel5.Controls.Add(label5);
             panel5.Font = new Font("Arial", 11F, FontStyle.Bold);
             panel5.Location = new Point(10, 282);
@@ -139,14 +140,14 @@
             panel5.Size = new Size(532, 61);
             panel5.TabIndex = 9;
             // 
-            // textBox5
+            // tbPasswordre
             // 
-            textBox5.Font = new Font("Arial", 11F, FontStyle.Bold);
-            textBox5.Location = new Point(212, 12);
-            textBox5.Margin = new Padding(2);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(312, 33);
-            textBox5.TabIndex = 1;
+            tbPasswordre.Font = new Font("Arial", 11F, FontStyle.Bold);
+            tbPasswordre.Location = new Point(212, 12);
+            tbPasswordre.Margin = new Padding(2);
+            tbPasswordre.Name = "tbPasswordre";
+            tbPasswordre.Size = new Size(312, 33);
+            tbPasswordre.TabIndex = 1;
             // 
             // label5
             // 
@@ -161,7 +162,7 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(textBox4);
+            panel4.Controls.Add(tbPasswordNew);
             panel4.Controls.Add(label4);
             panel4.Font = new Font("Arial", 11F, FontStyle.Bold);
             panel4.Location = new Point(10, 217);
@@ -170,14 +171,14 @@
             panel4.Size = new Size(531, 61);
             panel4.TabIndex = 8;
             // 
-            // textBox4
+            // tbPasswordNew
             // 
-            textBox4.Font = new Font("Arial", 11F, FontStyle.Bold);
-            textBox4.Location = new Point(212, 12);
-            textBox4.Margin = new Padding(2);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(312, 33);
-            textBox4.TabIndex = 1;
+            tbPasswordNew.Font = new Font("Arial", 11F, FontStyle.Bold);
+            tbPasswordNew.Location = new Point(212, 12);
+            tbPasswordNew.Margin = new Padding(2);
+            tbPasswordNew.Name = "tbPasswordNew";
+            tbPasswordNew.Size = new Size(312, 33);
+            tbPasswordNew.TabIndex = 1;
             // 
             // label4
             // 
@@ -192,7 +193,7 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(textBox3);
+            panel3.Controls.Add(tbPasswordOld);
             panel3.Controls.Add(label3);
             panel3.Font = new Font("Arial", 11F, FontStyle.Bold);
             panel3.Location = new Point(11, 152);
@@ -201,14 +202,14 @@
             panel3.Size = new Size(530, 61);
             panel3.TabIndex = 7;
             // 
-            // textBox3
+            // tbPasswordOld
             // 
-            textBox3.Font = new Font("Arial", 11F, FontStyle.Bold);
-            textBox3.Location = new Point(212, 12);
-            textBox3.Margin = new Padding(2);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(312, 33);
-            textBox3.TabIndex = 1;
+            tbPasswordOld.Font = new Font("Arial", 11F, FontStyle.Bold);
+            tbPasswordOld.Location = new Point(212, 12);
+            tbPasswordOld.Margin = new Padding(2);
+            tbPasswordOld.Name = "tbPasswordOld";
+            tbPasswordOld.Size = new Size(312, 33);
+            tbPasswordOld.TabIndex = 1;
             // 
             // label3
             // 
@@ -223,7 +224,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(textBox2);
+            panel2.Controls.Add(tbUser);
             panel2.Controls.Add(label2);
             panel2.Font = new Font("Arial", 11F, FontStyle.Bold);
             panel2.Location = new Point(11, 87);
@@ -232,14 +233,14 @@
             panel2.Size = new Size(531, 61);
             panel2.TabIndex = 6;
             // 
-            // textBox2
+            // tbUser
             // 
-            textBox2.Font = new Font("Arial", 11F, FontStyle.Bold);
-            textBox2.Location = new Point(212, 12);
-            textBox2.Margin = new Padding(2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(312, 33);
-            textBox2.TabIndex = 1;
+            tbUser.Font = new Font("Arial", 11F, FontStyle.Bold);
+            tbUser.Location = new Point(212, 12);
+            tbUser.Margin = new Padding(2);
+            tbUser.Name = "tbUser";
+            tbUser.Size = new Size(312, 33);
+            tbUser.TabIndex = 1;
             // 
             // label2
             // 
@@ -254,7 +255,7 @@
             // 
             // panel6
             // 
-            panel6.Controls.Add(textBox1);
+            panel6.Controls.Add(tbDispayname);
             panel6.Controls.Add(label1);
             panel6.Font = new Font("Arial", 11F, FontStyle.Bold);
             panel6.Location = new Point(11, 22);
@@ -263,14 +264,14 @@
             panel6.Size = new Size(530, 61);
             panel6.TabIndex = 5;
             // 
-            // textBox1
+            // tbDispayname
             // 
-            textBox1.Font = new Font("Arial", 11F, FontStyle.Bold);
-            textBox1.Location = new Point(211, 15);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(312, 33);
-            textBox1.TabIndex = 1;
+            tbDispayname.Font = new Font("Arial", 11F, FontStyle.Bold);
+            tbDispayname.Location = new Point(211, 15);
+            tbDispayname.Margin = new Padding(2);
+            tbDispayname.Name = "tbDispayname";
+            tbDispayname.Size = new Size(312, 33);
+            tbDispayname.TabIndex = 1;
             // 
             // label1
             // 
@@ -287,12 +288,13 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLight;
             ClientSize = new Size(577, 473);
             ControlBox = false;
             Controls.Add(panel1);
             Controls.Add(pnlTitleBar_MouseDown);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnThoat);
+            Controls.Add(btnSave);
             ForeColor = SystemColors.ActiveCaptionText;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
@@ -315,26 +317,26 @@
         }
 
         #endregion
-        private Button button1;
-        private Button button2;
+        private Button btnSave;
+        private Button btnThoat;
         private Panel pnlTitleBar_MouseDown;
         private Button btnMinimize;
         private Button btnExit;
         private Panel panel1;
         private Panel panel5;
-        private TextBox textBox5;
+        private TextBox tbPasswordre;
         private Label label5;
         private Panel panel4;
-        private TextBox textBox4;
+        private TextBox tbPasswordNew;
         private Label label4;
         private Panel panel3;
-        private TextBox textBox3;
+        private TextBox tbPasswordOld;
         private Label label3;
         private Panel panel2;
-        private TextBox textBox2;
+        private TextBox tbUser;
         private Label label2;
         private Panel panel6;
-        private TextBox textBox1;
+        private TextBox tbDispayname;
         private Label label1;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -16,6 +17,14 @@ namespace Quanly
         public fAccountProfile()
         {
             InitializeComponent();
+        }
+        string Username;
+        public fAccountProfile(string User, string password)
+        {
+            InitializeComponent();
+            tbUser.Text = User;
+            this.Username = User;
+            tbPasswordOld.Text = password;
         }
         #region Control
         [DllImport("user32.dll")]
@@ -37,7 +46,7 @@ namespace Quanly
         }
         #endregion
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Hide();
             fAdmin fAdmin = new fAdmin();
@@ -47,6 +56,38 @@ namespace Quanly
 
         private void fAccountProfile_Load(object sender, EventArgs e)
         {
+            tbDispayname.Text = DAO.AccountDAO.Instance.GetDislayName(Username);
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string Display = tbDispayname.Text;
+            string User = tbUser.Text;
+            string pwOld = tbPasswordOld.Text;
+            string pwNew = tbPasswordNew.Text;
+            string pwre = tbPasswordre.Text;
+            if(pwOld==""||pwNew ==""||pwre =="")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                return;
+            }    
+            if (pwNew != pwOld)
+            {
+                if(pwre != pwNew)
+                {
+                    MessageBox.Show("Không khớp vui lòng nhập lại");
+                    tbPasswordre.Focus();
+                    return;
+                }
+                MessageBox.Show("Cập nhật thông tin thành công");
+                Login login = new Login();
+                this.Hide();
+                login.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng tạo một mật khảu khác mật khẩu này");
+                tbPasswordNew.Focus();
+            }
 
         }
     }

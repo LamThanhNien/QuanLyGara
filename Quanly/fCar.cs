@@ -95,30 +95,30 @@ namespace Quanly
         }
         private int idCar;
         private int idCustomer;
-            private void dtgvCar_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgvCar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dtgvCar.Rows.Count > 0)
             {
-                if (e.RowIndex >= 0 && dtgvCar.Rows.Count > 0)
+                DataGridViewRow row = dtgvCar.Rows[e.RowIndex];
+                tbCustomer.Text = row.Cells["NameCustomer"].Value?.ToString();
+                tbPhone.Text = row.Cells["phoneNum"].Value?.ToString();
+                tbNameCar.Text = row.Cells["Namecar"].Value?.ToString();
+                tbNumCar.Text = row.Cells["NumberCar"].Value?.ToString();
+                tbHang.Text = row.Cells["Hang"].Value?.ToString();
+            tbColor.Text = row.Cells["Color"].Value?.ToString();
+                string imagePath = row.Cells["Image"].Value?.ToString();
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
                 {
-                    DataGridViewRow row = dtgvCar.Rows[e.RowIndex];
-                    tbCustomer.Text = row.Cells["NameCustomer"].Value?.ToString();
-                    tbPhone.Text = row.Cells["phoneNum"].Value?.ToString();
-                    tbNameCar.Text = row.Cells["Namecar"].Value?.ToString();
-                    tbNumCar.Text = row.Cells["NumberCar"].Value?.ToString();
-                    tbHang.Text = row.Cells["Hang"].Value?.ToString();
-                tbColor.Text = row.Cells["Color"].Value?.ToString();
-                    string imagePath = row.Cells["Image"].Value?.ToString();
-                    if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
-                    {
-                        pictureBoxCar.Image = Image.FromFile(imagePath);
-                    }
-                    else
-                    {
-                        pictureBoxCar.Image = null;
-                    }
-                    idCar = Convert.ToInt32(row.Cells["IdCar"].Value?.ToString());
-                    idCustomer = Convert.ToInt32(row.Cells["IdCtm"].Value?.ToString());
+                    pictureBoxCar.Image = Image.FromFile(imagePath);
                 }
+                else
+                {
+                    pictureBoxCar.Image = null;
+                }
+                idCar = Convert.ToInt32(row.Cells["IdCar"].Value?.ToString());
+                idCustomer = Convert.ToInt32(row.Cells["IdCtm"].Value?.ToString());
             }
+        }
         private void btnAddImage1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog

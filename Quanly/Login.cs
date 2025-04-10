@@ -12,7 +12,6 @@ namespace Quanly
         {
             InitializeComponent();
         }
-
         #region Control
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
@@ -25,36 +24,39 @@ namespace Quanly
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized; // Thu nhỏ Form
         }
         #endregion
-        private void button1_Click(object sender, EventArgs e)
+
+        private async void Login_Load(object sender, EventArgs e)
+        {
+            await Task.Delay(100);
+        }
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tbname.Text) || string.IsNullOrEmpty(tbpassword.Text))
             {
-                MessageBox.Show("Vui long điền đầy đủ thông tin");
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin");
+                tbname.Focus();
+                return;
             }
-            DTO.Account loginAc = DAO.AccountDAO.Instance.GetAccount(tbname.Text);
-            int check = loginAc.CheckAdmin;
             if (checkLogin(tbname.Text, tbpassword.Text))
             {
-                //MessageBox.Show(check+"");
-                fMain mainForm = Application.OpenForms["fMain"] as fMain;
-                if (mainForm != null)
-                {
-                    mainForm.btnEmployee.Visible = (check == 1);
-                    mainForm.btnThongke.Visible = (check == 1);
-                    mainForm.tbUsername.Text = "Xin Chào "+ tbname.Text;
-                    mainForm.btnLogout.Visible = true;
-
-                    mainForm.phânQuyềnToolStripMenuItem.Visible = (check == 1);
-                    mainForm.Exit.Enabled = true;
-                }
-                this.Close();
+                DTO.Account loginAc = DAO.AccountDAO.Instance.CheckAccount(tbname.Text);
+                int check = loginAc.CheckAdmin;
+                //fMain mainForm = Application.OpenForms["fMain"] as fMain;
+                //if (mainForm != null)
+                //{
+                //}
+                fMain fMain = new fMain(check, tbname.Text, tbpassword.Text);
+                fAccountProfile fAccountProfile = new fAccountProfile(tbname.Text, tbpassword.Text);
+                this.Hide();
+                fMain.ShowDialog();
+                this.Show();
             }
             else
             {
@@ -67,19 +69,13 @@ namespace Quanly
             return DAO.AccountDAO.Instance.Login(username, password);
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void btnExit_Click_1(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn muốn thoát chứ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
             {
                 Application.Exit();
             }
         }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            tbpassword.PasswordChar = rbtnShow.Checked ? '\0' : '*';
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             tbpassword.UseSystemPasswordChar = CheckBoxShow.Checked ? false : true;

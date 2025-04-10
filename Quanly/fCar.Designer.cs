@@ -75,7 +75,7 @@
             dtgvCar.Margin = new Padding(4, 3, 4, 3);
             dtgvCar.Name = "dtgvCar";
             dtgvCar.RowHeadersWidth = 62;
-            dtgvCar.Size = new Size(755, 733);
+            dtgvCar.Size = new Size(755, 732);
             dtgvCar.TabIndex = 0;
             dtgvCar.CellClick += dtgvCar_CellClick;
             // 
@@ -84,20 +84,20 @@
             panel5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel5.Controls.Add(button6);
             panel5.Controls.Add(tbTimCar);
-            panel5.Location = new Point(765, 12);
+            panel5.Location = new Point(766, 12);
             panel5.Margin = new Padding(5, 3, 5, 3);
             panel5.Name = "panel5";
-            panel5.Size = new Size(614, 56);
+            panel5.Size = new Size(614, 57);
             panel5.TabIndex = 10;
             // 
             // button6
             // 
             button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button6.Font = new Font("Arial", 10F, FontStyle.Bold);
-            button6.Location = new Point(404, 11);
+            button6.Location = new Point(404, 12);
             button6.Margin = new Padding(5, 3, 5, 3);
             button6.Name = "button6";
-            button6.Size = new Size(115, 34);
+            button6.Size = new Size(115, 35);
             button6.TabIndex = 1;
             button6.Text = "Tìm";
             button6.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@
             // tbTimCar
             // 
             tbTimCar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbTimCar.Location = new Point(5, 15);
+            tbTimCar.Location = new Point(5, 14);
             tbTimCar.Margin = new Padding(5, 3, 5, 3);
             tbTimCar.Name = "tbTimCar";
             tbTimCar.Size = new Size(378, 30);
@@ -118,7 +118,7 @@
             pictureBoxCar.Location = new Point(766, 74);
             pictureBoxCar.Margin = new Padding(5, 3, 5, 3);
             pictureBoxCar.Name = "pictureBoxCar";
-            pictureBoxCar.Size = new Size(303, 201);
+            pictureBoxCar.Size = new Size(303, 202);
             pictureBoxCar.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxCar.TabIndex = 11;
             pictureBoxCar.TabStop = false;
@@ -127,7 +127,7 @@
             // 
             btnAddImage1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAddImage1.Font = new Font("Arial", 10F, FontStyle.Bold);
-            btnAddImage1.Location = new Point(1106, 126);
+            btnAddImage1.Location = new Point(1106, 127);
             btnAddImage1.Margin = new Padding(4, 3, 4, 3);
             btnAddImage1.Name = "btnAddImage1";
             btnAddImage1.Size = new Size(131, 48);
@@ -141,7 +141,7 @@
             label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label9.AutoSize = true;
             label9.Font = new Font("Arial", 10F, FontStyle.Bold);
-            label9.Location = new Point(766, 295);
+            label9.Location = new Point(766, 296);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(217, 24);
@@ -156,12 +156,12 @@
             panel17.Location = new Point(766, 336);
             panel17.Margin = new Padding(5, 3, 5, 3);
             panel17.Name = "panel17";
-            panel17.Size = new Size(576, 56);
+            panel17.Size = new Size(576, 57);
             panel17.TabIndex = 111120;
             // 
             // tbCustomer
             // 
-            tbCustomer.Location = new Point(141, 18);
+            tbCustomer.Location = new Point(141, 17);
             tbCustomer.Margin = new Padding(5, 3, 5, 3);
             tbCustomer.Name = "tbCustomer";
             tbCustomer.ReadOnly = true;
@@ -172,7 +172,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Arial", 10F, FontStyle.Bold);
-            label8.Location = new Point(19, 18);
+            label8.Location = new Point(19, 17);
             label8.Margin = new Padding(5, 0, 5, 0);
             label8.Name = "label8";
             label8.Size = new Size(112, 24);
@@ -184,15 +184,15 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel1.Controls.Add(tbPhone);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(766, 397);
+            panel1.Location = new Point(766, 396);
             panel1.Margin = new Padding(5, 3, 5, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(576, 56);
+            panel1.Size = new Size(576, 57);
             panel1.TabIndex = 111121;
             // 
             // tbPhone
             // 
-            tbPhone.Location = new Point(141, 9);
+            tbPhone.Location = new Point(141, 10);
             tbPhone.Margin = new Padding(5, 3, 5, 3);
             tbPhone.Name = "tbPhone";
             tbPhone.ReadOnly = true;
@@ -203,7 +203,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 10F, FontStyle.Bold);
-            label1.Location = new Point(33, 15);
+            label1.Location = new Point(33, 14);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.Size = new Size(68, 24);
@@ -220,12 +220,12 @@
             panel2.Location = new Point(766, 459);
             panel2.Margin = new Padding(5, 3, 5, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(622, 56);
+            panel2.Size = new Size(622, 57);
             panel2.TabIndex = 111121;
             // 
             // tbHang
             // 
-            tbHang.Location = new Point(438, 12);
+            tbHang.Location = new Point(439, 12);
             tbHang.Margin = new Padding(5, 3, 5, 3);
             tbHang.Name = "tbHang";
             tbHang.Size = new Size(176, 30);
@@ -235,7 +235,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 10F, FontStyle.Bold);
-            label5.Location = new Point(369, 18);
+            label5.Location = new Point(369, 17);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
             label5.Size = new Size(59, 24);
@@ -254,7 +254,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 10F, FontStyle.Bold);
-            label2.Location = new Point(33, 18);
+            label2.Location = new Point(33, 17);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.Size = new Size(76, 24);
@@ -269,7 +269,7 @@
             panel3.Location = new Point(766, 523);
             panel3.Margin = new Padding(5, 3, 5, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(622, 56);
+            panel3.Size = new Size(622, 57);
             panel3.TabIndex = 111121;
             // 
             // tbNumCar
@@ -284,7 +284,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Arial", 10F, FontStyle.Bold);
-            label3.Location = new Point(33, 15);
+            label3.Location = new Point(33, 14);
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
             label3.Size = new Size(65, 24);
@@ -296,10 +296,10 @@
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel4.Controls.Add(tbColor);
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(766, 585);
+            panel4.Location = new Point(766, 586);
             panel4.Margin = new Padding(5, 3, 5, 3);
             panel4.Name = "panel4";
-            panel4.Size = new Size(622, 56);
+            panel4.Size = new Size(622, 57);
             panel4.TabIndex = 111122;
             // 
             // tbColor
@@ -314,7 +314,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 10F, FontStyle.Bold);
-            label4.Location = new Point(33, 15);
+            label4.Location = new Point(33, 14);
             label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
             label4.Size = new Size(80, 24);
@@ -327,10 +327,10 @@
             AddCar.BackColor = Color.SteelBlue;
             AddCar.Font = new Font("Arial", 10F, FontStyle.Bold);
             AddCar.ForeColor = SystemColors.Control;
-            AddCar.Location = new Point(1247, 658);
+            AddCar.Location = new Point(1247, 659);
             AddCar.Margin = new Padding(4, 3, 4, 3);
             AddCar.Name = "AddCar";
-            AddCar.Size = new Size(107, 57);
+            AddCar.Size = new Size(107, 58);
             AddCar.TabIndex = 111123;
             AddCar.Text = "Thêm";
             AddCar.UseVisualStyleBackColor = false;
@@ -342,10 +342,10 @@
             btnFix.BackColor = Color.SteelBlue;
             btnFix.Font = new Font("Arial", 10F, FontStyle.Bold);
             btnFix.ForeColor = SystemColors.Control;
-            btnFix.Location = new Point(1106, 658);
+            btnFix.Location = new Point(1106, 659);
             btnFix.Margin = new Padding(4, 3, 4, 3);
             btnFix.Name = "btnFix";
-            btnFix.Size = new Size(114, 57);
+            btnFix.Size = new Size(113, 58);
             btnFix.TabIndex = 111124;
             btnFix.Text = "Lưu";
             btnFix.UseVisualStyleBackColor = false;
@@ -357,10 +357,10 @@
             btnShow.BackColor = Color.SteelBlue;
             btnShow.Font = new Font("Arial", 10F, FontStyle.Bold);
             btnShow.ForeColor = SystemColors.Control;
-            btnShow.Location = new Point(785, 658);
+            btnShow.Location = new Point(785, 659);
             btnShow.Margin = new Padding(4, 3, 4, 3);
             btnShow.Name = "btnShow";
-            btnShow.Size = new Size(114, 57);
+            btnShow.Size = new Size(113, 58);
             btnShow.TabIndex = 111126;
             btnShow.Text = "Xem";
             btnShow.UseVisualStyleBackColor = false;
@@ -372,10 +372,10 @@
             btnDelete.BackColor = Color.SteelBlue;
             btnDelete.Font = new Font("Arial", 10F, FontStyle.Bold);
             btnDelete.ForeColor = SystemColors.Control;
-            btnDelete.Location = new Point(946, 658);
+            btnDelete.Location = new Point(946, 659);
             btnDelete.Margin = new Padding(4, 3, 4, 3);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(114, 57);
+            btnDelete.Size = new Size(113, 58);
             btnDelete.TabIndex = 111127;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
@@ -385,7 +385,7 @@
             // 
             AutoScaleDimensions = new SizeF(12F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1394, 738);
+            ClientSize = new Size(1394, 737);
             Controls.Add(btnDelete);
             Controls.Add(btnShow);
             Controls.Add(btnFix);
@@ -400,7 +400,7 @@
             Controls.Add(pictureBoxCar);
             Controls.Add(dtgvCar);
             Controls.Add(panel5);
-            Font = new Font("Arial", 10F, FontStyle.Bold);
+            Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             ImeMode = ImeMode.Off;
             Margin = new Padding(4, 3, 4, 3);

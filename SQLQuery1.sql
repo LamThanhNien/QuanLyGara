@@ -8,22 +8,27 @@ CREATE TABLE Account (
     idAccount INT IDENTITY PRIMARY KEY, 
     DisplayName NVARCHAR(100) NOT NULL, 
     UserName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS UNIQUE NOT NULL,
-    Password NVARCHAR(1000) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,
+    Password NVARCHAR(1000) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL DEFAULT '1',
     checkAdmin INT NOT NULL CHECK (checkAdmin IN (1, 2)) -- 1: Admin, 2: Staff
 );
 GO
 
+-- Tạo bảng Employee với ràng buộc ON DELETE CASCADE
 CREATE TABLE Employee (
     idEmployee INT IDENTITY PRIMARY KEY,
-    idAccount INT,
+    idAccount INT NOT NULL,
     FullName NVARCHAR(100) NOT NULL,
     Phone VARCHAR(15) NOT NULL,
     Position NVARCHAR(50) NOT NULL,
     Salary DECIMAL(18,2),
     HireDate DATE DEFAULT GETDATE(),
     Status INT DEFAULT 1, -- 1: Đang làm, 0: Nghỉ
-    FOREIGN KEY (idAccount) REFERENCES Account(idAccount)
+    CONSTRAINT FK_Employee_Account FOREIGN KEY (idAccount)
+        REFERENCES Account(idAccount)
+        ON DELETE CASCADE
 );
+GO
+
 GO
 -- Tạo bảng Customer
 CREATE TABLE Customer (
@@ -625,3 +630,21 @@ END;
 GO
 
 
+select DisplayName,UserName,idAccount,checkAdmin from Account
+
+UPDATE Account 
+SET DisplayName = @Display , UserName = @User , checkAdmin = @checkAdmin
+WHERE idAccount = @idAccount
+
+SELECT * FROM Employee
+SELECT * FROM Account
+
+DELETE From Employee WHERE idAccount = @idAccount
+DELETE From Account WHERE idAccount = @idAccount
+
+
+
+
+INSERT INTO Account (DisplayName, UserName, checkAdmin)
+VALUES 
+( @Dispay , @User , @Check );

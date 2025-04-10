@@ -41,6 +41,7 @@ namespace Quanly
         void loadCustomer()
         {
             DAO.CustomerDAO.Instance.LoadDLByCustomer(dtgvCustomer);
+            dtgvCustomer.RowPostPaint += dataGridView_RowPostPaint;
             dtgvCustomer.Columns[0].Width = 170;
             dtgvCustomer.Columns[0].HeaderText = "Tên Khách hàng";
             dtgvCustomer.Columns[1].HeaderText = "Giới tính";
@@ -54,6 +55,20 @@ namespace Quanly
             dtgvCustomer.Columns[8].Visible = false;
             dtgvCustomer.Columns[9].Visible = false;
         }
+        private void dataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            string stt = (e.RowIndex + 1).ToString();
+            using (SolidBrush brush = new SolidBrush(dgv.RowHeadersDefaultCellStyle.ForeColor))
+            {
+                e.Graphics.DrawString(stt,
+                                      dgv.Font,
+                                      brush,
+                                      e.RowBounds.Location.X + 10,
+                                      e.RowBounds.Location.Y + 4);
+            }
+        }
+
 
         private int idKhach;
         public fCustomer(int idCustomer, string nameCustomer, string phone, string address)

@@ -62,8 +62,8 @@
             // dtgvCustomer
             // 
             dtgvCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dtgvCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvCustomer.BackgroundColor = SystemColors.Control;
+            dtgvCustomer.BorderStyle = BorderStyle.None;
             dtgvCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvCustomer.Location = new Point(5, 3);
             dtgvCustomer.Margin = new Padding(4, 3, 4, 3);

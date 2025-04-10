@@ -160,7 +160,7 @@
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(240, 35);
             dateTimePicker2.TabIndex = 11;
-            dateTimePicker2.Value = new DateTime(2025, 4, 6, 0, 0, 0, 0);
+            dateTimePicker2.Value = new DateTime(2025, 4, 10, 0, 0, 0, 0);
             // 
             // label1
             // 

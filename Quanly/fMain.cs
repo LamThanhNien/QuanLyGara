@@ -3,77 +3,92 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-
-
 namespace Quanly
 {
     public partial class fMain : Form
     {
-        public fMain()
+        int progress = 0;
+        //public fMain()
+        //{
+        //    InitializeComponent();
+        //}
+        string Username = "";
+        string Password = "";
+        public fMain(int check, string Username, string password)
         {
             InitializeComponent();
-            OpenChillldForm(new fThanhToan());
-            label1.Text = "Thanh Toán Hóa Đơn";
+            this.Username = Username;
+            this.Password = password;
+            Phanquyen(check);
         }
+        public void Phanquyen(int check)
+        {
+            btnLogout.Visible = true;
+            Exit.Enabled = true;
+            if (check == 1)
+            {
+                btnEmployee.Visible = (check == 1);
+                btnAccount.Visible = (check == 1);
+                btnThongke.Visible = (check == 1);
+                phânQuyềnToolStripMenuItem.Visible = (check == 1);
+            }
+        }
+        private async void fMain_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+            tbUsername.Text = string.Format("Xin chào {0}", DAO.AccountDAO.Instance.GetDislayName(this.Username));
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            progress += 10;
+            if (progress > 100)
+                progress = 100;
+            progressBar1.Value = progress;
+            if (progress <= 30)
+                label1.Text = "Đang khởi động hệ thống...";
+            else if (progress <= 60)
+                label1.Text = "Đang kết nối cơ sở dữ liệu...";
+            else if (progress <= 90)
+                label1.Text = "Đang chuẩn bị giao diện...";
+            else
+                label1.Text = "Hoàn tất. Đang mở ứng dụng...";
 
-        #region Control
-        [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-        private void pnlTitleBar_MouseDown_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0); // Di chuyển form
-        }
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn muốn đóng ứng dụng không", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (progress >= 100)
             {
-                this.Close();
+                timer1.Stop();
+                progressBar1.Visible = false;
+                label1.Text = "Thanh Toán Hóa Đơn";
+                OpenChildForm(new fThanhToan());
             }
         }
-        private void btnMaxsize_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                btnMax_Normal.Text = "❐";
-                this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else if (this.WindowState == FormWindowState.Maximized)
-            {
-                btnMax_Normal.Text = "⬜";
-                this.WindowState = FormWindowState.Normal;
-                this.MaximumSize = new Size(0, 0);
-            }
-        }
-
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized; // Thu nhỏ Form
-        }
-        #endregion
 
         private Form currentFormChild;
-        private void OpenChillldForm(Form childForm)
+
+        private void OpenChildForm(Form childForm)
         {
             if (currentFormChild != null)
             {
+                if (currentFormChild.GetType() == childForm.GetType())
+                    return;
+
                 currentFormChild.Close();
             }
+
             currentFormChild = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
+            panelbody.Controls.Clear();
             panelbody.Controls.Add(childForm);
             panelbody.Tag = childForm;
             childForm.BringToFront();
@@ -81,69 +96,64 @@ namespace Quanly
         }
 
 
-
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-            OpenChillldForm(new fCustomer());
+            OpenChildForm(new fCustomer());
             label1.Text = "Khách Hàng";
         }
         private void btnCar_Click(object sender, EventArgs e)
         {
-            OpenChillldForm(new fCar());
+            OpenChildForm(new fCar());
             label1.Text = "Thông tin Xe";
         }
         private void btnDichvu_Click(object sender, EventArgs e)
         {
-            OpenChillldForm(new fDichVu());
+            OpenChildForm(new fDichVu());
             label1.Text = "Dịch vụ và phụ tùng";
         }
-
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fAccount());
+            label1.Text = "Quản lý tài khoản";
+        }
         private void btnThongke_Click(object sender, EventArgs e)
         {
-            OpenChillldForm(new QLThongKe());
+            OpenChildForm(new QLThongKe());
             label1.Text = "";
 
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (currentFormChild != null)
-            {
-                currentFormChild.Close();
-                OpenChillldForm(new fThanhToan());
-            }
-            label1.Text = "Thanh Toán Hóa Đơn";
+            //if (currentFormChild != null)
+            //{
+            //    currentFormChild.Close();
+            //    OpenChildForm(new fThanhToan());
+            //}
+            //label1.Text = "Thanh Toán Hóa Đơn";
         }
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            OpenChillldForm(new fEmployee());
+            OpenChildForm(new fEmployee());
             label1.Text = "Quản Lý Nhân Viên";
         }
         private void btnThanhtoan_Click(object sender, EventArgs e)
         {
-            OpenChillldForm(new fThanhToan());
+            OpenChildForm(new fThanhToan());
             label1.Text = "Thanh Toán Hóa Đơn";
-        }
-        private void đăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Login login = new Login();
-            login.ShowDialog();
-            this.Show();
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có đăng xuất chứ", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                btnEmployee.Visible = false;
-                btnThongke.Visible = false;
-                tbUsername.Text = "Xin chào";
-                btnLogout.Visible = false;
-                Exit.Enabled = false;
+                this.Close();
             }
         }
         private void cậpNhậtThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fAccountProfile fAccount = new fAccountProfile();
+
+            fAccountProfile fAccount = new fAccountProfile(Username, Password);
+            this.Hide();
             fAccount.ShowDialog();
         }
 
@@ -151,11 +161,7 @@ namespace Quanly
         {
             if (MessageBox.Show("Bạn có đăng xuất chứ", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                btnEmployee.Visible = false;
-                btnThongke.Visible = false;
-                tbUsername.Text = "Xin chào";
-                btnLogout.Visible = false;
-                Exit.Enabled = false;
+                this.Close();
             }
         }
 
