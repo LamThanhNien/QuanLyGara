@@ -34,8 +34,8 @@
             dtgvRevenue = new DataGridView();
             panel1 = new Panel();
             dateTimePicker1 = new DateTimePicker();
-            button2 = new Button();
-            button1 = new Button();
+            btnBaocao = new Button();
+            btnShow = new Button();
             dateTimePicker2 = new DateTimePicker();
             label1 = new Label();
             label3 = new Label();
@@ -91,6 +91,7 @@
             // 
             dtgvRevenue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dtgvRevenue.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvRevenue.BackgroundColor = SystemColors.Control;
             dtgvRevenue.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvRevenue.Location = new Point(0, 6);
             dtgvRevenue.Name = "dtgvRevenue";
@@ -101,8 +102,8 @@
             // panel1
             // 
             panel1.Controls.Add(dateTimePicker1);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnBaocao);
+            panel1.Controls.Add(btnShow);
             panel1.Controls.Add(dateTimePicker2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label3);
@@ -114,7 +115,6 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dateTimePicker1.CustomFormat = "MM/dd/yyyy";
             dateTimePicker1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
@@ -125,34 +125,34 @@
             dateTimePicker1.TabIndex = 14;
             dateTimePicker1.Value = new DateTime(2025, 4, 6, 0, 0, 0, 0);
             // 
-            // button2
+            // btnBaocao
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.BackColor = Color.DodgerBlue;
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(999, 55);
-            button2.Name = "button2";
-            button2.Size = new Size(167, 35);
-            button2.TabIndex = 13;
-            button2.Text = "Xuất báo cáo";
-            button2.UseVisualStyleBackColor = false;
+            btnBaocao.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnBaocao.BackColor = Color.DodgerBlue;
+            btnBaocao.ForeColor = Color.White;
+            btnBaocao.Location = new Point(992, 36);
+            btnBaocao.Name = "btnBaocao";
+            btnBaocao.Size = new Size(174, 54);
+            btnBaocao.TabIndex = 13;
+            btnBaocao.Text = "Xuất báo cáo";
+            btnBaocao.UseVisualStyleBackColor = false;
+            btnBaocao.Click += btnBaocao_Click;
             // 
-            // button1
+            // btnShow
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button1.BackColor = Color.DodgerBlue;
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(826, 55);
-            button1.Name = "button1";
-            button1.Size = new Size(103, 36);
-            button1.TabIndex = 12;
-            button1.Text = "Xem";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += btnShow_Click;
+            btnShow.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnShow.BackColor = Color.DodgerBlue;
+            btnShow.ForeColor = Color.White;
+            btnShow.Location = new Point(796, 36);
+            btnShow.Name = "btnShow";
+            btnShow.Size = new Size(133, 55);
+            btnShow.TabIndex = 12;
+            btnShow.Text = "Xem";
+            btnShow.UseVisualStyleBackColor = false;
+            btnShow.Click += btnShow_Click;
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dateTimePicker2.CustomFormat = "MM/dd/yyyy";
             dateTimePicker2.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
@@ -187,10 +187,10 @@
             // 
             tabPage2.Controls.Add(panel4);
             tabPage2.Controls.Add(panel3);
-            tabPage2.Location = new Point(4, 38);
+            tabPage2.Location = new Point(4, 34);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1258, 621);
+            tabPage2.Size = new Size(1258, 625);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Thống kê sản phẩm";
             tabPage2.UseVisualStyleBackColor = true;
@@ -201,18 +201,19 @@
             panel4.Controls.Add(dataGridViewProduct);
             panel4.Location = new Point(3, 74);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1252, 496);
+            panel4.Size = new Size(1252, 488);
             panel4.TabIndex = 8;
             // 
             // dataGridViewProduct
             // 
             dataGridViewProduct.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewProduct.BackgroundColor = SystemColors.Control;
             dataGridViewProduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewProduct.Location = new Point(0, 6);
             dataGridViewProduct.Name = "dataGridViewProduct";
             dataGridViewProduct.RowHeadersWidth = 51;
-            dataGridViewProduct.Size = new Size(1252, 488);
+            dataGridViewProduct.Size = new Size(1252, 529);
             dataGridViewProduct.TabIndex = 7;
             // 
             // panel3
@@ -268,8 +269,8 @@
         private TabPage tabPage2;
         private Panel panel1;
         private Panel panel2;
-        private Button button2;
-        private Button button1;
+        private Button btnBaocao;
+        private Button btnShow;
         private DateTimePicker dateTimePicker2;
         private Label label1;
         private Label label3;

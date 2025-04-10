@@ -48,18 +48,6 @@ namespace Quanly.DAO
                 listTT.Add(Item);
             }
             dtgvCustomer.DataSource = listTT;
-            dtgvCustomer.Columns[0].HeaderText = "Tên Khách hàng";
-            //dtgvCustomer.Columns[1].Width = 300;
-            dtgvCustomer.Columns[1].HeaderText = "Địa chỉ";
-            //dtgvCustomer.Columns[2].Width = 150;
-            dtgvCustomer.Columns[2].HeaderText = "Số điện thoại";
-            //dtgvCustomer.Columns[3].Width = 150;
-            dtgvCustomer.Columns[3].HeaderText = "Tên xe";
-            //dtgvCustomer.Columns[4].Width = 150;
-            dtgvCustomer.Columns[4].HeaderText = "Số xe";
-            //dtgvCustomer.Columns[5].Width = 150;
-            dtgvCustomer.Columns[5].HeaderText = "Tên hãng";
-            //dtgvCustomer.Columns[0].Width = 250;
         }
 
         public int ThanhToan(int idBill)

@@ -42,7 +42,33 @@ namespace Quanly
         void loadCar()
         {
             DAO.CarDAO.Instance.LoadDL(dtgvCar);
+            dtgvCar.RowPostPaint += dataGridView_RowPostPaint;
             dtgvCar_CellClick(null, new DataGridViewCellEventArgs(0, 0));
+
+            dtgvCar.Columns[0].Width = 170;
+            dtgvCar.Columns[0].HeaderText = "Tên Khách hàng";
+            dtgvCar.Columns[1].HeaderText = "Tên xe";
+            dtgvCar.Columns[2].HeaderText = "Số xe";
+            dtgvCar.Columns[3].HeaderText = "Màu xe";
+            dtgvCar.Columns[4].HeaderText = "Hãng xe";
+            dtgvCar.Columns[5].HeaderText = "Số điện thoại";
+
+            dtgvCar.Columns[6].Visible = false;
+            dtgvCar.Columns[7].Visible = false;
+            dtgvCar.Columns[8].Visible = false;
+        }
+        private void dataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            string stt = (e.RowIndex + 1).ToString();
+            using (SolidBrush brush = new SolidBrush(dgv.RowHeadersDefaultCellStyle.ForeColor))
+            {
+                e.Graphics.DrawString(stt,
+                                      dgv.Font,
+                                      brush,
+                                      e.RowBounds.Location.X + 10,
+                                      e.RowBounds.Location.Y + 4);
+            }
         }
 
         private void fCar_Load(object sender, EventArgs e)

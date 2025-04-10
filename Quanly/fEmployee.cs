@@ -20,6 +20,32 @@ namespace Quanly
         void load()
         {
             DAO.EmployeeDAO.Instance.loadEmployee(dtgvEmployee);
+            dtgvEmployee_CellClick(null, new DataGridViewCellEventArgs(0, 0));
+            dtgvEmployee.RowPostPaint += dataGridView_RowPostPaint;
+            dtgvEmployee.Columns[0].Width = 170;
+            dtgvEmployee.Columns[0].HeaderText = "Tên Nhân viên";
+            dtgvEmployee.Columns[1].HeaderText = "Số điện thoại";
+            dtgvEmployee.Columns[2].HeaderText = "Chức vụ";
+            dtgvEmployee.Columns[3].HeaderText = "Lương";
+            dtgvEmployee.Columns[4].HeaderText = "Ngày vào";
+            dtgvEmployee.Columns[5].HeaderText = "Trạng thái làm";
+            dtgvEmployee.Columns[6].HeaderText = "Loại tài khoản";
+            dtgvEmployee.Columns[7].HeaderText = "ID";
+
+
+        }
+        private void dataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            string stt = (e.RowIndex + 1).ToString();
+            using (SolidBrush brush = new SolidBrush(dgv.RowHeadersDefaultCellStyle.ForeColor))
+            {
+                e.Graphics.DrawString(stt,
+                                      dgv.Font,
+                                      brush,
+                                      e.RowBounds.Location.X + 10,
+                                      e.RowBounds.Location.Y + 4);
+            }
         }
         private void fEmployee_Load(object sender, EventArgs e)
         {

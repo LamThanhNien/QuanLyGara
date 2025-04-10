@@ -60,7 +60,7 @@
             btnDelete = new Button();
             button1 = new Button();
             panel5 = new Panel();
-            lbSearch = new Label();
+            btnSearch = new Button();
             button5 = new Button();
             textBoxTim = new TextBox();
             button4 = new Button();
@@ -117,7 +117,7 @@
             panel10.Location = new Point(12, 117);
             panel10.Margin = new Padding(4, 3, 4, 3);
             panel10.Name = "panel10";
-            panel10.Size = new Size(511, 40);
+            panel10.Size = new Size(676, 40);
             panel10.TabIndex = 2;
             // 
             // tbAddress
@@ -125,7 +125,7 @@
             tbAddress.Location = new Point(179, 4);
             tbAddress.Margin = new Padding(4, 3, 4, 3);
             tbAddress.Name = "tbAddress";
-            tbAddress.Size = new Size(322, 33);
+            tbAddress.Size = new Size(472, 33);
             tbAddress.TabIndex = 2;
             // 
             // labelAdressCtm
@@ -331,7 +331,7 @@
             // panel8
             // 
             panel8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel8.BackColor = Color.FloralWhite;
+            panel8.BackColor = Color.White;
             panel8.Controls.Add(panel7);
             panel8.Controls.Add(panel6);
             panel8.Controls.Add(label4);
@@ -353,7 +353,7 @@
             button2.BackColor = SystemColors.ButtonFace;
             button2.Font = new Font("Arial", 11F, FontStyle.Bold);
             button2.ForeColor = Color.DarkSlateBlue;
-            button2.Location = new Point(244, 302);
+            button2.Location = new Point(358, 302);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(82, 55);
@@ -419,32 +419,31 @@
             // panel5
             // 
             panel5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel5.BackColor = Color.Transparent;
-            panel5.Controls.Add(lbSearch);
+            panel5.BackColor = Color.White;
+            panel5.Controls.Add(btnSearch);
             panel5.Controls.Add(button5);
             panel5.Controls.Add(textBoxTim);
+            panel5.Controls.Add(button2);
             panel5.Controls.Add(button4);
             panel5.Controls.Add(button1);
             panel5.Controls.Add(btnDelete);
             panel5.Controls.Add(pictureBoxCar);
-            panel5.Controls.Add(button2);
             panel5.Controls.Add(label5);
             panel5.Location = new Point(734, 3);
             panel5.Name = "panel5";
             panel5.Size = new Size(484, 410);
             panel5.TabIndex = 26;
             // 
-            // lbSearch
+            // btnSearch
             // 
-            lbSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lbSearch.AutoSize = true;
-            lbSearch.BackColor = Color.Cyan;
-            lbSearch.Location = new Point(332, 18);
-            lbSearch.Name = "lbSearch";
-            lbSearch.Size = new Size(110, 26);
-            lbSearch.TabIndex = 29;
-            lbSearch.Text = "Tìm Kiếm";
-            lbSearch.Click += lbSearch_Click;
+            btnSearch.BackColor = Color.SteelBlue;
+            btnSearch.ForeColor = SystemColors.Control;
+            btnSearch.Location = new Point(358, 13);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(112, 34);
+            btnSearch.TabIndex = 29;
+            btnSearch.Text = "Tìm";
+            btnSearch.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
@@ -475,12 +474,12 @@
             button4.BackColor = SystemColors.ButtonFace;
             button4.Font = new Font("Arial", 11F, FontStyle.Bold);
             button4.ForeColor = Color.DarkSlateBlue;
-            button4.Location = new Point(358, 302);
+            button4.Location = new Point(244, 301);
             button4.Margin = new Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new Size(82, 55);
             button4.TabIndex = 24;
-            button4.Text = "Sửa";
+            button4.Text = "Lưu";
             button4.UseVisualStyleBackColor = false;
             button4.Click += btnFix_Click;
             // 
@@ -488,7 +487,7 @@
             // 
             dtgvCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dtgvCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgvCustomer.BackgroundColor = Color.PapayaWhip;
+            dtgvCustomer.BackgroundColor = SystemColors.Control;
             dtgvCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvCustomer.Location = new Point(1, 419);
             dtgvCustomer.Name = "dtgvCustomer";
@@ -502,7 +501,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Linen;
+            BackColor = Color.Snow;
             ClientSize = new Size(1223, 801);
             ControlBox = false;
             Controls.Add(dtgvCustomer);
@@ -579,6 +578,6 @@
         private Button button4;
         private DataGridView dtgvCustomer;
         private TextBox textBoxTim;
-        private Label lbSearch;
+        private Button btnSearch;
     }
 }

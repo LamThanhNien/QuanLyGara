@@ -71,6 +71,8 @@
             // dtgvMaterial
             // 
             dtgvMaterial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgvMaterial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvMaterial.BackgroundColor = SystemColors.Control;
             dtgvMaterial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvMaterial.Location = new Point(0, -1);
             dtgvMaterial.Margin = new Padding(4, 3, 4, 3);
@@ -115,7 +117,7 @@
             // pictureBoxM
             // 
             pictureBoxM.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pictureBoxM.BackColor = SystemColors.AppWorkspace;
+            pictureBoxM.BackColor = SystemColors.ControlLight;
             pictureBoxM.Location = new Point(6, 29);
             pictureBoxM.Name = "pictureBoxM";
             pictureBoxM.Size = new Size(273, 188);
@@ -323,7 +325,7 @@
             btnFix.Name = "btnFix";
             btnFix.Size = new Size(104, 57);
             btnFix.TabIndex = 111129;
-            btnFix.Text = "Sửa";
+            btnFix.Text = "Lưu";
             btnFix.UseVisualStyleBackColor = true;
             btnFix.Click += btnFix_Click;
             // 

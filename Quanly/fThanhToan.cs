@@ -17,6 +17,29 @@ namespace Quanly
         void loadThanhToan()
         {
             DAO.ThanhToanDAO.Instance.LoadDL(dtgvCustomer);
+            dtgvCustomer.RowPostPaint += dataGridView_RowPostPaint;
+
+            dtgvCustomer.Columns[0].Width = 170;
+            dtgvCustomer.Columns[0].HeaderText = "Tên Khách hàng";
+            dtgvCustomer.Columns[1].HeaderText = "Địa chỉ";
+            dtgvCustomer.Columns[2].HeaderText = "Số điện thoại";
+            dtgvCustomer.Columns[3].HeaderText = "Tên xe";
+            dtgvCustomer.Columns[4].HeaderText = "Số xe";
+            dtgvCustomer.Columns[5].HeaderText = "Tên hãng";
+            dtgvCustomer.Columns[6].Visible = false;
+        }
+        private void dataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            string stt = (e.RowIndex + 1).ToString();
+            using (SolidBrush brush = new SolidBrush(dgv.RowHeadersDefaultCellStyle.ForeColor))
+            {
+                e.Graphics.DrawString(stt,
+                                      dgv.Font,
+                                      brush,
+                                      e.RowBounds.Location.X + 10,
+                                      e.RowBounds.Location.Y + 4);
+            }
         }
 
         private void fThanhToan_Load(object sender, EventArgs e)

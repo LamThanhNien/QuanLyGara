@@ -35,12 +35,24 @@ namespace Quanly
         private void fCustomer_Load(object sender, EventArgs e)
         {
             loadCustomer();
-            dtgvCustomer_CellClick(null, new DataGridViewCellEventArgs(0, 0));
+            //dtgvCustomer_CellClick(null, new DataGridViewCellEventArgs(0, 0));
 
         }
         void loadCustomer()
         {
             DAO.CustomerDAO.Instance.LoadDLByCustomer(dtgvCustomer);
+            dtgvCustomer.Columns[0].Width = 170;
+            dtgvCustomer.Columns[0].HeaderText = "Tên Khách hàng";
+            dtgvCustomer.Columns[1].HeaderText = "Giới tính";
+            dtgvCustomer.Columns[2].HeaderText = "Địa chỉ";
+            dtgvCustomer.Columns[3].HeaderText = "Số điện thoại";
+            dtgvCustomer.Columns[4].HeaderText = "Tên xe";
+            dtgvCustomer.Columns[5].HeaderText = "Số xe";
+            dtgvCustomer.Columns[6].HeaderText = "Hãng xe";
+            dtgvCustomer.Columns[7].HeaderText = "Màu xe";
+
+            dtgvCustomer.Columns[8].Visible = false;
+            dtgvCustomer.Columns[9].Visible = false;
         }
 
         private int idKhach;

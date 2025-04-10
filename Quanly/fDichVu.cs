@@ -41,11 +41,35 @@ namespace Quanly
         public void loadDL()
         {
             DAO.MaterialDAO.Instance.LoadMaterial(dtgvMaterial);
+            dtgvMaterial.RowPostPaint += dataGridView_RowPostPaint;
+            dtgvMaterial.Columns[0].Width = 170;
+            dtgvMaterial.Columns[0].HeaderText = "Tên phụ tùng";
+            dtgvMaterial.Columns[1].HeaderText = "Loại";
+            dtgvMaterial.Columns[2].HeaderText = "Xuất sứ";
+            dtgvMaterial.Columns[3].HeaderText = "Giá";
+            dtgvMaterial.Columns[4].HeaderText = "Tồn kho";
+
+            dtgvMaterial.Columns[5].Visible = false;
+            dtgvMaterial.Columns[6].Visible = false;
+
 
             DataTable allMaterials = DAO.ServiceDAO.Instance.LoadDlByDichvu();
             comboBoxLoadMaterial.DataSource = allMaterials;
             comboBoxLoadMaterial.DisplayMember = "name";
             comboBoxLoadMaterial.ValueMember = "idService";
+        }
+        private void dataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            string stt = (e.RowIndex + 1).ToString();
+            using (SolidBrush brush = new SolidBrush(dgv.RowHeadersDefaultCellStyle.ForeColor))
+            {
+                e.Graphics.DrawString(stt,
+                                      dgv.Font,
+                                      brush,
+                                      e.RowBounds.Location.X + 10,
+                                      e.RowBounds.Location.Y + 4);
+            }
         }
         public void loadCombobox(int idMaterial)
         {

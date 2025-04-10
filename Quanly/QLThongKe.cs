@@ -41,13 +41,56 @@ namespace Quanly
             DataTable result = DAO.DataProvider.Instance.ExecuteQuery(query, new object[] { dayin, dayout });
             if (result.Rows.Count == 0)
             {
-                if(MessageBox.Show("Không có dữ liệu","Thông báo",MessageBoxButtons.YesNo)==DialogResult.Yes)
+                if (MessageBox.Show("Không có dữ liệu", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     loadRevenue();
                 }
                 return;
             }
             dtgvRevenue.DataSource = result;
+        }
+        private void btnBaocao_Click(object sender, EventArgs e)
+        {
+            if (dtgvRevenue.Rows.Count > 0)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "CSV Files (*.csv)|*.csv";
+                saveFileDialog.DefaultExt = "csv";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    StringBuilder csvContent = new StringBuilder();
+
+                    for (int i = 0; i < dtgvRevenue.Columns.Count; i++)
+                    {
+                        csvContent.Append(dtgvRevenue.Columns[i].HeaderText);
+                        if (i < dtgvRevenue.Columns.Count - 1)
+                            csvContent.Append(",");
+                    }
+                    csvContent.AppendLine();
+
+                    foreach (DataGridViewRow row in dtgvRevenue.Rows)
+                    {
+                        if (!row.IsNewRow)
+                        {
+                            for (int i = 0; i < dtgvRevenue.Columns.Count; i++)
+                            {
+                                csvContent.Append(row.Cells[i].Value.ToString());
+                                if (i < dtgvRevenue.Columns.Count - 1)
+                                    csvContent.Append(",");
+                            }
+                            csvContent.AppendLine();
+                        }
+                    }
+
+                    System.IO.File.WriteAllText(saveFileDialog.FileName, csvContent.ToString());
+                    MessageBox.Show("Đã xuất ra file CSV thành công!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!");
+            }
         }
     }
 }

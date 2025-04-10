@@ -72,6 +72,7 @@
             // dtgvEmployee
             // 
             dtgvEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgvEmployee.BackgroundColor = SystemColors.Control;
             dtgvEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvEmployee.Location = new Point(4, 2);
             dtgvEmployee.Margin = new Padding(4, 3, 4, 3);
@@ -252,7 +253,7 @@
             button5.Name = "button5";
             button5.Size = new Size(105, 35);
             button5.TabIndex = 1;
-            button5.Text = "Sửa";
+            button5.Text = "Lưu";
             button5.UseVisualStyleBackColor = true;
             button5.Click += btnFix_Click;
             // 

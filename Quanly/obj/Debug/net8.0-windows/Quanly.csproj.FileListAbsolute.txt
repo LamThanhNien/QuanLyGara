@@ -121,7 +121,6 @@ D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fDichVu.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fThanhToan.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fCapNhatThongTin.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fThemNhanVien.resources
-D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.ftrangchu.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.QLThongKe.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fMain.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fThemDichVu.resources

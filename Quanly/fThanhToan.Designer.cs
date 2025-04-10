@@ -63,6 +63,7 @@
             // 
             dtgvCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dtgvCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvCustomer.BackgroundColor = SystemColors.Control;
             dtgvCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvCustomer.Location = new Point(5, 3);
             dtgvCustomer.Margin = new Padding(4, 3, 4, 3);
@@ -113,11 +114,12 @@
             // tbTotal
             // 
             tbTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            tbTotal.Location = new Point(708, 798);
+            tbTotal.Location = new Point(708, 789);
             tbTotal.Margin = new Padding(5, 3, 5, 3);
+            tbTotal.Multiline = true;
             tbTotal.Name = "tbTotal";
             tbTotal.ReadOnly = true;
-            tbTotal.Size = new Size(362, 30);
+            tbTotal.Size = new Size(362, 48);
             tbTotal.TabIndex = 13;
             tbTotal.Text = "0";
             tbTotal.TextAlign = HorizontalAlignment.Right;
@@ -125,13 +127,15 @@
             // btnThanhToan
             // 
             btnThanhToan.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnThanhToan.BackColor = Color.SteelBlue;
+            btnThanhToan.ForeColor = Color.White;
             btnThanhToan.Location = new Point(1105, 789);
             btnThanhToan.Margin = new Padding(5, 3, 5, 3);
             btnThanhToan.Name = "btnThanhToan";
             btnThanhToan.Size = new Size(228, 48);
             btnThanhToan.TabIndex = 14;
             btnThanhToan.Text = "Thanh Toán";
-            btnThanhToan.UseVisualStyleBackColor = true;
+            btnThanhToan.UseVisualStyleBackColor = false;
             btnThanhToan.Click += btnThanhToan_Click;
             // 
             // panel2
@@ -188,14 +192,16 @@
             // btnAddBill
             // 
             btnAddBill.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddBill.BackColor = Color.SteelBlue;
             btnAddBill.Font = new Font("Arial", 10F, FontStyle.Bold);
+            btnAddBill.ForeColor = SystemColors.ControlLightLight;
             btnAddBill.Location = new Point(412, 21);
             btnAddBill.Margin = new Padding(4, 3, 4, 3);
             btnAddBill.Name = "btnAddBill";
             btnAddBill.Size = new Size(134, 46);
             btnAddBill.TabIndex = 2;
             btnAddBill.Text = "Thêm";
-            btnAddBill.UseVisualStyleBackColor = true;
+            btnAddBill.UseVisualStyleBackColor = false;
             btnAddBill.Click += btnAddBill_Click;
             // 
             // cbbSp
@@ -295,14 +301,16 @@
             // btntim
             // 
             btntim.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btntim.BackColor = Color.SteelBlue;
             btntim.Font = new Font("Arial", 10F, FontStyle.Bold);
+            btntim.ForeColor = SystemColors.Control;
             btntim.Location = new Point(1161, 14);
             btntim.Margin = new Padding(5, 3, 5, 3);
             btntim.Name = "btntim";
-            btntim.Size = new Size(172, 34);
+            btntim.Size = new Size(127, 34);
             btntim.TabIndex = 18;
             btntim.Text = "Tìm";
-            btntim.UseVisualStyleBackColor = true;
+            btntim.UseVisualStyleBackColor = false;
             btntim.Click += btntim_Click;
             // 
             // fThanhToan

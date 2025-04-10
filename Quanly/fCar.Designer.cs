@@ -69,13 +69,13 @@
             // dtgvCar
             // 
             dtgvCar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dtgvCar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvCar.BackgroundColor = SystemColors.Control;
             dtgvCar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvCar.Location = new Point(2, 3);
             dtgvCar.Margin = new Padding(4, 3, 4, 3);
             dtgvCar.Name = "dtgvCar";
             dtgvCar.RowHeadersWidth = 62;
-            dtgvCar.Size = new Size(755, 695);
+            dtgvCar.Size = new Size(755, 733);
             dtgvCar.TabIndex = 0;
             dtgvCar.CellClick += dtgvCar_CellClick;
             // 
@@ -324,9 +324,10 @@
             // AddCar
             // 
             AddCar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            AddCar.BackColor = SystemColors.ActiveCaption;
+            AddCar.BackColor = Color.SteelBlue;
             AddCar.Font = new Font("Arial", 10F, FontStyle.Bold);
-            AddCar.Location = new Point(1224, 658);
+            AddCar.ForeColor = SystemColors.Control;
+            AddCar.Location = new Point(1247, 658);
             AddCar.Margin = new Padding(4, 3, 4, 3);
             AddCar.Name = "AddCar";
             AddCar.Size = new Size(107, 57);
@@ -338,40 +339,46 @@
             // btnFix
             // 
             btnFix.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnFix.BackColor = Color.SteelBlue;
             btnFix.Font = new Font("Arial", 10F, FontStyle.Bold);
-            btnFix.Location = new Point(1080, 658);
+            btnFix.ForeColor = SystemColors.Control;
+            btnFix.Location = new Point(1106, 658);
             btnFix.Margin = new Padding(4, 3, 4, 3);
             btnFix.Name = "btnFix";
             btnFix.Size = new Size(114, 57);
             btnFix.TabIndex = 111124;
-            btnFix.Text = "Sửa";
-            btnFix.UseVisualStyleBackColor = true;
+            btnFix.Text = "Lưu";
+            btnFix.UseVisualStyleBackColor = false;
             btnFix.Click += btnFix_Click;
             // 
             // btnShow
             // 
             btnShow.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnShow.BackColor = Color.SteelBlue;
             btnShow.Font = new Font("Arial", 10F, FontStyle.Bold);
-            btnShow.Location = new Point(765, 658);
+            btnShow.ForeColor = SystemColors.Control;
+            btnShow.Location = new Point(785, 658);
             btnShow.Margin = new Padding(4, 3, 4, 3);
             btnShow.Name = "btnShow";
             btnShow.Size = new Size(114, 57);
             btnShow.TabIndex = 111126;
             btnShow.Text = "Xem";
-            btnShow.UseVisualStyleBackColor = true;
+            btnShow.UseVisualStyleBackColor = false;
             btnShow.Click += btnShow_Click;
             // 
             // btnDelete
             // 
             btnDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnDelete.BackColor = Color.SteelBlue;
             btnDelete.Font = new Font("Arial", 10F, FontStyle.Bold);
-            btnDelete.Location = new Point(927, 658);
+            btnDelete.ForeColor = SystemColors.Control;
+            btnDelete.Location = new Point(946, 658);
             btnDelete.Margin = new Padding(4, 3, 4, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(114, 57);
             btnDelete.TabIndex = 111127;
             btnDelete.Text = "Xóa";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // fCar
