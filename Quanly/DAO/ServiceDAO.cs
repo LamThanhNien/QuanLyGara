@@ -40,14 +40,6 @@ namespace Quanly.DAO
             }
             dtgvDichvu.DataSource =  list;
         }
-        public DataTable LoadLoad(string name)
-        {
-            string query = "SELECT s.name, s.idService\r\nFROM _Service s\r\nWHERE s.name = N' @name '";
-            List<DTO.Service> list = new List<DTO.Service>();
-            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] {name});
-            return dataTable;
-
-        }
         public List<DTO.Service> LoadDLByThanhToan()
         {
             List<DTO.Service> list = new List<DTO.Service>();
@@ -77,12 +69,26 @@ namespace Quanly.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idMaterial });
             return data;
         }
-        public int getidService(int idMaterial)
+
+        public int CheckDichvu_in_Billinfo(int idDichvu)
         {
-            string query = "SELECT idService FROM Service_Material where idMaterial = @idMaterial";
-            object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idMaterial });
-            return (result != null) ? Convert.ToInt32(result) : -1;
+            string query = "select count(*) from BillInfo where idService = @idService";
+            object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idDichvu });
+            return  result!=null? Convert.ToInt32(result): -1;
         }
+
+        public int DelDichvu(int idDichvu)
+        {  
+            string query = "DELETE _Service where idService = @idService ";
+            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { idDichvu });
+            return result > 0 ? 1 : -1;
+        }
+        //public int getidService(int idMaterial)
+        //{
+        //    string query = "SELECT idService FROM Service_Material where idMaterial = @idMaterial";
+        //    object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idMaterial });
+        //    return (result != null) ? Convert.ToInt32(result) : -1;
+        //}
 
     }
 }

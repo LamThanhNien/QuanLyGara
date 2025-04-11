@@ -46,6 +46,7 @@ namespace Quanly
         {
             loadThanhToan();
             dtgvCustomer_CellClick(null, new DataGridViewCellEventArgs(0, 0));
+
             LoadCombobox_Service();
         }
         void LoadCombobox_Service()
@@ -58,6 +59,7 @@ namespace Quanly
 
         void LoadCombobox_Material(int idService)
         {
+            cbbSp.Text = "";
             List<DTO.Material> data = DAO.MaterialDAO.Instance.ComboBoxLoadbyThanhToan(idService);
             cbbSp.DataSource = data;
             cbbSp.DisplayMember = "name";
@@ -133,6 +135,11 @@ namespace Quanly
 
         private void btnAddBill_Click(object sender, EventArgs e)
         {
+            if(cbbSp.Text == "")
+            {
+                MessageBox.Show("Sản phẩm không tồn tại, vui lòng chọn phân loại khác");
+                return;
+            }    
             int status = BillDAO.Instance.GetStatus(idCustomer);
             int idBill = BillDAO.Instance.GetIdBill(idCustomer);
             int IdService = comboBoxLoad.SelectedValue != null ? Convert.ToInt32(comboBoxLoad.SelectedValue) : -1;

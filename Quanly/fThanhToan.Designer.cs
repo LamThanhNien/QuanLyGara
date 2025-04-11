@@ -114,12 +114,13 @@
             // tbTotal
             // 
             tbTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            tbTotal.Location = new Point(708, 789);
+            tbTotal.ForeColor = SystemColors.Desktop;
+            tbTotal.Location = new Point(708, 798);
             tbTotal.Margin = new Padding(5, 3, 5, 3);
             tbTotal.Multiline = true;
             tbTotal.Name = "tbTotal";
             tbTotal.ReadOnly = true;
-            tbTotal.Size = new Size(362, 48);
+            tbTotal.Size = new Size(362, 37);
             tbTotal.TabIndex = 13;
             tbTotal.Text = "0";
             tbTotal.TextAlign = HorizontalAlignment.Right;

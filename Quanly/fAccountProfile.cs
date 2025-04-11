@@ -49,9 +49,6 @@ namespace Quanly
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Hide();
-            fAdmin fAdmin = new fAdmin();
-            fAdmin.ShowDialog();
-            this.Close();
         }
 
         private void fAccountProfile_Load(object sender, EventArgs e)
@@ -72,20 +69,25 @@ namespace Quanly
             }    
             if (pwNew != pwOld)
             {
-                if(pwre != pwNew)
+                if (pwre != pwNew)
                 {
                     MessageBox.Show("Không khớp vui lòng nhập lại");
                     tbPasswordre.Focus();
                     return;
                 }
+                if(DAO.AccountDAO.Instance.Updatepasswword(Display,Username, pwNew) ==-1)
+                {
+                    MessageBox.Show("Cập nhật thông tin Không thành công");
+                    return;
+                }    
                 MessageBox.Show("Cập nhật thông tin thành công");
-                Login login = new Login();
-                this.Hide();
-                login.ShowDialog();
+                fMain fMain = new fMain();
+                this.Close();
+                fMain.Close();
             }
             else
             {
-                MessageBox.Show("Vui lòng tạo một mật khảu khác mật khẩu này");
+                MessageBox.Show("Vui lòng tạo một mật khẩu khác mật khẩu này");
                 tbPasswordNew.Focus();
             }
 

@@ -53,8 +53,8 @@ namespace Quanly
             dtgvMaterial.Columns[6].Visible = false;
 
 
-            DataTable allMaterials = DAO.ServiceDAO.Instance.LoadDlByDichvu();
-            comboBoxLoadMaterial.DataSource = allMaterials;
+            DataTable dt = DAO.ServiceDAO.Instance.LoadDlByDichvu();
+            comboBoxLoadMaterial.DataSource = dt;
             comboBoxLoadMaterial.DisplayMember = "name";
             comboBoxLoadMaterial.ValueMember = "idService";
         }
@@ -73,8 +73,6 @@ namespace Quanly
         }
         public void loadCombobox(int idMaterial)
         {
-
-
             DataTable dt = DAO.ServiceDAO.Instance.getIdServicebyfDichVu(idMaterial);
             if (dt == null) { return; }
             int materialId = Convert.ToInt32(dt.Rows[0]["idService"]);
@@ -122,6 +120,8 @@ namespace Quanly
         {
             fThemDichVu fThem = new fThemDichVu();
             fThem.ShowDialog();
+            fDichVu_Load(this, EventArgs.Empty);
+
         }
         private void btnreLoad_Click(object sender, EventArgs e)
         {
@@ -148,7 +148,7 @@ namespace Quanly
                 return;
             }
             MessageBox.Show("Cập nhật thành công");
-            loadDL();
+            fDichVu_Load(this, EventArgs.Empty);
         }
         int IdSv = 0;
         private void comboBoxLoadMaterial_SelectedIndexChanged(object sender, EventArgs e)
@@ -174,7 +174,8 @@ namespace Quanly
                 return;
             }
             MessageBox.Show("Thêm Thành công");
-            loadDL();
+            //loadDL();
+            fDichVu_Load(this, EventArgs.Empty);
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -194,6 +195,7 @@ namespace Quanly
                 MessageBox.Show("xóa thất bại"); return;
             }
             MessageBox.Show("xóa thành công");
+            fDichVu_Load(this, EventArgs.Empty);
         }
         private void btnAddImage_Click(object sender, EventArgs e)
         {

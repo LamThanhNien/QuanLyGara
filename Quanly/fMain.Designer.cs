@@ -326,16 +326,16 @@
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(0, 37);
+            progressBar1.Location = new Point(3, 37);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(997, 10);
+            progressBar1.Size = new Size(1105, 10);
             progressBar1.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(23, 7);
+            label1.Location = new Point(6, 3);
             label1.Name = "label1";
             label1.Size = new Size(149, 29);
             label1.TabIndex = 2;

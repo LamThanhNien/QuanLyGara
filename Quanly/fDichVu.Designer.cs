@@ -73,12 +73,13 @@
             dtgvMaterial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dtgvMaterial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvMaterial.BackgroundColor = SystemColors.Control;
+            dtgvMaterial.BorderStyle = BorderStyle.None;
             dtgvMaterial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvMaterial.Location = new Point(0, -1);
+            dtgvMaterial.Location = new Point(3, -1);
             dtgvMaterial.Margin = new Padding(4, 3, 4, 3);
             dtgvMaterial.Name = "dtgvMaterial";
             dtgvMaterial.RowHeadersWidth = 62;
-            dtgvMaterial.Size = new Size(563, 694);
+            dtgvMaterial.Size = new Size(562, 694);
             dtgvMaterial.TabIndex = 9;
             dtgvMaterial.CellClick += dtgvDichvu_CellClick;
             // 

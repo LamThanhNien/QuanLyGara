@@ -30,9 +30,6 @@
         {
             btnSave = new Button();
             btnThoat = new Button();
-            pnlTitleBar_MouseDown = new Panel();
-            btnMinimize = new Button();
-            btnExit = new Button();
             panel1 = new Panel();
             panel5 = new Panel();
             tbPasswordre = new TextBox();
@@ -49,7 +46,6 @@
             panel6 = new Panel();
             tbDispayname = new TextBox();
             label1 = new Label();
-            pnlTitleBar_MouseDown.SuspendLayout();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
@@ -60,6 +56,7 @@
             // 
             // btnSave
             // 
+            btnSave.Anchor = AnchorStyles.None;
             btnSave.Font = new Font("Arial", 11F, FontStyle.Bold);
             btnSave.Location = new Point(249, 410);
             btnSave.Margin = new Padding(2);
@@ -72,6 +69,7 @@
             // 
             // btnThoat
             // 
+            btnThoat.Anchor = AnchorStyles.None;
             btnThoat.Font = new Font("Arial", 11F, FontStyle.Bold);
             btnThoat.Location = new Point(419, 410);
             btnThoat.Margin = new Padding(2);
@@ -82,43 +80,9 @@
             btnThoat.UseVisualStyleBackColor = true;
             btnThoat.Click += btnThoat_Click;
             // 
-            // pnlTitleBar_MouseDown
-            // 
-            pnlTitleBar_MouseDown.BackColor = Color.FromArgb(45, 47, 51);
-            pnlTitleBar_MouseDown.Controls.Add(btnMinimize);
-            pnlTitleBar_MouseDown.Controls.Add(btnExit);
-            pnlTitleBar_MouseDown.Dock = DockStyle.Top;
-            pnlTitleBar_MouseDown.Location = new Point(0, 0);
-            pnlTitleBar_MouseDown.Name = "pnlTitleBar_MouseDown";
-            pnlTitleBar_MouseDown.Size = new Size(577, 35);
-            pnlTitleBar_MouseDown.TabIndex = 7;
-            pnlTitleBar_MouseDown.MouseDown += pnlTitleBar_MouseDown_MouseDown;
-            // 
-            // btnMinimize
-            // 
-            btnMinimize.ForeColor = SystemColors.ControlText;
-            btnMinimize.Location = new Point(486, 2);
-            btnMinimize.Name = "btnMinimize";
-            btnMinimize.Size = new Size(41, 34);
-            btnMinimize.TabIndex = 1;
-            btnMinimize.Text = "−";
-            btnMinimize.TextAlign = ContentAlignment.TopCenter;
-            btnMinimize.UseVisualStyleBackColor = true;
-            btnMinimize.Click += btnMinimize_Click;
-            // 
-            // btnExit
-            // 
-            btnExit.ForeColor = Color.Red;
-            btnExit.Location = new Point(533, 2);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(41, 34);
-            btnExit.TabIndex = 0;
-            btnExit.Text = "X";
-            btnExit.UseVisualStyleBackColor = true;
-            btnExit.Click += btnExit_Click;
-            // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.None;
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
@@ -208,6 +172,7 @@
             tbPasswordOld.Location = new Point(212, 12);
             tbPasswordOld.Margin = new Padding(2);
             tbPasswordOld.Name = "tbPasswordOld";
+            tbPasswordOld.ReadOnly = true;
             tbPasswordOld.Size = new Size(312, 33);
             tbPasswordOld.TabIndex = 1;
             // 
@@ -289,19 +254,18 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(577, 473);
-            ControlBox = false;
+            ClientSize = new Size(574, 476);
             Controls.Add(panel1);
-            Controls.Add(pnlTitleBar_MouseDown);
             Controls.Add(btnThoat);
             Controls.Add(btnSave);
             ForeColor = SystemColors.ActiveCaptionText;
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(2);
+            MaximizeBox = false;
             Name = "fAccountProfile";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Load += fAccountProfile_Load;
-            pnlTitleBar_MouseDown.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
@@ -319,9 +283,6 @@
         #endregion
         private Button btnSave;
         private Button btnThoat;
-        private Panel pnlTitleBar_MouseDown;
-        private Button btnMinimize;
-        private Button btnExit;
         private Panel panel1;
         private Panel panel5;
         private TextBox tbPasswordre;

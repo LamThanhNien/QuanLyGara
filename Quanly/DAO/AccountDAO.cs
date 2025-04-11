@@ -85,5 +85,11 @@ namespace Quanly.DAO
             object result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { Id });
             return result != null ? 1 : -1;
         }
+        public int Updatepasswword(string DisplayName, string UserName, string password )
+        {
+            string query = "UPDATE Account SET DisplayName = @DisplayName , UserName = @UserName , Password = @Password WHERE UserName = @UserName ";
+            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] {DisplayName, UserName, password });
+            return result > 0 ? 1 : -1;
+        }
     }
 }

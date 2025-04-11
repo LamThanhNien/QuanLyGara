@@ -18,10 +18,10 @@ namespace Quanly
     public partial class fMain : Form
     {
         int progress = 0;
-        //public fMain()
-        //{
-        //    InitializeComponent();
-        //}
+        public fMain()
+        {
+            InitializeComponent();
+        }
         string Username = "";
         string Password = "";
         public fMain(int check, string Username, string password)
@@ -151,10 +151,10 @@ namespace Quanly
         }
         private void cậpNhậtThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             fAccountProfile fAccount = new fAccountProfile(Username, Password);
             this.Hide();
             fAccount.ShowDialog();
+            this.Close();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -164,6 +164,5 @@ namespace Quanly
                 this.Close();
             }
         }
-
     }
 }

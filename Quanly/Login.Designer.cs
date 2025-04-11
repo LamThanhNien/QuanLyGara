@@ -39,23 +39,20 @@
             panel4 = new Panel();
             tbname = new TextBox();
             label1 = new Label();
-            pnlTitleBar_MouseDown = new Panel();
-            btnExit = new Button();
-            btnMinimize = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
-            pnlTitleBar_MouseDown.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.SteelBlue;
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(915, 615);
+            panel1.Size = new Size(841, 602);
             panel1.TabIndex = 0;
             // 
             // panel2
@@ -68,10 +65,10 @@
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(panel4);
             panel2.Font = new Font("Arial", 12F, FontStyle.Bold);
-            panel2.Location = new Point(204, 67);
+            panel2.Location = new Point(191, 42);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(503, 517);
+            panel2.Size = new Size(460, 517);
             panel2.TabIndex = 3;
             // 
             // CheckBoxShow
@@ -79,7 +76,7 @@
             CheckBoxShow.Anchor = AnchorStyles.None;
             CheckBoxShow.AutoSize = true;
             CheckBoxShow.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            CheckBoxShow.Location = new Point(318, 287);
+            CheckBoxShow.Location = new Point(297, 287);
             CheckBoxShow.Name = "CheckBoxShow";
             CheckBoxShow.Size = new Size(161, 25);
             CheckBoxShow.TabIndex = 6;
@@ -93,7 +90,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.SteelBlue;
-            label3.Location = new Point(180, 13);
+            label3.Location = new Point(159, 13);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(135, 43);
@@ -105,10 +102,10 @@
             button1.Anchor = AnchorStyles.None;
             button1.BackColor = Color.SteelBlue;
             button1.Font = new Font("Arial", 12F, FontStyle.Bold);
-            button1.Location = new Point(14, 379);
+            button1.Location = new Point(2, 379);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
-            button1.Size = new Size(465, 61);
+            button1.Size = new Size(456, 61);
             button1.TabIndex = 2;
             button1.Text = "Đăng nhập";
             button1.UseVisualStyleBackColor = false;
@@ -120,10 +117,10 @@
             panel3.Controls.Add(tbpassword);
             panel3.Controls.Add(label2);
             panel3.Font = new Font("Arial", 12F, FontStyle.Bold);
-            panel3.Location = new Point(14, 184);
+            panel3.Location = new Point(11, 184);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(474, 98);
+            panel3.Size = new Size(438, 98);
             panel3.TabIndex = 1;
             // 
             // tbpassword
@@ -132,10 +129,10 @@
             tbpassword.BackColor = SystemColors.Control;
             tbpassword.Font = new Font("Arial", 12F, FontStyle.Bold);
             tbpassword.HideSelection = false;
-            tbpassword.Location = new Point(18, 43);
+            tbpassword.Location = new Point(22, 43);
             tbpassword.Margin = new Padding(2);
             tbpassword.Name = "tbpassword";
-            tbpassword.Size = new Size(447, 35);
+            tbpassword.Size = new Size(404, 35);
             tbpassword.TabIndex = 1;
             tbpassword.UseSystemPasswordChar = true;
             // 
@@ -144,7 +141,7 @@
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 11F, FontStyle.Bold);
-            label2.Location = new Point(2, 1);
+            label2.Location = new Point(2, 15);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(115, 26);
@@ -157,10 +154,10 @@
             panel4.Controls.Add(tbname);
             panel4.Controls.Add(label1);
             panel4.Font = new Font("Arial", 12F, FontStyle.Bold);
-            panel4.Location = new Point(14, 82);
+            panel4.Location = new Point(11, 82);
             panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(474, 98);
+            panel4.Size = new Size(438, 98);
             panel4.TabIndex = 0;
             // 
             // tbname
@@ -168,10 +165,10 @@
             tbname.Anchor = AnchorStyles.None;
             tbname.BackColor = SystemColors.Control;
             tbname.Font = new Font("Arial", 12F, FontStyle.Bold);
-            tbname.Location = new Point(18, 47);
+            tbname.Location = new Point(22, 47);
             tbname.Margin = new Padding(2);
             tbname.Name = "tbname";
-            tbname.Size = new Size(447, 35);
+            tbname.Size = new Size(404, 35);
             tbname.TabIndex = 1;
             // 
             // label1
@@ -179,54 +176,12 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 11F, FontStyle.Bold);
-            label1.Location = new Point(2, 9);
+            label1.Location = new Point(2, 19);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(179, 26);
             label1.TabIndex = 0;
             label1.Text = "Tên Đăng Nhập:";
-            // 
-            // pnlTitleBar_MouseDown
-            // 
-            pnlTitleBar_MouseDown.BackColor = SystemColors.Control;
-            pnlTitleBar_MouseDown.Controls.Add(btnExit);
-            pnlTitleBar_MouseDown.Controls.Add(btnMinimize);
-            pnlTitleBar_MouseDown.Dock = DockStyle.Top;
-            pnlTitleBar_MouseDown.Location = new Point(0, 0);
-            pnlTitleBar_MouseDown.Name = "pnlTitleBar_MouseDown";
-            pnlTitleBar_MouseDown.Size = new Size(916, 45);
-            pnlTitleBar_MouseDown.TabIndex = 2;
-            pnlTitleBar_MouseDown.MouseDown += pnlTitleBar_MouseDown_MouseDown_1;
-            // 
-            // btnExit
-            // 
-            btnExit.BackColor = SystemColors.ControlLight;
-            btnExit.FlatAppearance.BorderSize = 0;
-            btnExit.FlatStyle = FlatStyle.Flat;
-            btnExit.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExit.ForeColor = Color.Red;
-            btnExit.Location = new Point(870, 0);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(46, 45);
-            btnExit.TabIndex = 0;
-            btnExit.Text = "X";
-            btnExit.UseVisualStyleBackColor = false;
-            btnExit.Click += btnExit_Click;
-            // 
-            // btnMinimize
-            // 
-            btnMinimize.BackColor = SystemColors.ControlLight;
-            btnMinimize.FlatAppearance.BorderSize = 0;
-            btnMinimize.FlatStyle = FlatStyle.Flat;
-            btnMinimize.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMinimize.Location = new Point(818, 0);
-            btnMinimize.Name = "btnMinimize";
-            btnMinimize.Size = new Size(46, 45);
-            btnMinimize.TabIndex = 1;
-            btnMinimize.Text = "_";
-            btnMinimize.TextAlign = ContentAlignment.TopCenter;
-            btnMinimize.UseVisualStyleBackColor = false;
-            btnMinimize.Click += btnMinimize_Click;
             // 
             // Login
             // 
@@ -234,15 +189,13 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(916, 614);
-            Controls.Add(pnlTitleBar_MouseDown);
+            ClientSize = new Size(842, 614);
             Controls.Add(panel1);
             ForeColor = SystemColors.ActiveCaptionText;
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(2);
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Login";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -250,7 +203,6 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            pnlTitleBar_MouseDown.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -268,8 +220,5 @@
         private Label label3;
         private RadioButton rbtnShow;
         private CheckBox CheckBoxShow;
-        private Panel pnlTitleBar_MouseDown;
-        private Button btnMinimize;
-        private Button btnExit;
     }
 }

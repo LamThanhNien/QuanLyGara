@@ -8,11 +8,10 @@ CREATE TABLE Account (
     idAccount INT IDENTITY PRIMARY KEY, 
     DisplayName NVARCHAR(100) NOT NULL, 
     UserName NVARCHAR(100) COLLATE SQL_Latin1_General_CP1_CS_AS UNIQUE NOT NULL,
-    Password NVARCHAR(1000) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL DEFAULT '1',
+    Password NVARCHAR(1000) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL DEFAULT '0',
     checkAdmin INT NOT NULL CHECK (checkAdmin IN (1, 2)) -- 1: Admin, 2: Staff
 );
 GO
-
 -- Tạo bảng Employee với ràng buộc ON DELETE CASCADE
 CREATE TABLE Employee (
     idEmployee INT IDENTITY PRIMARY KEY,
@@ -27,8 +26,6 @@ CREATE TABLE Employee (
         REFERENCES Account(idAccount)
         ON DELETE CASCADE
 );
-GO
-
 GO
 -- Tạo bảng Customer
 CREATE TABLE Customer (
@@ -636,14 +633,22 @@ UPDATE Account
 SET DisplayName = @Display , UserName = @User , checkAdmin = @checkAdmin
 WHERE idAccount = @idAccount
 
+
+UPDATE Account 
+SET Password = N'0'
+WHERE idAccount = @idAccount
+
 SELECT * FROM Employee
-SELECT * FROM Account
+SELECT DisplayName FROM Account WHERE UserName = @UserName
 
 DELETE From Employee WHERE idAccount = @idAccount
 DELETE From Account WHERE idAccount = @idAccount
 
+delete _Service where idService = 5
 
+select * from BillInfo where idService = 1
 
+SELECT * FROM Material
 
 INSERT INTO Account (DisplayName, UserName, checkAdmin)
 VALUES 
