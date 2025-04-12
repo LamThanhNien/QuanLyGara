@@ -58,7 +58,7 @@
             // 
             btnSave.Anchor = AnchorStyles.None;
             btnSave.Font = new Font("Arial", 11F, FontStyle.Bold);
-            btnSave.Location = new Point(249, 410);
+            btnSave.Location = new Point(286, 423);
             btnSave.Margin = new Padding(2);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(124, 38);
@@ -71,7 +71,7 @@
             // 
             btnThoat.Anchor = AnchorStyles.None;
             btnThoat.Font = new Font("Arial", 11F, FontStyle.Bold);
-            btnThoat.Location = new Point(419, 410);
+            btnThoat.Location = new Point(440, 423);
             btnThoat.Margin = new Padding(2);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(124, 38);
@@ -88,7 +88,7 @@
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(panel6);
-            panel1.Location = new Point(12, 41);
+            panel1.Location = new Point(30, 41);
             panel1.Name = "panel1";
             panel1.Size = new Size(553, 364);
             panel1.TabIndex = 8;
@@ -172,8 +172,9 @@
             tbPasswordOld.Location = new Point(212, 12);
             tbPasswordOld.Margin = new Padding(2);
             tbPasswordOld.Name = "tbPasswordOld";
+            tbPasswordOld.PasswordChar = '*';
             tbPasswordOld.ReadOnly = true;
-            tbPasswordOld.Size = new Size(312, 33);
+            tbPasswordOld.Size = new Size(311, 33);
             tbPasswordOld.TabIndex = 1;
             // 
             // label3
@@ -253,18 +254,17 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(574, 476);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(606, 472);
+            ControlBox = false;
             Controls.Add(panel1);
             Controls.Add(btnThoat);
             Controls.Add(btnSave);
             ForeColor = SystemColors.ActiveCaptionText;
-            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(2);
-            MaximizeBox = false;
             Name = "fAccountProfile";
-            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
+            Text = " Update Password";
             Load += fAccountProfile_Load;
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);

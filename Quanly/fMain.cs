@@ -154,7 +154,7 @@ namespace Quanly
             fAccountProfile fAccount = new fAccountProfile(Username, Password);
             this.Hide();
             fAccount.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

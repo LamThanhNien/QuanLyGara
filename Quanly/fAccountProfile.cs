@@ -48,7 +48,7 @@ namespace Quanly
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void fAccountProfile_Load(object sender, EventArgs e)
@@ -62,28 +62,31 @@ namespace Quanly
             string pwOld = tbPasswordOld.Text;
             string pwNew = tbPasswordNew.Text;
             string pwre = tbPasswordre.Text;
-            if(pwOld==""||pwNew ==""||pwre =="")
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
-                return;
-            }    
             if (pwNew != pwOld)
-            {
+            {   
                 if (pwre != pwNew)
                 {
                     MessageBox.Show("Không khớp vui lòng nhập lại");
                     tbPasswordre.Focus();
                     return;
                 }
-                if(DAO.AccountDAO.Instance.Updatepasswword(Display,Username, pwNew) ==-1)
+                if (pwNew == "" && pwre == "")
+                {
+                    pwNew = pwOld;
+                }
+                if (DAO.AccountDAO.Instance.Updatepasswword(Display, Username, pwNew) == -1)
                 {
                     MessageBox.Show("Cập nhật thông tin Không thành công");
                     return;
-                }    
+                }
                 MessageBox.Show("Cập nhật thông tin thành công");
-                fMain fMain = new fMain();
-                this.Close();
-                fMain.Close();
+
+                fMain mainForm = Application.OpenForms["fMain"] as fMain;
+                if (mainForm != null)
+                {
+                    this.Close();
+                    mainForm.Close();
+                }
             }
             else
             {

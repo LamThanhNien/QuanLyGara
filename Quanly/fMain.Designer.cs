@@ -214,6 +214,7 @@
             btnThanhToan.BackColor = Color.SteelBlue;
             btnThanhToan.FlatAppearance.BorderColor = Color.Red;
             btnThanhToan.FlatAppearance.BorderSize = 0;
+            btnThanhToan.FlatAppearance.MouseDownBackColor = Color.Red;
             btnThanhToan.FlatStyle = FlatStyle.Flat;
             btnThanhToan.Font = new Font("Arial", 11F, FontStyle.Bold);
             btnThanhToan.ForeColor = SystemColors.ButtonHighlight;
@@ -398,16 +399,11 @@
         }
 
         #endregion
-
-        private Panel panel1;
         private PictureBox pictureBox1;
         private Panel panel2;
         private Panel panelbody;
-        private Button btnCar;
-        private Button btnCustomer;
         private TextBox textBox1;
         private Label label1;
-        private Button btnThanhToan;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem tÀIKHOẢNToolStripMenuItem;
         private ToolStripMenuItem thôngTinToolStripMenuItem;
@@ -419,15 +415,19 @@
         private ToolStripMenuItem toolStripMenuItem5;
         private ToolStripMenuItem toolStripMenuItem6;
         private ContextMenuStrip contextMenuStrip1;
-        public Button btnEmployee;
-        public Button btnThongke;
-        private Button btnDichvu;
         public ToolStripMenuItem Exit;
         public TextBox tbUsername;
         public Button btnLogout;
         public ToolStripMenuItem phânQuyềnToolStripMenuItem;
         private ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
-        public Button btnAccount;
+        protected Panel panel1;
+        protected Button btnCar;
+        protected Button btnCustomer;
+        protected Button btnThanhToan;
+        protected Button btnEmployee;
+        protected Button btnThongke;
+        protected Button btnDichvu;
+        protected Button btnAccount;
     }
 }

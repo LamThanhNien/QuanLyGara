@@ -508,7 +508,7 @@
             Controls.Add(panel5);
             Controls.Add(panel8);
             Font = new Font("Arial", 11F, FontStyle.Bold);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;
             MinimizeBox = false;

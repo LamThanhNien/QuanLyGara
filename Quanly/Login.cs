@@ -34,6 +34,8 @@ namespace Quanly
 
         private async void Login_Load(object sender, EventArgs e)
         {
+            fMain fMain = new fMain();
+            fMain.Close();
             await Task.Delay(100);
         }
         private void btnLogin_Click(object sender, EventArgs e)
@@ -54,6 +56,7 @@ namespace Quanly
                 //}
                 fMain fMain = new fMain(check, tbname.Text, tbpassword.Text);
                 fAccountProfile fAccountProfile = new fAccountProfile(tbname.Text, tbpassword.Text);
+                tbpassword.Text = "";
                 this.Hide();
                 fMain.ShowDialog();
                 this.Show();
