@@ -381,13 +381,11 @@ AS
 BEGIN
         DECLARE @idAccount INT;
         DECLARE @UserName NVARCHAR(100);
-        DECLARE @Password NVARCHAR(100);
         -- Tạo username và password duy nhất
         SET @UserName = CONCAT('user_', LEFT(NEWID(), 4));
-        SET @Password = CONCAT('PW_', LEFT(NEWID(), 4));
 
-        INSERT INTO Account (DisplayName, UserName, Password, checkAdmin)
-        VALUES (@name, @UserName, @Password, 2);
+        INSERT INTO Account (DisplayName, UserName, checkAdmin)
+        VALUES (@name, @UserName, 2);
                 
         SET @idAccount = SCOPE_IDENTITY();
         
@@ -624,32 +622,3 @@ BEGIN
     SET @output = REPLACE(@output, N'đ', 'd');
     RETURN @output;
 END;
-GO
-
-
-select DisplayName,UserName,idAccount,checkAdmin from Account
-
-UPDATE Account 
-SET DisplayName = @Display , UserName = @User , checkAdmin = @checkAdmin
-WHERE idAccount = @idAccount
-
-
-UPDATE Account 
-SET Password = N'0'
-WHERE idAccount = @idAccount
-
-SELECT * FROM Employee
-SELECT DisplayName FROM Account WHERE UserName = @UserName
-
-DELETE From Employee WHERE idAccount = @idAccount
-DELETE From Account WHERE idAccount = @idAccount
-
-delete _Service where idService = 5
-
-select * from BillInfo where idService = 1
-
-SELECT * FROM Material
-
-INSERT INTO Account (DisplayName, UserName, checkAdmin)
-VALUES 
-( @Dispay , @User , @Check );
