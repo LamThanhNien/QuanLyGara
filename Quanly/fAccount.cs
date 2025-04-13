@@ -27,6 +27,7 @@ namespace Quanly
             dtgvAccount.Columns[1].HeaderText = "Tên Account";
             dtgvAccount.Columns[2].HeaderText = "Loại tài khoản";
             dtgvAccount.Columns[3].HeaderText = "idAccount";
+            dtgvAccount_CellClick(null, new DataGridViewCellEventArgs(0, 0));
         }
         private void dataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -49,40 +50,40 @@ namespace Quanly
                 DataGridViewRow row = dtgvAccount.Rows[e.RowIndex];
                 tbNameDisplay.Text = row.Cells["DisplayName"].Value?.ToString();
                 tbNameAccount.Text = row.Cells["UserName"].Value?.ToString();
-                tbTypeAccount.Text = row.Cells["CheckAdmin"].Value?.ToString();
+                cbbTypeAccount.Text = row.Cells["CheckAdmin"].Value?.ToString() == "1"? "Admin": "Nhân Viên";
                 id = Convert.ToInt32(row.Cells["idAccount"].Value?.ToString());
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string DisplayName = tbNameDisplay.Text;
-            string UserName = tbNameAccount.Text;
-            if(DAO.AccountDAO.Instance.GetUser(UserName)==1)
-            {
-                MessageBox.Show("Tài Khoản đã tồn tại");
-                return;
-            }    
+            //string DisplayName = tbNameDisplay.Text;
+            //string UserName = tbNameAccount.Text;
+            //if(DAO.AccountDAO.Instance.GetUser(UserName)==1)
+            //{
+            //    MessageBox.Show("Tài Khoản đã tồn tại");
+            //    return;
+            //}    
 
-            int TypeAccount = Convert.ToInt32(tbTypeAccount.Text);
-            if (DAO.AccountDAO.Instance.AddAccount(DisplayName, UserName, TypeAccount)==-1)
-            {
-                MessageBox.Show("Thêm Account Thất bại");
-                return;
-            }
-            MessageBox.Show("Thêm Account Thành công");
-            Load();
+            //int TypeAccount = Convert.ToInt32(tbTypeAccount.Text);
+            //if (DAO.AccountDAO.Instance.AddAccount(DisplayName, UserName, TypeAccount)==-1)
+            //{
+            //    MessageBox.Show("Thêm Account Thất bại");
+            //    return;
+            //}
+            //MessageBox.Show("Thêm Account Thành công");
+            //Load();
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if(DAO.AccountDAO.Instance.DelAccount(id)==-1)
-            {
-                MessageBox.Show("Xóa thất bại");
-                return;
-            }
-            MessageBox.Show("xóa thành công");
-            Load();
+            //if(DAO.AccountDAO.Instance.DelAccount(id)==-1)
+            //{
+            //    MessageBox.Show("Xóa thất bại");
+            //    return;
+            //}
+            //MessageBox.Show("xóa thành công");
+            //Load();
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -94,7 +95,7 @@ namespace Quanly
         {
             string DisplayName = tbNameDisplay.Text;
             string UserName = tbNameAccount.Text;
-            int TypeAccount = Convert.ToInt32(tbTypeAccount.Text);
+            int TypeAccount = cbbTypeAccount.Text == "Admin"? 1 : 2;
             if (DAO.AccountDAO.Instance.FixAccount(id, DisplayName,UserName, TypeAccount) == -1)
             {
                 MessageBox.Show("Cập nhật Account thất bại");

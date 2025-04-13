@@ -73,7 +73,7 @@ namespace Quanly
         }
         public void loadCombobox(int idMaterial)
         {
-            DataTable dt = DAO.ServiceDAO.Instance.getIdServicebyfDichVu(idMaterial);
+            DataTable dt = DAO.ServiceDAO.Instance.getIdServiceLoadComboBox(idMaterial);
             if (dt == null) { return; }
             int materialId = Convert.ToInt32(dt.Rows[0]["idService"]);
 
@@ -147,7 +147,6 @@ namespace Quanly
                 MessageBox.Show("Cập nhật thất bại");
                 return;
             }
-            MessageBox.Show("Cập nhật thành công");
             fDichVu_Load(this, EventArgs.Empty);
         }
         int IdSv = 0;
@@ -161,7 +160,8 @@ namespace Quanly
         }
         private void AddDichvu_Click(object sender, EventArgs e)
         {
-            int idSv = IdSv;
+            string nameSv = comboBoxLoadMaterial.Text;
+            int idSv = DAO.ServiceDAO.Instance.getidServiceByfDichvu(nameSv);
             string nameMaterial = tbnameMaterial.Text;
             string type = tbType.Text;
             string NoiSx = tbNoisx.Text;
@@ -190,11 +190,11 @@ namespace Quanly
             {
                 return;
             }
-            if (DAO.MaterialDAO.Instance.DeleteMaterial(idMt, idSv) == -1)
+            if (DAO.MaterialDAO.Instance.DeleteMaterial(idSv, idMt) == -1)
             {
-                MessageBox.Show("xóa thất bại"); return;
+                MessageBox.Show("xóa thất bại");
+                return;
             }
-            MessageBox.Show("xóa thành công");
             fDichVu_Load(this, EventArgs.Empty);
         }
         private void btnAddImage_Click(object sender, EventArgs e)

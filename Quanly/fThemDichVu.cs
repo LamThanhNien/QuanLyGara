@@ -34,9 +34,9 @@ namespace Quanly
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string name = cbbname.Text;
+            string name = tbname.Text;
             string price = tbPrice.Text;
-            string query = "USP_AddService @name , @price ";
+            string query = "INSERT INTO _Service (name, price) VALUES( @name , @price );";
             if (DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { name, price }) == 0)
             {
                 MessageBox.Show("Thêm thất bại");

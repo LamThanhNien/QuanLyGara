@@ -58,7 +58,7 @@ namespace Quanly.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             return data;
         }
-        public DataTable getIdServicebyfDichVu(int idMaterial)
+        public DataTable getIdServiceLoadComboBox(int idMaterial)
         {
             string query = @"SELECT s.idService,s.name 
             FROM _Service s
@@ -68,6 +68,12 @@ namespace Quanly.DAO
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idMaterial });
             return data;
+        }
+        public int getidServiceByfDichvu(string name)
+        {
+            string query = "SELECT idService FROM _Service where name = @name ";
+            object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { name });
+            return (result != null) ? Convert.ToInt32(result) : -1;
         }
 
         public int CheckDichvu_in_Billinfo(int idDichvu)
@@ -83,12 +89,6 @@ namespace Quanly.DAO
             int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { idDichvu });
             return result > 0 ? 1 : -1;
         }
-        //public int getidService(int idMaterial)
-        //{
-        //    string query = "SELECT idService FROM Service_Material where idMaterial = @idMaterial";
-        //    object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idMaterial });
-        //    return (result != null) ? Convert.ToInt32(result) : -1;
-        //}
 
     }
 }

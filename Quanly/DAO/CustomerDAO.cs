@@ -72,6 +72,13 @@ namespace Quanly.DAO
             int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] {idCtm,nameCtm,sex,address,phone,nameCar,numCar,hang, color,image});
             return (result > 1) ? 1 : 0;
         }
+        public bool AddCar_Customer(int idKhach, string name, string address, string numberphone, string namecar, string numcar, string hang, string logo, string filePath)
+        {
+            string query = "InsertCustomer @dk , @idKhach , @Ten , @address , @Mobile , @namecar , @numcar , @Hang , @logo , @filePath ";
+            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { 1, idKhach, name, address, numberphone, namecar, numcar, hang, logo, filePath });
+
+            return result > 0;
+        }
 
         public bool AddCustomer(string name, string address, string numberphone, string namecar, string numcar,string hang, string logo, string filePath)
         {
@@ -80,42 +87,35 @@ namespace Quanly.DAO
 
             return result > 0;
         }
-        public bool AddCar_Customer(int idKhach, string name, string address, string numberphone, string namecar, string numcar, string hang, string logo, string filePath)
-        {
-            string query = "InsertCustomer @dk , @idKhach , @Ten , @address , @Mobile , @namecar , @numcar , @Hang , @logo , @filePath ";
-            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { 1, idKhach, name, address, numberphone, namecar, numcar, hang , logo, filePath });
+        //public int FixCustomer(int id, string name, string address, string phone)
+        //{
+        //    //if (string.IsNullOrEmpty(image))
+        //    //{
+        //    //    string queryGetImage = "SELECT ImageBase64 FROM Car WHERE idCar = @idCar";
+        //    //    object oldImage = DataProvider.Instance.ExecuteScalar(queryGetImage, new object[] { idCar });
 
-            return result > 0;
-        }
-        public int FixCustomer(int id, string name, string address, string phone)
-        {
-            //if (string.IsNullOrEmpty(image))
-            //{
-            //    string queryGetImage = "SELECT ImageBase64 FROM Car WHERE idCar = @idCar";
-            //    object oldImage = DataProvider.Instance.ExecuteScalar(queryGetImage, new object[] { idCar });
-
-            //    image = oldImage != null ? oldImage.ToString() : null; // Giữ ảnh cũ nếu có
-            //}
-            string query = "USP_UpdateCustomer @idCustomer , @name , @address , @phone ";
-            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, name, address, phone });
-            return result;
-        }
+        //    //    image = oldImage != null ? oldImage.ToString() : null; // Giữ ảnh cũ nếu có
+        //    //}
+        //    string query = "USP_UpdateCustomer @idCustomer , @name , @address , @phone ";
+        //    int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, name, address, phone });
+        //    return result;
+        //}
 
 
         //code fix
-        public void LoadDL(DataGridView Customer)
-        {
-            List<DTO.Customer> listCtm = new List<DTO.Customer>();
-            string query = "Select name,phoneNum,address,idCustomer FROM Customer";
-            DataTable data = DAO.DataProvider.Instance.ExecuteQuery(query);
-            foreach (DataRow row in data.Rows)
-            {
-                DTO.Customer item = new DTO.Customer(row);
-                listCtm.Add(item);
-            }
+        //public void LoadDL(DataGridView Customer)
+        //{
+        //    List<DTO.Customer> listCtm = new List<DTO.Customer>();
+        //    string query = "Select name,phoneNum,address,idCustomer FROM Customer";
+        //    DataTable data = DAO.DataProvider.Instance.ExecuteQuery(query);
+        //    foreach (DataRow row in data.Rows)
+        //    {
+        //        DTO.Customer item = new DTO.Customer(row);
+        //        listCtm.Add(item);
+        //    }
 
-            Customer.DataSource = listCtm;
-        }
+        //    Customer.DataSource = listCtm;
+        //}
 
         public bool checkNumBerCar(string numberCar)
         {

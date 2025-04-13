@@ -35,7 +35,7 @@
             btnDel = new Button();
             button1 = new Button();
             panel27 = new Panel();
-            tbTypeAccount = new TextBox();
+            cbbTypeAccount = new ComboBox();
             label2 = new Label();
             panel28 = new Panel();
             tbNameDisplay = new TextBox();
@@ -84,7 +84,7 @@
             // btnFix
             // 
             btnFix.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnFix.Location = new Point(481, 220);
+            btnFix.Location = new Point(374, 220);
             btnFix.Name = "btnFix";
             btnFix.Size = new Size(112, 58);
             btnFix.TabIndex = 10;
@@ -95,7 +95,7 @@
             // btnShow
             // 
             btnShow.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnShow.Location = new Point(337, 220);
+            btnShow.Location = new Point(256, 220);
             btnShow.Name = "btnShow";
             btnShow.Size = new Size(112, 58);
             btnShow.TabIndex = 9;
@@ -106,12 +106,13 @@
             // btnDel
             // 
             btnDel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnDel.Location = new Point(181, 220);
+            btnDel.Location = new Point(138, 220);
             btnDel.Name = "btnDel";
             btnDel.Size = new Size(112, 58);
             btnDel.TabIndex = 8;
             btnDel.Text = "Xóa ";
             btnDel.UseVisualStyleBackColor = true;
+            btnDel.Visible = false;
             btnDel.Click += btnDel_Click;
             // 
             // button1
@@ -123,12 +124,13 @@
             button1.TabIndex = 7;
             button1.Text = "Thêm";
             button1.UseVisualStyleBackColor = true;
+            button1.Visible = false;
             button1.Click += btnAdd_Click;
             // 
             // panel27
             // 
             panel27.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel27.Controls.Add(tbTypeAccount);
+            panel27.Controls.Add(cbbTypeAccount);
             panel27.Controls.Add(label2);
             panel27.Location = new Point(4, 122);
             panel27.Margin = new Padding(4, 3, 4, 3);
@@ -136,14 +138,15 @@
             panel27.Size = new Size(599, 54);
             panel27.TabIndex = 6;
             // 
-            // tbTypeAccount
+            // cbbTypeAccount
             // 
-            tbTypeAccount.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            tbTypeAccount.Location = new Point(205, 11);
-            tbTypeAccount.Margin = new Padding(4, 3, 4, 3);
-            tbTypeAccount.Name = "tbTypeAccount";
-            tbTypeAccount.Size = new Size(275, 30);
-            tbTypeAccount.TabIndex = 1;
+            cbbTypeAccount.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbbTypeAccount.FormattingEnabled = true;
+            cbbTypeAccount.Items.AddRange(new object[] { "Admin", "Nhân Viên" });
+            cbbTypeAccount.Location = new Point(203, 11);
+            cbbTypeAccount.Name = "cbbTypeAccount";
+            cbbTypeAccount.Size = new Size(196, 32);
+            cbbTypeAccount.TabIndex = 1;
             // 
             // label2
             // 
@@ -174,6 +177,7 @@
             tbNameDisplay.Location = new Point(204, 14);
             tbNameDisplay.Margin = new Padding(4, 3, 4, 3);
             tbNameDisplay.Name = "tbNameDisplay";
+            tbNameDisplay.ReadOnly = true;
             tbNameDisplay.Size = new Size(275, 30);
             tbNameDisplay.TabIndex = 1;
             // 
@@ -207,6 +211,7 @@
             tbNameAccount.Location = new Point(205, 12);
             tbNameAccount.Margin = new Padding(4, 3, 4, 3);
             tbNameAccount.Name = "tbNameAccount";
+            tbNameAccount.ReadOnly = true;
             tbNameAccount.Size = new Size(275, 30);
             tbNameAccount.TabIndex = 1;
             // 
@@ -228,7 +233,7 @@
             btnReset.BackColor = Color.SteelBlue;
             btnReset.Font = new Font("Arial", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReset.ForeColor = SystemColors.Control;
-            btnReset.Location = new Point(1120, 322);
+            btnReset.Location = new Point(987, 322);
             btnReset.Margin = new Padding(4, 3, 4, 3);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(236, 60);
@@ -266,7 +271,6 @@
         private Panel panel6;
         private Button btnReset;
         private Panel panel27;
-        private TextBox tbTypeAccount;
         private Label label2;
         private Panel panel28;
         private TextBox tbNameDisplay;
@@ -278,5 +282,6 @@
         private Button btnShow;
         private Button btnDel;
         private Button button1;
+        private ComboBox cbbTypeAccount;
     }
 }

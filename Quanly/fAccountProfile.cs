@@ -19,10 +19,12 @@ namespace Quanly
             InitializeComponent();
         }
         string Username;
+        public string luuUser;
         public fAccountProfile(string User, string password)
         {
             InitializeComponent();
             tbUser.Text = User;
+            luuUser = User;
             this.Username = User;
             tbPasswordOld.Text = password;
         }
@@ -57,13 +59,23 @@ namespace Quanly
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
+
             string Display = tbDispayname.Text;
             string User = tbUser.Text;
             string pwOld = tbPasswordOld.Text;
             string pwNew = tbPasswordNew.Text;
             string pwre = tbPasswordre.Text;
+            if (DAO.AccountDAO.Instance.CheckUserInAccount(User) == 0)
+            {
+                DAO.AccountDAO.Instance.SaveUser(User ,luuUser);
+            }
+            else
+            {
+                MessageBox.Show("Tên Đăng nhập đã được dùng, vui lòng chọn tên đăng nhập khác");
+                return;
+            }
             if (pwNew != pwOld)
-            {   
+            {
                 if (pwre != pwNew)
                 {
                     MessageBox.Show("Không khớp vui lòng nhập lại");
@@ -74,7 +86,7 @@ namespace Quanly
                 {
                     pwNew = pwOld;
                 }
-                if (DAO.AccountDAO.Instance.Updatepasswword(Display, Username, pwNew) == -1)
+                if (DAO.AccountDAO.Instance.UpdateAccount(Display, User, pwNew) == -1)
                 {
                     MessageBox.Show("Cập nhật thông tin Không thành công");
                     return;
@@ -84,7 +96,8 @@ namespace Quanly
                 fMain mainForm = Application.OpenForms["fMain"] as fMain;
                 if (mainForm != null)
                 {
-                    this.Close();
+                    //this.Close();
+                    this.Hide();
                     mainForm.Close();
                 }
             }

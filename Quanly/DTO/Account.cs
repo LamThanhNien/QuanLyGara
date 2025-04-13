@@ -15,7 +15,7 @@ namespace Quanly.DTO
             this.DisplayName = displayName;
             //this.Password = password;
             this.CheckAdmin = checkAdmin;
-            this.Id = id;
+            this.IdAccount = id;
         }
         public Account(DataRow row)
         {
@@ -23,17 +23,17 @@ namespace Quanly.DTO
             this.DisplayName = row["DisplayName"].ToString();
             //this.Password = row["Password"].ToString();
             this.CheckAdmin = (int)row["CheckAdmin"];
-            this.Id = (int)row["idAccount"];
+            this.IdAccount = (int)row["idAccount"];
         }
         private string userName;
         private string displayName;
         //private string password;
         private int checkAdmin;
-        private int id;
+        private int idAccount;
         public string DisplayName { get => displayName; set => displayName = value; }
         public string UserName { get => userName; set => userName = value; }
         //public string Password { get => password; set => password = value; }
         public int CheckAdmin { get => checkAdmin; set => checkAdmin = value; }
-        public int Id { get => id; set => id = value; }
+        public int IdAccount { get => idAccount; set => idAccount = value; }
     }
 }

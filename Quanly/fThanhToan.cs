@@ -46,7 +46,6 @@ namespace Quanly
         {
             loadThanhToan();
             dtgvCustomer_CellClick(null, new DataGridViewCellEventArgs(0, 0));
-
             LoadCombobox_Service();
         }
         void LoadCombobox_Service()
@@ -135,17 +134,29 @@ namespace Quanly
 
         private void btnAddBill_Click(object sender, EventArgs e)
         {
-            if(cbbSp.Text == "")
+            if (cbbSp.Text == "")
             {
                 MessageBox.Show("Sản phẩm không tồn tại, vui lòng chọn phân loại khác");
                 return;
-            }    
+            }
             int status = BillDAO.Instance.GetStatus(idCustomer);
             int idBill = BillDAO.Instance.GetIdBill(idCustomer);
             int IdService = comboBoxLoad.SelectedValue != null ? Convert.ToInt32(comboBoxLoad.SelectedValue) : -1;
-            //int IdMaterial = Convert.ToInt32(cbbSp.SelectedValue);
             int IdMaterial = (cbbSp.SelectedItem as DTO.Material)?.IdMaterial ?? 0;
             int count = (int)numericUpDown.Value;
+
+            int countInMaterial = DAO.MaterialDAO.Instance.GetCountInMaterial(IdMaterial);
+            if (count > countInMaterial)
+            {
+                if (countInMaterial == 0)
+                {
+                    MessageBox.Show("Số lượng tồn kho đã hết vui lòng liên hệ với quản lý");
+                    return;
+                }
+                MessageBox.Show("Số lượng bạn chọn lớn hơn số lượng tồn kho, vui lòng giảm số lượng");
+                return;
+            }
+
             if (idBill <= 0)
             {
                 idBill = BillDAO.Instance.InsertBill(idCustomer);
@@ -160,17 +171,22 @@ namespace Quanly
         private void listViewPrice_MouseClick(object sender, MouseEventArgs e)
         {
             ListViewHitTestInfo hit = listViewPrice.HitTest(e.Location);
-
             if (hit.Item != null && hit.SubItem != null)
             {
                 int columnIndex = hit.Item.SubItems.IndexOf(hit.SubItem);
                 if (columnIndex == 4)
                 {
                     string itemName = hit.Item.SubItems[0].Text;
+                    string Count = hit.Item.SubItems[1].Text;
                     DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa: {itemName}?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                     if (result == DialogResult.Yes)
                     {
+                        if (DAO.MaterialDAO.Instance.UpdateCountByMaterial(itemName, Count) == -1)
+                        {
+                            MessageBox.Show("Lỗi quá trình cập nhật số lượng");
+                            return;
+                        }
                         DAO.BillInfoDAO.Instance.DeleteBillInfo(itemName);
                         listViewPrice.Items.Remove(hit.Item);
                     }

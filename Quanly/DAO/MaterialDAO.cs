@@ -53,25 +53,16 @@ namespace Quanly.DAO
             }
             return list;
         }
-        //public DataTable ComboBoxMaterial()
-        //{
-        //    string query = @"SELECT * 
-        //             FROM Material M 
-        //             INNER JOIN Service_Material SM 
-        //             ON M.idMaterial = SM.idMaterial";
 
-        //    DataTable data = DataProvider.Instance.ExecuteQuery(query);
-        //    return data;
-        //}
+        public int getidMeterrial(int idMaterial)
+        {
+            string query = "select s.idService\r\nfrom _Service s,Material m, Service_Material ms \r\nwhere s.idService = ms.idService and ms.idMaterial = m.idMaterial  and m.idMaterial = @idMaterial ";
+            object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idMaterial });
+            return result != null ? Convert.ToInt32(result) : -1;
+        }
+
         public int Insert_Material(int idService, string name, string type, string noiSX, int sl, float price, string image)
         {
-            //if (string.IsNullOrEmpty(image))
-            //{
-            //    string queryGetImage = "SELECT images FROM Material where idMaterial  = @idMaterial";
-            //    object oldImage = DataProvider.Instance.ExecuteScalar(queryGetImage, new object[] { idMaterial });
-
-            //    image = oldImage != null ? oldImage.ToString() : null; // Giữ ảnh cũ nếu có
-            //}
             string query = "USP_AddMaterial @idService , @name , @type , @noiSx , @quantity , @price , @image ";
             object imgValue = string.IsNullOrEmpty(image) ? (object)DBNull.Value : image;
             int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] {idService,name, type,noiSX, sl, price , imgValue });
@@ -80,15 +71,17 @@ namespace Quanly.DAO
 
         public int fixMaterial(int idMaterial, string nameMaterial, string type, string NoiSx, string quantity, string price, string image)
         {
+            // Nếu không có ảnh mới, lấy ảnh cũ từ CSDL
+            if (string.IsNullOrEmpty(image))
+            {
+                string queryGetImage = "SELECT images FROM Material WHERE idMaterial = @idMaterial";
+                object oldImage = DataProvider.Instance.ExecuteScalar(queryGetImage, new object[] { idMaterial });
+
+                image = oldImage != null ? oldImage.ToString() : null; // Giữ ảnh cũ nếu có
+            }
             string query = "USP_FixMaterial @idMaterial , @name , @type , @NoiSx , @quantity , @price , @image ";
             int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { idMaterial, nameMaterial, type, NoiSx, quantity, price, image });
             return result > 0 ? 1 : 0;
-        }
-        public int getidMeterrial(int idMaterial)
-        {
-            string query = "select s.idService\r\nfrom _Service s,Material m, Service_Material ms \r\nwhere s.idService = ms.idService and ms.idMaterial = m.idMaterial  and m.idMaterial = @idMaterial ";
-            object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idMaterial });
-            return result != null ? Convert.ToInt32(result) : -1;
         }
         public int DeleteMaterial(int idSv, int idMt)
         {
@@ -96,6 +89,18 @@ namespace Quanly.DAO
             object result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { idMt, idSv });
             return result != null ? Convert.ToInt32(result) : -1;
         }
-        
+        public int GetCountInMaterial(int idMaterial)
+        {
+            string query = "SELECT quantity FROM Material WHERE idMaterial = @idMaterial ";
+            object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { idMaterial });
+            return result != null ? Convert.ToInt32(result) : -1;
+        }
+        public int UpdateCountByMaterial(string name, string count)
+        {
+            string query = "UPDATE Material SET quantity = quantity + @count WHERE idMaterial = (SELECT idMaterial FROM Material WHERE name = @name )";
+            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { count, name });
+            return result > 0 ? 1 : -1;
+        }
+
     }
 }

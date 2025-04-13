@@ -74,7 +74,7 @@ namespace Quanly.DAO
         }
         public int DeleteCar(int Car)
         {
-            string query = "DeleteCar @idCar ";
+            string query = "delete Car where idCar = @idCar ";
             int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { Car });
             return result > 0 ? 1 : 0;
         }

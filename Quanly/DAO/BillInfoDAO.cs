@@ -19,25 +19,6 @@ namespace Quanly.DAO
             private set { instance = value; }
         }
         private BillInfoDAO() { }
-        public List<BillInfo> GetListBillInfo(int id)
-        {
-            List<BillInfo> listBillInfo = new List<BillInfo>();
-            string query = "SELECT * FROM BillInfo WHERE idBill = @idBill ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
-
-            foreach (DataRow row in data.Rows)
-            {
-                BillInfo info = new BillInfo(row);
-                listBillInfo.Add(info);
-            }
-            return listBillInfo;
-        }
-
-
-        public List<BillInfo> GetListBilllInfo(int id)
-        {
-            return GetListBillInfo(id);
-        }
         public void InsertBillInfo(int IdBill, int IdService, int IdMaterial, int Quantity)
         {
             
@@ -61,12 +42,6 @@ namespace Quanly.DAO
                 MessageBox.Show("Không có sản phẩm");
             }
         }
-        public void UpdateBillInfo(int stt, int idBill, int idMaterial)
-        {
-            string updateQuery = "USP_UpdateBillInfo @stt , @idBill , @IdMaterial";
-            DataProvider.Instance.ExecuteNonQuery(updateQuery, new object[] { stt, idBill, idMaterial });
-        }
-        //test
         public bool DeleteBillInfo(string name)
         {
             string query = "DELETE FROM BillInfo WHERE idMaterial = (SELECT idMaterial FROM Material WHERE name = @name )";

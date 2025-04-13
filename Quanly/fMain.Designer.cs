@@ -212,9 +212,7 @@
             // btnThanhToan
             // 
             btnThanhToan.BackColor = Color.SteelBlue;
-            btnThanhToan.FlatAppearance.BorderColor = Color.Red;
             btnThanhToan.FlatAppearance.BorderSize = 0;
-            btnThanhToan.FlatAppearance.MouseDownBackColor = Color.Red;
             btnThanhToan.FlatStyle = FlatStyle.Flat;
             btnThanhToan.Font = new Font("Arial", 11F, FontStyle.Bold);
             btnThanhToan.ForeColor = SystemColors.ButtonHighlight;
