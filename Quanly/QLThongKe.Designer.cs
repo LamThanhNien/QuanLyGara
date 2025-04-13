@@ -98,6 +98,7 @@
             dtgvRevenue.RowHeadersWidth = 51;
             dtgvRevenue.Size = new Size(1252, 495);
             dtgvRevenue.TabIndex = 7;
+            dtgvRevenue.TabStop = false;
             // 
             // panel1
             // 
@@ -111,7 +112,7 @@
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(1252, 113);
-            panel1.TabIndex = 6;
+            panel1.TabIndex = 1;
             // 
             // dateTimePicker1
             // 
@@ -122,7 +123,7 @@
             dateTimePicker1.MinDate = new DateTime(2025, 4, 6, 0, 0, 0, 0);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(240, 35);
-            dateTimePicker1.TabIndex = 14;
+            dateTimePicker1.TabIndex = 1;
             dateTimePicker1.Value = new DateTime(2025, 4, 6, 0, 0, 0, 0);
             // 
             // btnBaocao
@@ -133,7 +134,7 @@
             btnBaocao.Location = new Point(992, 36);
             btnBaocao.Name = "btnBaocao";
             btnBaocao.Size = new Size(174, 54);
-            btnBaocao.TabIndex = 13;
+            btnBaocao.TabIndex = 4;
             btnBaocao.Text = "Xuất báo cáo";
             btnBaocao.UseVisualStyleBackColor = false;
             btnBaocao.Click += btnBaocao_Click;
@@ -146,7 +147,7 @@
             btnShow.Location = new Point(796, 36);
             btnShow.Name = "btnShow";
             btnShow.Size = new Size(133, 55);
-            btnShow.TabIndex = 12;
+            btnShow.TabIndex = 3;
             btnShow.Text = "Xem";
             btnShow.UseVisualStyleBackColor = false;
             btnShow.Click += btnShow_Click;
@@ -159,7 +160,7 @@
             dateTimePicker2.Location = new Point(277, 61);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(240, 35);
-            dateTimePicker2.TabIndex = 11;
+            dateTimePicker2.TabIndex = 2;
             dateTimePicker2.Value = new DateTime(2025, 4, 10, 0, 0, 0, 0);
             // 
             // label1
@@ -187,10 +188,10 @@
             // 
             tabPage2.Controls.Add(panel4);
             tabPage2.Controls.Add(panel3);
-            tabPage2.Location = new Point(4, 34);
+            tabPage2.Location = new Point(4, 38);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1258, 625);
+            tabPage2.Size = new Size(1258, 621);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Thống kê sản phẩm";
             tabPage2.UseVisualStyleBackColor = true;
@@ -201,7 +202,7 @@
             panel4.Controls.Add(dataGridViewProduct);
             panel4.Location = new Point(3, 74);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1252, 488);
+            panel4.Size = new Size(1252, 476);
             panel4.TabIndex = 8;
             // 
             // dataGridViewProduct
@@ -213,8 +214,9 @@
             dataGridViewProduct.Location = new Point(0, 6);
             dataGridViewProduct.Name = "dataGridViewProduct";
             dataGridViewProduct.RowHeadersWidth = 51;
-            dataGridViewProduct.Size = new Size(1252, 529);
-            dataGridViewProduct.TabIndex = 7;
+            dataGridViewProduct.Size = new Size(1252, 517);
+            dataGridViewProduct.TabIndex = 2;
+            dataGridViewProduct.TabStop = false;
             // 
             // panel3
             // 
@@ -223,7 +225,7 @@
             panel3.Location = new Point(3, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(1252, 71);
-            panel3.TabIndex = 7;
+            panel3.TabIndex = 1;
             // 
             // button3
             // 
@@ -233,7 +235,7 @@
             button3.Location = new Point(981, 3);
             button3.Name = "button3";
             button3.Size = new Size(256, 62);
-            button3.TabIndex = 13;
+            button3.TabIndex = 1;
             button3.Text = "Xuất báo cáo";
             button3.UseVisualStyleBackColor = false;
             // 

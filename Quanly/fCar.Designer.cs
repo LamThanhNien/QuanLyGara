@@ -77,6 +77,7 @@
             dtgvCar.RowHeadersWidth = 62;
             dtgvCar.Size = new Size(755, 732);
             dtgvCar.TabIndex = 0;
+            dtgvCar.TabStop = false;
             dtgvCar.CellClick += dtgvCar_CellClick;
             // 
             // panel5
@@ -88,7 +89,7 @@
             panel5.Margin = new Padding(5, 3, 5, 3);
             panel5.Name = "panel5";
             panel5.Size = new Size(614, 57);
-            panel5.TabIndex = 10;
+            panel5.TabIndex = 0;
             // 
             // button6
             // 
@@ -98,7 +99,7 @@
             button6.Margin = new Padding(5, 3, 5, 3);
             button6.Name = "button6";
             button6.Size = new Size(115, 35);
-            button6.TabIndex = 1;
+            button6.TabIndex = 2;
             button6.Text = "Tìm";
             button6.UseVisualStyleBackColor = true;
             button6.Click += btnSearch_Click;
@@ -110,7 +111,7 @@
             tbTimCar.Margin = new Padding(5, 3, 5, 3);
             tbTimCar.Name = "tbTimCar";
             tbTimCar.Size = new Size(378, 30);
-            tbTimCar.TabIndex = 0;
+            tbTimCar.TabIndex = 1;
             // 
             // pictureBoxCar
             // 
@@ -131,7 +132,7 @@
             btnAddImage1.Margin = new Padding(4, 3, 4, 3);
             btnAddImage1.Name = "btnAddImage1";
             btnAddImage1.Size = new Size(131, 48);
-            btnAddImage1.TabIndex = 111118;
+            btnAddImage1.TabIndex = 1;
             btnAddImage1.Text = "Thêm ảnh";
             btnAddImage1.UseVisualStyleBackColor = true;
             btnAddImage1.Click += btnAddImage1_Click;
@@ -145,7 +146,7 @@
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(217, 24);
-            label9.TabIndex = 111119;
+            label9.TabIndex = 0;
             label9.Text = "Thông tin khách hàng";
             // 
             // panel17
@@ -157,7 +158,7 @@
             panel17.Margin = new Padding(5, 3, 5, 3);
             panel17.Name = "panel17";
             panel17.Size = new Size(576, 57);
-            panel17.TabIndex = 111120;
+            panel17.TabIndex = 2;
             // 
             // tbCustomer
             // 
@@ -188,7 +189,7 @@
             panel1.Margin = new Padding(5, 3, 5, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(576, 57);
-            panel1.TabIndex = 111121;
+            panel1.TabIndex = 3;
             // 
             // tbPhone
             // 
@@ -221,7 +222,7 @@
             panel2.Margin = new Padding(5, 3, 5, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(622, 57);
-            panel2.TabIndex = 111121;
+            panel2.TabIndex = 4;
             // 
             // tbHang
             // 
@@ -229,7 +230,7 @@
             tbHang.Margin = new Padding(5, 3, 5, 3);
             tbHang.Name = "tbHang";
             tbHang.Size = new Size(176, 30);
-            tbHang.TabIndex = 3;
+            tbHang.TabIndex = 2;
             // 
             // label5
             // 
@@ -270,7 +271,7 @@
             panel3.Margin = new Padding(5, 3, 5, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(622, 57);
-            panel3.TabIndex = 111121;
+            panel3.TabIndex = 5;
             // 
             // tbNumCar
             // 
@@ -300,7 +301,7 @@
             panel4.Margin = new Padding(5, 3, 5, 3);
             panel4.Name = "panel4";
             panel4.Size = new Size(622, 57);
-            panel4.TabIndex = 111122;
+            panel4.TabIndex = 6;
             // 
             // tbColor
             // 
@@ -331,7 +332,7 @@
             AddCar.Margin = new Padding(4, 3, 4, 3);
             AddCar.Name = "AddCar";
             AddCar.Size = new Size(107, 58);
-            AddCar.TabIndex = 111123;
+            AddCar.TabIndex = 10;
             AddCar.Text = "Thêm";
             AddCar.UseVisualStyleBackColor = false;
             AddCar.Click += AddCar_Click;
@@ -346,7 +347,7 @@
             btnFix.Margin = new Padding(4, 3, 4, 3);
             btnFix.Name = "btnFix";
             btnFix.Size = new Size(113, 58);
-            btnFix.TabIndex = 111124;
+            btnFix.TabIndex = 9;
             btnFix.Text = "Lưu";
             btnFix.UseVisualStyleBackColor = false;
             btnFix.Click += btnFix_Click;
@@ -361,7 +362,7 @@
             btnShow.Margin = new Padding(4, 3, 4, 3);
             btnShow.Name = "btnShow";
             btnShow.Size = new Size(113, 58);
-            btnShow.TabIndex = 111126;
+            btnShow.TabIndex = 7;
             btnShow.Text = "Xem";
             btnShow.UseVisualStyleBackColor = false;
             btnShow.Click += btnShow_Click;
@@ -376,7 +377,7 @@
             btnDelete.Margin = new Padding(4, 3, 4, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(113, 58);
-            btnDelete.TabIndex = 111127;
+            btnDelete.TabIndex = 8;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;

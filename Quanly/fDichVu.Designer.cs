@@ -81,6 +81,7 @@
             dtgvMaterial.RowHeadersWidth = 62;
             dtgvMaterial.Size = new Size(562, 694);
             dtgvMaterial.TabIndex = 9;
+            dtgvMaterial.TabStop = false;
             dtgvMaterial.CellClick += dtgvDichvu_CellClick;
             // 
             // panel24
@@ -92,7 +93,7 @@
             panel24.Margin = new Padding(5, 3, 5, 3);
             panel24.Name = "panel24";
             panel24.Size = new Size(569, 67);
-            panel24.TabIndex = 21;
+            panel24.TabIndex = 1;
             // 
             // button7
             // 
@@ -101,7 +102,7 @@
             button7.Margin = new Padding(5, 3, 5, 3);
             button7.Name = "button7";
             button7.Size = new Size(113, 34);
-            button7.TabIndex = 1;
+            button7.TabIndex = 2;
             button7.Text = "Tìm";
             button7.UseVisualStyleBackColor = true;
             button7.Click += btnSearch_Click;
@@ -113,7 +114,7 @@
             tbMaterial.Margin = new Padding(5, 3, 5, 3);
             tbMaterial.Name = "tbMaterial";
             tbMaterial.Size = new Size(378, 30);
-            tbMaterial.TabIndex = 0;
+            tbMaterial.TabIndex = 1;
             // 
             // pictureBoxM
             // 
@@ -132,7 +133,7 @@
             btnAddImage.Location = new Point(285, 29);
             btnAddImage.Name = "btnAddImage";
             btnAddImage.Size = new Size(144, 58);
-            btnAddImage.TabIndex = 32;
+            btnAddImage.TabIndex = 1;
             btnAddImage.Text = "Thêm ảnh";
             btnAddImage.UseVisualStyleBackColor = true;
             btnAddImage.Click += btnAddImage_Click;
@@ -146,7 +147,7 @@
             panel25.Margin = new Padding(4, 3, 4, 3);
             panel25.Name = "panel25";
             panel25.Size = new Size(513, 58);
-            panel25.TabIndex = 33;
+            panel25.TabIndex = 2;
             // 
             // tbnameMaterial
             // 
@@ -177,7 +178,7 @@
             panel27.Margin = new Padding(4, 3, 4, 3);
             panel27.Name = "panel27";
             panel27.Size = new Size(513, 58);
-            panel27.TabIndex = 25;
+            panel27.TabIndex = 4;
             // 
             // btnDichVu
             // 
@@ -185,7 +186,7 @@
             btnDichVu.Location = new Point(373, -1);
             btnDichVu.Name = "btnDichVu";
             btnDichVu.Size = new Size(133, 58);
-            btnDichVu.TabIndex = 111131;
+            btnDichVu.TabIndex = 2;
             btnDichVu.Text = "Dịch vụ mới";
             btnDichVu.UseVisualStyleBackColor = true;
             btnDichVu.Click += btnDichVu_Click;
@@ -196,7 +197,7 @@
             comboBoxLoadMaterial.Location = new Point(115, 13);
             comboBoxLoadMaterial.Name = "comboBoxLoadMaterial";
             comboBoxLoadMaterial.Size = new Size(236, 32);
-            comboBoxLoadMaterial.TabIndex = 32;
+            comboBoxLoadMaterial.TabIndex = 1;
             comboBoxLoadMaterial.SelectedIndexChanged += comboBoxLoadMaterial_SelectedIndexChanged;
             // 
             // label17
@@ -219,7 +220,7 @@
             panel32.Margin = new Padding(4, 3, 4, 3);
             panel32.Name = "panel32";
             panel32.Size = new Size(513, 58);
-            panel32.TabIndex = 33;
+            panel32.TabIndex = 5;
             // 
             // tbPrice
             // 
@@ -251,7 +252,7 @@
             panel33.Margin = new Padding(4, 3, 4, 3);
             panel33.Name = "panel33";
             panel33.Size = new Size(513, 58);
-            panel33.TabIndex = 34;
+            panel33.TabIndex = 6;
             // 
             // tbNoisx
             // 
@@ -259,7 +260,7 @@
             tbNoisx.Margin = new Padding(4, 3, 4, 3);
             tbNoisx.Name = "tbNoisx";
             tbNoisx.Size = new Size(202, 30);
-            tbNoisx.TabIndex = 3;
+            tbNoisx.TabIndex = 1;
             // 
             // label1
             // 
@@ -278,7 +279,7 @@
             tbQuantity.Margin = new Padding(4, 3, 4, 3);
             tbQuantity.Name = "tbQuantity";
             tbQuantity.Size = new Size(111, 30);
-            tbQuantity.TabIndex = 1;
+            tbQuantity.TabIndex = 2;
             // 
             // label23
             // 
@@ -299,7 +300,7 @@
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new Size(104, 57);
-            button1.TabIndex = 111127;
+            button1.TabIndex = 7;
             button1.Text = "Xem";
             button1.UseVisualStyleBackColor = true;
             button1.Click += btnreLoad_Click;
@@ -312,7 +313,7 @@
             btnDelete.Margin = new Padding(4, 3, 4, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(104, 57);
-            btnDelete.TabIndex = 111128;
+            btnDelete.TabIndex = 8;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
@@ -325,7 +326,7 @@
             btnFix.Margin = new Padding(4, 3, 4, 3);
             btnFix.Name = "btnFix";
             btnFix.Size = new Size(104, 57);
-            btnFix.TabIndex = 111129;
+            btnFix.TabIndex = 9;
             btnFix.Text = "Lưu";
             btnFix.UseVisualStyleBackColor = true;
             btnFix.Click += btnFix_Click;
@@ -339,7 +340,7 @@
             AddDichvu.Margin = new Padding(4, 3, 4, 3);
             AddDichvu.Name = "AddDichvu";
             AddDichvu.Size = new Size(104, 57);
-            AddDichvu.TabIndex = 111130;
+            AddDichvu.TabIndex = 10;
             AddDichvu.Text = "Thêm";
             AddDichvu.UseVisualStyleBackColor = false;
             AddDichvu.Click += AddDichvu_Click;
@@ -357,7 +358,7 @@
             groupBox1.Location = new Point(572, 72);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(569, 547);
-            groupBox1.TabIndex = 111131;
+            groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin sản phẩm";
             // 
@@ -370,14 +371,14 @@
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(513, 58);
-            panel1.TabIndex = 35;
+            panel1.TabIndex = 3;
             // 
             // tbType
             // 
             tbType.Location = new Point(58, 13);
             tbType.Name = "tbType";
             tbType.Size = new Size(196, 30);
-            tbType.TabIndex = 111132;
+            tbType.TabIndex = 1;
             // 
             // label2
             // 

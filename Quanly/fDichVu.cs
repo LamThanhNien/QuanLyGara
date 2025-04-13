@@ -1,4 +1,5 @@
 ﻿using Quanly.DTO;
+using Quanly.BUS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,7 +41,7 @@ namespace Quanly
         #endregion
         public void loadDL()
         {
-            DAO.MaterialDAO.Instance.LoadMaterial(dtgvMaterial);
+            dtgvMaterial.DataSource = MaterialBUS.Instance.LoadMaterial();
             dtgvMaterial.RowPostPaint += dataGridView_RowPostPaint;
             dtgvMaterial.Columns[0].Width = 170;
             dtgvMaterial.Columns[0].HeaderText = "Tên phụ tùng";
@@ -53,7 +54,7 @@ namespace Quanly
             dtgvMaterial.Columns[6].Visible = false;
 
 
-            DataTable dt = DAO.ServiceDAO.Instance.LoadDlByDichvu();
+            DataTable dt = ServiceBUS.Instance.LoadDlByDichvu();
             comboBoxLoadMaterial.DataSource = dt;
             comboBoxLoadMaterial.DisplayMember = "name";
             comboBoxLoadMaterial.ValueMember = "idService";
@@ -73,7 +74,7 @@ namespace Quanly
         }
         public void loadCombobox(int idMaterial)
         {
-            DataTable dt = DAO.ServiceDAO.Instance.getIdServiceLoadComboBox(idMaterial);
+            DataTable dt = ServiceBUS.Instance.getIdServiceLoadComboBox(idMaterial);
             if (dt == null) { return; }
             int materialId = Convert.ToInt32(dt.Rows[0]["idService"]);
 
@@ -141,7 +142,7 @@ namespace Quanly
             string quantity = tbQuantity.Text;
             string price = tbPrice.Text;
             string image = pictureBoxM.Tag as string ?? "";
-            int result = DAO.MaterialDAO.Instance.fixMaterial(id, nameMaterial, type, NoiSx, quantity, price, image);
+            int result = MaterialBUS.Instance.fixMaterial(id, nameMaterial, type, NoiSx, quantity, price, image);
             if (result == 0)
             {
                 MessageBox.Show("Cập nhật thất bại");
@@ -161,14 +162,14 @@ namespace Quanly
         private void AddDichvu_Click(object sender, EventArgs e)
         {
             string nameSv = comboBoxLoadMaterial.Text;
-            int idSv = DAO.ServiceDAO.Instance.getidServiceByfDichvu(nameSv);
+            int idSv = ServiceBUS.Instance.getidServiceByfDichvu(nameSv);
             string nameMaterial = tbnameMaterial.Text;
             string type = tbType.Text;
             string NoiSx = tbNoisx.Text;
             int quantity = Convert.ToInt32(tbQuantity.Text);
             float price = float.Parse(tbPrice.Text);
             string image = pictureBoxM.Tag as string ?? "";
-            if (DAO.MaterialDAO.Instance.Insert_Material(idSv, nameMaterial, type, NoiSx, quantity, price, image) == 0)
+            if (MaterialBUS.Instance.Insert_Material(idSv, nameMaterial, type, NoiSx, quantity, price, image) == 0)
             {
                 MessageBox.Show("Thêm Thất bại");
                 return;
@@ -179,7 +180,7 @@ namespace Quanly
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int idSv = DAO.MaterialDAO.Instance.getidMeterrial(idMaterial);
+            int idSv = MaterialBUS.Instance.getidMeterrial(idMaterial);
             int idMt = idMaterial;
             if (idSv == -1 || idMt == 0)
             {
@@ -190,7 +191,7 @@ namespace Quanly
             {
                 return;
             }
-            if (DAO.MaterialDAO.Instance.DeleteMaterial(idSv, idMt) == -1)
+            if (MaterialBUS.Instance.DeleteMaterial(idSv, idMt) == -1)
             {
                 MessageBox.Show("xóa thất bại");
                 return;
@@ -215,7 +216,7 @@ namespace Quanly
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            List<DTO.Material> materials = DAO.Search.Instance.searchMaterialbyname(tbMaterial.Text);
+            List<DTO.Material> materials = SearchBUS.Instance.searchMaterialbyname(tbMaterial.Text);
             dtgvMaterial.DataSource = materials;
             dtgvDichvu_CellClick(null, new DataGridViewCellEventArgs(0, 0));
         }

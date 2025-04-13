@@ -1,4 +1,6 @@
 ﻿using Quanly.DTO;
+using Quanly.DAO;
+using Quanly.BUS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +22,7 @@ namespace Quanly
         }
         public void Load()
         {
-            DAO.AccountDAO.Instance.LoadAccount(dtgvAccount);
+            dtgvAccount.DataSource = AccountBUS.Instance.LoadAccount();
             dtgvAccount.RowPostPaint += dataGridView_RowPostPaint;
 
             dtgvAccount.Columns[0].HeaderText = "Tên hiển thị";
@@ -96,7 +98,7 @@ namespace Quanly
             string DisplayName = tbNameDisplay.Text;
             string UserName = tbNameAccount.Text;
             int TypeAccount = cbbTypeAccount.Text == "Admin"? 1 : 2;
-            if (DAO.AccountDAO.Instance.FixAccount(id, DisplayName,UserName, TypeAccount) == -1)
+            if (AccountBUS.Instance.FixAccount(id, DisplayName,UserName, TypeAccount) == -1)
             {
                 MessageBox.Show("Cập nhật Account thất bại");
                 return;
@@ -106,7 +108,7 @@ namespace Quanly
         }
         private void btnReset_Click(object sender, EventArgs e)
         {
-            if (DAO.AccountDAO.Instance.Resetpasswword(id) == -1)
+            if (AccountBUS.Instance.ResetPassword(id) == -1)
             {
                 MessageBox.Show("Cập nhật mật khẩu thất bại");
                 return;

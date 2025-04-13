@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using Quanly.DTO;
+using Quanly.BUS;
+using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 using System.Security.Policy;
@@ -48,7 +50,7 @@ namespace Quanly
             }
             if (checkLogin(tbname.Text, tbpassword.Text))
             {
-                DTO.Account loginAc = DAO.AccountDAO.Instance.CheckAccount(tbname.Text);
+                DTO.Account loginAc = AccountBUS.Instance.CheckAccount(tbname.Text);
                 int check = loginAc.CheckAdmin;
                 //fMain mainForm = Application.OpenForms["fMain"] as fMain;
                 //if (mainForm != null)
@@ -69,7 +71,7 @@ namespace Quanly
         }
         bool checkLogin(string username, string password)
         {
-            return DAO.AccountDAO.Instance.Login(username, password);
+            return AccountBUS.Instance.Login(username, password);
         }
 
         private void btnExit_Click_1(object sender, EventArgs e)

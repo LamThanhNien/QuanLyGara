@@ -1,4 +1,5 @@
 ﻿using Quanly.DTO;
+using Quanly.BUS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace Quanly
         }
         void load()
         {
-            DAO.EmployeeDAO.Instance.loadEmployee(dtgvEmployee);
+            dtgvEmployee.DataSource = EmployeeBUS.Instance.loadEmployee();
             dtgvEmployee_CellClick(null, new DataGridViewCellEventArgs(0, 0));
             dtgvEmployee.RowPostPaint += dataGridView_RowPostPaint;
             dtgvEmployee.Columns[0].Width = 170;
@@ -53,7 +54,7 @@ namespace Quanly
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            List<DTO.Employee> listCar = DAO.Search.Instance.searchEmployeebyname(tbSearch.Text);
+            List<DTO.Employee> listCar = SearchBUS.Instance.searchEmployeebyname(tbSearch.Text);
             dtgvEmployee.DataSource = listCar;
             dtgvEmployee_CellClick(null, new DataGridViewCellEventArgs(0, 0));
         }
@@ -86,7 +87,7 @@ namespace Quanly
             DateTime day = DateTime.Parse(tbDay.Text);
 
             int checkuot = checkBoxOut.Checked == true ? 1 : 0;
-            if (DAO.EmployeeDAO.Instance.AddEmployee(name, phone, chucvu, luong, day, checkuot) == 1)
+            if (EmployeeBUS.Instance.AddEmployee(name, phone, chucvu, luong, day, checkuot) == 1)
             {
                 MessageBox.Show("Thêm thành công");
                 load();
@@ -103,7 +104,7 @@ namespace Quanly
             DateTime day = DateTime.Parse(tbDay.Text);
 
             int checkuot = checkBoxOut.Checked == true ? 1 : 0;
-            DAO.EmployeeDAO.Instance.FixEmployee(id, typeAccount, name, phone, chucvu, luong, day, checkuot);
+            EmployeeBUS.Instance.FixEmployee(id, typeAccount, name, phone, chucvu, luong, day, checkuot);
             load();
         }
 
@@ -112,7 +113,7 @@ namespace Quanly
             int id = idEmployee;
             if (MessageBox.Show("Bạn có chắc muốn cóa không", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (DAO.EmployeeDAO.Instance.DelEmployee(id) == -1)
+                if (EmployeeBUS.Instance.DelEmployee(id) == -1)
                 {
                     MessageBox.Show("Xóa Thất bại");
                     return;

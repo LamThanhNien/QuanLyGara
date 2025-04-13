@@ -8,6 +8,9 @@
     ".NETCoreApp,Version=v8.0": {
       "Quanly/1.0.0": {
         "dependencies": {
+          "BUS": "1.0.0",
+          "DAO": "1.0.0",
+          "DTO": "1.0.0",
           "System.Data.SqlClient": "4.9.0"
         },
         "runtime": {
@@ -72,6 +75,33 @@
             "fileVersion": "4.900.24.56208"
           }
         }
+      },
+      "BUS/1.0.0": {
+        "runtime": {
+          "BUS.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "DAO/1.0.0": {
+        "dependencies": {
+          "System.Data.SqlClient": "4.9.0"
+        },
+        "runtime": {
+          "DAO.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "DTO/1.0.0": {
+        "runtime": {
+          "DTO.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -115,6 +145,21 @@
       "sha512": "sha512-j4KJO+vC62NyUtNHz854njEqXbT8OmAa5jb1nrGfYWBOcggyYUQE0w/snXeaCjdvkSKWuUD+hfvlbN8pTrJTXg==",
       "path": "system.data.sqlclient/4.9.0",
       "hashPath": "system.data.sqlclient.4.9.0.nupkg.sha512"
+    },
+    "BUS/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DAO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

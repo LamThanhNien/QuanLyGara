@@ -218,7 +218,7 @@
             panel3.Margin = new Padding(4, 3, 4, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(407, 44);
-            panel3.TabIndex = 5;
+            panel3.TabIndex = 6;
             // 
             // tbNumcar
             // 
@@ -226,7 +226,7 @@
             tbNumcar.Margin = new Padding(4, 3, 4, 3);
             tbNumcar.Name = "tbNumcar";
             tbNumcar.Size = new Size(222, 33);
-            tbNumcar.TabIndex = 5;
+            tbNumcar.TabIndex = 6;
             // 
             // label2
             // 
@@ -247,16 +247,17 @@
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(407, 46);
-            panel2.TabIndex = 6;
+            panel2.TabIndex = 7;
             // 
             // tbColor
             // 
             tbColor.FormattingEnabled = true;
+            tbColor.ImeMode = ImeMode.NoControl;
             tbColor.Items.AddRange(new object[] { "Trắng", "Đen", "Xám", "Bạc", "Đỏ", "Xanh dương", "Xanh lá", "Vàng", "Cam", "Nâu" });
             tbColor.Location = new Point(179, 5);
             tbColor.Name = "tbColor";
             tbColor.Size = new Size(141, 34);
-            tbColor.TabIndex = 6;
+            tbColor.TabIndex = 7;
             // 
             // logo
             // 
@@ -286,7 +287,7 @@
             comboBoxSex.Location = new Point(111, 6);
             comboBoxSex.Name = "comboBoxSex";
             comboBoxSex.Size = new Size(69, 34);
-            comboBoxSex.TabIndex = 2;
+            comboBoxSex.TabIndex = 1;
             // 
             // label3
             // 
@@ -296,7 +297,7 @@
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(100, 26);
-            label3.TabIndex = 0;
+            label3.TabIndex = 1;
             label3.Text = "Giới tính";
             // 
             // panel7
@@ -307,7 +308,7 @@
             panel7.Margin = new Padding(4, 3, 4, 3);
             panel7.Name = "panel7";
             panel7.Size = new Size(227, 41);
-            panel7.TabIndex = 21;
+            panel7.TabIndex = 5;
             // 
             // txthang
             // 
@@ -345,7 +346,7 @@
             panel8.Margin = new Padding(4, 3, 4, 3);
             panel8.Name = "panel8";
             panel8.Size = new Size(726, 410);
-            panel8.TabIndex = 19;
+            panel8.TabIndex = 0;
             // 
             // button2
             // 
@@ -357,7 +358,7 @@
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(82, 55);
-            button2.TabIndex = 8;
+            button2.TabIndex = 14;
             button2.Text = "Thêm";
             button2.UseVisualStyleBackColor = false;
             button2.Click += btnAdd_Click;
@@ -371,7 +372,7 @@
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(53, 26);
-            label5.TabIndex = 21;
+            label5.TabIndex = 0;
             label5.Text = "Ảnh";
             // 
             // pictureBoxCar
@@ -397,7 +398,7 @@
             btnDelete.Margin = new Padding(4, 3, 4, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(82, 55);
-            btnDelete.TabIndex = 9;
+            btnDelete.TabIndex = 12;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnClean_Click;
@@ -411,7 +412,7 @@
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new Size(130, 54);
-            button1.TabIndex = 7;
+            button1.TabIndex = 10;
             button1.Text = "Thêm ảnh";
             button1.UseVisualStyleBackColor = true;
             button1.Click += btnAddImage_Click;
@@ -432,7 +433,7 @@
             panel5.Location = new Point(734, 3);
             panel5.Name = "panel5";
             panel5.Size = new Size(484, 410);
-            panel5.TabIndex = 26;
+            panel5.TabIndex = 1;
             // 
             // btnSearch
             // 
@@ -441,7 +442,7 @@
             btnSearch.Location = new Point(358, 13);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(112, 34);
-            btnSearch.TabIndex = 29;
+            btnSearch.TabIndex = 9;
             btnSearch.Text = "Tìm";
             btnSearch.UseVisualStyleBackColor = false;
             // 
@@ -455,7 +456,7 @@
             button5.Margin = new Padding(4, 3, 4, 3);
             button5.Name = "button5";
             button5.Size = new Size(82, 55);
-            button5.TabIndex = 27;
+            button5.TabIndex = 11;
             button5.Text = "Xem";
             button5.UseVisualStyleBackColor = false;
             button5.Click += btnLoad_Click;
@@ -466,7 +467,7 @@
             textBoxTim.Location = new Point(21, 15);
             textBoxTim.Name = "textBoxTim";
             textBoxTim.Size = new Size(305, 33);
-            textBoxTim.TabIndex = 28;
+            textBoxTim.TabIndex = 8;
             // 
             // button4
             // 
@@ -478,7 +479,7 @@
             button4.Margin = new Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new Size(82, 55);
-            button4.TabIndex = 24;
+            button4.TabIndex = 13;
             button4.Text = "Lưu";
             button4.UseVisualStyleBackColor = false;
             button4.Click += btnFix_Click;
@@ -495,6 +496,7 @@
             dtgvCustomer.RowHeadersWidth = 62;
             dtgvCustomer.Size = new Size(1217, 381);
             dtgvCustomer.TabIndex = 27;
+            dtgvCustomer.TabStop = false;
             dtgvCustomer.CellClick += dtgvCustomer_CellClick;
             // 
             // fCustomer

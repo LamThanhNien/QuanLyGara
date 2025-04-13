@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Quanly.DTO;
+using Quanly.BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +24,7 @@ namespace Quanly
         }
         public void loadcbbName()
         {
-            List<DTO.Service> dt = DAO.ServiceDAO.Instance.LoadDLByThanhToan();
+            List<DTO.Service> dt = ServiceBUS.Instance.LoadDLByThanhToan();
             cbbname.DataSource = dt;
             cbbname.DisplayMember = "name";
         }
@@ -53,7 +55,7 @@ namespace Quanly
         }
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if (DAO.ServiceDAO.Instance.CheckDichvu_in_Billinfo(id)>0)
+            if (ServiceBUS.Instance.CheckServiceInBillInfo(id)>0)
             {
                 MessageBox.Show("Dịch vụ bạn chọn đang ở trong quá trình thanh toán vui lòng thanh toán trước khi xóa");
                 return;
@@ -61,7 +63,7 @@ namespace Quanly
 
             if (MessageBox.Show("Bạn có chắc muốn xóa không","thông báo",MessageBoxButtons.YesNo)==DialogResult.Yes)
             {
-                if (DAO.ServiceDAO.Instance.DelDichvu(id)== 1)
+                if (ServiceBUS.Instance.DelDichvu(id))
                 {
                     loadcbbName();
                     return;

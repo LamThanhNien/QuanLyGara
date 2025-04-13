@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Quanly.DTO;
+using Quanly.DAO;
+using Quanly.BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,7 +58,7 @@ namespace Quanly
 
         private void fAccountProfile_Load(object sender, EventArgs e)
         {
-            tbDispayname.Text = DAO.AccountDAO.Instance.GetDislayName(Username);
+            tbDispayname.Text = AccountBUS.Instance.GetDisplayName(Username);
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -65,9 +68,9 @@ namespace Quanly
             string pwOld = tbPasswordOld.Text;
             string pwNew = tbPasswordNew.Text;
             string pwre = tbPasswordre.Text;
-            if (DAO.AccountDAO.Instance.CheckUserInAccount(User) == 0)
+            if (AccountBUS.Instance.CheckUserInAccount(User) == 0)
             {
-                DAO.AccountDAO.Instance.SaveUser(User ,luuUser);
+                AccountBUS.Instance.SaveUser(User ,luuUser);
             }
             else
             {
@@ -86,7 +89,7 @@ namespace Quanly
                 {
                     pwNew = pwOld;
                 }
-                if (DAO.AccountDAO.Instance.UpdateAccount(Display, User, pwNew) == -1)
+                if (AccountBUS.Instance.UpdateAccount(Display, User, pwNew) == -1)
                 {
                     MessageBox.Show("Cập nhật thông tin Không thành công");
                     return;

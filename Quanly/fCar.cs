@@ -1,4 +1,6 @@
-﻿using Quanly.DAO;
+﻿using Quanly.BUS;
+using Quanly.DAO;
+using Quanly.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +43,7 @@ namespace Quanly
 
         void loadCar()
         {
-            DAO.CarDAO.Instance.LoadDL(dtgvCar);
+            dtgvCar.DataSource = CarBUS.Instance.LoadDL();
             dtgvCar.RowPostPaint += dataGridView_RowPostPaint;
             dtgvCar_CellClick(null, new DataGridViewCellEventArgs(0, 0));
 
@@ -77,7 +79,7 @@ namespace Quanly
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            List<DTO.Car> listCar = DAO.Search.Instance.searchCarbyname(tbTimCar.Text);
+            List<Car> listCar = SearchBUS.Instance.searchCarbyname(tbTimCar.Text);
             dtgvCar.DataSource = listCar;
             if (listCar == null)
             {
@@ -151,7 +153,7 @@ namespace Quanly
             }
             if (MessageBox.Show("Bạn Có Muốn Xóa XE này chứ !", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (DAO.CarDAO.Instance.DeleteCar(id) != 1)
+                if (CarBUS.Instance.DeleteCar(id) != 1)
                 {
                     MessageBox.Show("Xóa Thất bại");
                     return;
@@ -180,7 +182,7 @@ namespace Quanly
             string hang = tbHang.Text;
             string color = tbColor.Text;
             string image = pictureBoxCar.Tag as string ?? "";
-            if(DAO.CarDAO.Instance.FixCar(idCarr, name, numcar, color, hang, image)==0)
+            if(CarBUS.Instance.FixCar(idCarr, name, numcar, color, hang, image)==0)
             {
                 MessageBox.Show("Cập nhật thất bại");
                 return;
@@ -201,12 +203,12 @@ namespace Quanly
             string image = pictureBoxCar.Tag as string ?? "";
             string hang = tbHang.Text;
 
-            if (CustomerDAO.Instance.checkNumBerCar(numCar))
+            if (CustomerBUS.Instance.checkNumBerCar(numCar))
             {
                 MessageBox.Show("Xe đã tồn tại, vui lòng nhập biển số xe khác", "thông báo", MessageBoxButtons.OK);
                 return;
             }
-            if (DAO.CarDAO.Instance.AddCar(id, nameCar, numCar, color, image, hang)==0)
+            if (CarBUS.Instance.AddCar(id, nameCar, numCar, color, image, hang)==0)
             {
                 MessageBox.Show("Thêm thất bại");
                 return;

@@ -69,7 +69,7 @@
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(460, 517);
-            panel2.TabIndex = 3;
+            panel2.TabIndex = 0;
             // 
             // CheckBoxShow
             // 
@@ -79,7 +79,7 @@
             CheckBoxShow.Location = new Point(297, 287);
             CheckBoxShow.Name = "CheckBoxShow";
             CheckBoxShow.Size = new Size(161, 25);
-            CheckBoxShow.TabIndex = 6;
+            CheckBoxShow.TabIndex = 3;
             CheckBoxShow.Text = "Hiện mật khẩu";
             CheckBoxShow.UseVisualStyleBackColor = true;
             CheckBoxShow.CheckedChanged += checkBox1_CheckedChanged;
@@ -94,7 +94,7 @@
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(135, 43);
-            label3.TabIndex = 4;
+            label3.TabIndex = 0;
             label3.Text = "Sign in";
             // 
             // button1
@@ -106,7 +106,7 @@
             button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(456, 61);
-            button1.TabIndex = 2;
+            button1.TabIndex = 4;
             button1.Text = "Đăng nhập";
             button1.UseVisualStyleBackColor = false;
             button1.Click += btnLogin_Click;
@@ -121,7 +121,7 @@
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
             panel3.Size = new Size(438, 98);
-            panel3.TabIndex = 1;
+            panel3.TabIndex = 2;
             // 
             // tbpassword
             // 
@@ -133,7 +133,7 @@
             tbpassword.Margin = new Padding(2);
             tbpassword.Name = "tbpassword";
             tbpassword.Size = new Size(404, 35);
-            tbpassword.TabIndex = 1;
+            tbpassword.TabIndex = 2;
             tbpassword.UseSystemPasswordChar = true;
             // 
             // label2
@@ -158,7 +158,7 @@
             panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
             panel4.Size = new Size(438, 98);
-            panel4.TabIndex = 0;
+            panel4.TabIndex = 1;
             // 
             // tbname
             // 

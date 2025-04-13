@@ -1,0 +1,12 @@
+D:\Github\QuanLyGara\QuanLyGara\DTO\bin\Debug\net8.0\DTO.deps.json
+D:\Github\QuanLyGara\QuanLyGara\DTO\bin\Debug\net8.0\DTO.dll
+D:\Github\QuanLyGara\QuanLyGara\DTO\bin\Debug\net8.0\DTO.pdb
+D:\Github\QuanLyGara\QuanLyGara\DTO\obj\Debug\net8.0\DTO.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\QuanLyGara\QuanLyGara\DTO\obj\Debug\net8.0\DTO.AssemblyInfoInputs.cache
+D:\Github\QuanLyGara\QuanLyGara\DTO\obj\Debug\net8.0\DTO.AssemblyInfo.cs
+D:\Github\QuanLyGara\QuanLyGara\DTO\obj\Debug\net8.0\DTO.csproj.CoreCompileInputs.cache
+D:\Github\QuanLyGara\QuanLyGara\DTO\obj\Debug\net8.0\DTO.sourcelink.json
+D:\Github\QuanLyGara\QuanLyGara\DTO\obj\Debug\net8.0\DTO.dll
+D:\Github\QuanLyGara\QuanLyGara\DTO\obj\Debug\net8.0\refint\DTO.dll
+D:\Github\QuanLyGara\QuanLyGara\DTO\obj\Debug\net8.0\DTO.pdb
+D:\Github\QuanLyGara\QuanLyGara\DTO\obj\Debug\net8.0\ref\DTO.dll

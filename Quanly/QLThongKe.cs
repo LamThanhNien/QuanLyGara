@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Quanly.DTO;
+using Quanly.BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,7 +28,7 @@ namespace Quanly
         }
         public void loadProduct()
         {
-            DAO.MaterialDAO.Instance.LoadMaterial(dataGridViewProduct);
+            MaterialBUS.Instance.LoadMaterial();
         }
         private void QLThongKe_Load(object sender, EventArgs e)
         {

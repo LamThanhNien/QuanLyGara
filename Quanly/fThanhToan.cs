@@ -1,5 +1,6 @@
-﻿using Quanly.DAO;
+﻿
 using Quanly.DTO;
+using Quanly.BUS;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -16,7 +17,7 @@ namespace Quanly
 
         void loadThanhToan()
         {
-            DAO.ThanhToanDAO.Instance.LoadDL(dtgvCustomer);
+            dtgvCustomer.DataSource = ThanhToanBUS.Instance.LoadDuLieuThanhToan();
             dtgvCustomer.RowPostPaint += dataGridView_RowPostPaint;
 
             dtgvCustomer.Columns[0].Width = 170;
@@ -50,7 +51,7 @@ namespace Quanly
         }
         void LoadCombobox_Service()
         {
-            List<DTO.Service> data = DAO.ServiceDAO.Instance.LoadDLByThanhToan();
+            List<DTO.Service> data = ServiceBUS.Instance.LoadDLByThanhToan();
             comboBoxLoad.DataSource = data;
             comboBoxLoad.DisplayMember = "name";
             comboBoxLoad.ValueMember = "Id";
@@ -59,7 +60,7 @@ namespace Quanly
         void LoadCombobox_Material(int idService)
         {
             cbbSp.Text = "";
-            List<DTO.Material> data = DAO.MaterialDAO.Instance.ComboBoxLoadbyThanhToan(idService);
+            List<DTO.Material> data = MaterialBUS.Instance.ComboBoxLoadbyThanhToan(idService);
             cbbSp.DataSource = data;
             cbbSp.DisplayMember = "name";
             //cbbSp.ValueMember = "idMaterial";
@@ -79,9 +80,9 @@ namespace Quanly
         {
             listViewPrice.Items.Clear();
             tbTotal.Clear();
-            int idBIll = DAO.BillDAO.Instance.GetIdBill(idCustomer);
+            int idBIll = BillBUS.Instance.GetIdBill(idCustomer);
 
-            List<DTO.Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(idBIll);
+            List<DTO.Menu> listBillInfo = MenuBUS.Instance.GetListMenuByTable(idBIll);
             float totalPrice = 0;
 
             foreach (DTO.Menu item in listBillInfo)
@@ -105,7 +106,7 @@ namespace Quanly
                 loadThanhToan();
                 dtgvCustomer_CellClick(null, new DataGridViewCellEventArgs(0, 0));
             }
-            List<ThanhToan> listCustomer = DAO.Search.Instance.searchCustomerbyname(textBox8.Text);
+            List<ThanhToan> listCustomer = SearchBUS.Instance.searchCustomerbyname(textBox8.Text);
             dtgvCustomer.DataSource = listCustomer;
             textBox8.Text = "";
         }
@@ -139,13 +140,13 @@ namespace Quanly
                 MessageBox.Show("Sản phẩm không tồn tại, vui lòng chọn phân loại khác");
                 return;
             }
-            int status = BillDAO.Instance.GetStatus(idCustomer);
-            int idBill = BillDAO.Instance.GetIdBill(idCustomer);
+            int status = BillBUS.Instance.GetStatus(idCustomer);
+            int idBill = BillBUS.Instance.GetIdBill(idCustomer);
             int IdService = comboBoxLoad.SelectedValue != null ? Convert.ToInt32(comboBoxLoad.SelectedValue) : -1;
             int IdMaterial = (cbbSp.SelectedItem as DTO.Material)?.IdMaterial ?? 0;
             int count = (int)numericUpDown.Value;
 
-            int countInMaterial = DAO.MaterialDAO.Instance.GetCountInMaterial(IdMaterial);
+            int countInMaterial = MaterialBUS.Instance.GetCountInMaterial(IdMaterial);
             if (count > countInMaterial)
             {
                 if (countInMaterial == 0)
@@ -159,12 +160,12 @@ namespace Quanly
 
             if (idBill <= 0)
             {
-                idBill = BillDAO.Instance.InsertBill(idCustomer);
+                idBill = BillBUS.Instance.InsertBill(idCustomer);
             }
 
             if (idBill > 0)
             {
-                BillInfoDAO.Instance.InsertBillInfo(idBill, IdService, IdMaterial, count);
+                BillInfoBUS.Instance.InsertBillInfo(idBill, IdService, IdMaterial, count);
                 showBill(idCustomer);
             }
         }
@@ -182,12 +183,12 @@ namespace Quanly
 
                     if (result == DialogResult.Yes)
                     {
-                        if (DAO.MaterialDAO.Instance.UpdateCountByMaterial(itemName, Count) == -1)
+                        if (MaterialBUS.Instance.UpdateCountByMaterial(itemName, Count) == -1)
                         {
                             MessageBox.Show("Lỗi quá trình cập nhật số lượng");
                             return;
                         }
-                        DAO.BillInfoDAO.Instance.DeleteBillInfo(itemName);
+                        BillInfoBUS.Instance.DeleteBillInfo(itemName);
                         listViewPrice.Items.Remove(hit.Item);
                     }
                 }
@@ -195,8 +196,8 @@ namespace Quanly
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            int status = BillDAO.Instance.GetStatus(idCustomer);
-            int idBill = DAO.BillDAO.Instance.GetIdBill(idCustomer);
+            int status = BillBUS.Instance.GetStatus(idCustomer);
+            int idBill = BillBUS.Instance.GetIdBill(idCustomer);
 
             if (idBill <= 0)
             {
@@ -214,7 +215,7 @@ namespace Quanly
 
             if (check == DialogResult.Yes)
             {
-                int result = DAO.ThanhToanDAO.Instance.ThanhToan(idBill);
+                int result = ThanhToanBUS.Instance.ThucHienThanhToan(idBill);
                 if (result > 0)
                 {
                     showBill(idCustomer);

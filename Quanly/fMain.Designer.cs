@@ -121,7 +121,7 @@
             btnLogout.Margin = new Padding(4, 3, 4, 3);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(235, 47);
-            btnLogout.TabIndex = 7;
+            btnLogout.TabIndex = 8;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Visible = false;
@@ -138,7 +138,7 @@
             btnThongke.Margin = new Padding(4, 3, 4, 3);
             btnThongke.Name = "btnThongke";
             btnThongke.Size = new Size(235, 64);
-            btnThongke.TabIndex = 5;
+            btnThongke.TabIndex = 7;
             btnThongke.Text = "Thống Kê";
             btnThongke.UseVisualStyleBackColor = false;
             btnThongke.Visible = false;
@@ -155,7 +155,7 @@
             btnEmployee.Margin = new Padding(4, 3, 4, 3);
             btnEmployee.Name = "btnEmployee";
             btnEmployee.Size = new Size(235, 64);
-            btnEmployee.TabIndex = 6;
+            btnEmployee.TabIndex = 5;
             btnEmployee.Text = "QL Nhân Viên";
             btnEmployee.UseVisualStyleBackColor = false;
             btnEmployee.Visible = false;
@@ -337,7 +337,7 @@
             label1.Location = new Point(6, 3);
             label1.Name = "label1";
             label1.Size = new Size(149, 29);
-            label1.TabIndex = 2;
+            label1.TabIndex = 0;
             label1.Text = "Thanh Toán";
             // 
             // tbUsername
@@ -352,7 +352,8 @@
             tbUsername.ReadOnly = true;
             tbUsername.RightToLeft = RightToLeft.Yes;
             tbUsername.Size = new Size(624, 26);
-            tbUsername.TabIndex = 1;
+            tbUsername.TabIndex = 0;
+            tbUsername.TabStop = false;
             tbUsername.Text = "Xin chào";
             // 
             // panelbody
@@ -361,7 +362,7 @@
             panelbody.Location = new Point(235, 50);
             panelbody.Name = "panelbody";
             panelbody.Size = new Size(1287, 852);
-            panelbody.TabIndex = 2;
+            panelbody.TabIndex = 1;
             // 
             // contextMenuStrip1
             // 

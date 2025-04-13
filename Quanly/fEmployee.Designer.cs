@@ -80,6 +80,7 @@
             dtgvEmployee.RowHeadersWidth = 62;
             dtgvEmployee.Size = new Size(800, 592);
             dtgvEmployee.TabIndex = 14;
+            dtgvEmployee.TabStop = false;
             dtgvEmployee.CellClick += dtgvEmployee_CellClick;
             // 
             // panel1
@@ -185,7 +186,7 @@
             panel27.Margin = new Padding(4, 3, 4, 3);
             panel27.Name = "panel27";
             panel27.Size = new Size(467, 58);
-            panel27.TabIndex = 18;
+            panel27.TabIndex = 21;
             // 
             // cbbType
             // 
@@ -219,7 +220,7 @@
             panel30.Margin = new Padding(4, 3, 4, 3);
             panel30.Name = "panel30";
             panel30.Size = new Size(458, 53);
-            panel30.TabIndex = 19;
+            panel30.TabIndex = 23;
             // 
             // button3
             // 
@@ -228,7 +229,7 @@
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new Size(97, 35);
-            button3.TabIndex = 3;
+            button3.TabIndex = 4;
             button3.Text = "Xem";
             button3.UseVisualStyleBackColor = true;
             button3.Click += btnShow_Click;
@@ -240,7 +241,7 @@
             button6.Margin = new Padding(4, 3, 4, 3);
             button6.Name = "button6";
             button6.Size = new Size(102, 35);
-            button6.TabIndex = 0;
+            button6.TabIndex = 1;
             button6.Text = "Thêm";
             button6.UseVisualStyleBackColor = true;
             button6.Click += btnAdd_Click;
@@ -252,7 +253,7 @@
             button5.Margin = new Padding(4, 3, 4, 3);
             button5.Name = "button5";
             button5.Size = new Size(105, 35);
-            button5.TabIndex = 1;
+            button5.TabIndex = 2;
             button5.Text = "Lưu";
             button5.UseVisualStyleBackColor = true;
             button5.Click += btnFix_Click;
@@ -264,7 +265,7 @@
             button4.Margin = new Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new Size(101, 35);
-            button4.TabIndex = 2;
+            button4.TabIndex = 3;
             button4.Text = "Xóa";
             button4.UseVisualStyleBackColor = true;
             button4.Click += btnDelete_Click;
@@ -278,7 +279,7 @@
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(467, 58);
-            panel2.TabIndex = 20;
+            panel2.TabIndex = 18;
             // 
             // tbChucvu
             // 
@@ -309,7 +310,7 @@
             panel3.Margin = new Padding(4, 3, 4, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(467, 58);
-            panel3.TabIndex = 21;
+            panel3.TabIndex = 19;
             // 
             // tbLuong
             // 
@@ -340,7 +341,7 @@
             panel4.Margin = new Padding(4, 3, 4, 3);
             panel4.Name = "panel4";
             panel4.Size = new Size(467, 58);
-            panel4.TabIndex = 22;
+            panel4.TabIndex = 20;
             // 
             // tbDay
             // 
@@ -380,7 +381,7 @@
             panel5.Margin = new Padding(4, 3, 4, 3);
             panel5.Name = "panel5";
             panel5.Size = new Size(467, 58);
-            panel5.TabIndex = 23;
+            panel5.TabIndex = 22;
             // 
             // fEmployee
             // 

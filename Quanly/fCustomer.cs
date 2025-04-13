@@ -1,4 +1,5 @@
-﻿using Quanly.DAO;
+﻿using Quanly.BUS;
+using Quanly.DAO;
 using Quanly.DTO;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -40,7 +41,7 @@ namespace Quanly
         }
         void loadCustomer()
         {
-            DAO.CustomerDAO.Instance.LoadDLByCustomer(dtgvCustomer);
+            dtgvCustomer.DataSource = CustomerBUS.Instance.LoadDLByCustomer();
             dtgvCustomer.RowPostPaint += dataGridView_RowPostPaint;
             dtgvCustomer.Columns[0].Width = 170;
             dtgvCustomer.Columns[0].HeaderText = "Tên Khách hàng";
@@ -81,7 +82,7 @@ namespace Quanly
         }
         private void lbSearch_Click(object sender, EventArgs e)
         {
-            List<DTO.Customer_Car> listCustomer = DAO.Search.Instance.searchCustomer(textBoxTim.Text);
+            List<DTO.Customer_Car> listCustomer = SearchBUS.Instance.searchCustomer(textBoxTim.Text);
             var displayList = listCustomer.Select(c => new
             {
                 c.NameCtm, Sex = c.Sex == 0 ? "Nam" : "Nữ",c.Address,c.Phone,c.NameCar,c.NumCar,c.Hang,c.Color,c.Image, c.IdCustomer
@@ -154,7 +155,7 @@ namespace Quanly
         {
             string filePath = pictureBoxCar.Tag as string ?? "";
             if (!check_thongtin()) return;
-            if (CustomerDAO.Instance.checkNumBerCar(tbNumcar.Text))
+            if (CustomerBUS.Instance.checkNumBerCar(tbNumcar.Text))
             {
                 MessageBox.Show("Xe đã tồn tại, vui lòng nhập biển số xe khác", "thông báo", MessageBoxButtons.OK);
                 tbNumcar.Focus();
@@ -170,11 +171,11 @@ namespace Quanly
         }
         public bool insert(int idKhach, string name, string address, string numberphone, string namecar, string numcar, string hang, string logo, string filePath)
         {
-            if (!DAO.CustomerDAO.Instance.checkidKhach(idKhach))
+            if (!CustomerBUS.Instance.checkidKhach(idKhach))
             {
-                return DAO.CustomerDAO.Instance.AddCustomer(name, address, numberphone, namecar, numcar, hang, logo, filePath);
+                return CustomerBUS.Instance.AddCustomer(name, address, numberphone, namecar, numcar, hang, logo, filePath);
             }
-            return DAO.CustomerDAO.Instance.AddCar_Customer(idKhach, name, address, numberphone, namecar, numcar, hang, logo, filePath);
+            return CustomerBUS.Instance.AddCar_Customer(idKhach, name, address, numberphone, namecar, numcar, hang, logo, filePath);
         }
         public bool check_thongtin()
         {
@@ -234,7 +235,7 @@ namespace Quanly
             }
             if (MessageBox.Show("Bạn có chắc muốn xóa khách hàng này chứ!", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if(DAO.CustomerDAO.Instance.DeleteCtn_Car(id)!=1)
+                if(CustomerBUS.Instance.DeleteCtn_Car(id)!=1)
                 {
                     MessageBox.Show("Xóa thất bại vui lòng thử lại");
                 }
@@ -274,7 +275,7 @@ namespace Quanly
                 pictureBoxCar.Image = null;
             }
 
-            int result = DAO.CustomerDAO.Instance.FixCustomer_Car(idCustomer, name, sex, address, phone, nameCar, numCar, color, hang, imagePath);
+            int result = CustomerBUS.Instance.FixCustomer_Car(idCustomer, name, sex, address, phone, nameCar, numCar, color, hang, imagePath);
             if (result == 0)
             {
                 MessageBox.Show("Cập nhật thất bại");

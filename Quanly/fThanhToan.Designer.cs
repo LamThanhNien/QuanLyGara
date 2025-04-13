@@ -70,7 +70,8 @@
             dtgvCustomer.Name = "dtgvCustomer";
             dtgvCustomer.RowHeadersWidth = 62;
             dtgvCustomer.Size = new Size(686, 844);
-            dtgvCustomer.TabIndex = 1;
+            dtgvCustomer.TabIndex = 0;
+            dtgvCustomer.TabStop = false;
             dtgvCustomer.CellClick += dtgvCustomer_CellClick;
             // 
             // listViewPrice
@@ -83,7 +84,8 @@
             listViewPrice.Margin = new Padding(4, 3, 4, 3);
             listViewPrice.Name = "listViewPrice";
             listViewPrice.Size = new Size(635, 495);
-            listViewPrice.TabIndex = 12;
+            listViewPrice.TabIndex = 0;
+            listViewPrice.TabStop = false;
             listViewPrice.UseCompatibleStateImageBehavior = false;
             listViewPrice.View = View.Details;
             listViewPrice.MouseClick += listViewPrice_MouseClick;
@@ -121,7 +123,8 @@
             tbTotal.Name = "tbTotal";
             tbTotal.ReadOnly = true;
             tbTotal.Size = new Size(362, 37);
-            tbTotal.TabIndex = 13;
+            tbTotal.TabIndex = 1;
+            tbTotal.TabStop = false;
             tbTotal.Text = "0";
             tbTotal.TextAlign = HorizontalAlignment.Right;
             // 
@@ -134,7 +137,7 @@
             btnThanhToan.Margin = new Padding(5, 3, 5, 3);
             btnThanhToan.Name = "btnThanhToan";
             btnThanhToan.Size = new Size(228, 48);
-            btnThanhToan.TabIndex = 14;
+            btnThanhToan.TabIndex = 4;
             btnThanhToan.Text = "Thanh Toán";
             btnThanhToan.UseVisualStyleBackColor = false;
             btnThanhToan.Click += btnThanhToan_Click;
@@ -152,7 +155,8 @@
             panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(635, 95);
-            panel2.TabIndex = 15;
+            panel2.TabIndex = 3;
+            panel2.TabStop = true;
             // 
             // label20
             // 
@@ -163,7 +167,7 @@
             label20.Margin = new Padding(4, 0, 4, 0);
             label20.Name = "label20";
             label20.Size = new Size(50, 24);
-            label20.TabIndex = 5;
+            label20.TabIndex = 0;
             label20.Text = "Loại";
             // 
             // label12
@@ -175,7 +179,7 @@
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
             label12.Size = new Size(104, 24);
-            label12.TabIndex = 4;
+            label12.TabIndex = 0;
             label12.Text = "Phân Loại";
             // 
             // numericUpDown
@@ -187,7 +191,8 @@
             numericUpDown.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
             numericUpDown.Name = "numericUpDown";
             numericUpDown.Size = new Size(79, 30);
-            numericUpDown.TabIndex = 3;
+            numericUpDown.TabIndex = 0;
+            numericUpDown.TabStop = false;
             numericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // btnAddBill
@@ -200,7 +205,7 @@
             btnAddBill.Margin = new Padding(4, 3, 4, 3);
             btnAddBill.Name = "btnAddBill";
             btnAddBill.Size = new Size(134, 46);
-            btnAddBill.TabIndex = 2;
+            btnAddBill.TabIndex = 3;
             btnAddBill.Text = "Thêm";
             btnAddBill.UseVisualStyleBackColor = false;
             btnAddBill.Click += btnAddBill_Click;
@@ -213,7 +218,8 @@
             cbbSp.Margin = new Padding(4, 3, 4, 3);
             cbbSp.Name = "cbbSp";
             cbbSp.Size = new Size(276, 32);
-            cbbSp.TabIndex = 1;
+            cbbSp.TabIndex = 0;
+            cbbSp.TabStop = false;
             // 
             // comboBoxLoad
             // 
@@ -224,6 +230,7 @@
             comboBoxLoad.Name = "comboBoxLoad";
             comboBoxLoad.Size = new Size(276, 32);
             comboBoxLoad.TabIndex = 0;
+            comboBoxLoad.TabStop = false;
             comboBoxLoad.SelectedIndexChanged += comboBoxLoad_SelectedIndexChanged;
             // 
             // panel3
@@ -235,7 +242,7 @@
             panel3.Margin = new Padding(5, 3, 5, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(635, 56);
-            panel3.TabIndex = 16;
+            panel3.TabIndex = 0;
             // 
             // tbCtm
             // 
@@ -245,7 +252,8 @@
             tbCtm.Name = "tbCtm";
             tbCtm.ReadOnly = true;
             tbCtm.Size = new Size(419, 30);
-            tbCtm.TabIndex = 1;
+            tbCtm.TabIndex = 0;
+            tbCtm.TabStop = false;
             // 
             // label2
             // 
@@ -267,7 +275,7 @@
             panel4.Margin = new Padding(5, 3, 5, 3);
             panel4.Name = "panel4";
             panel4.Size = new Size(635, 56);
-            panel4.TabIndex = 16;
+            panel4.TabIndex = 0;
             // 
             // tbnumCar
             // 
@@ -277,7 +285,8 @@
             tbnumCar.Name = "tbnumCar";
             tbnumCar.ReadOnly = true;
             tbnumCar.Size = new Size(419, 30);
-            tbnumCar.TabIndex = 1;
+            tbnumCar.TabIndex = 0;
+            tbnumCar.TabStop = false;
             // 
             // label3
             // 
@@ -297,7 +306,7 @@
             textBox8.Margin = new Padding(5, 3, 5, 3);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(448, 30);
-            textBox8.TabIndex = 17;
+            textBox8.TabIndex = 1;
             // 
             // btntim
             // 
@@ -309,7 +318,7 @@
             btntim.Margin = new Padding(5, 3, 5, 3);
             btntim.Name = "btntim";
             btntim.Size = new Size(127, 34);
-            btntim.TabIndex = 18;
+            btntim.TabIndex = 2;
             btntim.Text = "Tìm";
             btntim.UseVisualStyleBackColor = false;
             btntim.Click += btntim_Click;

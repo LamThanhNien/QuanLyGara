@@ -65,6 +65,39 @@
             "rid": "win"
           }
         }
+      },
+      "BUS/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/BUS.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BUS.dll": {}
+        }
+      },
+      "DAO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "System.Data.SqlClient": "4.9.0"
+        },
+        "compile": {
+          "bin/placeholder/DAO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DAO.dll": {}
+        }
+      },
+      "DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTO.dll": {}
+        }
       }
     }
   },
@@ -164,10 +197,28 @@
         "system.data.sqlclient.4.9.0.nupkg.sha512",
         "system.data.sqlclient.nuspec"
       ]
+    },
+    "BUS/1.0.0": {
+      "type": "project",
+      "path": "../BUS/BUS.csproj",
+      "msbuildProject": "../BUS/BUS.csproj"
+    },
+    "DAO/1.0.0": {
+      "type": "project",
+      "path": "../DAO/DAO.csproj",
+      "msbuildProject": "../DAO/DAO.csproj"
+    },
+    "DTO/1.0.0": {
+      "type": "project",
+      "path": "../DTO/DTO.csproj",
+      "msbuildProject": "../DTO/DTO.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "BUS >= 1.0.0",
+      "DAO >= 1.0.0",
+      "DTO >= 1.0.0",
       "System.Data.SqlClient >= 4.9.0"
     ]
   },
@@ -202,7 +253,17 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Github\\QuanLyGara\\QuanLyGara\\BUS\\BUS.csproj": {
+              "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\BUS\\BUS.csproj"
+            },
+            "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\DAO.csproj": {
+              "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\DAO.csproj"
+            },
+            "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\DTO.csproj": {
+              "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\DTO.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
