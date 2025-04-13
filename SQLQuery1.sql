@@ -431,7 +431,7 @@ BEGIN
         DECLARE @newCount INT = @quantity + @count;
         IF (@newCount > 0)
             UPDATE BillInfo SET quantity = @newCount 
-            WHERE idBill = @IdBill AND idService = @IdService AND idMaterial = @IdMaterial;
+            WHERE idBill = @IdBill AND idService = @IdService AND idMaterial = @IdMaterial
         ELSE
             DELETE FROM BillInfo 
             WHERE idBill = @IdBill AND idService = @IdService AND idMaterial = @IdMaterial;
@@ -442,6 +442,10 @@ BEGIN
         INSERT INTO BillInfo (idBill, idService, idMaterial, quantity)
         VALUES (@IdBill, @IdService, @IdMaterial, @count);
     END
+
+			UPDATE Material
+			SET quantity = quantity - @count
+			WHERE idMaterial = @idMaterial;
 END;
 GO
 
@@ -449,8 +453,8 @@ CREATE PROCEDURE USP_ThanhToan
     @idBill INT
 AS
 BEGIN
-    BEGIN TRANSACTION;
-    BEGIN TRY
+    --BEGIN TRANSACTION;
+    --BEGIN TRY
         DECLARE @TOTAL DECIMAL(18,2) = 0;
         DECLARE @DateCheckIn Date;
         DECLARE @DateCheckOut DATE = GETDATE();
@@ -469,21 +473,6 @@ BEGIN
           AND bi.idMaterial IS NOT NULL
           AND m.quantity >= bi.quantity; -- Đảm bảo không âm
 
-        -- Kiểm tra nếu có vật liệu không đủ số lượng
-        IF EXISTS (
-            SELECT 1 
-            FROM BillInfo bi
-            JOIN Material m ON bi.idMaterial = m.idMaterial
-            WHERE bi.idBill = @idBill 
-              AND bi.idMaterial IS NOT NULL
-              AND m.quantity < bi.quantity
-        )
-        BEGIN
-            ROLLBACK TRANSACTION;
-            RAISERROR('Một số vật liệu không đủ số lượng trong kho', 16, 1);
-            RETURN;
-        END
-
         -- 3. Tính tổng tiền hóa đơn (cả Service và Material)
 		SELECT 
 			@TOTAL = Sum(bi.quantity* m.price)
@@ -499,18 +488,6 @@ BEGIN
         -- 5. Thêm doanh thu vào bảng Revenue
         INSERT INTO Revenue (idBill, totalRevenue, datein, dateRevenue)
         VALUES (@idBill, @TOTAL, @DateCheckIn, @DateCheckOut);
-
-        COMMIT TRANSACTION;
-    END TRY
-    BEGIN CATCH
-        ROLLBACK TRANSACTION;
-        -- Trả về thông báo lỗi chi tiết
-        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
-        DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
-        DECLARE @ErrorState INT = ERROR_STATE();
-        
-        RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState);
-    END CATCH
 END;
 GO
 
@@ -536,3 +513,12 @@ BEGIN
     SET @output = REPLACE(@output, N'đ', 'd');
     RETURN @output;
 END;
+
+
+UPDATE Account SET DisplayName = N'Lâm Thành Niên 1' , UserName ='a' , Password = 1 WHERE UserName = 'a'
+select* from Account
+
+
+UPDATE Account SET UserName = 'B' WHERE UserName = 'a'
+
+SELECT COUNT(*) FROM Account WHERE Username = 'd'
