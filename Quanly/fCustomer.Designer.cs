@@ -1,4 +1,4 @@
-﻿namespace Quanly
+namespace Quanly
 {
     partial class fCustomer
     {
@@ -445,6 +445,7 @@
             btnSearch.TabIndex = 9;
             btnSearch.Text = "Tìm";
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // button5
             // 
