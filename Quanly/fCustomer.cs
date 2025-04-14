@@ -80,7 +80,7 @@ namespace Quanly
             tbphone.Text = phone;
             tbAddress.Text = address;
         }
-        private void lbSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             List<DTO.Customer_Car> listCustomer = SearchBUS.Instance.searchCustomer(textBoxTim.Text);
             var displayList = listCustomer.Select(c => new
