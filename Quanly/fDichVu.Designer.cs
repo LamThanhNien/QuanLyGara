@@ -193,6 +193,7 @@
             // 
             // comboBoxLoadMaterial
             // 
+            comboBoxLoadMaterial.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxLoadMaterial.FormattingEnabled = true;
             comboBoxLoadMaterial.Location = new Point(115, 13);
             comboBoxLoadMaterial.Name = "comboBoxLoadMaterial";

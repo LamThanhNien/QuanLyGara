@@ -40,8 +40,14 @@ namespace Quanly
             fMain.Close();
             await Task.Delay(100);
         }
+        public int count = 0;
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if(count>3)
+            {
+                MessageBox.Show("Bạn đã nhập sai mật khẩu quá 3 lần vui lòng liên hệ với Quản lý để giải quyết");
+                return;
+            }    
             if (string.IsNullOrEmpty(tbname.Text) || string.IsNullOrEmpty(tbpassword.Text))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin");
@@ -52,12 +58,9 @@ namespace Quanly
             {
                 DTO.Account loginAc = AccountBUS.Instance.CheckAccount(tbname.Text);
                 int check = loginAc.CheckAdmin;
-                //fMain mainForm = Application.OpenForms["fMain"] as fMain;
-                //if (mainForm != null)
-                //{
-                //}
                 fMain fMain = new fMain(check, tbname.Text, tbpassword.Text);
                 fAccountProfile fAccountProfile = new fAccountProfile(tbname.Text, tbpassword.Text);
+                tbname.Text = "";
                 tbpassword.Text = "";
                 this.Hide();
                 fMain.ShowDialog();
@@ -65,6 +68,7 @@ namespace Quanly
             }
             else
             {
+                count++;
                 MessageBox.Show("Tên tài khoản hoặc mật khẩu không chính xác.", "Thông báo",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

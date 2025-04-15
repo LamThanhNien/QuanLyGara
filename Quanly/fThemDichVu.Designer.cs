@@ -64,18 +64,19 @@
             tbPrice.Name = "tbPrice";
             tbPrice.Size = new Size(281, 37);
             tbPrice.TabIndex = 12;
+            tbPrice.Visible = false;
             // 
             // tbname
             // 
             tbname.Location = new Point(72, 98);
             tbname.Multiline = true;
             tbname.Name = "tbname";
-            tbname.Size = new Size(226, 37);
+            tbname.Size = new Size(281, 37);
             tbname.TabIndex = 11;
             // 
             // button2
             // 
-            button2.Location = new Point(567, 177);
+            button2.Location = new Point(249, 177);
             button2.Name = "button2";
             button2.Size = new Size(104, 38);
             button2.TabIndex = 10;
@@ -87,7 +88,7 @@
             // 
             button1.BackColor = Color.DeepSkyBlue;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(403, 177);
+            button1.Location = new Point(71, 177);
             button1.Name = "button1";
             button1.Size = new Size(98, 38);
             button1.TabIndex = 9;
@@ -103,6 +104,7 @@
             label3.Size = new Size(52, 29);
             label3.TabIndex = 1;
             label3.Text = "Giá";
+            label3.Visible = false;
             // 
             // label2
             // 

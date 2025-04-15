@@ -41,7 +41,21 @@ namespace Quanly
         }
         void loadCustomer()
         {
-            dtgvCustomer.DataSource = CustomerBUS.Instance.LoadDLByCustomer();
+            List<Customer_Car> list = CustomerBUS.Instance.LoadDLByCustomer();
+            var displayList = list.Select(c => new
+            {
+                c.NameCtm,
+                Sex = c.Sex == 0 ? "Nam" : "Nữ",
+                c.Address,
+                c.Phone,
+                c.NameCar,
+                c.NumCar,
+                c.Hang,
+                c.Color,
+                c.Image,
+                c.IdCustomer
+            }).ToList();
+            dtgvCustomer.DataSource = displayList;
             dtgvCustomer.RowPostPaint += dataGridView_RowPostPaint;
             dtgvCustomer.Columns[0].Width = 170;
             dtgvCustomer.Columns[0].HeaderText = "Tên Khách hàng";
@@ -80,15 +94,24 @@ namespace Quanly
             tbphone.Text = phone;
             tbAddress.Text = address;
         }
-        private void lbSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             List<DTO.Customer_Car> listCustomer = SearchBUS.Instance.searchCustomer(textBoxTim.Text);
             var displayList = listCustomer.Select(c => new
             {
-                c.NameCtm, Sex = c.Sex == 0 ? "Nam" : "Nữ",c.Address,c.Phone,c.NameCar,c.NumCar,c.Hang,c.Color,c.Image, c.IdCustomer
+                c.NameCtm,
+                Sex = c.Sex == 0 ? "Nam" : "Nữ",
+                c.Address,
+                c.Phone,
+                c.NameCar,
+                c.NumCar,
+                c.Hang,
+                c.Color,
+                c.Image,
+                c.IdCustomer
             }).ToList();
             dtgvCustomer.DataSource = displayList;
-            if(listCustomer==null)
+            if (listCustomer == null)
             {
                 tbCustomer.Text = "";
                 tbAddress.Text = "";
@@ -100,7 +123,7 @@ namespace Quanly
                 pictureBoxCar.Image = null;
                 pictureBoxCar.Tag = null;
                 tbCustomer.Focus();
-            }    
+            }
             dtgvCustomer_CellClick(null, new DataGridViewCellEventArgs(0, 0));
         }
         private int idCtm;
@@ -228,14 +251,14 @@ namespace Quanly
         {
 
             int id = idCtm;
-            if(id == 0)
+            if (id == 0)
             {
                 MessageBox.Show("Vui lòng chọn đối tượng");
                 return;
             }
             if (MessageBox.Show("Bạn có chắc muốn xóa khách hàng này chứ!", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if(CustomerBUS.Instance.DeleteCtn_Car(id)!=1)
+                if (CustomerBUS.Instance.DeleteCtn_Car(id) != 1)
                 {
                     MessageBox.Show("Xóa thất bại vui lòng thử lại");
                 }

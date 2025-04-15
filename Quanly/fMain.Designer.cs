@@ -44,7 +44,6 @@
             tÀIKHOẢNToolStripMenuItem = new ToolStripMenuItem();
             thôngTinToolStripMenuItem = new ToolStripMenuItem();
             cậpNhậtThôngTinToolStripMenuItem = new ToolStripMenuItem();
-            phânQuyềnToolStripMenuItem = new ToolStripMenuItem();
             Exit = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
@@ -263,24 +262,17 @@
             // 
             // thôngTinToolStripMenuItem
             // 
-            thôngTinToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cậpNhậtThôngTinToolStripMenuItem, phânQuyềnToolStripMenuItem });
+            thôngTinToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cậpNhậtThôngTinToolStripMenuItem });
             thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            thôngTinToolStripMenuItem.Size = new Size(206, 34);
+            thôngTinToolStripMenuItem.Size = new Size(270, 34);
             thôngTinToolStripMenuItem.Text = "Thông tin";
             // 
             // cậpNhậtThôngTinToolStripMenuItem
             // 
             cậpNhậtThôngTinToolStripMenuItem.Name = "cậpNhậtThôngTinToolStripMenuItem";
-            cậpNhậtThôngTinToolStripMenuItem.Size = new Size(305, 34);
+            cậpNhậtThôngTinToolStripMenuItem.Size = new Size(286, 34);
             cậpNhậtThôngTinToolStripMenuItem.Text = "Cập nhật thông tin";
             cậpNhậtThôngTinToolStripMenuItem.Click += cậpNhậtThôngTinToolStripMenuItem_Click;
-            // 
-            // phânQuyềnToolStripMenuItem
-            // 
-            phânQuyềnToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            phânQuyềnToolStripMenuItem.Name = "phânQuyềnToolStripMenuItem";
-            phânQuyềnToolStripMenuItem.Size = new Size(305, 34);
-            phânQuyềnToolStripMenuItem.Text = "Thêm Nhân viên mới";
             // 
             // Exit
             // 
@@ -288,7 +280,7 @@
             Exit.Image = Properties.Resources.download__2_;
             Exit.Name = "Exit";
             Exit.RightToLeft = RightToLeft.Yes;
-            Exit.Size = new Size(206, 34);
+            Exit.Size = new Size(270, 34);
             Exit.Text = "Đăng xuất";
             Exit.TextImageRelation = TextImageRelation.TextBeforeImage;
             Exit.Click += đăngXuấtToolStripMenuItem_Click;
@@ -387,6 +379,7 @@
             RightToLeft = RightToLeft.No;
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
+            WindowState = FormWindowState.Maximized;
             Load += fMain_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -417,7 +410,6 @@
         public ToolStripMenuItem Exit;
         public TextBox tbUsername;
         public Button btnLogout;
-        public ToolStripMenuItem phânQuyềnToolStripMenuItem;
         private ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
         protected Panel panel1;

@@ -116,30 +116,79 @@ INSERT INTO Account (DisplayName, UserName, Password, checkAdmin)
 VALUES 
 (N'Admin1','a','1',1);
 GO
+INSERT INTO Customer (name, sex, address, phoneNum) VALUES
+(N'Nguyễn Văn A', 0, N'Hà Nội', '0912345678'),
+(N'Trần Thị B', 1, N'Hồ Chí Minh', '0923456789'),
+(N'Phạm Văn C', 0, N'Đà Nẵng', '0934567890'),
+(N'Lê Thị D', 1, N'Cần Thơ', '0945678901'),
+(N'Hoàng Văn E', 0, N'Hải Phòng', '0956789012'),
+(N'Đặng Thị F', 1, N'Nghệ An', '0967890123'),
+(N'Bùi Văn G', 0, N'Thanh Hóa', '0978901234'),
+(N'Ngô Thị H', 1, N'Lâm Đồng', '0989012345'),
+(N'Vũ Văn I', 0, N'Nam Định', '0990123456'),
+(N'Đỗ Thị K', 1, N'Bình Dương', '0901234567'),
+(N'Phan Văn L', 0, N'Bắc Ninh', '0912233445'),
+(N'Vương Thị M', 1, N'Hà Tĩnh', '0923344556'),
+(N'Tô Văn N', 0, N'Hưng Yên', '0934455667'),
+(N'La Thị O', 1, N'Tây Ninh', '0945566778'),
+(N'Chu Văn P', 0, N'Tuyên Quang', '0956677889');
+GO
+INSERT INTO Car (idCustomer, name, Hang, numberCar, Color, Image) VALUES
+(1, N'Toyota Vios', N'Toyota', N'30A-12345', N'Đen', NULL),
+(2, N'Honda City', N'Honda', N'59B-67890', N'Đỏ', NULL),
+(3, N'Ford Ranger', N'Ford', N'43C-45678', N'Xám', NULL),
+(4, N'Hyundai Accent', N'Hyundai', N'65A-11223', N'Trắng', NULL),
+(5, N'Kia Morning', N'Kia', N'15B-33445', N'Xanh dương', NULL),
+(6, N'Mazda CX-5', N'Mazda', N'37A-55667', N'Bạc', NULL),
+(7, N'Chevrolet Spark', N'Chevrolet', N'36A-77889', N'Vàng', NULL),
+(8, N'Mitsubishi Xpander', N'Mitsubishi', N'49C-99001', N'Nâu', NULL),
+(9, N'Suzuki Ertiga', N'Suzuki', N'18A-11213', N'Xanh lá', NULL),
+(10, N'Nissan Navara', N'Nissan', N'61B-31415', N'Đen', NULL),
+(11, N'VinFast Lux SA2.0', N'VinFast', N'99C-51617', N'Xám', NULL),
+(12, N'Peugeot 3008', N'Peugeot', N'38A-71819', N'Đỏ', NULL),
+(13, N'Honda CR-V', N'Honda', N'89A-92021', N'Trắng', NULL),
+(14, N'Ford EcoSport', N'Ford', N'70B-12223', N'Bạc', NULL),
+(15, N'Toyota Fortuner', N'Toyota', N'22C-32425', N'Đen', NULL);
+GO
 
 INSERT INTO _Service (name, price)
-VALUES
-(N'Thay nhớt động cơ', 500000),
-(N'Thay lọc gió', 300000),
-(N'Kiểm tra hệ thống phanh', 400000),
-(N'Vệ sinh điều hòa', 350000);
+VALUES 
+(N'Thay thế', 150000),
+(N'Bảo dưỡng', 200000);
 GO
 
 INSERT INTO Material (name, type, NoiSx, quantity, price, images)
 VALUES
-(N'Lốp xe Michelin', N'Lốp', N'Thái Lan', 20, 2500000, NULL),
-(N'Má phanh trước', N'Phanh', N'Việt Nam', 15, 450000, NULL),
-(N'Bugi NGK', N'Động cơ', N'Nhật Bản', 50, 150000, NULL),
-(N'Bình ắc quy', N'Điện', N'Hàn Quốc', 10, 1800000, NULL);
+(N'Dầu nhớt', N'Hóa chất', N'Việt Nam', 50, 120000, NULL),
+(N'Lọc gió', N'Phụ tùng', N'Thái Lan', 30, 80000, NULL),
+(N'Bugi', N'Linh kiện', N'Nhật Bản', 40, 95000, NULL),
+(N'Dây curoa', N'Phụ tùng', N'Hàn Quốc', 25, 70000, NULL),
+(N'Đèn pha', N'Phụ kiện', N'Đức', 15, 150000, NULL),
+(N'Ắc quy', N'Linh kiện', N'Mỹ', 10, 250000, NULL),
+(N'Má phanh', N'Phụ tùng', N'Nhật Bản', 20, 180000, NULL),
+(N'Lốp xe', N'Phụ kiện', N'Việt Nam', 12, 800000, NULL),
+(N'Nước làm mát', N'Hóa chất', N'Trung Quốc', 60, 60000, NULL),
+(N'Bình xăng con', N'Linh kiện', N'Nhật Bản', 8, 300000, NULL);
 GO
-
+-- Vật tư dùng cho Thay thế
 INSERT INTO Service_Material (idService, idMaterial)
 VALUES
-(1, 3),
-(3, 2),
-(4, 4),
-(1, 4),
-(3, 1);
+(1, 1),  -- Dầu nhớt
+(1, 2),  -- Lọc gió
+(1, 3),  -- Bugi
+(1, 4),  -- Dây curoa
+(1, 5);  -- Đèn pha
+
+-- Vật tư dùng cho Bảo dưỡng
+INSERT INTO Service_Material (idService, idMaterial)
+VALUES
+(2, 1),  -- Dầu nhớt
+(2, 6),  -- Ắc quy
+(2, 7),  -- Má phanh
+(2, 8),  -- Lốp xe
+(2, 9),  -- Nước làm mát
+(2, 10); -- Bình xăng con
+
 GO
 
 --phần đăng nhập
@@ -378,7 +427,7 @@ END;
 
 GO
 --Phần thanh toán
-create PROCEDURE USP_InsertBill
+CREATE PROCEDURE USP_InsertBill
     @IdCustomer INT  
 AS
 BEGIN
@@ -514,11 +563,3 @@ BEGIN
     RETURN @output;
 END;
 
-
-UPDATE Account SET DisplayName = N'Lâm Thành Niên 1' , UserName ='a' , Password = 1 WHERE UserName = 'a'
-select* from Account
-
-
-UPDATE Account SET UserName = 'B' WHERE UserName = 'a'
-
-SELECT COUNT(*) FROM Account WHERE Username = 'd'

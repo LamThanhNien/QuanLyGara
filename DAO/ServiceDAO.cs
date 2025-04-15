@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,6 +82,13 @@ namespace Quanly.DAO
             return  result!=null? Convert.ToInt32(result): -1;
         }
 
+        public int themDichvu(string name, string price)
+        {
+            string query = "INSERT INTO _Service (name, price) VALUES( @name , @price );";
+            int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { name, price });
+            return result>0? 1: -1;
+
+        }
         public int DelDichvu(int idDichvu)
         {  
             string query = "DELETE _Service where idService = @idService ";

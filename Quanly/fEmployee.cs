@@ -68,7 +68,7 @@ namespace Quanly
                 tbPhone.Text = row.Cells["Phone"].Value?.ToString();
                 tbChucvu.Text = row.Cells["Chucvu"].Value?.ToString();
                 tbLuong.Text = row.Cells["Luong"].Value?.ToString();
-                tbDay.Text = row.Cells["Day"].Value?.ToString();
+                dtpkDay.Text = row.Cells["Day"].Value?.ToString();
                 checkBoxOut.Checked = Convert.ToInt32(row.Cells["Checkout"].Value?.ToString()) == 1 ? true : false;
                 cbbType.Text = Convert.ToInt32(row.Cells["CheckAccount"].Value?.ToString()) == 2 ? "Nhân viên" : "Admin";
                 idEmployee = Convert.ToInt32(row.Cells["IdEmployee"].Value?.ToString());
@@ -84,7 +84,7 @@ namespace Quanly
             string phone = tbPhone.Text;
             string chucvu = tbChucvu.Text;
             double luong = Convert.ToDouble(tbLuong.Text);
-            DateTime day = DateTime.Parse(tbDay.Text);
+            DateTime day = DateTime.Parse(dtpkDay.Text);
 
             int checkuot = checkBoxOut.Checked == true ? 1 : 0;
             if (EmployeeBUS.Instance.AddEmployee(name, phone, chucvu, luong, day, checkuot) == 1)
@@ -101,7 +101,7 @@ namespace Quanly
             string phone = tbPhone.Text;
             string chucvu = tbChucvu.Text;
             double luong = Convert.ToDouble(tbLuong.Text);
-            DateTime day = DateTime.Parse(tbDay.Text);
+            DateTime day = DateTime.Parse(dtpkDay.Text);
 
             int checkuot = checkBoxOut.Checked == true ? 1 : 0;
             EmployeeBUS.Instance.FixEmployee(id, typeAccount, name, phone, chucvu, luong, day, checkuot);

@@ -40,7 +40,6 @@ namespace Quanly
                 btnEmployee.Visible = (check == 1);
                 btnAccount.Visible = (check == 1);
                 btnThongke.Visible = (check == 1);
-                phânQuyềnToolStripMenuItem.Visible = (check == 1);
             }
         }
         private async void fMain_Load(object sender, EventArgs e)

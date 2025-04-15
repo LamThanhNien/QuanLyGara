@@ -1,6 +1,7 @@
 ﻿using Quanly.DTO;
 using Quanly.DAO;
 using System;
+using System.Collections.Generic;
 
 namespace Quanly.BUS
 {

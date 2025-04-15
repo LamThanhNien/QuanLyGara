@@ -53,7 +53,7 @@
             tbLuong = new TextBox();
             label5 = new Label();
             panel4 = new Panel();
-            tbDay = new TextBox();
+            dtpkDay = new DateTimePicker();
             label6 = new Label();
             checkBoxOut = new CheckBox();
             panel5 = new Panel();
@@ -335,7 +335,7 @@
             // panel4
             // 
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel4.Controls.Add(tbDay);
+            panel4.Controls.Add(dtpkDay);
             panel4.Controls.Add(label6);
             panel4.Location = new Point(812, 343);
             panel4.Margin = new Padding(4, 3, 4, 3);
@@ -343,13 +343,17 @@
             panel4.Size = new Size(467, 58);
             panel4.TabIndex = 20;
             // 
-            // tbDay
+            // dtpkDay
             // 
-            tbDay.Location = new Point(113, 13);
-            tbDay.Margin = new Padding(4, 3, 4, 3);
-            tbDay.Name = "tbDay";
-            tbDay.Size = new Size(298, 33);
-            tbDay.TabIndex = 1;
+            dtpkDay.CustomFormat = "MM/dd/yyyy";
+            dtpkDay.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpkDay.Format = DateTimePickerFormat.Custom;
+            dtpkDay.Location = new Point(113, 10);
+            dtpkDay.MinDate = new DateTime(2025, 4, 6, 0, 0, 0, 0);
+            dtpkDay.Name = "dtpkDay";
+            dtpkDay.Size = new Size(240, 35);
+            dtpkDay.TabIndex = 5;
+            dtpkDay.Value = new DateTime(2025, 4, 6, 0, 0, 0, 0);
             // 
             // label6
             // 
@@ -451,9 +455,9 @@
         private TextBox tbLuong;
         private Label label5;
         private Panel panel4;
-        private TextBox tbDay;
         private Label label6;
         private CheckBox checkBoxOut;
         private Panel panel5;
+        private DateTimePicker dtpkDay;
     }
 }

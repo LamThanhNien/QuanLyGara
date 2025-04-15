@@ -54,25 +54,13 @@ namespace Quanly.DAO
             }
             return list;
         }
-        //public int GetUser(string User)
-        //{
-        //    string query = "SELECT * FROM Account WHERE UserName = @UserName";
-        //    int result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { User });
-        //    return result > 1 ? 1 : -1;
-        //}
+
         public string GetDislayName(string User)
         {
             string query = "SELECT DisplayName FROM Account WHERE UserName = @UserName";
             object result = DAO.DataProvider.Instance.ExecuteScalar(query, new object[] { User });
             return result.ToString();
         }
-
-        //public int AddAccount(string DispayName, string UserName, int Type)
-        //{
-        //    string query = "INSERT INTO Account (DisplayName, UserName, checkAdmin) VALUES  ( @Dispay , @User , @Check )";
-        //    object result = DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { DispayName, UserName, Type });
-        //    return result != null ? 1 : -1;
-        //}
 
         public int FixAccount(int id, string DispayName, string UserName, int Type)
         {

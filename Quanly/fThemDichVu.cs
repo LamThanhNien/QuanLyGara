@@ -2,16 +2,7 @@
 using Quanly.BUS;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Quanly
 {
@@ -37,17 +28,14 @@ namespace Quanly
         private void btnSave_Click(object sender, EventArgs e)
         {
             string name = tbname.Text;
-            string price = tbPrice.Text;
-            string query = "INSERT INTO _Service (name, price) VALUES( @name , @price );";
-            if (DAO.DataProvider.Instance.ExecuteNonQuery(query, new object[] { name, price }) == 0)
+            string price = "0";
+            if (ServiceBUS.Instance.themDichvu(name, price)==-1)
             {
                 MessageBox.Show("Thêm thất bại");
                 return;
             }
             MessageBox.Show("Thêm Thành Công");
             this.Close();
-            //fDichVu fDich = new fDichVu();
-            //fDich.fDichVu_Load(this, EventArgs.Empty);
         }
         private void btnHuy_Click(object sender, EventArgs e)
         {
@@ -60,16 +48,22 @@ namespace Quanly
                 MessageBox.Show("Dịch vụ bạn chọn đang ở trong quá trình thanh toán vui lòng thanh toán trước khi xóa");
                 return;
             }
-
-            if (MessageBox.Show("Bạn có chắc muốn xóa không","thông báo",MessageBoxButtons.YesNo)==DialogResult.Yes)
+            try
             {
-                if (ServiceBUS.Instance.DelDichvu(id))
+                if (MessageBox.Show("Bạn có chắc muốn xóa không", "thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    loadcbbName();
-                    return;
+                    if (ServiceBUS.Instance.DelDichvu(id))
+                    {
+                        loadcbbName();
+                        return;
+                    }
+                    MessageBox.Show("Xóa dịch vụ thất bại");
                 }
-                MessageBox.Show("Xóa dịch vụ thất bại");
-            }    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Vui lòng xóa sản phẩm thuộc dịch vụ trước khi xóa dịch vụ");
+            }
         }
     }
 }

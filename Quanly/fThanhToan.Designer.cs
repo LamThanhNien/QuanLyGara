@@ -327,6 +327,7 @@
             // 
             AutoScaleDimensions = new SizeF(12F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLight;
             ClientSize = new Size(1347, 850);
             Controls.Add(btntim);
             Controls.Add(textBox8);

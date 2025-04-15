@@ -1,5 +1,4 @@
-﻿
-using Quanly.DTO;
+﻿using Quanly.DTO;
 using Quanly.BUS;
 using System;
 using System.Collections.Generic;
@@ -24,6 +23,7 @@ namespace Quanly
             dtgvCustomer.Columns[0].HeaderText = "Tên Khách hàng";
             dtgvCustomer.Columns[1].HeaderText = "Địa chỉ";
             dtgvCustomer.Columns[2].HeaderText = "Số điện thoại";
+            dtgvCustomer.Columns[3].Width = 190;
             dtgvCustomer.Columns[3].HeaderText = "Tên xe";
             dtgvCustomer.Columns[4].HeaderText = "Số xe";
             dtgvCustomer.Columns[5].HeaderText = "Tên hãng";
@@ -81,11 +81,12 @@ namespace Quanly
             listViewPrice.Items.Clear();
             tbTotal.Clear();
             int idBIll = BillBUS.Instance.GetIdBill(idCustomer);
+            //MessageBox.Show("yyyuyy" + idBIll); return;
 
-            List<DTO.Menu> listBillInfo = MenuBUS.Instance.GetListMenuByTable(idBIll);
+            List<Menu> listBillInfo = MenuBUS.Instance.GetListMenuByTable(idBIll);
             float totalPrice = 0;
 
-            foreach (DTO.Menu item in listBillInfo)
+            foreach (Menu item in listBillInfo)
             {
                 ListViewItem lvItem = new ListViewItem(item.Name);
                 lvItem.SubItems.Add(item.Count.ToString());
@@ -143,7 +144,7 @@ namespace Quanly
             int status = BillBUS.Instance.GetStatus(idCustomer);
             int idBill = BillBUS.Instance.GetIdBill(idCustomer);
             int IdService = comboBoxLoad.SelectedValue != null ? Convert.ToInt32(comboBoxLoad.SelectedValue) : -1;
-            int IdMaterial = (cbbSp.SelectedItem as DTO.Material)?.IdMaterial ?? 0;
+            int IdMaterial = (cbbSp.SelectedItem as Material)?.IdMaterial ?? 0;
             int count = (int)numericUpDown.Value;
 
             int countInMaterial = MaterialBUS.Instance.GetCountInMaterial(IdMaterial);

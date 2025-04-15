@@ -31,6 +31,8 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             panel2 = new Panel();
+            tbDoanhthu = new TextBox();
+            label2 = new Label();
             dtgvRevenue = new DataGridView();
             panel1 = new Panel();
             dateTimePicker1 = new DateTimePicker();
@@ -81,11 +83,32 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(tbDoanhthu);
+            panel2.Controls.Add(label2);
             panel2.Controls.Add(dtgvRevenue);
             panel2.Location = new Point(3, 116);
             panel2.Name = "panel2";
             panel2.Size = new Size(1252, 502);
             panel2.TabIndex = 7;
+            // 
+            // tbDoanhthu
+            // 
+            tbDoanhthu.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            tbDoanhthu.Location = new Point(947, 461);
+            tbDoanhthu.Name = "tbDoanhthu";
+            tbDoanhthu.ReadOnly = true;
+            tbDoanhthu.Size = new Size(300, 35);
+            tbDoanhthu.TabIndex = 11;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Location = new Point(799, 464);
+            label2.Name = "label2";
+            label2.Size = new Size(133, 29);
+            label2.TabIndex = 12;
+            label2.Text = "Doanh thu";
             // 
             // dtgvRevenue
             // 
@@ -96,7 +119,7 @@
             dtgvRevenue.Location = new Point(0, 6);
             dtgvRevenue.Name = "dtgvRevenue";
             dtgvRevenue.RowHeadersWidth = 51;
-            dtgvRevenue.Size = new Size(1252, 495);
+            dtgvRevenue.Size = new Size(1252, 449);
             dtgvRevenue.TabIndex = 7;
             dtgvRevenue.TabStop = false;
             // 
@@ -131,9 +154,9 @@
             btnBaocao.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnBaocao.BackColor = Color.DodgerBlue;
             btnBaocao.ForeColor = Color.White;
-            btnBaocao.Location = new Point(992, 36);
+            btnBaocao.Location = new Point(1080, 52);
             btnBaocao.Name = "btnBaocao";
-            btnBaocao.Size = new Size(174, 54);
+            btnBaocao.Size = new Size(172, 55);
             btnBaocao.TabIndex = 4;
             btnBaocao.Text = "Xuất báo cáo";
             btnBaocao.UseVisualStyleBackColor = false;
@@ -141,10 +164,9 @@
             // 
             // btnShow
             // 
-            btnShow.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnShow.BackColor = Color.DodgerBlue;
             btnShow.ForeColor = Color.White;
-            btnShow.Location = new Point(796, 36);
+            btnShow.Location = new Point(523, 52);
             btnShow.Name = "btnShow";
             btnShow.Size = new Size(133, 55);
             btnShow.TabIndex = 3;
@@ -188,10 +210,10 @@
             // 
             tabPage2.Controls.Add(panel4);
             tabPage2.Controls.Add(panel3);
-            tabPage2.Location = new Point(4, 38);
+            tabPage2.Location = new Point(4, 34);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1258, 621);
+            tabPage2.Size = new Size(1258, 625);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Thống kê sản phẩm";
             tabPage2.UseVisualStyleBackColor = true;
@@ -202,7 +224,7 @@
             panel4.Controls.Add(dataGridViewProduct);
             panel4.Location = new Point(3, 74);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1252, 476);
+            panel4.Size = new Size(1252, 448);
             panel4.TabIndex = 8;
             // 
             // dataGridViewProduct
@@ -214,7 +236,7 @@
             dataGridViewProduct.Location = new Point(0, 6);
             dataGridViewProduct.Name = "dataGridViewProduct";
             dataGridViewProduct.RowHeadersWidth = 51;
-            dataGridViewProduct.Size = new Size(1252, 517);
+            dataGridViewProduct.Size = new Size(1252, 513);
             dataGridViewProduct.TabIndex = 2;
             dataGridViewProduct.TabStop = false;
             // 
@@ -238,6 +260,7 @@
             button3.TabIndex = 1;
             button3.Text = "Xuất báo cáo";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // QLThongKe
             // 
@@ -254,6 +277,7 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvRevenue).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -282,5 +306,7 @@
         private DataGridView dtgvRevenue;
         private DataGridView dataGridViewProduct;
         private DateTimePicker dateTimePicker1;
+        private Label label2;
+        private TextBox tbDoanhthu;
     }
 }

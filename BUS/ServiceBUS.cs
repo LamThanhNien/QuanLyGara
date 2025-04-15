@@ -54,6 +54,10 @@ namespace Quanly.BUS
             return ServiceDAO.Instance.CheckDichvu_in_Billinfo(idService);
         }
 
+        public int themDichvu(string name, string price)
+        {
+            return DAO.ServiceDAO.Instance.themDichvu(name, price);
+        }
         public bool DelDichvu(int idService)
         {
             return ServiceDAO.Instance.DelDichvu(idService) > 0;

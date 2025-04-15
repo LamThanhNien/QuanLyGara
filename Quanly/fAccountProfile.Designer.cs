@@ -236,6 +236,7 @@
             tbDispayname.Location = new Point(211, 15);
             tbDispayname.Margin = new Padding(2);
             tbDispayname.Name = "tbDispayname";
+            tbDispayname.ReadOnly = true;
             tbDispayname.Size = new Size(312, 33);
             tbDispayname.TabIndex = 1;
             // 

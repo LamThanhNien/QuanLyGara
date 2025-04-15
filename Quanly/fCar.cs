@@ -47,8 +47,9 @@ namespace Quanly
             dtgvCar.RowPostPaint += dataGridView_RowPostPaint;
             dtgvCar_CellClick(null, new DataGridViewCellEventArgs(0, 0));
 
-            dtgvCar.Columns[0].Width = 170;
+            dtgvCar.Columns[0].Width = 190;
             dtgvCar.Columns[0].HeaderText = "Tên Khách hàng";
+            dtgvCar.Columns[1].Width = 190;
             dtgvCar.Columns[1].HeaderText = "Tên xe";
             dtgvCar.Columns[2].HeaderText = "Số xe";
             dtgvCar.Columns[3].HeaderText = "Màu xe";
