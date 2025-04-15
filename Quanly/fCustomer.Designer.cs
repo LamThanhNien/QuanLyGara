@@ -1,4 +1,4 @@
-﻿namespace Quanly
+namespace Quanly
 {
     partial class fCustomer
     {
