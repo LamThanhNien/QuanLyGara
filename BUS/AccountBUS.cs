@@ -20,7 +20,6 @@ namespace Quanly.BUS
                 instance = value;
             }
         }
-
         private AccountBUS() { }
 
         public bool Login(string username, string password)

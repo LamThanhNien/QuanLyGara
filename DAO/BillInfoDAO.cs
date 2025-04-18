@@ -46,7 +46,7 @@ namespace Quanly.DAO
         {
             string query = "DELETE FROM BillInfo WHERE idMaterial = (SELECT idMaterial FROM Material WHERE name = @name )";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { name});
-            return result > 0;
+            return result>0? true: false;
         }
     }
 }

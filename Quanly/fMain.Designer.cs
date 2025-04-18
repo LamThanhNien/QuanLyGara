@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
             panel1 = new Panel();
             btnAccount = new Button();
             pictureBox1 = new PictureBox();
@@ -264,7 +265,7 @@
             // 
             thôngTinToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cậpNhậtThôngTinToolStripMenuItem });
             thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            thôngTinToolStripMenuItem.Size = new Size(270, 34);
+            thôngTinToolStripMenuItem.Size = new Size(206, 34);
             thôngTinToolStripMenuItem.Text = "Thông tin";
             // 
             // cậpNhậtThôngTinToolStripMenuItem
@@ -280,7 +281,7 @@
             Exit.Image = Properties.Resources.download__2_;
             Exit.Name = "Exit";
             Exit.RightToLeft = RightToLeft.Yes;
-            Exit.Size = new Size(270, 34);
+            Exit.Size = new Size(206, 34);
             Exit.Text = "Đăng xuất";
             Exit.TextImageRelation = TextImageRelation.TextBeforeImage;
             Exit.Click += đăngXuấtToolStripMenuItem_Click;
@@ -317,6 +318,7 @@
             // 
             // progressBar1
             // 
+            progressBar1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             progressBar1.Location = new Point(3, 37);
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(1105, 10);
@@ -375,9 +377,9 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "fMain";
             RightToLeft = RightToLeft.No;
-            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             WindowState = FormWindowState.Maximized;
             Load += fMain_Load;

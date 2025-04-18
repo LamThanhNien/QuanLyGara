@@ -39,7 +39,7 @@ namespace Quanly.DAO
             }
             catch(Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
             }
             return data;
         }

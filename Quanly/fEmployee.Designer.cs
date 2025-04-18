@@ -182,11 +182,12 @@
             panel27.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel27.Controls.Add(cbbType);
             panel27.Controls.Add(label2);
-            panel27.Location = new Point(812, 407);
+            panel27.Location = new Point(812, 471);
             panel27.Margin = new Padding(4, 3, 4, 3);
             panel27.Name = "panel27";
             panel27.Size = new Size(467, 58);
             panel27.TabIndex = 21;
+            panel27.Visible = false;
             // 
             // cbbType
             // 
@@ -381,7 +382,7 @@
             // 
             panel5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel5.Controls.Add(checkBoxOut);
-            panel5.Location = new Point(812, 471);
+            panel5.Location = new Point(812, 407);
             panel5.Margin = new Padding(4, 3, 4, 3);
             panel5.Name = "panel5";
             panel5.Size = new Size(467, 58);

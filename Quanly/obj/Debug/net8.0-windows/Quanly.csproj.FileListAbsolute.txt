@@ -98,13 +98,10 @@ D:\Github\QuanLyGara\Quanly\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\Sys
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.csproj.AssemblyReference.cache
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fAccount.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fAccountProfile.resources
-D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fAdmin.resources
-D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fCapNhatThongTin.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fCar.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fCustomer.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fDichVu.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fEmployee.resources
-D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fThemNhanVien.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fMain.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fThanhToan.resources
 D:\Github\QuanLyGara\Quanly\obj\Debug\net8.0-windows\Quanly.fThemDichVu.resources
@@ -138,3 +135,9 @@ D:\Github\QuanLyGara\QuanLyGara\Quanly\bin\Debug\net8.0-windows\DTO.dll
 D:\Github\QuanLyGara\QuanLyGara\Quanly\bin\Debug\net8.0-windows\DAO.pdb
 D:\Github\QuanLyGara\QuanLyGara\Quanly\bin\Debug\net8.0-windows\DTO.pdb
 D:\Github\QuanLyGara\QuanLyGara\Quanly\bin\Debug\net8.0-windows\BUS.pdb
+D:\Github\QuanLyGara\Quanly\bin\Debug\net8.0-windows\BUS.dll
+D:\Github\QuanLyGara\Quanly\bin\Debug\net8.0-windows\DAO.dll
+D:\Github\QuanLyGara\Quanly\bin\Debug\net8.0-windows\DTO.dll
+D:\Github\QuanLyGara\Quanly\bin\Debug\net8.0-windows\BUS.pdb
+D:\Github\QuanLyGara\Quanly\bin\Debug\net8.0-windows\DAO.pdb
+D:\Github\QuanLyGara\Quanly\bin\Debug\net8.0-windows\DTO.pdb

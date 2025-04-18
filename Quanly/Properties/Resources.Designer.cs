@@ -123,26 +123,6 @@ namespace Quanly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap download__3_ {
-            get {
-                object obj = ResourceManager.GetObject("download (3)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap download__3_1 {
-            get {
-                object obj = ResourceManager.GetObject("download (3)1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap download__4_ {
             get {
                 object obj = ResourceManager.GetObject("download (4)", resourceCulture);
@@ -233,16 +213,6 @@ namespace Quanly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logo {
-            get {
-                object obj = ResourceManager.GetObject("Logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Logo_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("Logo-removebg-preview", resourceCulture);
@@ -293,26 +263,6 @@ namespace Quanly.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logo1 {
-            get {
-                object obj = ResourceManager.GetObject("Logo1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Logo2 {
-            get {
-                object obj = ResourceManager.GetObject("Logo2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap turn_off {
             get {
                 object obj = ResourceManager.GetObject("turn-off", resourceCulture);
@@ -326,49 +276,6 @@ namespace Quanly.Properties {
         internal static System.Drawing.Bitmap turn_off1 {
             get {
                 object obj = ResourceManager.GetObject("turn-off1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap vo_lang_dinh_kim_cuong_gia_2_1699434500319350442308_1699493126299_1699493126401560553182 {
-            get {
-                object obj = ResourceManager.GetObject("vo-lang-dinh-kim-cuong-gia-2-1699434500319350442308-1699493126299-169949312640156" +
-                        "0553182", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap vo_lang_dinh_kim_cuong_gia_2_1699434500319350442308_1699493126299_16994931264015605531821 {
-            get {
-                object obj = ResourceManager.GetObject("vo-lang-dinh-kim-cuong-gia-2-1699434500319350442308-1699493126299-169949312640156" +
-                        "05531821", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap vo_lang_dinh_kim_cuong_gia_2_1699434500319350442308_1699493126299_16994931264015605531822 {
-            get {
-                object obj = ResourceManager.GetObject("vo-lang-dinh-kim-cuong-gia-2-1699434500319350442308-1699493126299-169949312640156" +
-                        "05531822", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap 岩浆Y壁纸 {
-            get {
-                object obj = ResourceManager.GetObject("岩浆Y壁纸", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

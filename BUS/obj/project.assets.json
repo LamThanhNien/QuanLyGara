@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Github\\QuanLyGara\\QuanLyGara\\BUS\\BUS.csproj",
+      "projectUniqueName": "D:\\Github\\QuanLyGara\\BUS\\BUS.csproj",
       "projectName": "BUS",
-      "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\BUS\\BUS.csproj",
+      "projectPath": "D:\\Github\\QuanLyGara\\BUS\\BUS.csproj",
       "packagesPath": "C:\\Users\\lamth\\.nuget\\packages\\",
-      "outputPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\BUS\\obj\\",
+      "outputPath": "D:\\Github\\QuanLyGara\\BUS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

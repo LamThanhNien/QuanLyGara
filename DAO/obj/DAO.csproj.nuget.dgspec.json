@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\DAO.csproj": {}
+    "D:\\Github\\QuanLyGara\\DAO\\DAO.csproj": {}
   },
   "projects": {
-    "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\DAO.csproj": {
+    "D:\\Github\\QuanLyGara\\DAO\\DAO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\DAO.csproj",
+        "projectUniqueName": "D:\\Github\\QuanLyGara\\DAO\\DAO.csproj",
         "projectName": "DAO",
-        "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\DAO.csproj",
+        "projectPath": "D:\\Github\\QuanLyGara\\DAO\\DAO.csproj",
         "packagesPath": "C:\\Users\\lamth\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\obj\\",
+        "outputPath": "D:\\Github\\QuanLyGara\\DAO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -125,13 +125,7 @@ INSERT INTO Customer (name, sex, address, phoneNum) VALUES
 (N'Đặng Thị F', 1, N'Nghệ An', '0967890123'),
 (N'Bùi Văn G', 0, N'Thanh Hóa', '0978901234'),
 (N'Ngô Thị H', 1, N'Lâm Đồng', '0989012345'),
-(N'Vũ Văn I', 0, N'Nam Định', '0990123456'),
-(N'Đỗ Thị K', 1, N'Bình Dương', '0901234567'),
-(N'Phan Văn L', 0, N'Bắc Ninh', '0912233445'),
-(N'Vương Thị M', 1, N'Hà Tĩnh', '0923344556'),
-(N'Tô Văn N', 0, N'Hưng Yên', '0934455667'),
-(N'La Thị O', 1, N'Tây Ninh', '0945566778'),
-(N'Chu Văn P', 0, N'Tuyên Quang', '0956677889');
+(N'Vũ Văn I', 0, N'Nam Định', '0990123456');
 GO
 INSERT INTO Car (idCustomer, name, Hang, numberCar, Color, Image) VALUES
 (1, N'Toyota Vios', N'Toyota', N'30A-12345', N'Đen', NULL),
@@ -142,13 +136,7 @@ INSERT INTO Car (idCustomer, name, Hang, numberCar, Color, Image) VALUES
 (6, N'Mazda CX-5', N'Mazda', N'37A-55667', N'Bạc', NULL),
 (7, N'Chevrolet Spark', N'Chevrolet', N'36A-77889', N'Vàng', NULL),
 (8, N'Mitsubishi Xpander', N'Mitsubishi', N'49C-99001', N'Nâu', NULL),
-(9, N'Suzuki Ertiga', N'Suzuki', N'18A-11213', N'Xanh lá', NULL),
-(10, N'Nissan Navara', N'Nissan', N'61B-31415', N'Đen', NULL),
-(11, N'VinFast Lux SA2.0', N'VinFast', N'99C-51617', N'Xám', NULL),
-(12, N'Peugeot 3008', N'Peugeot', N'38A-71819', N'Đỏ', NULL),
-(13, N'Honda CR-V', N'Honda', N'89A-92021', N'Trắng', NULL),
-(14, N'Ford EcoSport', N'Ford', N'70B-12223', N'Bạc', NULL),
-(15, N'Toyota Fortuner', N'Toyota', N'22C-32425', N'Đen', NULL);
+(9, N'Suzuki Ertiga', N'Suzuki', N'18A-11213', N'Xanh lá', NULL);
 GO
 
 INSERT INTO _Service (name, price)

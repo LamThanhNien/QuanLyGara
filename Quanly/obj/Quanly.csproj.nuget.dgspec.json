@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\Quanly.csproj": {}
+    "D:\\Github\\QuanLyGara\\Quanly\\Quanly.csproj": {}
   },
   "projects": {
-    "D:\\Github\\QuanLyGara\\QuanLyGara\\BUS\\BUS.csproj": {
+    "D:\\Github\\QuanLyGara\\BUS\\BUS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\QuanLyGara\\QuanLyGara\\BUS\\BUS.csproj",
+        "projectUniqueName": "D:\\Github\\QuanLyGara\\BUS\\BUS.csproj",
         "projectName": "BUS",
-        "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\BUS\\BUS.csproj",
+        "projectPath": "D:\\Github\\QuanLyGara\\BUS\\BUS.csproj",
         "packagesPath": "C:\\Users\\lamth\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\BUS\\obj\\",
+        "outputPath": "D:\\Github\\QuanLyGara\\BUS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\DAO.csproj": {
+    "D:\\Github\\QuanLyGara\\DAO\\DAO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\DAO.csproj",
+        "projectUniqueName": "D:\\Github\\QuanLyGara\\DAO\\DAO.csproj",
         "projectName": "DAO",
-        "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\DAO.csproj",
+        "projectPath": "D:\\Github\\QuanLyGara\\DAO\\DAO.csproj",
         "packagesPath": "C:\\Users\\lamth\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\obj\\",
+        "outputPath": "D:\\Github\\QuanLyGara\\DAO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -140,14 +140,14 @@
         }
       }
     },
-    "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\DTO.csproj": {
+    "D:\\Github\\QuanLyGara\\DTO\\DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\DTO.csproj",
+        "projectUniqueName": "D:\\Github\\QuanLyGara\\DTO\\DTO.csproj",
         "projectName": "DTO",
-        "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\DTO.csproj",
+        "projectPath": "D:\\Github\\QuanLyGara\\DTO\\DTO.csproj",
         "packagesPath": "C:\\Users\\lamth\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\obj\\",
+        "outputPath": "D:\\Github\\QuanLyGara\\DTO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -205,14 +205,14 @@
         }
       }
     },
-    "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\Quanly.csproj": {
+    "D:\\Github\\QuanLyGara\\Quanly\\Quanly.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\Quanly.csproj",
+        "projectUniqueName": "D:\\Github\\QuanLyGara\\Quanly\\Quanly.csproj",
         "projectName": "Quanly",
-        "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\Quanly.csproj",
+        "projectPath": "D:\\Github\\QuanLyGara\\Quanly\\Quanly.csproj",
         "packagesPath": "C:\\Users\\lamth\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\Quanly\\obj\\",
+        "outputPath": "D:\\Github\\QuanLyGara\\Quanly\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -233,14 +233,14 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "D:\\Github\\QuanLyGara\\QuanLyGara\\BUS\\BUS.csproj": {
-                "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\BUS\\BUS.csproj"
+              "D:\\Github\\QuanLyGara\\BUS\\BUS.csproj": {
+                "projectPath": "D:\\Github\\QuanLyGara\\BUS\\BUS.csproj"
               },
-              "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\DAO.csproj": {
-                "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\DAO\\DAO.csproj"
+              "D:\\Github\\QuanLyGara\\DAO\\DAO.csproj": {
+                "projectPath": "D:\\Github\\QuanLyGara\\DAO\\DAO.csproj"
               },
-              "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\DTO.csproj": {
-                "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\DTO.csproj"
+              "D:\\Github\\QuanLyGara\\DTO\\DTO.csproj": {
+                "projectPath": "D:\\Github\\QuanLyGara\\DTO\\DTO.csproj"
               }
             }
           }

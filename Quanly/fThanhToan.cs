@@ -181,7 +181,6 @@ namespace Quanly
                     string itemName = hit.Item.SubItems[0].Text;
                     string Count = hit.Item.SubItems[1].Text;
                     DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa: {itemName}?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
                     if (result == DialogResult.Yes)
                     {
                         if (MaterialBUS.Instance.UpdateCountByMaterial(itemName, Count) == -1)
@@ -189,7 +188,11 @@ namespace Quanly
                             MessageBox.Show("Lỗi quá trình cập nhật số lượng");
                             return;
                         }
-                        BillInfoBUS.Instance.DeleteBillInfo(itemName);
+                        if(!BillInfoBUS.Instance.DeleteBillInfo(itemName))
+                        {
+                            MessageBox.Show("Xóa thất bại");
+                            return;
+                        }    
                         listViewPrice.Items.Remove(hit.Item);
                     }
                 }

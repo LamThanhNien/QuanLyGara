@@ -406,6 +406,7 @@
             ImeMode = ImeMode.Off;
             Margin = new Padding(4, 3, 4, 3);
             Name = "fCar";
+            ShowIcon = false;
             Text = "Xe";
             Load += fCar_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvCar).EndInit();

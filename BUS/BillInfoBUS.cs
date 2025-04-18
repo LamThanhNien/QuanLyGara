@@ -24,11 +24,10 @@ namespace Quanly.BUS
         public void InsertBillInfo(int IdBill, int IdService, int IdMaterial, int Quantity)
         {
            BillInfoDAO.Instance.InsertBillInfo(IdBill,IdService,IdMaterial,Quantity);
-
         }
         public bool DeleteBillInfo(string name)
         {
-            return DeleteBillInfo(name);
+            return BillInfoDAO.Instance.DeleteBillInfo(name);
         }
     }
 }

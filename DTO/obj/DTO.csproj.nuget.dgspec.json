@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\DTO.csproj": {}
+    "D:\\Github\\QuanLyGara\\DTO\\DTO.csproj": {}
   },
   "projects": {
-    "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\DTO.csproj": {
+    "D:\\Github\\QuanLyGara\\DTO\\DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\DTO.csproj",
+        "projectUniqueName": "D:\\Github\\QuanLyGara\\DTO\\DTO.csproj",
         "projectName": "DTO",
-        "projectPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\DTO.csproj",
+        "projectPath": "D:\\Github\\QuanLyGara\\DTO\\DTO.csproj",
         "packagesPath": "C:\\Users\\lamth\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\QuanLyGara\\QuanLyGara\\DTO\\obj\\",
+        "outputPath": "D:\\Github\\QuanLyGara\\DTO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
